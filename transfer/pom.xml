@@ -23,12 +23,14 @@
 
     <scm>
         <connection>
-        	scm:svn:https://buildix/svn/transfer/trunk
+        	scm:svn:http://trp.unfuddle.com/svn/trp_trp/
         </connection>
         <developerConnection>
-        	scm:svn:https://buildix/svn/transfer/trunk
+        	scm:svn:http://trp.unfuddle.com/svn/trp_trp/
         </developerConnection>
-        <url></url>
+        <url>
+        	http://trp.unfuddle.com/svn/trp_trp/
+        </url>
     </scm>
 
     <issueManagement>
@@ -310,6 +312,19 @@
                 <jdbc.username>system</jdbc.username>
                 <jdbc.password>system</jdbc.password>
             </properties>
+        </profile>
+        <profile>
+        	<id>trpmysql5</id>
+        	<properties>
+		        <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
+		        <jdbc.groupId>mysql</jdbc.groupId>
+		        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+		        <jdbc.version>5.0.5</jdbc.version>
+		        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+		        <jdbc.url><![CDATA[jdbc:mysql://database.trp.ir/transfer?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
+		        <jdbc.username>chapar</jdbc.username>
+		        <jdbc.password>chapar0102</jdbc.password>
+        	</properties>
         </profile>
         <profile>
             <id>postgresql</id>
