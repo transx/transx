@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{pathList.bundleName}"/>
+    <head>
+        <title>#{text['pathList.title']}</title>
+        <meta name="heading" content="#{text['pathList.heading']}"/>
+        <meta name="menu" content="AdminMenu"/>
+    </head>
+<body id="pathList">
+<h:form id="editPath">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="paths" var="path" style="margin-top: 10px"
+    value="#{pathList.paths}" rows="10" sortColumn="#{pathList.sortColumn}"
+    sortAscending="#{pathList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['path.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{pathForm.edit}" value="#{path.id}">
+            <f:param name="id" value="#{path.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="start" arrow="true">
+                <h:outputText value="#{text['path.start']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{path.start}" escape="true"/>    
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="end" arrow="true">
+                <h:outputText value="#{text['path.end']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{path.end}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="space" arrow="true">
+                <h:outputText value="#{text['path.space']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{path.space}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="parent" arrow="true">
+                <h:outputText value="#{text['path.parent']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{path.parent}" escape="true"/>    
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="paths"/>
+</ui:include>
+
+<script type="text/javascript">
+    highlightTableRows("editPath:paths");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

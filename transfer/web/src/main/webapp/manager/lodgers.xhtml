@@ -1,0 +1,138 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{lodgerList.bundleName}"/>
+    <head>
+        <title>#{text['lodgerList.title']}</title>
+        <meta name="heading" content="#{text['lodgerList.heading']}"/>
+        <meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="lodgerList">
+<h:form id="editLodger">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="lodgers" var="lodger" style="margin-top: 10px"
+    value="#{lodgerList.lodgers}" rows="10" sortColumn="#{lodgerList.sortColumn}"
+    sortAscending="#{lodgerList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['lodger.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{lodgerForm.edit}" value="#{lodger.id}">
+            <f:param name="id" value="#{lodger.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    
+   <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="firstName" arrow="true">
+                <h:outputText value="#{text['person.firstName']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.firstName}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="lastName" arrow="true">
+                <h:outputText value="#{text['person.lastName']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.lastName}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="fatherName" arrow="true">
+                <h:outputText value="#{text['person.fatherName']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.fatherName}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="gender" arrow="true">
+                <h:outputText value="#{text['person.gender']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.gender.label}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="birthday" arrow="true">
+                <h:outputText value="#{text['person.birthday']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.birthdayFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="identityNumber" arrow="true">
+                <h:outputText value="#{text['person.identityNumber']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.identityNumber}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="identityIssue" arrow="true">
+                <h:outputText value="#{text['person.identityIssue']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.identityIssue}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="passportNumber" arrow="true">
+                <h:outputText value="#{text['person.passportNumber']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.passportNumber}" escape="true"/>
+    </t:column>
+    <!-- t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="address" arrow="true">
+                <h:outputText value="#{text['person.address']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.address}" escape="true"/>
+    </t:column -->
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="phone" arrow="true">
+                <h:outputText value="#{text['person.phone']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.person.phone}" escape="true"/>
+    </t:column>
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="presenter" arrow="true">
+                <h:outputText value="#{text['lodger.presenter']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{lodger.presenter}" escape="true"/>
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="lodgers"/>
+</ui:include>
+
+<script type="text/javascript">
+    highlightTableRows("editLodger:lodgers");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

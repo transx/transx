@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+<!-- 
+<f:view>
+<f:loadBundle var="text" basename="#{ticketForm.bundleName}"/>
+    <head>
+        <title>#{text['ticketDetail.title']}</title>
+        <meta name="heading" content="#{text['ticketDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="ticketForm">
+
+<h:form id="ticketForm" onsubmit="return validateTicketForm(this)">
+<h:inputHidden value="#{ticketForm.ticket.id}" id="id"/>
+<h:panelGrid columns="3">
+    <h:outputLabel styleClass="desc" for="count" value="#{text['ticket.count']}"/>
+    <t:message for="count" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="count" value="#{ticketForm.ticket.count}" required="false" maxlength="255" disabled="true">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="reserveDate" value="#{text['ticket.reserveDate']}"/>
+    <t:message for="reserveDate" styleClass="fieldError"/>
+    <t:inputCalendar monthYearRowClass="yearMonthHeader" weekRowClass="weekHeader" id="reserveDate"
+            currentDayCellClass="currentDayCell" value="#{ticketForm.ticket.reserveDate}"
+            renderAsPopup="true" addResources="true" required="false">
+    </t:inputCalendar>
+    <h:outputLabel styleClass="desc" for="issueDate" value="#{text['ticket.issueDate']}"/>
+    <t:message for="issueDate" styleClass="fieldError"/>
+    <t:inputCalendar monthYearRowClass="yearMonthHeader" weekRowClass="weekHeader" id="issueDate"
+            currentDayCellClass="currentDayCell" value="#{ticketForm.ticket.issueDate}"
+            renderAsPopup="true" addResources="true" required="false" disabled="true">
+    </t:inputCalendar>
+    <h:outputLabel styleClass="desc" for="issued" value="#{text['ticket.issued']}"/>
+    <t:message for="issued" styleClass="fieldError"/>
+    <h:selectBooleanCheckbox value="#{ticketForm.ticket.issued}" id="issued" styleClass="checkbox"/>
+ 
+    <h:outputLabel styleClass="desc" for="reserverId" value="#{text['ticket.reserverId']}"/>
+    <t:message for="reserverId" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="reserverId" value="#{ticketForm.ticket.reserverId}" required="false" maxlength="255">
+    </h:inputText>
+
+    <h:outputLabel styleClass="desc" for="cashier" value="#{text['ticket.cashier']}"/>
+    <t:message for="cashier" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{ticketForm.cashierID}" id="cashier" required="false" styleClass="select">
+        <f:selectItems value="#{ticketForm.cashierMap}"/>
+    </h:selectOneMenu>
+
+    <h:outputLabel styleClass="desc" for="passenger" value="#{text['ticket.passenger']}"/>
+    <t:message for="passenger" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{ticketForm.passengerID}" id="passenger" required="false" styleClass="select">
+        <f:selectItems value="#{ticketForm.passengerMap}"/>
+    </h:selectOneMenu>
+
+    <h:outputLabel styleClass="desc" for="service" value="#{text['ticket.service']}"/>
+    <t:message for="service" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{ticketForm.serviceID}" id="service" required="false" styleClass="select">
+        <f:selectItems value="#{ticketForm.serviceMap}"/>
+    </h:selectOneMenu>
+
+    <h:panelGroup>
+        <fieldset>
+            <legend>#{text['ticket.chairs']}</legend>
+            <h:selectManyCheckbox value="#{ticketForm.ticketChairs}" id="ticketChairs">
+                <f:selectItems value="#{ticketForm.availableChairs}"/>
+            </h:selectManyCheckbox>
+        </fieldset>
+    </h:panelGroup>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{ticketForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty ticketForm.ticket.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{ticketForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Ticket')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateTicketForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('ticketForm'));
+    //highlightFormElements();
+</script>
+
+</body>
+</f:view>
+ -->
+</html>

@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:trans="http://app2.asta.com/tags/jsf">
+<body>
+
+
+<ui:composition template="/tutorial/template.xhtml">
+
+
+  <ui:define name="title">
+   The SayHello DEMO!
+  </ui:define>
+
+
+  <ui:define name="body">
+	
+	<trans:sayHello firstName="John" lastName="Smith"/>
+
+    <h:outputText value=" (probably not you, I know)"/>
+
+    <f:verbatim><hr/></f:verbatim>
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="inputFirstName" value="First name" />
+            <h:inputText id="inputFirstName" value="#{sayHelloBean.firstName}"/>
+
+            <h:outputLabel for="inputLastName" value="Last name" />
+            <h:inputText id="inputLastName" value="#{sayHelloBean.lastName}"/>
+        </h:panelGrid>
+
+        <h:panelGrid columns="1">
+
+            <h:commandButton value="Say Hello!" actionListener="#{sayHelloBean.sayIt}"/>
+
+            <trans:sayHello firstName="#{sayHelloBean.firstName}"
+                             lastName="#{sayHelloBean.lastName}"
+                             rendered="#{sayHelloBean.renderGreeting}"/>
+
+            <h:commandLink value="[HOME]" action="go_home"/>
+
+        </h:panelGrid>
+
+    </h:form>
+  </ui:define>
+
+  
+</ui:composition>
+
+
+</body>
+</html>

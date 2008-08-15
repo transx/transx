@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{companyForm.bundleName}"/>
+    <head>
+        <title>#{text['companyDetail.title']}</title>
+        <meta name="heading" content="#{text['companyDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="companyForm">
+
+<h:form id="companyForm" onsubmit="return validateCompanyForm(this)">
+<h:inputHidden value="#{companyForm.company.id}" id="id"/>
+<h:panelGrid columns="3">
+    <h:outputLabel styleClass="desc" for="name" value="#{text['company.name']}"/>
+    <t:message for="name" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="name" value="#{companyForm.company.name}" required="true" maxlength="100">
+        <v:commonsValidator type="required" arg="#{text['company.name']}"/>
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="code" value="#{text['company.code']}"/>
+    <t:message for="code" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="code" value="#{companyForm.company.code}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['company.code']}"/>
+    </h:inputText>
+
+    <h:outputLabel styleClass="desc" for="city" value="#{text['company.city']}"/>
+    <t:message for="city" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{companyForm.cityID}" id="city" required="false" styleClass="select">
+        <f:selectItems value="#{companyForm.cityMap}"/>
+    </h:selectOneMenu>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{companyForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty companyForm.company.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{companyForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Company')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateCompanyForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('companyForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

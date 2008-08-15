@@ -1,0 +1,141 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
+
+<f:view>
+<f:loadBundle var="text" basename="#{carForm.bundleName}"/>
+    <head>
+        <title>#{text['carDetail.title']}</title>
+        <meta name="heading" content="#{text['carDetail.heading']}"/>
+		<meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="carForm">
+
+<h:form id="carForm" onsubmit="return validateCarForm(this)">
+<h:inputHidden value="#{carForm.car.id}" id="id"/>
+<t:panelGrid columns="3">
+
+    <h:outputLabel styleClass="desc" for="carKind" value="#{text['car.carKind']}"/>
+    <h:selectOneMenu value="#{carForm.carKindID}" id="carKind" required="false" styleClass="select">
+        <f:selectItems value="#{carForm.carKindMap}"/>
+    </h:selectOneMenu>
+    <t:message for="carKind" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="person" value="#{text['car.person']}"/>
+    <h:selectOneMenu value="#{carForm.personID}" id="person" required="false" styleClass="select">
+        <f:selectItems value="#{lookupProvider.personMap}"/>
+    </h:selectOneMenu>
+    <t:message for="person" styleClass="fieldError"/>
+    
+    <h:outputLabel styleClass="desc" for="code" value="#{text['car.code']}"/>
+    <h:inputText styleClass="text medium" id="code" value="#{carForm.car.code}" required="true" maxlength="20">
+        <v:commonsValidator type="required" arg="#{text['car.code']}"/>
+    </h:inputText>
+    <t:message for="code" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="plaqueSerial" value="#{text['car.plaqueSerial']}"/>
+    <h:inputText styleClass="text medium" id="plaqueSerial" value="#{carForm.car.plaqueSerial}" required="true" maxlength="10">
+        <v:commonsValidator type="required" arg="#{text['car.plaqueSerial']}"/>
+    </h:inputText>
+    <t:message for="plaqueSerial" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="plaqueNumber" value="#{text['car.plaqueNumber']}"/>
+    <h:inputText styleClass="text medium" id="plaqueNumber" value="#{carForm.car.plaqueNumber}" required="true" maxlength="20">
+        <v:commonsValidator type="required" arg="#{text['car.plaqueNumber']}"/>
+    </h:inputText>
+    <t:message for="plaqueNumber" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="plaqueIssue" value="#{text['car.plaqueIssue']}"/>
+    <h:inputText styleClass="text medium" id="plaqueIssue" value="#{carForm.car.plaqueIssue}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['car.plaqueIssue']}"/>
+    </h:inputText>
+    <t:message for="plaqueIssue" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="motor" value="#{text['car.motor']}"/>
+    <h:inputText styleClass="text medium" id="motor" value="#{carForm.car.motor}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['car.motor']}"/>
+    </h:inputText>
+    <t:message for="motor" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="chassis" value="#{text['car.chassis']}"/>
+    <h:inputText styleClass="text medium" id="chassis" value="#{carForm.car.chassis}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['car.chassis']}"/>
+    </h:inputText>
+    <t:message for="chassis" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="transit" value="#{text['car.transit']}"/>
+    <h:inputText styleClass="text medium" id="transit" value="#{carForm.car.transit}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['car.transit']}"/>
+    </h:inputText>
+    <t:message for="transit" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="companyBuild" value="#{text['car.companyBuild']}"/>
+    <h:inputText styleClass="text medium" id="companyBuild" value="#{carForm.car.companyBuild}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['car.companyBuild']}"/>
+    </h:inputText>
+    <t:message for="companyBuild" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="buildYear" value="#{text['car.buildYear']}"/>
+    <h:inputText styleClass="text medium" id="buildYear" value="#{carForm.car.buildYear}" required="true" maxlength="10">
+        <v:commonsValidator type="required" arg="#{text['car.buildYear']}"/>
+    </h:inputText>
+    <t:message for="buildYear" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="statisticCard" value="#{text['car.statisticCard']}"/>
+    <h:inputText styleClass="text medium" id="statisticCard" value="#{carForm.car.statisticCard}" required="false" maxlength="20">
+    </h:inputText>
+    <t:message for="statisticCard" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="smartCard" value="#{text['car.smartCard']}"/>
+    <h:inputText styleClass="text medium" id="smartCard" value="#{carForm.car.smartCard}" required="false" maxlength="20">
+    </h:inputText>
+    <t:message for="smartCard" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="insuranceExamDeadline" value="#{text['car.insuranceExamDeadline']}"/>
+    <trans:inputDate2 id="insuranceExamDeadline" value="#{carForm.car.insuranceExamDeadline}"
+			rendered="true" required="true">
+        <v:commonsValidator type="required" arg="#{text['car.insuranceExamDeadline']}"/>
+	</trans:inputDate2>	
+    <t:message for="insuranceExamDeadline" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="insuranceThirdDeadline" value="#{text['car.insuranceThirdDeadline']}"/>
+   	<trans:inputDate2 id="insuranceThirdDeadline" value="#{carForm.car.insuranceThirdDeadline}"
+		rendered="true" required="true">
+        <v:commonsValidator type="required" arg="#{text['car.insuranceThirdDeadline']}"/>
+	</trans:inputDate2>	
+    <t:message for="insuranceThirdDeadline" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="insuranceBodyApartDeadline" value="#{text['car.insuranceBodyApartDeadline']}"/>
+   	<trans:inputDate2 id="insuranceBodyApartDeadline" value="#{carForm.car.insuranceBodyApartDeadline}"
+			rendered="true" required="true">
+        <v:commonsValidator type="required" arg="#{text['car.insuranceBodyApartDeadline']}"/>
+	</trans:inputDate2>		
+    <t:message for="insuranceBodyApartDeadline" styleClass="fieldError"/>
+
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{carForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty carForm.car.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{carForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Car')"/>
+        </c:if>
+
+    </h:panelGroup>
+    <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+        id="cancel" styleClass="button" onclick="bCancel=true"/>
+    <h:outputText/>
+</t:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateCarForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('carForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

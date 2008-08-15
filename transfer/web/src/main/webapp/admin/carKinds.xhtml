@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{carKindList.bundleName}"/>
+    <head>
+        <title>#{text['carKindList.title']}</title>
+        <meta name="heading" content="#{text['carKindList.heading']}"/>
+        <meta name="menu" content="AdminMenu"/>
+    </head>
+<body id="carKindList">
+<h:form id="editCarKind">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="carKinds" var="carKind" style="margin-top: 10px"
+    value="#{carKindList.carKinds}" rows="10" sortColumn="#{carKindList.sortColumn}"
+    sortAscending="#{carKindList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['carKind.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{carKindForm.edit}" value="#{carKind.id}">
+            <f:param name="id" value="#{carKind.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="name" arrow="true">
+                <h:outputText value="#{text['carKind.name']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{carKind.name}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="capacity" arrow="true">
+                <h:outputText value="#{text['carKind.capacity']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{carKind.capacity}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="quality" arrow="true">
+                <h:outputText value="#{text['carKind.quality']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{carKind.quality.label}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="type" arrow="true">
+                <h:outputText value="#{text['carKind.type']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{carKind.type.label}" escape="true"/>
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="carKinds"/>
+</ui:include>
+
+<script type="text/javascript">
+    highlightTableRows("editCarKind:carKinds");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

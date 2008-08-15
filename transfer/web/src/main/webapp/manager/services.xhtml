@@ -1,0 +1,196 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{serviceList.bundleName}"/>
+    <head>
+        <title>#{text['serviceList.title']}</title>
+        <meta name="heading" content="#{text['serviceList.heading']}"/>
+        <meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="serviceList">
+<h:form id="editService">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="services" var="service" style="margin-top: 10px"
+    value="#{serviceList.services}" rows="10" sortColumn="#{serviceList.sortColumn}"
+    sortAscending="#{serviceList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+                <h:outputText value="#{text['service.enabled']}" />
+        </f:facet>
+        <h:commandLink action="#{serviceForm.enableService}" value="#{text['service.enabled']}" rendered="#{!service.enabled}">
+            <f:param name="id" value="#{service.id}"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+        	    <h:outputText value="#{text['service.opened']}" />
+       	</f:facet>
+        <h:commandLink action="#{serviceForm.closeService}" value="#{text['button.close']}" rendered="#{service.opened}">
+            <f:param name="id" value="#{service.id}"/>
+        </h:commandLink>
+        <h:commandLink action="#{serviceForm.openService}" value="#{text['button.open']}" rendered="#{!service.opened}">
+            <f:param name="id" value="#{service.id}"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['service.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{serviceForm.edit}" value="#{service.id}">
+            <f:param name="id" value="#{service.id}"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <h:outputText value="#{text['button.edit']}" />
+        </f:facet>
+        <h:commandLink action="#{serviceForm.edit}" value="#{text['button.edit']}">
+            <f:param name="id" value="#{service.id}"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="timed" arrow="true">
+                <h:outputText value="#{text['service.timed']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.timed}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="weekday" arrow="true">
+                <h:outputText value="#{text['service.weekday']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.weekday.label}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="datebook" arrow="true">
+                <h:outputText value="#{text['service.datebook']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.datebookFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="opened" arrow="true">
+                <h:outputText value="#{text['service.opened']}" />
+            </t:commandSortHeader>
+        </f:facet>
+		<h:graphicImage value="/images/iconOpen.png" rendered="#{service.opened}"/>
+		<h:graphicImage value="/images/iconClose.png" rendered="#{!service.opened}"/>
+    </t:column>
+    <!-- t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="serviceLocked" arrow="true">
+                <h:outputText value="#{text['service.serviceLocked']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:selectBooleanCheckbox value="#{service.serviceLocked}" id="serviceLocked" disabled="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="enabled" arrow="true">
+                <h:outputText value="#{text['service.enabled']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:selectBooleanCheckbox value="#{service.opened}" id="opened" disabled="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="serviceExpired" arrow="true">
+                <h:outputText value="#{text['service.serviceExpired']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:selectBooleanCheckbox value="#{service.serviceExpired}" id="serviceExpired" disabled="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="company" arrow="true">
+                <h:outputText value="#{text['service.company']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.company}" escape="true"/>
+    </t:column-->
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="carKind" arrow="true">
+                <h:outputText value="#{text['service.carKind']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.carKind}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="car" arrow="true">
+                <h:outputText value="#{text['service.car']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.car}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="path" arrow="true">
+                <h:outputText value="#{text['service.path']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.path}" escape="true"/>
+    </t:column>
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="paths" arrow="true">
+                <h:outputText value="#{text['service.paths']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.paths}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="drivers" arrow="true">
+                <h:outputText value="#{text['service.drivers']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.drivers}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="lodgers" arrow="true">
+                <h:outputText value="#{text['service.lodgers']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{service.lodgers}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+           <h:outputText value="#{text['service.serviceExpired']}" />
+        </f:facet>
+        <h:commandLink action="#{serviceForm.expireService}" value="#{text['service.serviceExpired']}" rendered="#{!service.serviceExpired}">
+            <f:param name="id" value="#{service.id}"/>
+        </h:commandLink>
+    </t:column>   
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="services"/>
+</ui:include>
+
+<script type="text/javascript">
+    //highlightTableRows("editService:services");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

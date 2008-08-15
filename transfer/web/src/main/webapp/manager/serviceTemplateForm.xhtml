@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{serviceTemplateForm.bundleName}"/>
+    <head>
+        <title>#{text['serviceTemplateDetail.title']}</title>
+        <meta name="heading" content="#{text['serviceTemplateDetail.heading']}"/>
+		<meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="serviceTemplateForm">
+
+<h:form id="serviceTemplateForm" onsubmit="return validateServiceTemplateForm(this)">
+<h:inputHidden value="#{serviceTemplateForm.serviceTemplate.id}" id="id"/>
+<t:panelGrid columns="3">
+
+    <h:outputLabel styleClass="desc" for="timed" value="#{text['serviceTemplate.timed']}"/>
+    <h:inputText styleClass="text medium" id="timed" value="#{serviceTemplateForm.serviceTemplate.timed}" required="true" maxlength="10" >
+    </h:inputText>
+    <t:message for="timed" styleClass="fieldError"/>
+    
+ 
+    <h:outputLabel styleClass="desc" for="carKind" value="#{text['serviceTemplate.carKind']}"/>
+    <h:selectOneMenu value="#{serviceTemplateForm.carKindID}" id="carKind" required="false" styleClass="select">
+        <f:selectItems value="#{lookupProvider.carKindMap}"/>
+    </h:selectOneMenu>
+    <t:message for="carKind" styleClass="fieldError"/>
+ 
+    <h:outputLabel styleClass="desc" for="path" value="#{text['serviceTemplate.path']}"/>
+    <h:selectOneMenu value="#{serviceTemplateForm.pathID}" id="path" required="false" styleClass="select">
+        <f:selectItems value="#{lookupProvider.parentPathMap}"/>
+    </h:selectOneMenu>
+    <t:message for="path" styleClass="fieldError"/>
+    
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{serviceTemplateForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty serviceTemplateForm.serviceTemplate.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{serviceTemplateForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('ServiceTemplate')"/>
+        </c:if>
+    </h:panelGroup>
+    <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    <h:outputText/>
+</t:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateServiceTemplateForm"/>
+
+<script type="text/javascript">
+    Form.focusFirstElement($('serviceTemplateForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

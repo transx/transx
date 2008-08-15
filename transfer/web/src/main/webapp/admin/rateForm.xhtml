@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{rateForm.bundleName}"/>
+    <head>
+        <title>#{text['rateDetail.title']}</title>
+        <meta name="heading" content="#{text['rateDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="rateForm">
+
+<h:form id="rateForm" onsubmit="return validateRateForm(this)">
+<h:inputHidden value="#{rateForm.rate.id}" id="id"/>
+<h:panelGrid columns="3">
+
+    <h:outputLabel styleClass="desc" for="rateType" value="#{text['rate.rateType']}"/>
+    <t:message for="rateType" styleClass="fieldError"/>
+    <h:selectOneRadio value="#{rateForm.rate.rateType}" id="rateType" required="true" styleClass="radio">
+		<f:selectItems value="#{lookupProvider.rateTypeItems}"/>
+	</h:selectOneRadio>
+	
+	<h:outputLabel styleClass="desc" for="quality" value="#{text['rate.quality']}"/>
+    <t:message for="quality" styleClass="fieldError"/>
+    <h:selectOneRadio value="#{rateForm.rate.quality}" id="quality" required="true" styleClass="select">
+        <f:selectItems value="#{lookupProvider.qualityItems}"/>
+    </h:selectOneRadio>
+	
+    <h:outputLabel styleClass="desc" for="path" value="#{text['rate.path']}"/>
+    <t:message for="path" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{rateForm.pathID}" id="path" required="true" styleClass="select">
+        <f:selectItems value="#{lookupProvider.pathMap}"/>
+    </h:selectOneMenu>
+    
+    <h:outputLabel styleClass="desc" for="price" value="#{text['rate.price']}"/>
+    <t:message for="price" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="price" value="#{rateForm.rate.price}" required="true" maxlength="255">
+        <v:commonsValidator type="required" arg="#{text['rate.price']}"/>
+    </h:inputText>
+
+    <h:outputLabel styleClass="desc" for="toll" value="#{text['rate.toll']}"/>
+    <t:message for="toll" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="toll" value="#{rateForm.rate.toll}" required="true" maxlength="255">
+        <v:commonsValidator type="required" arg="#{text['rate.toll']}"/>
+    </h:inputText>
+
+    <h:outputLabel styleClass="desc" for="snack" value="#{text['rate.snack']}"/>
+    <t:message for="snack" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="snack" value="#{rateForm.rate.snack}" required="true" maxlength="255">
+        <v:commonsValidator type="required" arg="#{text['rate.snack']}"/>
+    </h:inputText>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{rateForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty rateForm.rate.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{rateForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Rate')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateRateForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('rateForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

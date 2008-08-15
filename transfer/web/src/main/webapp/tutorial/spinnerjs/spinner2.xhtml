@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:trans="http://app2.asta.com/tags/jsf">
+<body>
+
+This text above will not be displayed.
+
+<ui:composition template="/tutorial/template.xhtml">
+
+This text will not be displayed.
+
+  <ui:define name="title">
+   The SpinnerJS DEMO!
+  </ui:define>
+
+This text will also not be displayed.
+
+  <ui:define name="body">
+    <h:form id="spinnerForm">
+		<trans:spinnerJS value="#{cardExpirationDate.month}" 
+                  id="monthSpinner" minimum="1" maximum="12" size="6" 
+                  valueChangeListener="#{cardExpirationDate.changeListener}"/>
+        <h:message for="monthSpinner"/>	
+        <br/>
+        <br/>
+        <h:outputText value="Changes:"/>
+        <h:outputText value="#{cardExpirationDate.changes}"/>
+        <br/>
+        <br/>
+        <h:commandButton value="Submit" action="next"/>
+    </h:form>
+  </ui:define>
+
+This text will not be displayed.
+  
+</ui:composition>
+
+This text below will also not be displayed.
+
+</body>
+</html>

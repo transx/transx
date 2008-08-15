@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{countryList.bundleName}"/>
+    <head>
+        <title>#{text['countryList.title']}</title>
+        <meta name="heading" content="#{text['countryList.heading']}"/>
+        <meta name="menu" content="AdminMenu"/>
+    </head>
+<body id="countryList">
+<h:form id="editCountry">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="countries" var="country" style="margin-top: 10px"
+    value="#{countryList.countrys}" rows="25" sortColumn="#{countryList.sortColumn}"
+    sortAscending="#{countryList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['country.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{countryForm.edit}" value="#{country.id}">
+            <f:param name="id" value="#{country.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="name" arrow="true">
+                <h:outputText value="#{text['country.name']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{country.name}" escape="true"/>
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="countries"/>
+</ui:include>
+
+<script type="text/javascript">
+    //highlightTableRows("editCountry:countries");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

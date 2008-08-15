@@ -1,0 +1,134 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core" 
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{signupForm.bundleName}"/>
+<head>
+    <title>#{text['signup.title']}</title>
+    <meta name="heading" content="#{text['signup.heading']}"/>
+</head>
+<body id="signup">
+
+<div class="separator"></div>
+
+<h:form id="signupForm" onsubmit="return validateSignupForm(this)">
+
+<t:panelGrid columns="3">
+    <h:outputText/>
+    <h:panelGroup styleClass="info">
+        <h:outputText value="#{text['signup.message']}"/>
+    </h:panelGroup>
+    <h:outputText/>
+
+    <h:outputLabel for="username" styleClass="desc" value="#{text['user.username']}"/>
+    <h:inputText value="#{signupForm.user.username}" id="username" required="true" styleClass="text medium">
+        <v:commonsValidator type="required" arg="#{text['user.username']}"/>
+    </h:inputText>
+    <t:message for="username" styleClass="fieldError"/>
+
+    <h:outputLabel for="password" value="#{text['user.password']}" styleClass="desc"/>
+    <h:inputSecret value="#{signupForm.user.password}" id="password"
+        redisplay="true" required="true" styleClass="text medium">
+        <v:commonsValidator type="required" arg="#{text['user.password']}"/>
+    </h:inputSecret>
+    <t:message for="password" styleClass="fieldError"/>
+
+    <h:outputLabel for="confirmPassword" value="#{text['user.confirmPassword']}" styleClass="desc"/>
+    <h:inputSecret value="#{signupForm.user.confirmPassword}" id="confirmPassword"
+        redisplay="true" required="true" styleClass="text medium">
+        <v:commonsValidator type="required" arg="#{text['user.confirmPassword']}"/>
+        <t:validateEqual for="password"/>
+    </h:inputSecret>
+    <t:message for="confirmPassword" styleClass="fieldError"/>
+
+    <h:outputLabel for="passwordHint" value="#{text['user.passwordHint']}" styleClass="desc"/>
+    <h:inputText value="#{signupForm.user.passwordHint}" id="passwordHint" required="true" styleClass="text large">
+        <v:commonsValidator type="required" arg="#{text['user.passwordHint']}"/>
+    </h:inputText>
+    <t:message for="passwordHint" styleClass="fieldError"/>
+
+    <h:outputLabel for="firstName" value="#{text['user.firstName']}" styleClass="desc"/>
+    <h:inputText id="firstName" value="#{signupForm.user.firstName}" maxlength="50" required="true" styleClass="text medium">
+        <v:commonsValidator type="required" arg="#{text['user.firstName']}"/>
+    </h:inputText>
+    <t:message for="firstName" styleClass="fieldError"/>
+
+    <h:outputLabel for="lastName" value="#{text['user.lastName']}" styleClass="desc"/>
+    <h:inputText value="#{signupForm.user.lastName}" id="lastName" maxlength="50" required="true" styleClass="text medium">
+        <v:commonsValidator type="required" arg="#{text['user.lastName']}"/>
+    </h:inputText>
+    <t:message for="lastName" styleClass="fieldError"/>
+
+	<h:outputLabel for="phoneNumber" value="#{text['user.phoneNumber']}" styleClass="desc"/>
+	<h:inputText value="#{signupForm.user.phoneNumber}" id="phoneNumber" styleClass="text medium">
+	    <t:validateRegExpr pattern="^\(?(\d{3})\)?[-| ]?(\d{3})[-| ]?(\d{4})$"/>
+	</h:inputText>
+	<t:message for="phoneNumber" styleClass="fieldError"/>
+	
+	<t:outputLabel for="company" value="#{text['user.company']}" styleClass="desc"/>
+	<h:selectOneMenu value="#{signupForm.companyID}" id="company" required="true" styleClass="select">
+	    <f:selectItems value="#{lookupProvider.companyMap}"/>
+	    <v:commonsValidator type="required" arg="#{text['user.company']}"/>
+	</h:selectOneMenu>
+	<t:message for="company" styleClass="fieldError"/>
+
+    <h:outputLabel for="email" value="#{text['user.email']}" styleClass="desc"/>
+    <h:inputText value="#{signupForm.user.email}" id="email" required="true" styleClass="text medium">
+        <f:validator validatorId="org.apache.myfaces.validator.Email"/>
+        <v:commonsValidator type="required" arg="#{text['user.email']}"/>
+        <v:commonsValidator type="email" arg="#{text['user.email']}"/>
+    </h:inputText>
+    <t:message for="email" styleClass="fieldError"/>
+
+	<h:outputLabel for="website" value="#{text['user.website']}" styleClass="desc"/>
+	<h:inputText value="#{signupForm.user.website}" id="website" required="false" styleClass="text medium"/>
+	<t:message for="website" styleClass="fieldError"/>
+
+	<h:outputLabel for="country" value="#{text['user.address.country']}"/>
+    <h:selectOneMenu value="#{signupForm.country}" id="country" required="true" styleClass="select2">
+        <f:selectItems value="#{signupForm.countries}"/>
+        <v:commonsValidator type="required" arg="#{text['user.address.country']}"/>
+    </h:selectOneMenu>
+    <t:message for="country" styleClass="fieldError"/>
+
+	<h:outputLabel for="province" value="#{text['user.address.province']}"/>
+    <h:inputText value="#{signupForm.user.address.province}" id="province" required="true" styleClass="text state">
+        <v:commonsValidator type="required" arg="#{text['user.address.province']}"/>
+    </h:inputText>
+    <t:message for="province" styleClass="fieldError"/>
+    
+	<h:outputLabel for="city" value="#{text['user.address.city']}"/>
+    <h:inputText value="#{signupForm.user.address.city}" id="city" required="true" styleClass="text medium">
+        <v:commonsValidator type="required" arg="#{text['user.address.city']}"/>
+    </h:inputText>
+    <t:message for="city" styleClass="fieldError"/>
+	
+	<h:outputLabel for="address" value="#{text['user.address.address']}"/>
+	<h:inputText value="#{signupForm.user.address.address}" id="address" styleClass="text large"/>
+	<t:message for="address" styleClass="fieldError"/>
+
+	<h:outputLabel for="postalCode" value="#{text['user.address.postalCode']}"/>
+    <h:inputText value="#{signupForm.user.address.postalCode}" id="postalCode" required="false" styleClass="text medium">
+        <!-- v:commonsValidator type="required" arg="#{text['user.address.postalCode']}"/>
+        <t:validateRegExpr pattern="^\d{5}\d*$"/ -->
+    </h:inputText>
+    <t:message for="postalCode" styleClass="fieldError"/>
+
+
+
+    <h:commandButton value="#{text['button.register']}" action="#{signupForm.save}" id="save" styleClass="button"/>
+    <h:commandButton value="#{text['button.cancel']}" action="mainMenu" immediate="true" id="cancel" styleClass="button" onclick="bCancel=true"/>
+    <h:outputText/>
+</t:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateSignupForm"/>
+
+<script type="text/javascript">
+    Form.focusFirstElement($('signupForm'));
+</script>
+</body>
+</f:view>
+</html>

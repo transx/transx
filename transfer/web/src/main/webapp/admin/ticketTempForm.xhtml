@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{ticketTempForm.bundleName}"/>
+    <head>
+        <title>#{text['ticketTempDetail.title']}</title>
+        <meta name="heading" content="#{text['ticketTempDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="ticketTempForm">
+
+<h:form id="ticketTempForm" onsubmit="return validateTicketTempForm(this)">
+<h:inputHidden value="#{ticketTempForm.ticketTemp.id}" id="id"/>
+<h:panelGrid columns="3">
+    <h:outputLabel styleClass="desc" for="count" value="#{text['ticketTemp.count']}"/>
+    <t:message for="count" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="count" value="#{ticketTempForm.ticketTemp.count}" required="false" maxlength="255" disabled="true">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="reserveDate" value="#{text['ticketTemp.reserveDate']}"/>
+    <t:message for="reserveDate" styleClass="fieldError"/>
+    <t:inputCalendar monthYearRowClass="yearMonthHeader" weekRowClass="weekHeader" id="reserveDate"
+            currentDayCellClass="currentDayCell" value="#{ticketTempForm.ticketTemp.reserveDate}"
+            renderAsPopup="true" addResources="true" required="false">
+    </t:inputCalendar>
+    <h:outputLabel styleClass="desc" for="commitDate" value="#{text['ticketTemp.commitDate']}"/>
+    <t:message for="commitDate" styleClass="fieldError"/>
+    <t:inputCalendar monthYearRowClass="yearMonthHeader" weekRowClass="weekHeader" id="commitDate"
+            currentDayCellClass="currentDayCell" value="#{ticketTempForm.ticketTemp.commitDate}"
+            renderAsPopup="true" addResources="true" required="false" disabled="true">
+    </t:inputCalendar>
+    <h:outputLabel styleClass="desc" for="committed" value="#{text['ticketTemp.committed']}"/>
+    <t:message for="committed" styleClass="fieldError"/>
+    <h:selectBooleanCheckbox value="#{ticketTempForm.ticketTemp.committed}" id="committed" styleClass="checkbox"/>
+    
+    <h:outputLabel styleClass="desc" for="reserverId" value="#{text['ticketTemp.reserverId']}"/>
+    <t:message for="reserverId" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="reserverId" value="#{ticketTempForm.ticketTemp.reserverId}" required="false" maxlength="255">
+    </h:inputText>
+
+    <h:outputLabel styleClass="desc" for="passenger" value="#{text['ticketTemp.passenger']}"/>
+    <t:message for="passenger" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{ticketTempForm.passengerID}" id="passenger" required="false" styleClass="select">
+        <f:selectItems value="#{ticketTempForm.passengerMap}"/>
+    </h:selectOneMenu>
+
+    <h:outputLabel styleClass="desc" for="service" value="#{text['ticketTemp.service']}"/>
+    <t:message for="service" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{ticketTempForm.serviceID}" id="service" required="false" styleClass="select">
+        <f:selectItems value="#{ticketTempForm.serviceMap}"/>
+    </h:selectOneMenu>
+
+    <h:panelGroup>
+        <fieldset>
+            <legend>#{text['ticket.chairs']}</legend>
+            <h:selectManyCheckbox value="#{ticketTempForm.ttChairs}" id="ttChairs">
+                <f:selectItems value="#{ticketTempForm.availableChairs}"/>
+            </h:selectManyCheckbox>
+        </fieldset>
+    </h:panelGroup>
+
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{ticketTempForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty ticketTempForm.ticketTemp.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{ticketTempForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('TicketTemp')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateTicketTempForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('ticketTempForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

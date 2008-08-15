@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:trans="http://app2.asta.com/tags/jsf">
+<body>
+
+
+<ui:composition template="/tutorial/template.xhtml">
+
+
+  <ui:define name="title">
+   The Report print DEMO!
+  </ui:define>
+
+
+  <ui:define name="body">
+	<h:form id="reportForm">
+	<h:commandLink value="get pdf report" action="#{reports.hello}"/>
+	<br/>
+	<br/>
+	<h:commandLink value="print report without preview" action="#{reports.helloPrint}"/>
+	<br/>
+	<br/>
+	<h:commandLink value="print ticket sample" action="#{reports.helloTikcet}"/>
+	</h:form>
+	
+  </ui:define>
+
+  
+</ui:composition>
+
+
+</body>
+</html>

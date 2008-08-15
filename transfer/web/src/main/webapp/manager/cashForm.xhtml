@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+<f:view>
+<f:loadBundle var="text" basename="#{cashForm.bundleName}"/>
+    <head>
+        <title>#{text['cashDetail.title']}</title>
+        <meta name="heading" content="#{text['cashDetail.heading']}"/>
+        <meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="cashForm">
+
+<t:saveState id="cashFormSave1" value="#{cashForm.cash}"/>
+
+<h:form id="cashForm" onsubmit="return validateCashForm(this)">
+<h:inputHidden value="#{cashForm.cash.id}" id="id"/>
+<h:panelGrid columns="3">
+
+    <h:outputLabel styleClass="desc" for="number" value="#{text['cash.number']}"/>
+    <h:inputText value="#{cashForm.cash.number}" id="number" styleClass="text small"/>
+    <t:message for="number" styleClass="fieldError"/>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{cashForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty cashForm.cash.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{cashForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Cash')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateCashForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('cashForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

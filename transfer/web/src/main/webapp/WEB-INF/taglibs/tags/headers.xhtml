@@ -1,0 +1,11 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                 xmlns:h="http://java.sun.com/jsf/html"
+                 xmlns:c="http://java.sun.com/jstl/core">
+	HeLlo there !
+    <c:choose>
+        <c:when test="#{not empty param.debug and param.debug == 'true'}">
+            <h:outputText value="#{msgs.debugHeaders}"/>
+            <p>oops!<h:outputText value="#{header}" style="color: red;"/></p>
+        </c:when>
+    </c:choose>
+</ui:composition>

@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{pathForm.bundleName}"/>
+    <head>
+        <title>#{text['pathDetail.title']}</title>
+        <meta name="heading" content="#{text['pathDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="pathForm">
+
+<h:form id="pathForm" onsubmit="return validatePathForm(this)">
+<h:inputHidden value="#{pathForm.path.id}" id="id"/>
+<h:panelGrid columns="3">
+
+
+    <h:outputLabel styleClass="desc" for="start" value="#{text['path.start']}"/>
+    <t:message for="start" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{pathForm.startID}" id="start" required="false" styleClass="select">
+        <f:selectItems value="#{pathForm.cityMap}"/>
+    </h:selectOneMenu>
+
+
+    <h:outputLabel styleClass="desc" for="end" value="#{text['path.end']}"/>
+    <t:message for="end" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{pathForm.endID}" id="end" required="false" styleClass="select">
+        <f:selectItems value="#{pathForm.cityMap}"/>
+    </h:selectOneMenu> 
+
+
+    <h:outputLabel styleClass="desc" for="space" value="#{text['path.space']}"/>
+    <t:message for="space" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="space" value="#{pathForm.path.space}" required="false" maxlength="20">
+    </h:inputText>
+
+
+	<h:outputLabel styleClass="desc" for="parent" value="#{text['path.parent']}"/>
+	<t:message for="parent" styleClass="fieldError"/>
+	<h:selectOneMenu value="#{pathForm.parentID}" id="parent" required="false" styleClass="select">
+		<f:selectItems value="#{pathForm.parentPathMap}"/>
+	</h:selectOneMenu>	
+
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{pathForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty pathForm.path.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{pathForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Path')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validatePathForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('pathForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

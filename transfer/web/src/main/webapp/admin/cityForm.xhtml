@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{cityForm.bundleName}"/>
+    <head>
+        <title>#{text['cityDetail.title']}</title>
+        <meta name="heading" content="#{text['cityDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="cityForm">
+
+<h:form id="cityForm" onsubmit="return validateCityForm(this)">
+<h:inputHidden value="#{cityForm.city.id}" id="id"/>
+<h:panelGrid columns="3">
+    <h:outputLabel styleClass="desc" for="name" value="#{text['city.name']}"/>
+    <t:message for="name" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="name" value="#{cityForm.city.name}" required="true" maxlength="150">
+        <v:commonsValidator type="required" arg="#{text['city.name']}"/>
+    </h:inputText>
+
+ 
+    <h:outputLabel styleClass="desc" for="country" value="#{text['city.country']}"/>
+    <t:message for="country" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{cityForm.countryID}" id="country" required="false" styleClass="select">
+        <f:selectItems value="#{cityForm.model}"/>
+    </h:selectOneMenu>
+ 
+    
+    <h:outputLabel styleClass="desc" for="codeOrg" value="#{text['city.codeOrg']}"/>
+    <t:message for="codeOrg" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="codeOrg" value="#{cityForm.city.codeOrg}" required="false" maxlength="100">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="codeInr" value="#{text['city.codeInr']}"/>
+    <t:message for="codeInr" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="codeInr" value="#{cityForm.city.codeInr}" required="false" maxlength="100">
+    </h:inputText>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{cityForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty cityForm.city.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{cityForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('City')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateCityForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('cityForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

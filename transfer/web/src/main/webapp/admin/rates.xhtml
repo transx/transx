@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{rateList.bundleName}"/>
+    <head>
+        <title>#{text['rateList.title']}</title>
+        <meta name="heading" content="#{text['rateList.heading']}"/>
+        <meta name="menu" content="AdminMenu"/>
+    </head>
+<body id="rateList">
+<h:form id="editRate">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="rates" var="rate" style="margin-top: 10px"
+    value="#{rateList.rates}" rows="10" sortColumn="#{rateList.sortColumn}"
+    sortAscending="#{rateList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['rate.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{rateForm.edit}" value="#{rate.id}">
+            <f:param name="id" value="#{rate.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="rateType" arrow="true">
+                <h:outputText value="#{text['rate.rateType']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{rate.rateType.label}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="quality" arrow="true">
+                <h:outputText value="#{text['rate.quality']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{rate.quality.label}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="path" arrow="true">
+                <h:outputText value="#{text['rate.path']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{rate.path}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="price" arrow="true">
+                <h:outputText value="#{text['rate.price']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{rate.price}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="toll" arrow="true">
+                <h:outputText value="#{text['rate.toll']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{rate.toll}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="snack" arrow="true">
+                <h:outputText value="#{text['rate.snack']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{rate.snack}" escape="true"/>
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="rates"/>
+</ui:include>
+
+<script type="text/javascript">
+    highlightTableRows("editRate:rates");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

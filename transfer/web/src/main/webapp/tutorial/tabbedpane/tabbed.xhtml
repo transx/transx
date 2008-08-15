@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:trans="http://app2.asta.com/tags/jsf">
+<body>
+
+This text above will not be displayed.
+
+<ui:composition template="/tutorial/template.xhtml">
+
+This text will not be displayed.
+
+  <ui:define name="title">
+   The TabbedPane DEMO!
+  </ui:define>
+
+This text will also not be displayed.
+
+  <ui:define name="body">
+		<h:form>
+			<trans:tabbedPane styleClass="tabbedPane" tabClass="tab"
+				selectedTabClass="selectedTab">
+				<f:facet name="jefferson">
+					<h:panelGrid columns="2">
+						<h:graphicImage value="/tutorial/images/jefferson.jpg" />
+						<h:outputText value="#{msgs.jeffersonDiscussion}"
+							styleClass="tabbedPaneContent" />
+					</h:panelGrid>
+				</f:facet>
+				<f:facet name="roosevelt">
+					<h:panelGrid columns="2">
+						<h:graphicImage value="/tutorial/images/roosevelt.jpg" />
+						<h:outputText value="#{msgs.rooseveltDiscussion}"
+							styleClass="tabbedPaneContent" />
+					</h:panelGrid>
+				</f:facet>
+				<f:facet name="lincoln">
+					<h:panelGrid columns="2">
+						<h:graphicImage value="/tutorial/images/lincoln.jpg" />
+						<h:outputText value="#{msgs.lincolnDiscussion}"
+							styleClass="tabbedPaneContent" />
+					</h:panelGrid>
+				</f:facet>
+				<f:facet name="washington">
+					<h:panelGrid columns="2">
+						<h:graphicImage value="/tutorial/images/washington.jpg" />
+						<h:outputText value="#{msgs.washingtonDiscussion}"
+							styleClass="tabbedPaneContent" />
+					</h:panelGrid>
+				</f:facet>
+
+				<f:selectItem itemLabel="#{msgs.jeffersonTabText}"
+					itemValue="jefferson" />
+				<f:selectItem itemLabel="#{msgs.rooseveltTabText}"
+					itemValue="roosevelt" />
+				<f:selectItem itemLabel="#{msgs.lincolnTabText}" itemValue="lincoln" />
+				<f:selectItem itemLabel="#{msgs.washingtonTabText}"
+					itemValue="washington" />
+				</trans:tabbedPane>	
+	            <h:commandButton value="Refresh"/>
+		</h:form>
+	</ui:define>
+
+This text will not be displayed.
+  
+</ui:composition>
+
+This text below will also not be displayed.
+
+</body>
+</html>

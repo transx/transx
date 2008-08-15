@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{countryForm.bundleName}"/>
+    <head>
+        <title>#{text['countryDetail.title']}</title>
+        <meta name="heading" content="#{text['countryDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="countryForm">
+
+<h:form id="countryForm" onsubmit="return validateCountryForm(this)">
+<h:inputHidden value="#{countryForm.country.id}" id="id"/>
+<h:panelGrid columns="3">
+    <h:outputLabel styleClass="desc" for="name" value="#{text['country.name']}"/>
+    <t:message for="name" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="name" value="#{countryForm.country.name}" required="true" maxlength="150">
+        <v:commonsValidator type="required" arg="#{text['country.name']}"/>
+    </h:inputText>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{countryForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty countryForm.country.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{countryForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Country')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateCountryForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('countryForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

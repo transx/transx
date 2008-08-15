@@ -1,0 +1,112 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{driverList.bundleName}"/>
+    <head>
+        <title>#{text['driverList.title']}</title>
+        <meta name="heading" content="#{text['driverList.heading']}"/>
+        <meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="driverList">
+<h:form id="editDriver">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="drivers" var="driver" style="margin-top: 10px"
+    value="#{driverList.drivers}" rows="10" sortColumn="#{driverList.sortColumn}"
+    sortAscending="#{driverList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['driver.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{driverForm.edit}" value="#{driver.id}">
+            <f:param name="id" value="#{driver.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="person" arrow="true">
+                <h:outputText value="#{text['driver.person']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{driver.person}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="code" arrow="true">
+                <h:outputText value="#{text['driver.code']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{driver.code}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="codeNote" arrow="true">
+                <h:outputText value="#{text['driver.codeNote']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{driver.codeNote}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="licenceNumber" arrow="true">
+                <h:outputText value="#{text['driver.licenceNumber']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{driver.licenceNumber}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="licenceIssue" arrow="true">
+                <h:outputText value="#{text['driver.licenceIssue']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{driver.licenceIssue}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="insuranceNumber" arrow="true">
+                <h:outputText value="#{text['driver.insuranceNumber']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{driver.insuranceNumber}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="insuranceDeadline" arrow="true">
+                <h:outputText value="#{text['driver.insuranceDeadline']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{driver.insuranceDeadlineFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="contractDeadline" arrow="true">
+                <h:outputText value="#{text['driver.contractDeadline']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{driver.contractDeadlineFormatted}" escape="true"/>
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="drivers"/>
+</ui:include>
+
+<script type="text/javascript">
+    highlightTableRows("editDriver:drivers");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

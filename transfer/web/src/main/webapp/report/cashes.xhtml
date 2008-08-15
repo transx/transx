@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{cashList.bundleName}"/>
+    <head>
+        <title>#{text['cashList.title']}</title>
+        <meta name="heading" content="#{text['cashList.heading']}"/>
+        <meta name="menu" content="ReportMenu"/>
+    </head>
+<body id="cashList">
+<h:form id="editCash">
+
+<!--h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/-->
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="cashes" var="cash" style="margin-top: 10px"
+    value="#{cashList.cashes}" rows="25" sortColumn="#{cashList.sortColumn}"
+    sortAscending="#{cashList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['cash.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{ticketTempForm.sell}" value="#{cash.id}">
+            <f:param name="cashId" value="#{cash.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="number" arrow="true">
+                <h:outputText value="#{text['cash.number']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{cash.number}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="timeOpen" arrow="true">
+                <h:outputText value="#{text['cash.timeOpen']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{cash.timeOpenFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="timeClose" arrow="true">
+                <h:outputText value="#{text['cash.timeClose']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{cash.timeCloseFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="enabled" arrow="true">
+                <h:outputText value="#{text['cash.enabled']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:selectBooleanCheckbox value="#{cash.enabled}" id="enabled" disabled="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="expired" arrow="true">
+                <h:outputText value="#{text['cash.expired']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:selectBooleanCheckbox value="#{cash.expired}" id="expired" disabled="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="action" arrow="true">
+                <h:outputText value="#{text['cash.action']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{ticketList.viewSoldTicketsByCash}" value="#{text['cash.viewSoldTickets']}">
+            <f:param name="cashId" value="#{cash.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="cashes"/>
+</ui:include>
+
+<script type="text/javascript">
+    //highlightTableRows("editCash:cashes");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

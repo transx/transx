@@ -1,0 +1,87 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:trans="http://app2.asta.com/tags/jsf">
+
+	<c:set var="TOTAL_PRICE" value="0"/>
+	<c:set var="PASSENGER_COUNT" value="0"/>
+	<t:panelGrid columns="3">
+
+		<t:panelGrid columns="4" rowClasses="oddRows,evenRows">
+		<c:forEach begin="1" step="1" end="15" var="chairNumber">
+	
+			<c:set var="PASSENGER" value="#{bean[newPassenger]}" />
+			<c:set var="TICKET_NUMBER" value="" />		
+			<c:set var="TICKET_PRICE" value="" />		
+			<c:forEach items="#{bean[chairModels]}" var="chairModel">
+				<c:if test="${chairModel.id == chairNumber}">
+					<c:set var="PASSENGER" value="${chairModel.passenger}" />
+					<c:set var="TICKET_NUMBER" value="${chairModel.ticketNumber}" />
+					<c:set var="TICKET_PRICE" value="${chairModel.ticketPrice}" />
+					<c:set var="TOTAL_PRICE" value="${TOTAL_PRICE+chairModel.ticketPrice}"/>
+					<c:set var="PASSENGER_COUNT" value="${PASSENGER_COUNT+1}"/>
+				</c:if>
+			</c:forEach>
+			
+			<h:outputText value="${chairNumber}"/>		
+			<h:outputText value="${PASSENGER}"/>
+			<h:outputText value="${TICKET_NUMBER}"/>
+			<h:outputText value="${TICKET_PRICE}"/>
+			
+		</c:forEach>
+		</t:panelGrid>
+	
+		<t:panelGrid columns="4" rowClasses="oddRows,evenRows">
+		<c:forEach begin="16" step="1" end="30" var="chairNumber">
+	
+			<c:set var="PASSENGER" value="#{bean[newPassenger]}" />
+			<c:set var="TICKET_NUMBER" value="" />		
+			<c:set var="TICKET_PRICE" value="" />		
+			<c:forEach items="#{bean[chairModels]}" var="chairModel">
+				<c:if test="${chairModel.id == chairNumber}">
+					<c:set var="PASSENGER" value="${chairModel.passenger}" />
+					<c:set var="TICKET_NUMBER" value="${chairModel.ticketNumber}" />
+					<c:set var="TICKET_PRICE" value="${chairModel.ticketPrice}" />
+					<c:set var="TOTAL_PRICE" value="${TOTAL_PRICE+chairModel.ticketPrice}"/>
+					<c:set var="PASSENGER_COUNT" value="${PASSENGER_COUNT+1}"/>
+				</c:if>
+			</c:forEach>
+			
+			<h:outputText value="${chairNumber}"/>		
+			<h:outputText value="${PASSENGER}"/>
+			<h:outputText value="${TICKET_NUMBER}"/>
+			<h:outputText value="${TICKET_PRICE}"/>
+			
+		</c:forEach>
+		</t:panelGrid>
+	
+		<t:panelGrid columns="4" rowClasses="oddRows,evenRows"> 
+		<c:forEach begin="31" step="1" end="45" var="chairNumber">
+	
+			<c:set var="PASSENGER" value="#{bean[newPassenger]}" />
+			<c:set var="TICKET_NUMBER" value="" />		
+			<c:set var="TICKET_PRICE" value="" />		
+			<c:forEach items="#{bean[chairModels]}" var="chairModel">
+				<c:if test="${chairModel.id == chairNumber}">
+					<c:set var="PASSENGER" value="${chairModel.passenger}" />
+					<c:set var="TICKET_NUMBER" value="${chairModel.ticketNumber}" />
+					<c:set var="TICKET_PRICE" value="${chairModel.ticketPrice}" />
+					<c:set var="TOTAL_PRICE" value="${TOTAL_PRICE+chairModel.ticketPrice}"/>
+					<c:set var="PASSENGER_COUNT" value="${PASSENGER_COUNT+1}"/>
+				</c:if>
+			</c:forEach>
+			
+			<h:outputText value="${chairNumber}"/>		
+			<h:outputText value="${PASSENGER}"/>
+			<h:outputText value="${TICKET_NUMBER}"/>
+			<h:outputText value="${TICKET_PRICE}"/>
+			
+		</c:forEach>
+		</t:panelGrid>
+
+	</t:panelGrid>
+	<t:outputText value="${PASSENGER_COUNT}" /><t:outputText value=":::::::"/>
+	<t:outputText value="${TOTAL_PRICE}" />
+</ui:composition>

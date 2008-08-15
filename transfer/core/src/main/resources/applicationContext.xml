@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+       default-lazy-init="true">
+
+    <!-- Add new DAOs here -->
+
+    <!--Country-START-->
+	<bean id="countryDao" class="com.asta.app2.dao.hibernate.CountryDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="countryManager" class="com.asta.app2.service.impl.CountryManagerImpl">
+		<constructor-arg ref="countryDao"/>
+	</bean>
+	
+    <!--City-START-->
+	<bean id="cityDao" class="com.asta.app2.dao.hibernate.CityDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />		
+	</bean>
+	<bean id="cityManager" class="com.asta.app2.service.impl.CityManagerImpl">
+		<constructor-arg ref="cityDao"/>
+	</bean>
+	
+    <!--Path-START-->
+	<bean id="pathDao" class="com.asta.app2.dao.hibernate.PathDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="pathManager" class="com.asta.app2.service.impl.PathManagerImpl">
+		<constructor-arg ref="pathDao"/>
+		<property name="cityManager" ref="cityManager"/>
+	</bean>
+
+
+    <!--Company-START-->
+    <bean id="companyDao" class="com.asta.app2.dao.hibernate.CompanyDaoHibernate">
+    	<property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="companyManager" class="com.asta.app2.service.impl.CompanyManagerImpl">
+		<constructor-arg ref="companyDao"/>
+	</bean>
+	
+	
+    <!--CarKind-START-->
+    <bean id="carKindDao" class="com.asta.app2.dao.hibernate.CarKindDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="carKindManager" class="com.asta.app2.service.impl.CarKindManagerImpl">
+		<constructor-arg ref="carKindDao"/>
+	</bean>
+
+
+    <!--ServiceTemplate-START-->
+    <bean id="serviceTemplateDao" class="com.asta.app2.dao.hibernate.ServiceTemplateDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="serviceTemplateManager" class="com.asta.app2.service.impl.ServiceTemplateManagerImpl">
+		<constructor-arg ref="serviceTemplateDao"/>
+	</bean>
+
+
+    <!--Person-START-->
+    <bean id="personDao" class="com.asta.app2.dao.hibernate.PersonDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="personManager" class="com.asta.app2.service.impl.PersonManagerImpl">
+		<constructor-arg ref="personDao"/>
+	</bean>
+
+    <!--Driver-START-->
+     <bean id="driverDao" class="com.asta.app2.dao.hibernate.DriverDaoHibernate">
+         <property name="sessionFactory" ref="sessionFactory"/>
+     </bean>
+     <bean id="driverManager" class="com.asta.app2.service.impl.DriverManagerImpl">
+     	<constructor-arg ref="driverDao" />
+     </bean>
+
+    <!--Lodger-START-->
+    <bean id="lodgerDao" class="com.asta.app2.dao.hibernate.LodgerDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="lodgerManager" class="com.asta.app2.service.impl.LodgerManagerImpl">
+		<constructor-arg ref="lodgerDao"/>
+	</bean>
+
+    <!--Car-START-->
+    <bean id="carDao" class="com.asta.app2.dao.hibernate.CarDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="carManager" class="com.asta.app2.service.impl.CarManagerImpl">
+		<constructor-arg ref="carDao"/>
+	</bean>
+
+    <!--Passenger-START-->
+    <bean id="passengerDao" class="com.asta.app2.dao.hibernate.PassengerDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="passengerManager" class="com.asta.app2.service.impl.PassengerManagerImpl">
+		<constructor-arg ref="passengerDao"/>
+	</bean>
+	
+    <!--Service-START-->
+    <bean id="serviceDao" class="com.asta.app2.dao.hibernate.ServiceDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="serviceManager" class="com.asta.app2.service.impl.ServiceManagerImpl">
+		<constructor-arg ref="serviceDao"/>
+	</bean>
+
+    <!--Chair-START-->
+    <bean id="chairDao" class="com.asta.app2.dao.hibernate.ChairDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="chairManager" class="com.asta.app2.service.impl.ChairManagerImpl">
+    	<constructor-arg ref="chairDao"/>
+    </bean>
+
+    <!--Ticket-START-->
+    <bean id="ticketDao" class="com.asta.app2.dao.hibernate.TicketDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="ticketManager" class="com.asta.app2.service.impl.TicketManagerImpl">
+		<constructor-arg ref="ticketDao"/>
+    	<property name="ticketTempManager" ref="ticketTempManager"/>
+    	<property name="settingManager" ref="settingManager"/>
+    	<property name="cashManager" ref="cashManager"/>
+	</bean>
+
+    <!--TicketTemp-START-->
+    <bean id="ticketTempDao" class="com.asta.app2.dao.hibernate.TicketTempDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="ticketTempManager" class="com.asta.app2.service.impl.TicketTempManagerImpl">
+    	<constructor-arg ref="ticketTempDao"/>
+    	<property name="ticketManager" ref="ticketManager"/>
+    </bean>
+
+    <!--Soorat-START-->
+    <bean id="sooratDao" class="com.asta.app2.dao.hibernate.SooratDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="sooratManager" class="com.asta.app2.service.impl.SooratManagerImpl">
+  		<constructor-arg ref="sooratDao"/>
+    </bean>
+
+    <!--Rate-START-->
+    <bean id="rateDao" class="com.asta.app2.dao.hibernate.RateDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="rateManager" class="com.asta.app2.service.impl.RateManagerImpl">
+		<constructor-arg ref="rateDao"/>
+	</bean>
+
+    <!--Setting-START-->
+    <bean id="settingDao" class="com.asta.app2.dao.hibernate.SettingDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="settingManager" class="com.asta.app2.service.impl.SettingManagerImpl">
+		<constructor-arg ref="settingDao"/>
+	</bean>
+    <!--InsuranceSarneshin-START-->
+    <bean id="insuranceSarneshinDao" class="com.asta.app2.dao.hibernate.InsuranceSarneshinDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="insuranceSarneshinManager" class="com.asta.app2.service.impl.InsuranceSarneshinManagerImpl">
+		<constructor-arg ref="insuranceSarneshinDao"/>
+	</bean>
+
+    <!--InsuranceBadaneh-START-->
+    <bean id="insuranceBadanehDao" class="com.asta.app2.dao.hibernate.InsuranceBadanehDaoHibenrate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="insuranceBadanehManager" class="com.asta.app2.service.impl.InsuranceBadanehManagerImpl">
+		<constructor-arg ref="insuranceBadanehDao"/>
+	</bean>
+	
+    <!--Cash-START-->
+    <bean id="cashDao" class="com.asta.app2.dao.hibernate.CashDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="cashManager" class="com.asta.app2.service.impl.CashManagerImpl">
+		<constructor-arg ref="cashDao"/>
+	</bean>
+
+    <!-- Add new Managers here -->
+</beans>

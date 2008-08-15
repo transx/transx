@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+		<t:saveState id="save1" value="#{sooratForm.service}"/>
+<f:loadBundle var="text" basename="#{sooratForm.bundleName}"/>
+    <head>
+        <title>#{text['sooratDetail.title']}</title>
+        <meta name="heading" content="#{text['sooratDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="sooratForm">
+
+<h:form id="sooratForm" onsubmit="return validateSooratForm(this)">
+<h:inputHidden value="#{sooratForm.soorat.id}" id="id"/>
+<h:panelGrid columns="3">
+    <h:outputLabel styleClass="desc" for="seri" value="#{text['soorat.seri']}"/>
+    <t:message for="seri" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="seri" value="#{sooratForm.soorat.seri}" required="true" maxlength="20">
+        <v:commonsValidator type="required" arg="#{text['soorat.seri']}"/>
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="serial" value="#{text['soorat.serial']}"/>
+    <t:message for="serial" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="serial" value="#{sooratForm.soorat.serial}" required="true" maxlength="10">
+        <v:commonsValidator type="required" arg="#{text['soorat.serial']}"/>
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="issued" value="#{text['soorat.issued']}"/>
+    <t:message for="issued" styleClass="fieldError"/>
+    <h:selectBooleanCheckbox value="#{sooratForm.soorat.issued}" id="issued" styleClass="checkbox"/>
+    <h:outputLabel styleClass="desc" for="destroyed" value="#{text['soorat.destroyed']}"/>
+    <t:message for="destroyed" styleClass="fieldError"/>
+    <h:selectBooleanCheckbox value="#{sooratForm.soorat.destroyed}" id="destroyed" styleClass="checkbox"/>
+    <h:outputLabel styleClass="desc" for="total" value="#{text['soorat.total']}"/>
+    <t:message for="total" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="total" value="#{sooratForm.soorat.total}" required="false" maxlength="255">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="governmentToll" value="#{text['soorat.governmentToll']}"/>
+    <t:message for="governmentToll" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="governmentToll" value="#{sooratForm.soorat.governmentToll}" required="false" maxlength="255">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="insuranceSarneshin" value="#{text['soorat.insuranceSarneshin']}"/>
+    <t:message for="insuranceSarneshin" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="insuranceSarneshin" value="#{sooratForm.soorat.insuranceSarneshin}" required="false" maxlength="255">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="insuranceBadaneh" value="#{text['soorat.insuranceBadaneh']}"/>
+    <t:message for="insuranceBadaneh" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="insuranceBadaneh" value="#{sooratForm.soorat.insuranceBadaneh}" required="false" maxlength="255">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="snack" value="#{text['soorat.snack']}"/>
+    <t:message for="snack" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="snack" value="#{sooratForm.soorat.snack}" required="false" maxlength="255">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="commission" value="#{text['soorat.commission']}"/>
+    <t:message for="commission" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="commission" value="#{sooratForm.soorat.commission}" required="false" maxlength="255">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="driverPay" value="#{text['soorat.driverPay']}"/>
+    <t:message for="driverPay" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="driverPay" value="#{sooratForm.soorat.driverPay}" required="false" maxlength="255">
+    </h:inputText>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{sooratForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty sooratForm.soorat.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{sooratForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Soorat')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateSooratForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('sooratForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

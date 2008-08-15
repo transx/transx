@@ -1,0 +1,182 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{carList.bundleName}"/>
+    <head>
+        <title>#{text['carList.title']}</title>
+        <meta name="heading" content="#{text['carList.heading']}"/>
+        <meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="carList">
+<h:form id="editCar">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="cars" var="car" style="margin-top: 10px"
+    value="#{carList.cars}" rows="10" sortColumn="#{carList.sortColumn}"
+    sortAscending="#{carList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['car.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{carForm.edit}" value="#{car.id}">
+            <f:param name="id" value="#{car.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="carKind" arrow="true">
+                <h:outputText value="#{text['car.carKind']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.carKind}" escape="true"/>
+    </t:column>
+    
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="person" arrow="true">
+                <h:outputText value="#{text['car.person']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.person}" escape="true"/>
+    </t:column>
+    
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="code" arrow="true">
+                <h:outputText value="#{text['car.code']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.code}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="plaqueSerial" arrow="true">
+                <h:outputText value="#{text['car.plaqueSerial']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.plaqueSerial}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="plaqueNumber" arrow="true">
+                <h:outputText value="#{text['car.plaqueNumber']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.plaqueNumber}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="plaqueIssue" arrow="true">
+                <h:outputText value="#{text['car.plaqueIssue']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.plaqueIssue}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="motor" arrow="true">
+                <h:outputText value="#{text['car.motor']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.motor}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="chassis" arrow="true">
+                <h:outputText value="#{text['car.chassis']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.chassis}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="transit" arrow="true">
+                <h:outputText value="#{text['car.transit']}" />
+            </t:commandSortHeader>
+        </f:facet>
+   	 	<h:outputText value="#{car.transit}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="company" arrow="true">
+                <h:outputText value="#{text['car.company']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.company}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="buildYear" arrow="true">
+                <h:outputText value="#{text['car.buildYear']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.buildYear}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="statisticCard" arrow="true">
+                <h:outputText value="#{text['car.statisticCard']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.statisticCard}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="smartCard" arrow="true">
+                <h:outputText value="#{text['car.smartCard']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.smartCard}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="insuranceExamDeadline" arrow="true">
+                <h:outputText value="#{text['car.insuranceExamDeadline']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.insuranceExamDeadlineFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="insuranceThirdDeadline" arrow="true">
+                <h:outputText value="#{text['car.insuranceThirdDeadline']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.insuranceThirdDeadlineFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="insuranceBodyApartDeadline" arrow="true">
+                <h:outputText value="#{text['car.insuranceBodyApartDeadline']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{car.insuranceBodyApartDeadlineFormatted}" escape="true"/>
+    </t:column>
+
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="cars"/>
+</ui:include>
+
+<script type="text/javascript">
+    highlightTableRows("editCar:cars");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

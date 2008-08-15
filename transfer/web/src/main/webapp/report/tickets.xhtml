@@ -1,0 +1,146 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+	
+<f:loadBundle var="text" basename="#{ticketList.bundleName}"/>
+    <head>
+        <title>#{text['ticketList.title']}</title>
+        <meta name="heading" content="#{text['ticketList.heading']}"/>
+        <meta name="menu" content="ReportMenu"/>
+    </head>
+<body id="ticketList">
+
+<h:form id="editTicket">
+	
+	<t:saveState id="reportTicket1" value="#{ticketList.cashId}" />
+	<t:saveState id="reportTicket2" value="#{ticketList.cash}" />
+
+	
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="tickets" var="ticket" style="margin-top: 10px"
+    value="#{ticketList.soldTicketsByCashId}" rows="10" sortColumn="#{ticketList.sortColumn}"
+    sortAscending="#{ticketList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['ticket.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:outputText value="#{ticket.id}" />
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="count" arrow="true">
+                <h:outputText value="#{text['ticket.count']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.count}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="number" arrow="true">
+                <h:outputText value="#{text['ticket.number']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.number}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="price" arrow="true">
+                <h:outputText value="#{text['ticket.price']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.price}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="reserveDate" arrow="true">
+                <h:outputText value="#{text['ticket.reserveDate']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.reserveDateFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="issueDate" arrow="true">
+                <h:outputText value="#{text['ticket.issueDate']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.issueDateFormatted}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="issued" arrow="true">
+                <h:outputText value="#{text['ticket.issued']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:selectBooleanCheckbox value="#{ticket.issued}" id="issued" disabled="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="reserverId" arrow="true">
+                <h:outputText value="#{text['ticket.reserverId']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.reserverId}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="cashier" arrow="true">
+                <h:outputText value="#{text['ticket.cashier']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.cashier.username}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="passenger" arrow="true">
+                <h:outputText value="#{text['ticket.passenger']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.passenger}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="service" arrow="true">
+                <h:outputText value="#{text['ticket.service']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{ticket.service}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <!-- t:commandSortHeader columnName="chairs" arrow="true">
+            </t:commandSortHeader-->
+                <h:outputText value="#{text['ticket.chairs']}" />
+        </f:facet>
+    <h:outputText value="#{ticket.chairs}" escape="true"/>
+    </t:column>
+    
+    <c:set var="SERVICE" value="#{ticket.service}"/>
+    
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="tickets"/>
+</ui:include>
+
+<script type="text/javascript">
+    //highlightTableRows("editTicket:tickets");
+</script>
+
+</h:form>
+	<t:panelGrid columns="2">
+   		<h:outputLabel styleClass="desc2"  value="#{text['cashList.cash']}" />
+		<h:outputText value="#{ticketList.cash}"/>
+   		<h:outputLabel styleClass="desc2"  value="#{text['cash.totalPrice']}" />
+		<h:outputText value="#{ticketList.cash.totalPrice}"/>
+	</t:panelGrid>
+</body>
+</f:view>
+</html> 

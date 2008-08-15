@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:trans="http://app2.asta.com/tags/jsf"
+    xmlns:c="http://java.sun.com/jstl/core">
+<body>
+
+This text above will not be displayed.
+
+<ui:composition template="/tutorial/template.xhtml">
+
+This text will not be displayed.
+
+  <ui:define name="title">
+   The ReserveContainer DEMO!
+  </ui:define>
+
+This text will also not be displayed.
+
+  <ui:define name="body">
+  		<h:form id="reserveTutorialForm">
+			<h:panelGroup>
+				<h:outputLabel styleClass="descInline2" value="#{text['service.chair']}"/>
+				<h:outputLabel value="#{reserveTutorialForm.chairCode}"/>
+			</h:panelGroup>
+		 	<br/>
+		    <h:panelGroup styleClass="buttonBar bottom">
+		        <h:commandButton value="#{text['button.save']}" action="#{reserveTutorialForm.save}" id="save" styleClass="button" disabled="#{reserveTutorialForm.chairDisabled}"/>
+		    </h:panelGroup>		
+		 	<br/>
+		 	<br/>
+			<trans:reserveContainer styleClass="reserveContainer" selectedChairClass="selectedChair" registeredChairClass="registeredChair" reservedChairClass="reservedChair" emptyChairClass="emptyChair" errorChairClass="errorChair">
+
+				<c:forEach begin="1" step="4" end="32" var="chairId">
+					<c:set var="cssClass" value="emptyChair"/>	
+					<c:set var="disabled" value="false"/>	
+					<trans:selectChair itemLabel="${chairId}" itemValue="${chairId} " itemDisabled="${disabled}" x="${chairId}" y="1" cssClass="${cssClass}"/>
+					<f:facet name="${chairId} ">
+						<h:commandLink immediate="true" action="#{reserveTutorialForm.changeChair}">
+							<f:setPropertyActionListener target="#{reserveTutorialForm.chairCode}" value="${chairId}"/>
+							<f:setPropertyActionListener target="#{reserveTutorialForm.chairDisabled}" value="${disabled}"/>
+							<h:outputText value="${chairId}" escape="true"/>
+						</h:commandLink>
+					</f:facet>
+				</c:forEach>
+
+			</trans:reserveContainer>
+  		</h:form>
+	</ui:define>
+
+This text will not be displayed.
+  
+</ui:composition>
+
+This text below will also not be displayed.
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
+
+<f:view>
+<f:loadBundle var="text" basename="#{personForm.bundleName}"/>
+    <head>
+        <title>#{text['personDetail.title']}</title>
+        <meta name="heading" content="#{text['personDetail.heading']}"/>
+        <meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="personForm">
+
+<h:form id="personForm" onsubmit="return validatePersonForm(this)">
+<h:inputHidden value="#{personForm.person.id}" id="id"/>
+<t:panelGrid columns="3">
+   
+    <h:outputLabel styleClass="desc" for="firstName" value="#{text['person.firstName']}"/>
+    <h:inputText styleClass="text medium" id="firstName" value="#{personForm.person.firstName}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.firstName']}"/>
+    </h:inputText>
+    <t:message for="firstName" styleClass="fieldError"/>
+   
+    <h:outputLabel styleClass="desc" for="lastName" value="#{text['person.lastName']}"/>
+    <h:inputText styleClass="text medium" id="lastName" value="#{personForm.person.lastName}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.lastName']}"/>
+    </h:inputText>
+    <t:message for="lastName" styleClass="fieldError"/>
+   
+    <h:outputLabel styleClass="desc" for="fatherName" value="#{text['person.fatherName']}"/>
+    <h:inputText styleClass="text medium" id="fatherName" value="#{personForm.person.fatherName}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.fatherName']}"/>
+    </h:inputText>
+    <t:message for="fatherName" styleClass="fieldError"/>
+ 
+    <h:outputLabel styleClass="desc" for="gender" value="#{text['person.gender']}"/>
+    <h:selectOneRadio value="#{personForm.person.gender}" id="gender" required="true" styleClass="radio">
+		<f:selectItems value="#{lookupProvider.genderItems}"/>
+	</h:selectOneRadio>
+    <t:message for="gender" styleClass="fieldError"/>
+ 
+    <h:outputLabel styleClass="desc" for="birthday" value="#{text['person.birthday']}"/>
+ 	<trans:inputDate2 id="birthday" value="#{personForm.person.birthday}"
+			rendered="true" required="false"/>
+    <t:message for="birthday" styleClass="fieldError"/>
+ 
+    <h:outputLabel styleClass="desc" for="identityNumber" value="#{text['person.identityNumber']}"/>
+    <h:inputText styleClass="text medium" id="identityNumber" value="#{personForm.person.identityNumber}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.identityNumber']}"/>
+    </h:inputText>
+    <t:message for="identityNumber" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="identityIssue" value="#{text['person.identityIssue']}"/>
+    <h:inputText styleClass="text medium" id="identityIssue" value="#{personForm.person.identityIssue}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.identityIssue']}"/>
+    </h:inputText>
+    <t:message for="identityIssue" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="passportNumber" value="#{text['person.passportNumber']}"/>
+    <h:inputText styleClass="text medium" id="passportNumber" value="#{personForm.person.passportNumber}" required="false" maxlength="50">
+    </h:inputText>
+    <t:message for="passportNumber" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="address" value="#{text['person.address']}"/>
+    <h:inputText styleClass="text medium" id="address" value="#{personForm.person.address}" required="false" maxlength="200">
+    </h:inputText>
+    <t:message for="address" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="phone" value="#{text['person.phone']}"/>
+    <h:inputText styleClass="text medium" id="phone" value="#{personForm.person.phone}" required="false" maxlength="50">
+    </h:inputText>
+    <t:message for="phone" styleClass="fieldError"/>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{personForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty personForm.person.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{personForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Person')"/>
+        </c:if>
+
+    </h:panelGroup>
+    <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+        id="cancel" styleClass="button" onclick="bCancel=true"/>
+    <h:outputText/>
+</t:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validatePersonForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('personForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
+
+<f:view>
+<f:loadBundle var="text" basename="#{serviceTemplateForm.bundleName}"/>
+    <head>
+        <title>#{text['serviceTemplateDetail.title']}</title>
+        <meta name="heading" content="#{text['serviceTemplateDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="serviceGenerateForm">
+
+<t:saveState id="serviceGenerateFormSave1" value="#{serviceTemplateForm.serviceTemplate}"/>
+
+<h:form id="serviceGenerateForm" onsubmit="return validateServiceGenerateForm(this)">
+<h:inputHidden value="#{serviceTemplateForm.serviceTemplate.id}" id="id"/>
+<t:panelGrid columns="3">
+
+    <h:outputLabel styleClass="desc" value="#{text['serviceTemplate.timed']}"/>
+    <h:outputText value="#{serviceTemplateForm.serviceTemplate.timed}"/>
+    <h:outputText/>
+ 
+    <h:outputLabel styleClass="desc" value="#{text['serviceTemplate.carKind']}"/>
+    <h:outputText value="#{serviceTemplateForm.serviceTemplate.carKind}"/>
+    <h:outputText/>
+ 
+    <h:outputLabel styleClass="desc" value="#{text['serviceTemplate.path']}"/>
+    <h:outputText value="#{serviceTemplateForm.serviceTemplate.path}"/>
+    <h:outputText/>
+    
+    <h:outputLabel styleClass="desc" for="dateStart" value="#{text['serviceTemplate.dateStart']}"/>
+  	<trans:inputDate2 id="dateStart" value="#{serviceTemplateForm.dateStart}"
+			rendered="true" required="true"/>
+    <t:message for="dateStart" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="dateEnd" value="#{text['serviceTemplate.dateEnd']}"/>
+  	<trans:inputDate2 id="dateEnd" value="#{serviceTemplateForm.dateEnd}"
+			rendered="true" required="true"/>
+    <t:message for="dateEnd" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="counter" value="#{text['serviceTemplate.counter']}"/>
+	<h:selectOneRadio id="counter" value="#{serviceTemplateForm.counter}" required="true" layout="pageDirection">
+		<f:selectItem itemValue="1" itemLabel="1" itemDisabled="false"/>
+		<f:selectItem itemValue="2" itemLabel="2" itemDisabled="false"/>
+		<f:selectItem itemValue="3" itemLabel="3" itemDisabled="false"/>
+		<f:selectItem itemValue="4" itemLabel="4" itemDisabled="false"/>
+	</h:selectOneRadio>
+    <t:message for="counter" styleClass="fieldError"/>
+		
+    <h:commandButton value="#{text['button.generate']}" action="#{serviceTemplateForm.generate}" id="save" styleClass="button"/>
+    <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true" id="cancel" styleClass="button" onclick="bCancel=true"/>
+    <h:outputText/>
+
+</t:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateServiceGenerateForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('serviceTemplateForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

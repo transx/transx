@@ -1,0 +1,146 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
+
+<f:view>
+<f:loadBundle var="text" basename="#{driverForm.bundleName}"/>
+    <head>
+        <title>#{text['driverDetail.title']}</title>
+        <meta name="heading" content="#{text['driverDetail.heading']}"/>
+        <meta name="menu" content="ManagerMenu"/>
+    </head>
+<body id="driverForm">
+
+<h:form id="driverForm" onsubmit="return validateDriverForm(this)">
+<h:inputHidden value="#{driverForm.driver.id}" id="id"/>
+
+<t:saveState id="driverFormSave1" value="#{driverForm.person}"/>
+
+<t:panelGrid columns="3">
+
+
+    <h:outputLabel styleClass="desc" for="firstName" value="#{text['person.firstName']}"/>
+    <h:inputText styleClass="text medium" id="firstName" value="#{driverForm.person.firstName}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.firstName']}"/>
+    </h:inputText>
+    <t:message for="firstName" styleClass="fieldError"/>
+   
+    <h:outputLabel styleClass="desc" for="lastName" value="#{text['person.lastName']}"/>
+    <h:inputText styleClass="text medium" id="lastName" value="#{driverForm.person.lastName}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.lastName']}"/>
+    </h:inputText>
+    <t:message for="lastName" styleClass="fieldError"/>
+   
+    <h:outputLabel styleClass="desc" for="fatherName" value="#{text['person.fatherName']}"/>
+    <h:inputText styleClass="text medium" id="fatherName" value="#{driverForm.person.fatherName}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.fatherName']}"/>
+    </h:inputText>
+    <t:message for="fatherName" styleClass="fieldError"/>
+ 
+    <h:outputLabel styleClass="desc" for="gender" value="#{text['person.gender']}"/>
+    <h:selectOneRadio value="#{driverForm.person.gender}" id="gender" required="true" styleClass="radio">
+		<f:selectItems value="#{lookupProvider.genderItems}"/>
+	</h:selectOneRadio>
+    <t:message for="gender" styleClass="fieldError"/>
+ 
+    <h:outputLabel styleClass="desc" for="birthday" value="#{text['person.birthday']}"/>
+ 	<trans:inputDate2 id="birthday" value="#{driverForm.person.birthday}"
+			rendered="true" required="false"/>
+    <t:message for="birthday" styleClass="fieldError"/>
+ 
+    <h:outputLabel styleClass="desc" for="identityNumber" value="#{text['person.identityNumber']}"/>
+    <h:inputText styleClass="text medium" id="identityNumber" value="#{driverForm.person.identityNumber}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.identityNumber']}"/>
+    </h:inputText>
+    <t:message for="identityNumber" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="identityIssue" value="#{text['person.identityIssue']}"/>
+    <h:inputText styleClass="text medium" id="identityIssue" value="#{driverForm.person.identityIssue}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['person.identityIssue']}"/>
+    </h:inputText>
+    <t:message for="identityIssue" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="passportNumber" value="#{text['person.passportNumber']}"/>
+    <h:inputText styleClass="text medium" id="passportNumber" value="#{driverForm.person.passportNumber}" required="false" maxlength="50">
+    </h:inputText>
+    <t:message for="passportNumber" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="address" value="#{text['person.address']}"/>
+    <h:inputText styleClass="text medium" id="address" value="#{driverForm.person.address}" required="false" maxlength="200">
+    </h:inputText>
+    <t:message for="address" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="phone" value="#{text['person.phone']}"/>
+    <h:inputText styleClass="text medium" id="phone" value="#{driverForm.person.phone}" required="false" maxlength="50">
+    </h:inputText>
+    <t:message for="phone" styleClass="fieldError"/>
+
+
+    <h:outputLabel styleClass="desc" for="code" value="#{text['driver.code']}"/>
+    <h:inputText styleClass="text medium" id="code" value="#{driverForm.driver.code}" required="false" maxlength="50">
+    </h:inputText>
+    <t:message for="code" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="codeNote" value="#{text['driver.codeNote']}"/>
+    <h:inputText styleClass="text medium" id="codeNote" value="#{driverForm.driver.codeNote}" required="false" maxlength="50">
+    </h:inputText>
+    <t:message for="codeNote" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="licenceNumber" value="#{text['driver.licenceNumber']}"/>
+    <h:inputText styleClass="text medium" id="licenceNumber" value="#{driverForm.driver.licenceNumber}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['driver.licenceNumber']}"/>
+    </h:inputText>
+    <t:message for="licenceNumber" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="licenceIssue" value="#{text['driver.licenceIssue']}"/>
+    <h:inputText styleClass="text medium" id="licenceIssue" value="#{driverForm.driver.licenceIssue}" required="true" maxlength="100">
+        <v:commonsValidator type="required" arg="#{text['driver.licenceIssue']}"/>
+    </h:inputText>
+    <t:message for="licenceIssue" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="insuranceNumber" value="#{text['driver.insuranceNumber']}"/>
+    <h:inputText styleClass="text medium" id="insuranceNumber" value="#{driverForm.driver.insuranceNumber}" required="true" maxlength="50">
+        <v:commonsValidator type="required" arg="#{text['driver.insuranceNumber']}"/>
+    </h:inputText>
+    <t:message for="insuranceNumber" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="insuranceDeadline" value="#{text['driver.insuranceDeadline']}"/>
+    <trans:inputDate2 id="insuranceDeadline" value="#{driverForm.driver.insuranceDeadline}"
+			rendered="true" required="true">
+        <v:commonsValidator type="required" arg="#{text['driver.insuranceDeadline']}"/>
+	</trans:inputDate2>		
+    <t:message for="insuranceDeadline" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="contractDeadline" value="#{text['driver.contractDeadline']}"/>
+	<trans:inputDate2 id="contractDeadline" value="#{driverForm.driver.contractDeadline}"
+			rendered="true" required="false">
+	</trans:inputDate2>		    
+    <t:message for="contractDeadline" styleClass="fieldError"/>
+
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{driverForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty driverForm.driver.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{driverForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Driver')"/>
+        </c:if>
+
+    </h:panelGroup>
+    <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    <h:outputText/>
+</t:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateDriverForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('driverForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

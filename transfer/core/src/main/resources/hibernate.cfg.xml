@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <mapping class="com.asta.app2.model.User"/>
+        <mapping class="com.asta.app2.model.Role"/>
+        <mapping class="com.asta.app2.model.Country"/>
+        <mapping class="com.asta.app2.model.City"/>
+        <mapping class="com.asta.app2.model.Path"/>
+        <mapping class="com.asta.app2.model.Company"/>
+        <mapping class="com.asta.app2.model.CarKind"/>
+        <mapping class="com.asta.app2.model.ServiceTemplate"/>
+        <mapping class="com.asta.app2.model.Person"/>
+        <mapping class="com.asta.app2.model.Driver"/>
+        <mapping class="com.asta.app2.model.Lodger"/>
+        <mapping class="com.asta.app2.model.Car"/>
+        <mapping class="com.asta.app2.model.Passenger"/>
+        <mapping class="com.asta.app2.model.Service"/>
+        <mapping class="com.asta.app2.model.Chair"/>
+        <mapping class="com.asta.app2.model.Ticket"/>
+        <mapping class="com.asta.app2.model.TicketTemp"/>
+        <mapping class="com.asta.app2.model.Soorat"/>
+        <mapping class="com.asta.app2.model.Rate"/>
+        <mapping class="com.asta.app2.model.Setting"/>
+        <mapping class="com.asta.app2.model.InsuranceSarneshin"/>
+        <mapping class="com.asta.app2.model.InsuranceBadaneh"/>
+        <mapping class="com.asta.app2.model.Cash"/>
+    </session-factory>
+</hibernate-configuration>

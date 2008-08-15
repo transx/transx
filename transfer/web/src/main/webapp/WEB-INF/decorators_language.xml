@@ -1,0 +1,8 @@
+<decorators defaultdir="/decorators">
+    <decorator name="match.fa" page="default_fa.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+    <decorator name="match.en" page="default_en.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators> 

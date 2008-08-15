@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{passengerForm.bundleName}"/>
+    <head>
+        <title>#{text['passengerDetail.title']}</title>
+        <meta name="heading" content="#{text['passengerDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="passengerForm">
+
+<h:form id="passengerForm" onsubmit="return validatePassengerForm(this)">
+<h:inputHidden value="#{passengerForm.passenger.id}" id="id"/>
+<h:panelGrid columns="3">
+    <h:outputLabel styleClass="desc" for="firstName" value="#{text['passenger.firstName']}"/>
+    <t:message for="firstName" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="firstName" value="#{passengerForm.passenger.firstName}" required="false" maxlength="50">
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="lastName" value="#{text['passenger.lastName']}"/>
+    <t:message for="lastName" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="lastName" value="#{passengerForm.passenger.lastName}" required="true" maxlength="100">
+        <v:commonsValidator type="required" arg="#{text['passenger.lastName']}"/>
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="gender" value="#{text['passenger.gender']}"/>
+    <t:message for="gender" styleClass="fieldError"/>
+    <h:selectOneRadio value="#{passengerForm.passenger.gender}" id="gender" required="true" styleClass="radio">
+		<f:selectItems value="#{lookupProvider.genderItems}"/>
+	</h:selectOneRadio>
+    
+    <h:outputLabel styleClass="desc" for="passportNumber" value="#{text['passenger.passportNumber']}"/>
+    <t:message for="passportNumber" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="passportNumber" value="#{passengerForm.passenger.passportNumber}" required="false" maxlength="20">
+    </h:inputText>
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{passengerForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty passengerForm.passenger.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{passengerForm.delete2}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Passenger')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validatePassengerForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('passengerForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

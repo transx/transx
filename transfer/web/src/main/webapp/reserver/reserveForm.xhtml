@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
+
+<f:view>
+	<t:saveState id="save1" value="#{reserveForm.service}"/>
+	<t:saveState id="save2" value="#{reserveForm.passenger}"/>
+<f:loadBundle var="text" basename="#{reserveForm.bundleName}"/>
+    <head>
+        <title>#{text['reserveDetail.title']}</title>
+        <meta name="heading" content="#{text['reserveDetail.heading']}"/>
+    </head>
+<body id="reserveForm">
+<h:form id="reserveForm">
+	<h:messages styleClass="fieldError" />
+	
+	<t:panelGrid columns="2">
+		<t:panelGrid columns="2" >
+		
+		    <h:outputLabel styleClass="desc2" for="id" value="#{text['service.datebook']}"/>
+		    <h:outputText value="#{reserveForm.service.datebookFormatted}" escape="true"/>
+
+		    <h:outputLabel styleClass="desc2" for="id" value="#{text['service.timed']}"/>
+		    <h:outputText value="#{reserveForm.service.timed}" escape="true"/>
+	       
+		    <h:outputLabel styleClass="desc2" for="id" value="#{text['service.carKind']}"/>
+		    <h:outputText value="#{reserveForm.service.carKind}" escape="true"/>
+
+		    <h:outputLabel styleClass="desc2" for="id" value="#{text['service.path']}"/>
+		    <h:outputText value="#{reserveForm.service.path}" escape="true"/>
+	       	
+	       	<h:outputText/><h:outputText/>
+	       	<h:outputText/><h:outputText/>
+	       	<h:outputText/><h:outputText/>
+	       	<h:outputText/><h:outputText/>
+	       
+	        <h:commandButton value="#{text['button.new']}" action="#{reserveForm.newTT}" id="new" styleClass="button" />
+	        <h:outputText />
+	
+		    <h:outputLabel styleClass="desc2" for="firstName" value="#{text['passenger.firstName']}"/>
+			<h:panelGroup>
+			    <h:inputText styleClass="text medium" id="firstName" value="#{reserveForm.passenger.firstName}" maxlength="50" disabled="#{reserveForm.isChairDisabled}"/>
+			    <t:message for="firstName" styleClass="fieldError"/>
+			</h:panelGroup>
+			
+			<h:panelGroup>
+			    <h:outputLabel styleClass="desc2" for="lastName" value="#{text['passenger.lastName']}"/>
+			    <span class="req">*</span>
+			</h:panelGroup>
+		    <h:inputText styleClass="text medium" id="lastName" value="#{reserveForm.passenger.lastName}" maxlength="100" disabled="#{reserveForm.isChairDisabled}">
+		        <v:commonsValidator type="required" arg="#{text['passenger.lastName']}"/>
+		    </h:inputText>
+		    
+	
+		    <h:outputLabel styleClass="desc2" for="passportNumber" value="#{text['passenger.passportNumber']}"/>
+			<h:panelGroup>
+			    <h:inputText styleClass="text medium" id="passportNumber" value="#{reserveForm.passenger.passportNumber}" maxlength="20" disabled="#{reserveForm.isChairDisabled}">
+			    </h:inputText>
+			    <t:message for="passportNumber" styleClass="fieldError"/>
+			</h:panelGroup>
+	
+	
+			<h:panelGroup>
+			    <h:outputLabel styleClass="desc2" for="gender" value="#{text['passenger.gender']}"/>
+			    <span class="req">*</span>
+			</h:panelGroup>
+	        <h:selectOneRadio value="#{reserveForm.passenger.gender}" id="gender" styleClass="radio" disabled="#{reserveForm.isChairDisabled}">
+				<f:selectItems value="#{reserveForm.genderItems}"/>
+			</h:selectOneRadio>
+	
+			<h:panelGroup>
+			    <h:outputLabel styleClass="desc2" for="path" value="#{text['reserve.path']}"/>
+			    <span class="req">*</span>
+			</h:panelGroup>
+		    <h:selectOneRadio value="#{reserveForm.pathID}" id="path" styleClass="radio" disabled="#{reserveForm.isChairDisabled}">
+		        <f:selectItems value="#{reserveForm.pathMap}"/>
+		    </h:selectOneRadio>
+			
+		    <h:panelGroup styleClass="buttonBar bottom">
+		        <h:commandButton value="#{text['button.save']}" action="#{reserveForm.save}" id="save" styleClass="button"  disabled="#{reserveForm.isChairDisabled}"/>
+		    </h:panelGroup>		
+	        <h:outputText />
+			
+			
+			<h:outputLabel styleClass="desc2" value="#{text['service.reserver']}"/>
+			<h:outputLabel value="#{reserveForm.reserverID}"/>
+			
+	        <h:commandButton value="#{text['button.refresh']}" action="#{reserveForm.refresh}" id="refresh" styleClass="button"/>
+	        <h:commandButton value="#{text['button.close']}" action="cancel" immediate="true" id="cancel" styleClass="button" onclick="bCancel=true"/>
+
+		</t:panelGrid>
+		<h:panelGroup>
+			<trans:graphicR2 bean="#{reserveForm}" cap="capacity" chairs="chairModels" passenger="passenger" selectedChairs="selectedChairs" newPassenger="newPassenger" pathID="pathID"/>
+		</h:panelGroup>	
+	</t:panelGrid>
+	
+</h:form>
+
+<v:validatorScript functionName="validateReserveForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('reserveForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

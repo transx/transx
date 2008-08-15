@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{carKindForm.bundleName}"/>
+    <head>
+        <title>#{text['carKindDetail.title']}</title>
+        <meta name="heading" content="#{text['carKindDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+    </style>
+    </head>
+<body id="carKindForm">
+
+<h:form id="carKindForm" onsubmit="return validateCarKindForm(this)">
+<h:inputHidden value="#{carKindForm.carKind.id}" id="id"/>
+<h:panelGrid columns="3">
+    
+    <h:outputLabel styleClass="desc" for="name" value="#{text['carKind.name']}"/>
+    <t:message for="name" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="name" value="#{carKindForm.carKind.name}" required="true" maxlength="100">
+        <v:commonsValidator type="required" arg="#{text['carKind.name']}"/>
+    </h:inputText>
+    
+    <h:outputLabel styleClass="desc" for="capacity" value="#{text['carKind.capacity']}"/>
+    <t:message for="capacity" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="capacity" value="#{carKindForm.carKind.capacity}" required="true" maxlength="255">
+        <v:commonsValidator type="required" arg="#{text['carKind.capacity']}"/>
+    </h:inputText>
+
+    <h:outputLabel styleClass="desc" for="quality" value="#{text['carKind.quality']}"/>
+    <t:message for="quality" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{carKindForm.carKind.quality}" id="quality" required="false" styleClass="select">
+		<f:selectItems value="#{carKindForm.qualityItems}"/>
+	</h:selectOneMenu>	
+
+    <h:outputLabel styleClass="desc" for="type" value="#{text['carKind.type']}"/>
+    <t:message for="type" styleClass="fieldError"/>
+    <h:selectOneMenu value="#{carKindForm.carKind.type}" id="type" required="false" styleClass="select">
+		<f:selectItems value="#{carKindForm.typeItems}"/>
+	</h:selectOneMenu>	
+
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{carKindForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty carKindForm.carKind.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{carKindForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('CarKind')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateCarKindForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('carKindForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>
