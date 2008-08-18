@@ -55,20 +55,20 @@ public class Ticket extends BaseObject implements Serializable,
 	@Column(name = "reserver_id")
 	private String reserverId;
 	@ManyToOne
-	@JoinColumn(name = "cashier_id", nullable = true)
+	@JoinColumn(name = "cashier_id", nullable = false)
 	private User cashier;
 	@ManyToOne
 	@JoinColumn(name = "returner_id", nullable = true)
 	private User returner;
 	@ManyToOne
-	@JoinColumn(name = "passenger_id", nullable = true)
+	@JoinColumn(name = "passenger_id", nullable = false)
 	private Passenger passenger;
 	@ManyToOne
-	@JoinColumn(name = "service_id", nullable = true)
+	@JoinColumn(name = "service_id", nullable = false)
 	private Service service;
 
 	@ManyToOne
-	@JoinColumn(name = "path_id", nullable = true)
+	@JoinColumn(name = "path_id", nullable = false)
 	private Path path;
 
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -76,20 +76,12 @@ public class Ticket extends BaseObject implements Serializable,
 	private Set<Chair> chairs = new HashSet<Chair>();
 
 	@ManyToOne
-	@JoinColumn(name = "cash_id", nullable = true)
+	@JoinColumn(name = "cash_id", nullable = false)
 	private Cash cash;
 
 	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = true)
+	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
-	
-	public Company getCompany() {
-		return company;
-	}
-
-	public void setCompany(Company company) {
-		this.company = company;
-	}
 
 	public Ticket() {
 	}
@@ -306,4 +298,11 @@ public class Ticket extends BaseObject implements Serializable,
 		this.returner = returner;
 	}
 
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
 }

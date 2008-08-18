@@ -173,7 +173,7 @@ public class ReserveForm extends BasePage implements Serializable {
 	}
 
 	public String newTT() {
-		service = serviceManager.get(service.getId());
+//		service = serviceManager.get(service.getId());
 		passenger = new Passenger();
 		isChairDisabled = "false";
 		return "edit";

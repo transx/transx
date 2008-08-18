@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.asta.app2.model.enums.Gender;
 import com.asta.app2.util.DateUtil;
@@ -53,7 +54,7 @@ public class Person extends BaseObject implements Comparable<Person> {
 	private Lodger lodger;
 
 	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = true)
+	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 	
 	@Override

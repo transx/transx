@@ -38,11 +38,6 @@ public class SooratSodorForm extends BasePage implements Serializable {
 	private InsuranceSarneshinManager insuranceSarneshinManager;
 	private InsuranceBadanehManager insuranceBadanehManager;
 
-	public void setInsuranceBadanehManager(
-			InsuranceBadanehManager insuranceBadanehManager) {
-		this.insuranceBadanehManager = insuranceBadanehManager;
-	}
-
 	public String delete() {
 		sooratManager.remove(soorat.getId());
 		addMessage("soorat.deleted");
@@ -102,13 +97,26 @@ public class SooratSodorForm extends BasePage implements Serializable {
 	public List<ChairModel> getChairModels() {
 		chairModels = new ArrayList<ChairModel>();
 		chairModels.clear();
+		Integer passengerCount = 0;
+		Long total =0L;
+		Long snack = 0L;
+		Long toll = 0L;
 		for (Ticket ticket : getTickets()) {
 			for (Chair chair : ticket.getChairs()) {
 				ChairModel model = new ChairModel(chair.getId(), ticket
-						.getPassenger(), ticket.getNumber(), ticket.getPrice(), ticket.getToll());
+						.getPassenger(), ticket.getNumber(), ticket.getPrice(),
+						ticket.getToll(), ticket.getSnack());
 				chairModels.add(model);
 			}
+			passengerCount = passengerCount + ticket.getChairs().size();
+			total = total + ticket.getTotal();
+			snack = snack + ticket.getSnack();
+			toll = toll + ticket.getToll();
 		}
+		soorat.setPassengerCount(passengerCount);
+		soorat.setTotal(total);
+		soorat.setSnack(snack);
+		soorat.setGovernmentToll(toll);
 		return chairModels;
 	}
 
@@ -149,9 +157,15 @@ public class SooratSodorForm extends BasePage implements Serializable {
 		this.serviceManager = serviceManager;
 	}
 
+	public void setInsuranceBadanehManager(
+			InsuranceBadanehManager insuranceBadanehManager) {
+		this.insuranceBadanehManager = insuranceBadanehManager;
+	}
+
 	public List<Ticket> getTickets() {
 		if (tickets == null)
-			tickets = ticketManager.getTicketsByService(getCurrentUser().getCompany(),service);
+			tickets = ticketManager.getTicketsByService(getCurrentUser()
+					.getCompany(), service);
 		return tickets;
 	}
 

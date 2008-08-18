@@ -18,6 +18,7 @@
 
     <h:outputLabel styleClass="desc" for="timed" value="#{text['serviceTemplate.timed']}"/>
     <h:inputText styleClass="text medium" id="timed" value="#{serviceTemplateForm.serviceTemplate.timed}" required="true" maxlength="10" >
+        <v:commonsValidator type="required" arg="#{text['serviceTemplate.timed']}"/>
     </h:inputText>
     <t:message for="timed" styleClass="fieldError"/>
     

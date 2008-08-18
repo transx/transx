@@ -20,7 +20,16 @@ public class ChairModel implements Serializable {
 	private Long ticketNumber;
 	private Long ticketPrice;
 	private Long ticketToll;
+	private Long ticketSnack;
 	
+	public Long getTicketSnack() {
+		return ticketSnack;
+	}
+
+	public void setTicketSnack(Long ticketSnack) {
+		this.ticketSnack = ticketSnack;
+	}
+
 	public Long getTicketToll() {
 		return ticketToll;
 	}
@@ -42,12 +51,13 @@ public class ChairModel implements Serializable {
 		this.pathID = pathID;
 	}
 
-	public ChairModel(Long id, Passenger passenger, Long ticketNumber, Long ticketPrice,Long ticketToll) {
+	public ChairModel(Long id, Passenger passenger, Long ticketNumber, Long ticketPrice,Long ticketToll,Long ticketSnack) {
 		this.id = id;
 		this.passenger = passenger;
 		this.ticketNumber = ticketNumber;
 		this.ticketPrice = ticketPrice;
 		this.ticketToll = ticketToll;
+		this.ticketSnack = ticketSnack;
 	}
 
 	public Long getId() {

@@ -43,13 +43,13 @@ public class TicketTemp extends BaseObject implements Serializable,
 	@Column(name = "reserver_id")
 	private String reserverId;
 	@ManyToOne
-	@JoinColumn(name = "passenger_id", nullable = true)
+	@JoinColumn(name = "passenger_id", nullable = false)
 	private Passenger passenger;
 	@ManyToOne
-	@JoinColumn(name = "service_id", nullable = true)
+	@JoinColumn(name = "service_id", nullable = false)
 	private Service service;
 	@ManyToOne
-	@JoinColumn(name = "path_id", nullable = true)
+	@JoinColumn(name = "path_id", nullable = false)
 	private Path path;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "ticket_temp_chair", joinColumns = { @JoinColumn(name = "ticket_temp_id") }, inverseJoinColumns = @JoinColumn(name = "chair_id"))

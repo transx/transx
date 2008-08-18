@@ -42,8 +42,9 @@ public class LodgerForm extends BasePage implements Serializable {
 
     public String save() {
         boolean isNew = (lodger.getId() == null);
-        
+        person.setCompany(getCurrentUser().getCompany());
         person = personManager.savePerson(person);
+        lodger.setCompany(getCurrentUser().getCompany());
         lodger.setPerson(person);
         lodgerManager.save(lodger);
 

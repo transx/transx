@@ -26,7 +26,7 @@ public class Lodger extends BaseObject {
 	private Person person;
 
 	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = true)
+	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 	
 	@Override

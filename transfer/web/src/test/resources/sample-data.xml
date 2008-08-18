@@ -1133,35 +1133,7 @@
             <value description="service_id">-3</value>
             <value description="path_id">-4</value>
         </row>
-    </table>    
-    <table name="service_passenger">
-        <column>service_id</column>
-        <column>passenger_id</column>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-1</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-3</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-4</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-5</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-6</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-7</value>
-        </row>
-    </table>    
+    </table>     
     <!--Service-END-->
 
 	<!--Chair-START-->
@@ -1998,6 +1970,7 @@
         <column>company_id</column>
         <column>cash_id</column>
         <column>cashier_id</column>
+        <column>passenger_count</column>
     <row>
         <value description="id">-1</value>
         <value description="service_id">-1</value>
@@ -2016,6 +1989,7 @@
         <value description="company_id">-1</value>
         <null/>
         <null/>
+        <value description="passenger_count">0</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -2035,6 +2009,7 @@
         <value description="company_id">-1</value>
         <null/>
         <null/>
+        <value description="passenger_count">0</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -2054,6 +2029,7 @@
         <value description="company_id">-1</value>
         <null/>
         <null/>
+        <value description="passenger_count">0</value>
     </row>
     </table>
     <!--Soorat-END-->

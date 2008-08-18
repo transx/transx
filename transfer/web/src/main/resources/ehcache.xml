@@ -50,4 +50,34 @@
         diskExpiryThreadIntervalSeconds="120"/>
         
     <!-- See http://ehcache.sourceforge.net/documentation/#mozTocId258426 for how to configure caching for your objects -->
+	<cache
+    	name="com.asta.app2.model.Service"
+   	 	maxElementsInMemory="10000"
+    	eternal="false"
+    	timeToIdleSeconds="300"
+    	timeToLiveSeconds="600"
+    	overflowToDisk="true"
+	/>
+	<cache
+	     name="com.asta.app2.model.Service.drivers"
+	     maxElementsInMemory="450"
+	     eternal="false"
+	     timeToLiveSeconds="600"
+	     overflowToDisk="true"
+ 	/>
+	<cache
+	     name="com.asta.app2.model.Service.lodgers"
+	     maxElementsInMemory="450"
+	     eternal="false"
+	     timeToLiveSeconds="600"
+	     overflowToDisk="true"
+ 	/>
+	<cache
+	     name="com.asta.app2.model.Service.paths"
+	     maxElementsInMemory="450"
+	     eternal="false"
+	     timeToLiveSeconds="600"
+	     overflowToDisk="true"
+ 	/>
+
 </ehcache>

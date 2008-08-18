@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * This entity is for gathering and saving the information of each
@@ -23,7 +24,7 @@ public class Soorat {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "service_id", nullable = true)
+	@JoinColumn(name = "service_id", nullable = false)
 	private Service service;
 
 	@Column(length = 20, nullable = false)
@@ -37,22 +38,24 @@ public class Soorat {
 
 	@Column(nullable = true)
 	private boolean destroyed;
-
+	@Column(nullable = false)
 	private Long total;
-	@Column(name = "government_toll")
+	@Column(name = "government_toll",nullable = false)
 	private Long governmentToll;
 
-	@Column(name = "insurance_sarneshin")
+	@Column(name = "insurance_sarneshin", nullable = false)
 	private Long insuranceSarneshin;
 
-	@Column(name = "insurance_badaneh")
+	@Column(name = "insurance_badaneh", nullable = false)
 	private Long insuranceBadaneh;
 
+	@Column(nullable = false)
 	private Long snack;
 
+	@Column(nullable = false)
 	private Long commission;
 
-	@Column(name = "driver_pay")
+	@Column(name = "driver_pay", nullable = false)
 	private Long driverPay;
 
 	@ManyToOne
@@ -62,14 +65,17 @@ public class Soorat {
 	@ManyToOne
 	@JoinColumn(name = "cash_id", nullable = true)
 	private Cash cash;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "cashier_id", nullable = true)
 	private User cashier;
-	
-	@Column(name = "driver_paid")
-	private boolean driverPaid; 
-	
+
+	@Column(name = "driver_paid", nullable = false)
+	private boolean driverPaid;
+
+	@Column(name = "passenger_count",length = 3, nullable = false)
+	private Integer passengerCount;
+
 	public Long getId() {
 		return id;
 	}
@@ -206,4 +212,11 @@ public class Soorat {
 		this.cashier = cashier;
 	}
 
+	public Integer getPassengerCount() {
+		return passengerCount;
+	}
+
+	public void setPassengerCount(Integer passengerCount) {
+		this.passengerCount = passengerCount;
+	}
 }

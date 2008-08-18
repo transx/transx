@@ -3,6 +3,9 @@ package com.asta.app2.dao.hibernate;
 
 import java.util.List;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import com.asta.app2.dao.ServiceDao;
 import com.asta.app2.model.Company;
 import com.asta.app2.model.Service;
@@ -27,6 +30,7 @@ public class ServiceDaoHibernate extends GenericDaoHibernate<Service, Long>
 		return service;
 	}
 
+	@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 	public List<Service> getAllServices(Company company) {
 		return getHibernateTemplate().find("from Service service where service.company=? and service.serviceExpired=0",company);
 	}

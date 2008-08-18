@@ -25,13 +25,13 @@ public class ServiceTemplate extends BaseObject implements
 	@Column(length = 10, nullable = true)
 	private String timed;
 	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = true)
+	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 	@ManyToOne
-	@JoinColumn(name = "car_kind_id", nullable = true)
+	@JoinColumn(name = "car_kind_id", nullable = false)
 	private CarKind carKind;
 	@ManyToOne
-	@JoinColumn(name = "path_id", nullable = true)
+	@JoinColumn(name = "path_id", nullable = false)
 	private Path path;
 
 	@Override

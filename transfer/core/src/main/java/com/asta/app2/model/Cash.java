@@ -46,7 +46,7 @@ public class Cash extends BaseObject {
 	private Long totalPrice;
 
 	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = true)
+	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 
 	@Column(name = "number_cash")

@@ -93,9 +93,7 @@
     </t:column>
     <t:column>
         <f:facet name="header">
-            <t:commandSortHeader columnName="opened" arrow="true">
-                <h:outputText value="#{text['service.opened']}" />
-            </t:commandSortHeader>
+            <h:outputText value="#{text['service.opened']}" />
         </f:facet>
 		<h:graphicImage value="/images/iconOpen.png" rendered="#{service.opened}"/>
 		<h:graphicImage value="/images/iconClose.png" rendered="#{!service.opened}"/>

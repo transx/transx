@@ -52,6 +52,7 @@ public class PersonForm extends BasePage implements Serializable {
 
 	public String save() {
 		boolean isNew = (person.getId() == null);
+		person.setCompany(getCurrentUser().getCompany());
 		personManager.save(person);
 
 		String key = (isNew) ? "person.added" : "person.updated";

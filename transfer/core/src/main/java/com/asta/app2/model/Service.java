@@ -21,6 +21,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import com.asta.app2.model.enums.Weekday;
 import com.asta.app2.util.DateUtil;
 
@@ -29,8 +32,8 @@ import com.asta.app2.util.DateUtil;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
-public class Service extends BaseObject implements Serializable,
-		Comparable<Service> {
+@Cache(usage= CacheConcurrencyStrategy.READ_WRITE)
+public class Service extends BaseObject implements Serializable,Comparable<Service> {
 	private static final long serialVersionUID = 772935845822949036L;
 
 	@Id
@@ -55,13 +58,13 @@ public class Service extends BaseObject implements Serializable,
 	private boolean serviceExpired;
 
 	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = true)
+	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 	@ManyToOne
-	@JoinColumn(name = "car_kind_id", nullable = true)
+	@JoinColumn(name = "car_kind_id", nullable = false)
 	private CarKind carKind;
 	@ManyToOne
-	@JoinColumn(name = "path_id", nullable = true)
+	@JoinColumn(name = "path_id", nullable = false)
 	private Path path;
 	@ManyToOne
 	@JoinColumn(name = "car_id", nullable = true)
@@ -73,16 +76,17 @@ public class Service extends BaseObject implements Serializable,
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "service_driver", joinColumns = { @JoinColumn(name = "service_id") }, inverseJoinColumns = @JoinColumn(name = "driver_id"))
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private Set<Driver> drivers = new HashSet<Driver>();
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "service_lodger", joinColumns = { @JoinColumn(name = "service_id") }, inverseJoinColumns = @JoinColumn(name = "lodger_id"))
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private Set<Lodger> lodgers = new HashSet<Lodger>();
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "service_path", joinColumns = { @JoinColumn(name = "service_id") }, inverseJoinColumns = @JoinColumn(name = "path_id"))
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private Set<Path> paths = new HashSet<Path>();
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "service_passenger", joinColumns = { @JoinColumn(name = "service_id") }, inverseJoinColumns = @JoinColumn(name = "passenger_id"))
-	private Set<Passenger> passengers = new HashSet<Passenger>();
+
 
 	public Service() {
 	}
@@ -277,14 +281,6 @@ public class Service extends BaseObject implements Serializable,
 	 */
 	public void addPath(Path path) {
 		getPaths().add(path);
-	}
-
-	public Set<Passenger> getPassengers() {
-		return passengers;
-	}
-
-	public void setPassengers(Set<Passenger> passengers) {
-		this.passengers = passengers;
 	}
 
 	public Driver getDriver1() {

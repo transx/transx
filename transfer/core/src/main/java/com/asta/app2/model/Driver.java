@@ -48,7 +48,7 @@ public class Driver extends BaseObject implements Serializable,
 	private Person person;
 
 	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = true)
+	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 
 	public Driver() {

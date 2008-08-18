@@ -41,7 +41,9 @@ public class DriverForm extends BasePage implements Serializable {
 	public String save() {
 		boolean isNew = (driver.getId() == null);
 		
+		person.setCompany(getCurrentUser().getCompany());
 		person = personManager.savePerson(person);
+		driver.setCompany(getCurrentUser().getCompany());
 		driver.setPerson(person);
 		driverManager.save(driver);
 

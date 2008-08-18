@@ -70,6 +70,14 @@
     </t:column>
     <t:column>
         <f:facet name="header">
+            <t:commandSortHeader columnName="passengerCount" arrow="true">
+                <h:outputText value="#{text['soorat.passengerCount']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{soorat.passengerCount}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
             <t:commandSortHeader columnName="total" arrow="true">
                 <h:outputText value="#{text['soorat.total']}" />
             </t:commandSortHeader>
