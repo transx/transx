@@ -22,11 +22,21 @@ public class TicketDaoHibernate extends GenericDaoHibernate<Ticket, Long> implem
 	public List<Ticket> getAllTickets(Company company) {
 		return getHibernateTemplate().find("from Ticket");
 	}
-
+	
+	/**
+	 * @param service
+	 * @param company		//this parameter exist on service
+	 * @return List<Ticket>
+	 */
 	public List<Ticket> getTicketsByService(Company company,Service service) {
 		return getHibernateTemplate().find("from Ticket as tic where tic.service=? and tic.issued=1", service);
 	}
 
+	/**
+	 * @param cash
+	 * @param company		//this parameter exist on service
+	 * @return List<Ticket>
+	 */
 	public List<Ticket> getAllTicketsByCashId(Company company,Cash cash) {
 		return getHibernateTemplate().find("from Ticket as t where t.cash=?",cash);
 	}

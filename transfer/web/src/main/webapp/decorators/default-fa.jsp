@@ -23,7 +23,7 @@
         </div>
 
         <div id="content" class="clearfix">
-
+			<%-- 
             <c:set var="currentMenu" scope="request"><decorator:getProperty property="meta.menu"/></c:set>
             <c:if test="${currentMenu == 'AdminMenu'}">
             <div id="sub">
@@ -53,6 +53,7 @@
                 </menu:useMenuDisplayer>
             </div>
             </c:if>
+			--%>
 
             <div id="main">
                 <%@ include file="/common/messages.jsp" %>

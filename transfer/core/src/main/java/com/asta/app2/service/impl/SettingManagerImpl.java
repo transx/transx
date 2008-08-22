@@ -2,6 +2,7 @@
 package com.asta.app2.service.impl;
 
 import com.asta.app2.dao.SettingDao;
+import com.asta.app2.model.Company;
 import com.asta.app2.model.Setting;
 import com.asta.app2.service.SettingManager;
 
@@ -16,6 +17,10 @@ public class SettingManagerImpl extends GenericManagerImpl<Setting, Long>
 	public SettingManagerImpl(SettingDao settingDao) {
 		super(settingDao);
 		this.settingDao = settingDao;
+	}
+
+	public Setting getSettingByCompany(Company company) {
+		return settingDao.getSettingByCompany(company);
 	}
 
 }

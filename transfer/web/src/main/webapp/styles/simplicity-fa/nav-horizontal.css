@@ -91,7 +91,7 @@
                 text-decoration: none;
                 color: #777;
                 width: 90px;
-                text-align: center;
+                text-align: justify;
                 white-space: nowrap;
             }
         /* Fix IE. Hide from IE Mac \*/
@@ -105,7 +105,7 @@
                 position: absolute;
                 display: none;
                 right: 0px; /* Set 1px less than menu width */
-                top: 22px;
+                top: 21px;
             }
                 ul#primary-nav ul li {
                     border: 1px solid silver;

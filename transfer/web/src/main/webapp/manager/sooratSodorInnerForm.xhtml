@@ -4,13 +4,15 @@
       xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
 
 <f:view>
-		<t:saveState id="save1" value="#{sooratSodorForm.service}"/>
 <f:loadBundle var="text" basename="#{sooratSodorForm.bundleName}"/>
     <head>
         <title>#{text['sooratDetail.title']}</title>
         <meta name="heading" content="#{text['sooratDetail.heading']}"/>
     </head>
 <body id="sooratForm">
+		<t:saveState id="sooratFormServiceSave1" value="#{sooratSodorForm.service}"/>
+		<t:saveState id="sooratFormSooratSave2" value="#{sooratSodorForm.soorat}"/>
+		<t:saveState id="sooratFormSettingSave3" value="#{sooratSodorForm.setting}"/>
 
 <h:form id="sooratSodorForm" onsubmit="return validateSooratForm(this)">
 <h:inputHidden value="#{sooratSodorForm.soorat.id}" id="id"/>
@@ -18,7 +20,7 @@
 	
 	<h:outputText />
 	<h:outputText />
-    <h3>#{text['soorat.title1']}</h3>
+	<h:outputText />
 	<h:outputText />
 	<h:outputText />
 
@@ -30,11 +32,11 @@
    </h:panelGroup>	
     <h:panelGroup>
 	    <t:message for="seri" styleClass="fieldError"/>
-	    <h:inputText styleClass="text small" id="seri" value="#{sooratSodorForm.soorat.seri}" maxlength="20">
+	    <h:inputText styleClass="text medium" id="seri" value="#{sooratSodorForm.soorat.seri}" maxlength="20">
 	        <v:commonsValidator type="required" arg="#{text['soorat.seri']}"/>
 	    </h:inputText>
     </h:panelGroup>	
-    <h3>#{text['soorat.title2']}</h3>
+	<h:outputText />
 	<h:outputText />
 	<h:outputText />
 	
@@ -45,12 +47,12 @@
     <h:panelGroup>
 	    <h:outputText value="#{sooratSodorForm.service.company.city}" />
     </h:panelGroup>
-    <h3>#{text['soorat.title3']}</h3>
+	<h:outputText />
     <h:panelGroup>
 	    <h:outputText value="#{sooratSodorForm.service.timed}" />
 	</h:panelGroup>
     <h:panelGroup>
-	    <h:outputText value="#{text['soorat.defaultPlace']}" /><h:outputText value="-"/>
+	    <h:outputLabel styleClass="desc2" value="#{text['soorat.defaultPlace']}" /><h:outputText value="-"/>
 	    <h:outputText value="#{sooratSodorForm.service.path.end}" />
     </h:panelGroup>
 	
@@ -60,8 +62,7 @@
 	    <h:outputText value="#{sooratSodorForm.service.driver1.person.lastName}" />
 	</h:panelGroup>	
 	<h:panelGroup>
-	    <h:outputText value="-----" />
-	   	<h:outputLabel styleClass="desc" value="#{text['soorat.driverState']}"/>	
+		<h:outputText value="#{sooratSodorForm.service.driver1.liveState}" />    
 	</h:panelGroup>
     <h:panelGroup>
 		<h:outputText value="#{sooratSodorForm.service.driver1.licenceIssue}" />    
@@ -80,8 +81,7 @@
 	    <h:outputText value="#{sooratSodorForm.service.driver2.person.lastName}" />
 	</h:panelGroup>	
 	<h:panelGroup>
-	    <h:outputText value="-----" />
-	   	<h:outputLabel styleClass="desc" value="#{text['soorat.driverState']}"/>	
+		<h:outputText value="#{sooratSodorForm.service.driver2.liveState}" />    
 	</h:panelGroup>
     <h:panelGroup>
 		<h:outputText value="#{sooratSodorForm.service.driver2.licenceIssue}" />    
@@ -100,8 +100,7 @@
 	    <h:outputText value="#{sooratSodorForm.service.driver3.person.lastName}" />
 	</h:panelGroup>	
 	<h:panelGroup>
-	    <h:outputText value="-----" />
-	   	<h:outputLabel styleClass="desc" value="#{text['soorat.driverState']}"/>	
+		<h:outputText value="#{sooratSodorForm.service.driver3.liveState}" />    
 	</h:panelGroup>
     <h:panelGroup>
 		<h:outputText value="#{sooratSodorForm.service.driver3.licenceIssue}" />    
@@ -129,27 +128,43 @@
     <h:panelGroup>
 	    <h:outputText value="#{sooratSodorForm.service.carKind.capacity}" />
 	</h:panelGroup>	
+	
+	<h:inputText styleClass="text medium" id="foo5" value="" disabled="true"/>
+	<h:inputText styleClass="text medium" id="foo6" value="" disabled="true"/>
+	<h:inputText styleClass="text medium" id="foo7" value="" disabled="true"/>
+	<h:inputText styleClass="text medium" id="foo8" value="" disabled="true"/>
+	<h:inputText styleClass="text medium" id="foo9" value="" disabled="true"/>
 </t:panelGrid>
 
 <t:panelGrid columns="5" rowClasses="oddRows,evenRows" >
 	
     <h:panelGroup>
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.passengerCount']}"/>
 	    <h:inputText value="#{sooratSodorForm.soorat.passengerCount}" converter="javax.faces.Integer" styleClass="text small" disabled="true"/>
 	</h:panelGroup>	
     <h:panelGroup>
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.total']}"/>
 	    <h:inputText value="#{sooratSodorForm.soorat.total}" converter="javax.faces.Long" styleClass="text small" disabled="true"/>
 	</h:panelGroup>	
     <h:panelGroup>
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.snack']}"/>
 	   	<h:inputText value="#{sooratSodorForm.soorat.snack}" converter="javax.faces.Long" styleClass="text small" disabled="true"/>
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.governmentToll']}"/>
+		<h:inputText value="#{sooratSodorForm.soorat.governmentToll}" converter="javax.faces.Long" styleClass="text small" disabled="true"/>
 	</h:panelGroup>	
     <h:panelGroup>
-		<h:outputText value="#{sooratSodorForm.soorat.governmentToll}" converter="javax.faces.Long" styleClass="text small" disabled="true"/>
-	    <h:inputText styleClass="text small" id="commission" value="#{sooratSodorForm.soorat.commission}"/>
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.commission']}"/>
+	    <h:inputText value="#{sooratSodorForm.setting.commission}" styleClass="text small" id="commission" maxlength="2">
+	       <v:commonsValidator type="required" arg="#{text['soorat.commission']}"/>
+	    </h:inputText>
 	</h:panelGroup>	
     <h:panelGroup>
-	    <h:inputText styleClass="text small" id="insuranceSarneshin" value="#{sooratSodorForm.soorat.insuranceSarneshin}"/>
-	    <h:inputText styleClass="text small" id="insuranceBadaneh" value="#{sooratSodorForm.soorat.insuranceBadaneh}"/>
-	</h:panelGroup>	
+	    <h:outputLabel styleClass="desc2" value="#{text['soorat.stamp']}" />
+	    <h:inputText styleClass="text small" id="stamp" value="#{sooratSodorForm.setting.stamp}">
+	       <v:commonsValidator type="required" arg="#{text['soorat.stamp']}"/>
+	    </h:inputText>   
+	</h:panelGroup>
+	
 	
     <h:panelGroup>
    		<h:outputLabel styleClass="desc2" value="#{text['soorat.companyDetail']}"/>	
@@ -158,50 +173,50 @@
 	    <h:outputText value="#{sooratSodorForm.service.company.name}" />
 	</h:panelGroup>	
     <h:panelGroup>
-	    <h:outputText value="#{text['soorat.defaultPlace']}" />
-	</h:panelGroup>	
-    <h:panelGroup>
-	    <h:outputText value="#{sooratSodorForm.service.company.city}" />
-	</h:panelGroup>	
+   		<h:outputLabel styleClass="desc2" value="#{text['soorat.insuranceSarneshin']}"/>	
+	    <h:inputText styleClass="text small" id="insuranceSarneshin" value="#{sooratSodorForm.soorat.insuranceSarneshin}">
+	       <v:commonsValidator type="required" arg="#{text['soorat.insuranceSarneshin']}"/>
+		</h:inputText>
+   		<h:outputLabel styleClass="desc2" value="#{text['soorat.insuranceBadaneh']}"/>	
+	    <h:inputText styleClass="text small" id="insuranceBadaneh" value="#{sooratSodorForm.soorat.insuranceBadaneh}">
+	       <v:commonsValidator type="required" arg="#{text['soorat.insuranceBadaneh']}"/>
+	    </h:inputText>
+	</h:panelGroup>		
     <h:panelGroup>
    		<h:outputLabel styleClass="desc2" value="#{text['soorat.companyPhone']}"/>	
-	    <h:outputText value="-----" />
-	</h:panelGroup>	
-	
-    <h:panelGroup>
-		<h:outputText value="#{sooratSodorForm.service.driver1.person.firstName}" /><h:outputText value=" "/>    
-	    <h:outputText value="#{sooratSodorForm.service.driver1.person.lastName}" />
+	    <h:outputText value="#{sooratSodorForm.setting.companyPhone}" />	
 	</h:panelGroup>	
     <h:panelGroup>
-		<h:outputText value="#{sooratSodorForm.service.driver2.person.firstName}" /><h:outputText value=" "/>    
-	    <h:outputText value="#{sooratSodorForm.service.driver2.person.lastName}" />
-	</h:panelGroup>	
-    <h:panelGroup>
-		<h:outputText value="#{sooratSodorForm.service.driver3.person.firstName}" /><h:outputText value=" "/>    
-	    <h:outputText value="#{sooratSodorForm.service.driver3.person.lastName}" />
-	</h:panelGroup>	
-    <h:panelGroup>
-	    <h:outputText value="#{sooratSodorForm.service.company.code}" />
-	</h:panelGroup>	
-    <h:panelGroup>
-		<h:outputText value="#{sooratSodorForm.service.company.name}" /><h:outputText value="-"/>
+    <h:outputText value="#{sooratSodorForm.service.company.city}" /><h:outputText value="-" />
+	    <h:outputText value="#{sooratSodorForm.service.company.code}" />	
 	</h:panelGroup>	
 	
    
 	<h:inputText styleClass="text medium" id="foo" value="" disabled="true"/>
-	<h:inputText styleClass="text small" id="foo3" value="" disabled="true"/>
+	<h:inputText styleClass="text medium" id="foo3" value="" disabled="true"/>
 	<h:inputText styleClass="text large" id="foo2" value="" disabled="true"/>
 	<h:inputText styleClass="text medium" id="foo1" value="" disabled="true"/>
 	<h:inputText styleClass="text medium" id="foo4" value="" disabled="true"/>
 
 </t:panelGrid>
 
-
-
 <t:panelGrid columns="3">
-    <h:commandButton value="#{text['button.print']}" action="#{sooratSodorForm.print}" id="print" styleClass="button" onclick="bCancel=true; return confirmDelete('Soorat')"/>
-    <h:commandButton value="#{text['button.save']}" action="#{sooratSodorForm.save}" id="save" styleClass="button"/>
-    <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true" id="cancel" styleClass="button" onclick="bCancel=true"/>
+	<h:outputLabel styleClass="desc2" value="#{text['soorat.totalIsTA']}"/>
+	<h:inputText value="#{sooratSodorForm.soorat.totalIsTA}" id="totalIsTA" disabled="true" styleClass="text medium"/>
+	<h:outputText />
+	<h:outputLabel styleClass="desc2" value="#{text['soorat.commission']}"/>
+	<h:inputText value="#{sooratSodorForm.soorat.commission}" id="commissionSoorat" disabled="true" styleClass="text medium"/>
+	<h:outputText />
+	<h:outputLabel styleClass="desc2" value="#{text['soorat.driverPay']}"/>
+	<h:inputText value="#{sooratSodorForm.soorat.driverPay}" id="driverPay" disabled="true" styleClass="text medium"/>
+	<h:outputText />
+</t:panelGrid>
+
+<t:panelGrid columns="4">
+    <h:commandButton value="#{text['button.calc']}" 	 action="#{sooratSodorForm.calcInner}" id="calc" styleClass="button"/>
+    <h:commandButton value="#{text['button.save']}" 	 action="#{sooratSodorForm.saveInner}" id="save" styleClass="button"/>
+    <h:commandButton value="#{text['button.savePrint']}" action="#{sooratSodorForm.savePrintInner}" id="savePrint" styleClass="button"/>
+    <h:commandButton value="#{text['button.cancel']}" 	 action="cancel" immediate="true" id="cancel" styleClass="button" onclick="bCancel=true"/>
 </t:panelGrid> 
 
 <trans:ticketServiceTable bean="#{sooratSodorForm}" cap="capacity" chairModels="chairModels"/>	

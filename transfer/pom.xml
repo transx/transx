@@ -16,8 +16,8 @@
 
     <licenses>
         <license>
-            <name></name>
-            <url></url>
+            <name>©2008 ASTA.ir</name>
+            <url>http://asta.ir</url>
         </license>
     </licenses>
 
@@ -40,10 +40,16 @@
 
     <developers>
         <developer>
-            <id></id>
-            <name></name>
-            <email></email>
-            <timezone></timezone>
+            <id>saeid3</id>
+            <name>Saeid Moradi</name>
+            <email>saeid3@gmail.com</email>
+            <timezone>+3</timezone>
+        </developer>
+        <developer>
+            <id>mohammad</id>
+            <name>Mohammad Anisi</name>
+            <email>anisi.1376@gmail.com</email>
+            <timezone>+3</timezone>
         </developer>
     </developers>
     
@@ -441,7 +447,7 @@
         <jstl.version>1.1.2</jstl.version>
         <log4j.version>1.2.13</log4j.version>
         <myfaces.tomahawk.version>1.1.6</myfaces.tomahawk.version>
-        <myfaces.version>1.2.2</myfaces.version>
+        <myfaces.version>1.2.3</myfaces.version>
         <oscache.version>2.3</oscache.version>
         <sitemesh.version>2.2.1</sitemesh.version>
         <spring.security.version>2.0.1</spring.security.version>
@@ -449,8 +455,8 @@
         <urlrewrite.version>3.0.4</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
         <xfire.version>1.2.6</xfire.version>
+        <!-- Properties calculated by AppFuse when running full-source plugin -->
     	<jasper.version>3.0.0</jasper.version>
     	<el.version>1.2</el.version>
-        <!-- Properties calculated by AppFuse when running full-source plugin -->
     </properties>
 </project>

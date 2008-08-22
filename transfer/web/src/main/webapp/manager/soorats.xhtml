@@ -15,7 +15,7 @@
 <h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
 
 <t:dataTable id="soorats" var="soorat" style="margin-top: 10px"
-    value="#{sooratList.soorats}" rows="10" sortColumn="#{sooratList.sortColumn}"
+    value="#{sooratList.sooratsActive}" rows="10" sortColumn="#{sooratList.sortColumn}"
     sortAscending="#{sooratList.ascending}" styleClass="scrollerTable table"
     headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
     columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
@@ -26,7 +26,7 @@
                 <h:outputText value="#{text['soorat.id']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.id}" escape="true"/>
+    	<h:outputText value="#{soorat.id}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -34,7 +34,7 @@
                 <h:outputText value="#{text['soorat.service']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.service}" escape="true"/>
+    	<h:outputText value="#{soorat.service}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -42,7 +42,7 @@
                 <h:outputText value="#{text['soorat.seri']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.seri}" escape="true"/>
+    	<h:outputText value="#{soorat.seri}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -50,7 +50,7 @@
                 <h:outputText value="#{text['soorat.serial']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.serial}" escape="true"/>
+    	<h:outputText value="#{soorat.serial}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -58,7 +58,7 @@
                 <h:outputText value="#{text['soorat.issued']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:selectBooleanCheckbox value="#{soorat.issued}" id="issued" disabled="true"/>
+    	<h:selectBooleanCheckbox value="#{soorat.issued}" id="issued" disabled="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -66,7 +66,7 @@
                 <h:outputText value="#{text['soorat.destroyed']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:selectBooleanCheckbox value="#{soorat.destroyed}" id="destroyed" disabled="true"/>
+    	<h:selectBooleanCheckbox value="#{soorat.destroyed}" id="destroyed" disabled="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -74,7 +74,7 @@
                 <h:outputText value="#{text['soorat.passengerCount']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.passengerCount}" escape="true"/>
+    	<h:outputText value="#{soorat.passengerCount}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -82,7 +82,7 @@
                 <h:outputText value="#{text['soorat.total']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.total}" escape="true"/>
+    	<h:outputText value="#{soorat.total}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -90,7 +90,7 @@
                 <h:outputText value="#{text['soorat.governmentToll']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.governmentToll}" escape="true"/>
+    	<h:outputText value="#{soorat.governmentToll}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -98,23 +98,15 @@
                 <h:outputText value="#{text['soorat.insuranceSarneshin']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.insuranceSarneshin}" escape="true"/>
+    	<h:outputText value="#{soorat.insuranceSarneshin}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
-            <t:commandSortHeader columnName="insuranceBadaneh" arrow="true">
-                <h:outputText value="#{text['soorat.insuranceBadaneh']}" />
+            <t:commandSortHeader columnName="totalIsTA" arrow="true">
+                <h:outputText value="#{text['soorat.totalIsTA']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.insuranceBadaneh}" escape="true"/>
-    </t:column>
-    <t:column>
-        <f:facet name="header">
-            <t:commandSortHeader columnName="snack" arrow="true">
-                <h:outputText value="#{text['soorat.snack']}" />
-            </t:commandSortHeader>
-        </f:facet>
-    <h:outputText value="#{soorat.snack}" escape="true"/>
+    	<h:outputText value="#{soorat.totalIsTA}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -122,7 +114,23 @@
                 <h:outputText value="#{text['soorat.commission']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.commission}" escape="true"/>
+    	<h:outputText value="#{soorat.commission}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="insuranceBadaneh" arrow="true">
+                <h:outputText value="#{text['soorat.insuranceBadaneh']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.insuranceBadaneh}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="snack" arrow="true">
+                <h:outputText value="#{text['soorat.snack']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.snack}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -130,8 +138,17 @@
                 <h:outputText value="#{text['soorat.driverPay']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{soorat.driverPay}" escape="true"/>
+    	<h:outputText value="#{soorat.driverPay}" escape="true"/>
     </t:column>
+    <t:column>
+        <f:facet name="header">
+        	<h:outputText value="#{text['button.printAgain']}" />
+        </f:facet>
+        <h:commandLink action="#{sooratSodorForm.previewInner}" value="#{text['button.printAgain']}">
+            <f:param name="id" value="#{soorat.id}"/>
+        </h:commandLink>
+    </t:column>
+    
 </t:dataTable>
 
 <ui:include src="/common/tableFooter.xhtml">

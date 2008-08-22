@@ -20,6 +20,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -32,6 +33,7 @@ import com.asta.app2.util.DateUtil;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "service")
 @Cache(usage= CacheConcurrencyStrategy.READ_WRITE)
 public class Service extends BaseObject implements Serializable,Comparable<Service> {
 	private static final long serialVersionUID = 772935845822949036L;

@@ -77,6 +77,12 @@
     <t:message for="phone" styleClass="fieldError"/>
 
 
+    <h:outputLabel styleClass="desc" for="liveState" value="#{text['driver.liveState']}"/>
+    <h:inputText styleClass="text medium" id="liveState" value="#{driverForm.driver.liveState}" required="true" maxlength="100">
+        <v:commonsValidator type="required" arg="#{text['driver.liveState']}"/>
+    </h:inputText>
+    <t:message for="code" styleClass="fieldError"/>
+
     <h:outputLabel styleClass="desc" for="code" value="#{text['driver.code']}"/>
     <h:inputText styleClass="text medium" id="code" value="#{driverForm.driver.code}" required="false" maxlength="50">
     </h:inputText>

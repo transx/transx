@@ -19,6 +19,7 @@ import com.asta.app2.util.DateUtil;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "car")
 public class Car extends BaseObject implements Comparable<Car> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

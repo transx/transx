@@ -29,4 +29,8 @@ public class SooratManagerImpl extends GenericManagerImpl<Soorat, Long> implemen
 		return sooratDao.getAllSoorat(company);
 	}
 
+	public List<Soorat> getAllSooratActive(Company company) {
+		return sooratDao.getAllSooratActive(company);
+	}
+
 }

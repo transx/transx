@@ -57,7 +57,7 @@ public class SooratFormTestOff extends BasePageTestCase {
 
         // update required fields
         soorat.setSeri("LpJoDiBsIgBzUyWeHyHr");
-        soorat.setSerial("TuDvOzMaRj");
+        soorat.setSerial(324234324);
         soorat.setIssued(Boolean.FALSE);
         soorat.setDestroyed(Boolean.FALSE);
         bean.setSoorat(soorat);

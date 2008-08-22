@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.asta.app2.model.enums.Quality;
 import com.asta.app2.model.enums.RateType;
@@ -19,6 +20,7 @@ import com.asta.app2.model.enums.RateType;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "rate")
 public class Rate extends BaseObject implements Comparable<Rate> {
 	private static final long serialVersionUID = 3580667989356567326L;
 

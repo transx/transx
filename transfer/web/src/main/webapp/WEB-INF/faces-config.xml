@@ -813,12 +813,8 @@
     <navigation-rule>
         <from-view-id>/manager/soorats.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>add</from-outcome>
-            <to-view-id>/manager/sooratForm.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/manager/sooratForm.xhtml</to-view-id>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/manager/soorats.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -856,14 +852,14 @@
 		</navigation-case>
     </navigation-rule>
     <navigation-rule>
-    	<from-view-id>/manager/sooratSodorForm.xhtml</from-view-id>
+    	<from-view-id>/manager/sooratSodorInnerForm.xhtml</from-view-id>
     	<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/manager/sooratSodorForm.xhtml</to-view-id>
+			<to-view-id>/manager/sooratSodorInnerForm.xhtml</to-view-id>
 		</navigation-case>
     	<navigation-case>
 			<from-outcome>list</from-outcome>
-			<to-view-id>/manager/sooratSodors.xhtml</to-view-id>
+			<to-view-id>/manager/soorats.xhtml</to-view-id>
 		</navigation-case>
     	<navigation-case>
 			<from-outcome>cancel</from-outcome>

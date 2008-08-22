@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.asta.app2.model.enums.RateType;
 
@@ -16,6 +19,7 @@ import com.asta.app2.model.enums.RateType;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "setting")
 public class Setting extends BaseObject {
 
 	@Id
@@ -34,24 +38,37 @@ public class Setting extends BaseObject {
 	@Column(name = "seri_outer", length = 20, nullable = false)
 	private String seriOuter;
 
-	@Column(name = "seri_sole", length = 20, nullable = false)
-	private String seriSole;
+	@Column(name = "seri_private", length = 20, nullable = false)
+	private String seriPrivate;
 
 	@Column(name = "serial_inner", length = 20, nullable = false)
-	private String serialInner;
+	private int serialInner;
 
 	@Column(name = "serial_outer", length = 20, nullable = false)
-	private String serialOuter;
+	private int serialOuter;
 
-	@Column(name = "serial_sole", length = 20, nullable = false)
-	private String serialSole;
+	@Column(name = "serial_private", length = 20, nullable = false)
+	private int serialPrivate;
 
 	@Column(nullable = false)
 	private long snack;
-	
+
 	@Column(nullable = false)
 	private long commission;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "company_id", nullable = false)
+	private Company company;
+
+	@Column(name = "company_phone", length = 20, nullable = false)
+	private String companyPhone;
+
+	@Column(name = "company_place", length = 100, nullable = false)
+	private String companyPlace;
+
+	@Column(nullable = true)
+	private Long stamp;
+
 	public Long getId() {
 		return id;
 	}
@@ -92,36 +109,36 @@ public class Setting extends BaseObject {
 		this.seriOuter = seriOuter;
 	}
 
-	public String getSeriSole() {
-		return seriSole;
+	public String getSeriPrivate() {
+		return seriPrivate;
 	}
 
-	public void setSeriSole(String seriSole) {
-		this.seriSole = seriSole;
+	public void setSeriSole(String seriPrivate) {
+		this.seriPrivate = seriPrivate;
 	}
 
-	public String getSerialInner() {
+	public int getSerialInner() {
 		return serialInner;
 	}
 
-	public void setSerialInner(String serialInner) {
+	public void setSerialInner(int serialInner) {
 		this.serialInner = serialInner;
 	}
 
-	public String getSerialOuter() {
+	public int getSerialOuter() {
 		return serialOuter;
 	}
 
-	public void setSerialOuter(String serialOuter) {
+	public void setSerialOuter(int serialOuter) {
 		this.serialOuter = serialOuter;
 	}
 
-	public String getSerialSole() {
-		return serialSole;
+	public int getSerialPrivate() {
+		return serialPrivate;
 	}
 
-	public void setSerialSole(String serialSole) {
-		this.serialSole = serialSole;
+	public void setSerialPrivate(int serialPrivate) {
+		this.serialPrivate = serialPrivate;
 	}
 
 	@Override
@@ -160,6 +177,38 @@ public class Setting extends BaseObject {
 
 	public void setCommission(long commission) {
 		this.commission = commission;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public String getCompanyPhone() {
+		return companyPhone;
+	}
+
+	public void setCompanyPhone(String companyPhone) {
+		this.companyPhone = companyPhone;
+	}
+
+	public Long getStamp() {
+		return stamp;
+	}
+
+	public void setStamp(Long stamp) {
+		this.stamp = stamp;
+	}
+
+	public String getCompanyPlace() {
+		return companyPlace;
+	}
+
+	public void setCompanyPlace(String companyPlace) {
+		this.companyPlace = companyPlace;
 	}
 
 }

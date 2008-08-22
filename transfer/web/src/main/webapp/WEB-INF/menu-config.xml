@@ -9,8 +9,8 @@
             <Item name="ViewUsers" title="menu.admin.users" page="/admin/users.html"/>
             <Item name="ActiveUsers" title="mainMenu.activeUsers" page="/admin/activeUsers.html"/>
             <Item name="ReloadContext" title="menu.admin.reload" page="/admin/reload.html"/>
-            <Item name="FileUpload" title="menu.admin.selectFile" page="/admin/selectFile.html"/>
-            <Item name="FlushCache" title="menu.admin.flushCache" page="/admin/flushCache.html"/>
+            <Item name="FileUpload"  title="menu.admin.selectFile" page="/admin/selectFile.html"/>
+            <Item name="FlushCache"  title="menu.admin.flushCache" page="/admin/flushCache.html"/>
             <Item name="Clickstream" title="menu.admin.clickstream" page="/admin/clickstreams.jsp"/>
 	        <Item name="Company" title="menu.admin.company" page="/admin/companies.html"/>
         	<Item name="Country" title="menu.admin.country" page="/admin/countries.html"/>
@@ -18,7 +18,7 @@
 	        <Item name="Path" 	 title="menu.admin.path" 	page="/admin/paths.html"/>
 	        <Item name="Rate" 	 title="menu.admin.rate" 	page="/admin/rates.html"/>
 	        <Item name="CarKind" title="menu.admin.carKind" page="/admin/carKinds.html"/>
-	        <Item name="Soorat" title="menu.manager.soorat" page="/admin/soorats.html"/>
+	        <Item name="Soorat"  title="menu.manager.soorat" page="/admin/soorats.html"/>
 	        <Item name="Passenger" title="menu.admin.passenger" page="/admin/passengers.html"/>
         </Menu>
         <Menu name="OwnerMenu" title="menu.owner" page="/owner/users.html" roles="ROLE_OWNER" width="40">
@@ -29,11 +29,11 @@
 	        <Item name="Service" title="menu.manager.service" 	page="/manager/services.html"/>
 	        <Item name="SooratSodor" title="menu.manager.sooratSodor" page="/manager/sooratSodors.html"/>
 	        <Item name="Soorat" title="menu.manager.soorat" page="/manager/soorats.html"/>
-        	<Item name="Cash" title="menu.manager.cash" page="/manager/cashes.html"/>
-        	<Item name="Driver"  title="menu.manager.driver" 	page="/manager/drivers.html"/>
-	        <Item name="Car" 	 title="menu.manager.car" 		page="/manager/cars.html"/>
-	        <Item name="Lodger"  title="menu.manager.lodger" 	page="/manager/lodgers.html"/>
-	        <Item name="Person"  title="menu.manager.person" 	page="/manager/persons.html"/>
+        	<Item name="Cash" 	title="menu.manager.cash" page="/manager/cashes.html"/>
+        	<Item name="Driver" title="menu.manager.driver" 	page="/manager/drivers.html"/>
+	        <Item name="Car" 	title="menu.manager.car" 		page="/manager/cars.html"/>
+	        <Item name="Lodger" title="menu.manager.lodger" 	page="/manager/lodgers.html"/>
+	        <Item name="Person" title="menu.manager.person" 	page="/manager/persons.html"/>
         </Menu>
         <Menu name="CashierMenu" title="menu.cashier" page="/cashier/cashes.html" roles="ROLE_CASHIER" width="40">
         </Menu>

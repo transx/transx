@@ -85,6 +85,7 @@
                      </h:selectBooleanCheckbox>
                      <h:graphicImage value="" rendered=""></h:graphicImage>
                      <h:inputText binding="" disabled="" converter=""></h:inputText>
+                     <f:convertNumber pattern="###,###.00"/>
                   </td>
                </tr>
             </table>

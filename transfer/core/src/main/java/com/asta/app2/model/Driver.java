@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.asta.app2.util.DateUtil;
 
@@ -20,6 +21,7 @@ import com.asta.app2.util.DateUtil;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "driver")
 public class Driver extends BaseObject implements Serializable,
 		Comparable<Driver> {
 	/**
@@ -51,6 +53,9 @@ public class Driver extends BaseObject implements Serializable,
 	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 
+	@Column(name = "live_state" , length = 100, nullable = false)
+	private String liveState;
+	
 	public Driver() {
 	}
 
@@ -171,5 +176,13 @@ public class Driver extends BaseObject implements Serializable,
 
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+
+	public String getLiveState() {
+		return liveState;
+	}
+
+	public void setLiveState(String liveState) {
+		this.liveState = liveState;
 	}
 }

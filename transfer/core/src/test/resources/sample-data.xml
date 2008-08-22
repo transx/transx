@@ -133,7 +133,7 @@
         <column>city_id</column>    
     <row>
         <value description="id">-1</value>
-        <value description="name">شرکت تعاونی مسافربری شماره 7</value>
+        <value description="name">شرکت تعاونی آزمایشی</value>
         <value description="code">11222</value>
         <value description="city_id">-1</value>
     </row>
@@ -702,6 +702,7 @@
         <column>contract_deadline</column>
         <column>person_id</column>
         <column>company_id</column>
+        <column>live_state</column>
     <row>
         <value description="id">-1</value>
         <value description="code">111111111</value>
@@ -713,6 +714,7 @@
         <value description="contract_deadline">2010-06-03</value>
         <value description="person_id">-1</value>
         <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -725,6 +727,7 @@
         <value description="contract_deadline">2010-06-03</value>
         <value description="person_id">-2</value>
         <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -737,6 +740,7 @@
         <value description="contract_deadline">2010-06-23</value>
         <value description="person_id">-6</value>
         <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
     </row>
     <row>
         <value description="id">-4</value>
@@ -749,6 +753,7 @@
         <value description="contract_deadline">2010-06-23</value>
         <value description="person_id">-8</value>
         <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
     </row>
     </table>
     <!--Driver-END-->
@@ -1264,7 +1269,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1285,7 +1290,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">300000</value>
         <value description="count">2</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1306,7 +1311,7 @@
         <value description="price">108100</value>
         <value description="toll">4441</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">110000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1327,7 +1332,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">80000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1348,7 +1353,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>        
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">160000</value>
         <value description="count">2</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1369,8 +1374,8 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
-        <value description="count">2</value>
+        <value description="total">150000</value>
+        <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
         <value description="issued">1</value>
@@ -1390,7 +1395,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1411,7 +1416,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1432,7 +1437,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1453,7 +1458,7 @@
         <value description="price">108100</value>
         <value description="toll">4441</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">110000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1474,7 +1479,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1495,7 +1500,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1516,7 +1521,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1537,7 +1542,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1558,7 +1563,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">600000</value>
         <value description="count">4</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1579,7 +1584,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">80000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1600,7 +1605,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">80000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1621,7 +1626,7 @@
         <value description="price">108100</value>
         <value description="toll">4441</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">110000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1642,7 +1647,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1663,7 +1668,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">300000</value>
         <value description="count">2</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1684,7 +1689,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">80000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1705,7 +1710,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">240000</value>
         <value description="count">3</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1726,8 +1731,8 @@
         <value description="price">108100</value>
         <value description="toll">4441</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
-        <value description="count">2</value>
+        <value description="total">110000</value>
+        <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
         <value description="issued">1</value>
@@ -1971,6 +1976,7 @@
         <column>cash_id</column>
         <column>cashier_id</column>
         <column>passenger_count</column>
+        <column>total_is_t_a</column>
     <row>
         <value description="id">-1</value>
         <value description="service_id">-1</value>
@@ -1990,6 +1996,7 @@
         <null/>
         <null/>
         <value description="passenger_count">0</value>
+        <value description="total_is_t_a">-0</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -2010,6 +2017,7 @@
         <null/>
         <null/>
         <value description="passenger_count">0</value>
+        <value description="total_is_t_a">-0</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -2030,6 +2038,7 @@
         <null/>
         <null/>
         <value description="passenger_count">0</value>
+        <value description="total_is_t_a">-0</value>
     </row>
     </table>
     <!--Soorat-END-->
@@ -2078,24 +2087,32 @@
         <column>ticket_number</column>
         <column>seri_inner</column>
         <column>seri_outer</column>
-        <column>seri_sole</column>
+        <column>seri_private</column>
         <column>serial_inner</column>
         <column>serial_outer</column>
-        <column>serial_sole</column>
+        <column>serial_private</column>
         <column>snack</column>
         <column>commission</column>
+        <column>company_id</column>
+        <column>company_phone</column>
+        <column>company_place</column>
+        <column>stamp</column>
     <row>
         <value description="id">1</value>
         <value description="rate_type">ORDINARY</value>
         <value description="ticket_number">46182031</value>
-        <value description="seri_inner">86/1/الف/د</value>
-        <value description="seri_outer">86/1/الف</value>
-        <value description="seri_sole">86/الف</value>
+        <value description="seri_inner">الف/د/86/1</value>
+        <value description="seri_outer">الف/86/1</value>
+        <value description="seri_private">86/الف</value>
         <value description="serial_inner">428998</value>
         <value description="serial_outer">100001</value>
-        <value description="serial_sole">100001</value>
+        <value description="serial_private">100001</value>
         <value description="snack">1900</value>
         <value description="commission">15</value>
+        <value description="company_id">-1</value>
+        <value description="company_phone">65489523</value>
+        <value description="company_place">پایانه جنوب</value>
+        <value description="stamp">20</value>
     </row>
     </table>
     <!--Setting-END-->

@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.asta.app2.util.DateUtil;
 
@@ -22,6 +23,7 @@ import com.asta.app2.util.DateUtil;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "cash")
 public class Cash extends BaseObject {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

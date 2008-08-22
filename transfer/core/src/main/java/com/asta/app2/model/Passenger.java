@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.asta.app2.model.enums.Gender;
 
@@ -18,6 +19,7 @@ import com.asta.app2.model.enums.Gender;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "passenger")
 public class Passenger extends BaseObject implements Comparable<Passenger>,
 		Serializable {
 	private static final long serialVersionUID = -159521127793117616L;

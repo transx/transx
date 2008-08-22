@@ -15,6 +15,7 @@ public interface SooratDao extends GenericDao<Soorat, Long>{
 	List<Soorat> findSooratsByService(Service service);
 
 	List<Soorat> getAllSoorat(Company company);
+	List<Soorat> getAllSooratActive(Company company);
 }
 
 

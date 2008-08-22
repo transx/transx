@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.asta.app2.model.enums.Gender;
 import com.asta.app2.util.DateUtil;
@@ -23,6 +24,7 @@ import com.asta.app2.util.DateUtil;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "person")
 public class Person extends BaseObject implements Comparable<Person> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -101,6 +103,11 @@ public class Person extends BaseObject implements Comparable<Person> {
 
 	public String getLastName() {
 		return lastName;
+	}
+	
+	@Transient
+	public String getFullName(){
+		return (firstName != null ? firstName:"")+ " "+ getLastName();
 	}
 
 	public void setLastName(String lastName) {

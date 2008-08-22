@@ -21,5 +21,9 @@ public class SooratList extends BasePage implements Serializable {
 	public List<Soorat> getSoorats() {
         return sort(sooratManager.getAllSoorat(getCurrentUser().getCompany()));
     }
+
+    public List<Soorat> getSooratsActive() {
+    	return sort(sooratManager.getAllSooratActive(getCurrentUser().getCompany()));
+    }
 }
 

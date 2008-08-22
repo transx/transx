@@ -15,6 +15,7 @@ public interface SooratManager extends GenericManager<Soorat, Long>{
 	List<Soorat> findSooratsByService(Service service);
 	
 	List<Soorat> getAllSoorat(Company company);
+	List<Soorat> getAllSooratActive(Company company);
 }
 
 

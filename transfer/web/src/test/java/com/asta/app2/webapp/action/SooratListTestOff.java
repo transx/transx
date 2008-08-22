@@ -22,7 +22,7 @@ public class SooratListTestOff extends BasePageTestCase {
 
         // enter all required fields
         soorat.setSeri("EmXiUzGdLzUdJhMsSaIn");
-        soorat.setSerial("HfAdBsOxPo");
+        soorat.setSerial(23424234);
         soorat.setIssued(Boolean.FALSE);
         soorat.setDestroyed(Boolean.FALSE);
 

@@ -15,6 +15,7 @@ import javax.persistence.Table;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "company")
 public class Company extends BaseObject implements Comparable<Company> {
 	private Long id;
 	private String name;

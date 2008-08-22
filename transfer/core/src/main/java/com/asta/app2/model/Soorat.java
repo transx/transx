@@ -1,6 +1,8 @@
 /* *Class created on [ Jul 9, 2008 | 10:13:21 AM ] */
 package com.asta.app2.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,8 @@ import javax.persistence.Table;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
-public class Soorat {
+@Table(name = "soorat")
+public class Soorat extends BaseObject implements Serializable, Comparable<Soorat> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +34,7 @@ public class Soorat {
 	private String seri;
 
 	@Column(length = 20, nullable = false)
-	private String serial;
+	private int serial;
 
 	@Column(nullable = true)
 	private boolean issued;
@@ -40,7 +43,7 @@ public class Soorat {
 	private boolean destroyed;
 	@Column(nullable = false)
 	private Long total;
-	@Column(name = "government_toll",nullable = false)
+	@Column(name = "government_toll", nullable = false)
 	private Long governmentToll;
 
 	@Column(name = "insurance_sarneshin", nullable = false)
@@ -73,9 +76,39 @@ public class Soorat {
 	@Column(name = "driver_paid", nullable = false)
 	private boolean driverPaid;
 
-	@Column(name = "passenger_count",length = 3, nullable = false)
+	@Column(name = "passenger_count", length = 3, nullable = false)
 	private Integer passengerCount;
 
+	@Column(name = "total_is_t_a")
+	private Long totalIsTA;
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o instanceof Soorat)
+			return true;
+		
+		final Soorat soorat = (Soorat) o;
+		return this.toString().equals(soorat.toString());
+	}
+
+	@Override
+	public int hashCode() {
+		return (seri != null ? seri.hashCode() :23)+
+			   (serial != 0 ? serial:23);
+	}
+
+	@Override
+	public String toString() {
+		return getSeri()+" - "+ getSerial();
+	}
+
+	public int compareTo(Soorat soorat) {
+		final String anotherString = soorat.toString();
+		return this.toString().compareTo(anotherString);
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -100,11 +133,11 @@ public class Soorat {
 		this.seri = seri;
 	}
 
-	public String getSerial() {
+	public int getSerial() {
 		return serial;
 	}
 
-	public void setSerial(String serial) {
+	public void setSerial(int serial) {
 		this.serial = serial;
 	}
 
@@ -218,5 +251,13 @@ public class Soorat {
 
 	public void setPassengerCount(Integer passengerCount) {
 		this.passengerCount = passengerCount;
+	}
+
+	public Long getTotalIsTA() {
+		return totalIsTA;
+	}
+
+	public void setTotalIsTA(Long totalIsTA) {
+		this.totalIsTA = totalIsTA;
 	}
 }

@@ -88,6 +88,7 @@ public class CarForm extends BasePage implements Serializable {
 				.longValue()));
 		car.setPerson(personManager
 				.get(Long.valueOf(getPersonID()).longValue()));
+		car.setCompany(getCurrentUser().getCompany());
 		carManager.save(car);
 
 		String key = (isNew) ? "car.added" : "car.updated";

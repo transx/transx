@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.asta.app2.util.DateUtil;
 
@@ -24,6 +25,7 @@ import com.asta.app2.util.DateUtil;
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 @Entity
+@Table(name = "ticket")
 public class Ticket extends BaseObject implements Serializable,
 		Comparable<Ticket> {
 	private static final long serialVersionUID = 4048276008346340310L;

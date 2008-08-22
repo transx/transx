@@ -1092,7 +1092,7 @@
     <!--Car-START-->
     <!-- runs car-related tests #,SaveCar,AddCar,DeleteCar-->
     <target name="CarTests"
-        depends="SearchCars,EditCar"
+        depends="SearchCars"
         description="Call and executes all car test cases (targets)">
         <echo>Successfully ran all Car UI tests!</echo>
     </target>
@@ -1117,7 +1117,7 @@
             <steps>
                 &login;
                 <invoke description="View Car List" url="/manager/cars.html"/>
-                <clicklink label="-1"/>
+                <clicklink label="-2"/>
                 <verifytitle description="we should see the carDetail title"
                     text=".*${carDetail.title}.*" regex="true"/>
             </steps>
@@ -1740,9 +1740,9 @@
     </target>
     <!--Soorat-END-->
     <!--Rate-START-->
-    <!-- runs rate-related tests #,SaveRate,AddRate,DeleteRate-->
+    <!-- runs rate-related tests #,SaveRate,AddRate,DeleteRate,EditRate-->
     <target name="RateTests"
-        depends="SearchRates,EditRate"
+        depends="SearchRates"
         description="Call and executes all rate test cases (targets)">
         <echo>Successfully ran all Rate UI tests!</echo>
     </target>
