@@ -15,7 +15,7 @@
 <h:form id="driverForm" onsubmit="return validateDriverForm(this)">
 <h:inputHidden value="#{driverForm.driver.id}" id="id"/>
 
-<t:saveState id="driverFormSave1" value="#{driverForm.person}"/>
+<t:saveState id="driverFormPersonSave1" value="#{driverForm.person.id}"/>
 
 <t:panelGrid columns="3">
 

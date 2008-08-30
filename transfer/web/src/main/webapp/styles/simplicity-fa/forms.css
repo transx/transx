@@ -501,7 +501,6 @@ form .selectedTab {
 
 form .reserveContainer{
    border: thin solid Blue;
-   direction: ltr;
 }
 
 form .registeredChair {

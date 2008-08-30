@@ -4,7 +4,7 @@
     <title><fmt:message key="login.title"/></title>
     <meta name="heading" content="<fmt:message key='login.heading'/>"/>
     <meta name="menu" content="Login"/>
-    <%-- In English Version , you must remove this comment.
+    <%-- In English Version , you must remove this comment for having LTR direction
     <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/${appConfig["csstheme"]}/layout-1col.css'/>" />
     --%>
 </head>

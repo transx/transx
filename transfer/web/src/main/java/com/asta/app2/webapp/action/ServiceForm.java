@@ -2,11 +2,13 @@ package com.asta.app2.webapp.action;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.faces.event.ValueChangeEvent;
 
+import org.apache.myfaces.trinidad.component.core.input.CoreSelectManyShuttle;
 import org.springframework.security.context.SecurityContext;
 import org.springframework.security.context.SecurityContextHolder;
 
@@ -16,6 +18,7 @@ import com.asta.app2.model.Driver;
 import com.asta.app2.model.Lodger;
 import com.asta.app2.model.Path;
 import com.asta.app2.model.Service;
+import com.asta.app2.model.ServiceTemplate;
 import com.asta.app2.model.User;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.CarManager;
@@ -46,6 +49,10 @@ public class ServiceForm extends BasePage implements Serializable {
 	private String[] serviceDrivers;
 	private String[] serviceLodgers;
 	private String[] servicePaths;
+
+	private CoreSelectManyShuttle driverShuttle;
+	
+
 
 	public void carKindChanged(ValueChangeEvent carKindEvent){
 		String carKindID = (String) carKindEvent.getNewValue();
@@ -96,23 +103,30 @@ public class ServiceForm extends BasePage implements Serializable {
 		User currentUser = (User) ctx.getAuthentication().getPrincipal();
 		service.setCompany(currentUser.getCompany());
 
-		service.setTemplate(serviceTemplateManager.get(service.getTemplate().getId()));
 		service.setCarKind(carKindManager.get(Long.valueOf(getCarKindID()).longValue()));
 		service.setPath(pathManager.get(Long.valueOf(getPathID()).longValue()));
+		if (isNew)
+			service.setTemplate(serviceTemplateManager.findServiceTemplateByTemplate(new ServiceTemplate(getCurrentUser().getCompany(),service.getPath(),service.getCarKind())));
+		else
+			service.setTemplate(serviceTemplateManager.findServiceTemplateByTemplateWithTime(new ServiceTemplate(getCurrentUser().getCompany(),service.getPath(),service.getCarKind(),service.getTimed())));
+				
 		if (getCarID() != null && !getCarID().equals(Constants.EMPTY))
 		service.setCar(carManager.get(Long.valueOf(getCarID()).longValue()));
 
-		setServiceDrivers(getRequest().getParameterValues(
-				"serviceForm:serviceDrivers"));
-		setServiceLodgers(getRequest().getParameterValues(
-				"serviceForm:serviceLodgers"));
-		setServicePaths(getRequest().getParameterValues(
-				"serviceForm:servicePaths"));
-
-		for (int i = 0; (serviceDrivers != null) && (i < serviceDrivers.length); i++) {
-			long id = Long.valueOf(serviceDrivers[i]).longValue();
-			service.addDriver(driverManager.get(id));
+		
+		String allSelectedDrivers = getRequest().getParameter("serviceForm:serviceDrivers:trailing:items");
+		if (allSelectedDrivers != null && !allSelectedDrivers.equals("")){
+			setServiceDrivers(allSelectedDrivers.split(";"));
+			for (int i = 0; (serviceDrivers != null) && (i < serviceDrivers.length); i++) {
+				long id = Long.valueOf(serviceDrivers[i]).longValue();
+				service.addDriver(driverManager.get(id));
+	//			log.debug("i="+i+", value="+serviceDrivers[i]+"\n");
+			}
 		}
+
+		setServiceLodgers(getRequest().getParameterValues("serviceForm:serviceLodgers"));
+		setServicePaths(getRequest().getParameterValues("serviceForm:servicePaths"));
+
 		for (int i = 0; (serviceLodgers != null) && (i < serviceLodgers.length); i++) {
 			long id = Long.valueOf(serviceLodgers[i]).longValue();
 			service.addLodger(lodgerManager.get(id));
@@ -214,8 +228,7 @@ public class ServiceForm extends BasePage implements Serializable {
 
 	public String getPathID() {
 		if (pathID == null){
-			List<City> defaultEndCitys = cityManager.findByName(BundleUtil
-					.getMessageBundle("default.service.path.end"));
+			List<City> defaultEndCitys = cityManager.findByName(BundleUtil.getMessageBundle("default.service.path.end"));
 			pathID = pathManager.findByEndCityId(defaultEndCitys.get(0).getId()).get(0).getId().toString();
 		}
 		return pathID;
@@ -279,6 +292,14 @@ public class ServiceForm extends BasePage implements Serializable {
 		return servicePaths;
 	}
 
+	public CoreSelectManyShuttle getDriverShuttle() {
+		return driverShuttle;
+	}
+
+	public void setDriverShuttle(CoreSelectManyShuttle driverShuttle) {
+		this.driverShuttle = driverShuttle;
+	}
+	
 	public void setServiceDrivers(String[] serviceDrivers) {
 		this.serviceDrivers = serviceDrivers;
 	}

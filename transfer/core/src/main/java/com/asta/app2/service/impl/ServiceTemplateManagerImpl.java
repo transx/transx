@@ -29,4 +29,12 @@ public class ServiceTemplateManagerImpl extends
 		return serviceTemplateDao.getAllByCompany(company);
 	}
 
+	public ServiceTemplate findServiceTemplateByTemplate(ServiceTemplate template) {
+		return serviceTemplateDao.findServiceTemplateByTemplate(template);
+	}
+
+	public ServiceTemplate findServiceTemplateByTemplateWithTime(ServiceTemplate template) {
+		return serviceTemplateDao.findServiceTemplateByTemplateWithTime(template);
+	}
+
 }

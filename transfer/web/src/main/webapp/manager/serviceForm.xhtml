@@ -1,7 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
       xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
-      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf"
+      xmlns:tr="http://myfaces.apache.org/trinidad">
 
 <f:view>
 <f:loadBundle var="text" basename="#{serviceForm.bundleName}"/>
@@ -11,83 +12,84 @@
 		<meta name="menu" content="ManagerMenu"/>
     </head>
 <body id="serviceForm">
-<t:saveState id="serviceCarKindSave1" value="#{serviceForm.carKindID}"/>
-<t:saveState id="serviceTemplateSave2" value="#{serviceForm.service.template}"/>
+
+	<t:saveState id="serviceCarKindSave1" value="#{serviceForm.carKindID}"/>
 <h:form id="serviceForm" onsubmit="return validateServiceForm(this)">
-<h:inputHidden value="#{serviceForm.service.id}" id="id"/>
-<t:messages />	
-<t:panelGrid columns="3">
+	<h:inputHidden value="#{serviceForm.service.id}" id="id"/>
+	<h:inputHidden value="#{serviceForm.service.enabled}"/>
+	<h:inputHidden value="#{serviceForm.service.serviceLocked}"/>
+	<h:inputHidden value="#{serviceForm.service.opened}"/>
+	<h:inputHidden value="#{serviceForm.service.serviceExpired}"/>
+	<t:messages />	
+<tr:panelGroupLayout layout="vertical">
  	
+    <tr:panelGroupLayout layout="horizontal">
     <h:outputLabel styleClass="desc" for="timed" value="#{text['service.timed']}"/>
     <h:inputText styleClass="text medium" id="timed" value="#{serviceForm.service.timed}" required="true" maxlength="10">
         <v:commonsValidator type="required" arg="#{text['service.timed']}"/>
     </h:inputText>
     <t:message for="timed" styleClass="fieldError"/>
+    </tr:panelGroupLayout>
+
+    <tr:panelGroupLayout layout="horizontal">
+	    <h:outputLabel styleClass="desc" for="weekday" value="#{text['service.weekday']}"/>
+	    <h:selectOneMenu value="#{serviceForm.service.weekday}" id="weekday" required="true" styleClass="select">
+	        <f:selectItems value="#{lookupProvider.weekdayItems}"/>
+	    </h:selectOneMenu>
+	    <t:message for="weekday" styleClass="fieldError"/>
+    </tr:panelGroupLayout>
  
-    <h:outputLabel styleClass="desc" for="weekday" value="#{text['service.weekday']}"/>
-    <h:selectOneMenu value="#{serviceForm.service.weekday}" id="weekday" required="true" styleClass="select">
-        <f:selectItems value="#{lookupProvider.weekdayItems}"/>
-    </h:selectOneMenu>
-    <t:message for="weekday" styleClass="fieldError"/>
- 
-    <h:outputLabel styleClass="desc" for="datebook" value="#{text['service.datebook']}"/>
-  	<trans:inputDate2 id="datebook" value="#{serviceForm.service.datebook}"
-			rendered="true" required="true">
-	</trans:inputDate2>		
-    <t:message for="datebook" styleClass="fieldError"/>
+    <tr:panelGroupLayout layout="horizontal">
+	    <h:outputLabel styleClass="desc" for="datebook" value="#{text['service.datebook']}"/>
+	  	<trans:inputDate2 id="datebook" value="#{serviceForm.service.datebook}"
+				rendered="true" required="true">
+		</trans:inputDate2>		
+	    <t:message for="datebook" styleClass="fieldError"/>
+    </tr:panelGroupLayout>
 			
 
+    <tr:panelGroupLayout layout="horizontal">
     <h:outputLabel styleClass="desc" for="carKind" value="#{text['service.carKind']}"/>
     <h:selectOneMenu value="#{serviceForm.carKindID}" id="carKind" required="true" styleClass="select"
     				onchange="submit()" immediate="true" valueChangeListener="#{serviceForm.carKindChanged}">
         <f:selectItems value="#{lookupProvider.carKindMap}"/>
     </h:selectOneMenu>
     <t:message for="carKind" styleClass="fieldError"/>
+    </tr:panelGroupLayout>
 
-    <h:outputLabel styleClass="desc2" for="car" value="#{text['service.car']}"/>
-    <h:selectOneMenu value="#{serviceForm.carID}" id="car" styleClass="select">
-        <f:selectItems value="#{serviceForm.availableCars}"/>
-    </h:selectOneMenu>
-    <t:message for="car" styleClass="fieldError"/>
+    <tr:panelGroupLayout layout="horizontal">
+	    <h:outputLabel styleClass="desc2" for="car" value="#{text['service.car']}"/>
+	    <h:selectOneMenu value="#{serviceForm.carID}" id="car" styleClass="select">
+	        <f:selectItems value="#{serviceForm.availableCars}"/>
+	    </h:selectOneMenu>
+	    <t:message for="car" styleClass="fieldError"/>
+    </tr:panelGroupLayout>
 
-</t:panelGrid>
-<t:panelGrid columns="3">
-
-    <h:outputLabel styleClass="desc" for="path" value="#{text['service.path']}"/>
-    <h:selectOneMenu value="#{serviceForm.pathID}" id="path" required="true" styleClass="select" 
-    				onchange="submit()" immediate="true" valueChangeListener="#{serviceForm.pathChanged}">
-        <f:selectItems value="#{lookupProvider.parentPathMap}"/>
-    </h:selectOneMenu>
-    <h:panelGroup>
-        <fieldset>
-            <legend>#{text['service.paths']}</legend>
+    <tr:panelGroupLayout layout="horizontal">
+	    <h:outputLabel styleClass="desc" for="path" value="#{text['service.path']}"/>
+	    <h:selectOneMenu value="#{serviceForm.pathID}" id="path" required="true" styleClass="select" 
+	    				onchange="submit()" immediate="true" valueChangeListener="#{serviceForm.pathChanged}">
+	        <f:selectItems value="#{lookupProvider.parentPathMap}"/>
+	    </h:selectOneMenu>
+		    <h:outputLabel styleClass="desc" for="path" value="#{text['service.paths']}"/>
             <h:selectManyCheckbox value="#{serviceForm.servicePaths}" id="servicePaths">
                 <f:selectItems value="#{serviceForm.availablePaths}"/>
             </h:selectManyCheckbox>
-        </fieldset>
-    </h:panelGroup>
+    </tr:panelGroupLayout>
     
-</t:panelGrid>
-<t:panelGrid columns="3">
-    <h:panelGroup>
-        <fieldset>
-            <legend>#{text['service.drivers']}</legend>
-            <h:selectManyListbox value="#{serviceForm.serviceDrivers}" id="serviceDrivers">
-                <f:selectItems value="#{lookupProvider.driverMap}"/>
-            </h:selectManyListbox>
-        </fieldset>
-    </h:panelGroup>
-    <h:panelGroup>
-        <fieldset>
-            <legend>#{text['service.lodgers']}</legend>
-            <h:selectManyListbox value="#{serviceForm.serviceLodgers}" id="serviceLodgers">
-                <f:selectItems value="#{lookupProvider.lodgerMap}"/>
-            </h:selectManyListbox>
-        </fieldset>
-    </h:panelGroup>
-    <h:outputText />
+    <tr:panelGroupLayout layout="horizontal">
+      	<tr:selectManyShuttle id="serviceDrivers" value="#{serviceForm.serviceDrivers}" binding="#{serviceForm.driverShuttle}" valuePassThru="true" leadingHeader="#{text['service.drivers']}" >
+              <f:selectItems value="#{lookupProvider.driverMap}"/>
+      	</tr:selectManyShuttle>
+    </tr:panelGroupLayout>
+    <tr:panelGroupLayout layout="horizontal">
+	    <h:outputLabel styleClass="desc" for="path" value="#{text['service.lodgers']}"/>
+        <h:selectManyListbox value="#{serviceForm.serviceLodgers}" id="serviceLodgers">
+            <f:selectItems value="#{lookupProvider.lodgerMap}"/>
+        </h:selectManyListbox>
+    </tr:panelGroupLayout>
 
-    <h:panelGroup styleClass="buttonBar bottom">
+    <tr:panelGroupLayout layout="horizontal">
         <h:commandButton value="#{text['button.save']}" action="#{serviceForm.save}" id="save" styleClass="button"/>
 
         <c:if test="${not empty serviceForm.service.id}">
@@ -97,20 +99,15 @@
 
         <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
             id="cancel" styleClass="button" onclick="bCancel=true"/>
-    </h:panelGroup>
-    <h:outputText/><h:outputText/>
+    </tr:panelGroupLayout>
+</tr:panelGroupLayout>
 
-</t:panelGrid>
-	<h:inputHidden value="#{serviceForm.service.enabled}"/>
-	<h:inputHidden value="#{serviceForm.service.serviceLocked}"/>
-	<h:inputHidden value="#{serviceForm.service.opened}"/>
-	<h:inputHidden value="#{serviceForm.service.serviceExpired}"/>
 </h:form>
 
 <v:validatorScript functionName="validateServiceForm"/>
 
 <script type="text/javascript">
-    Form.focusFirstElement($('serviceForm'));
+    //Form.focusFirstElement($('serviceForm'));
     highlightFormElements();
 </script>
 

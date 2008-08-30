@@ -12,8 +12,9 @@ import com.asta.app2.model.ServiceTemplate;
  */
 public interface ServiceTemplateManager extends GenericManager<ServiceTemplate, Long>{
 	List<ServiceTemplate> findServiceTemplateByPath(long path_id);
-
 	List<ServiceTemplate> getAllByCompany(Company company);
+	ServiceTemplate findServiceTemplateByTemplate(ServiceTemplate template);
+	ServiceTemplate findServiceTemplateByTemplateWithTime(ServiceTemplate serviceTemplate);
 	
 }
 

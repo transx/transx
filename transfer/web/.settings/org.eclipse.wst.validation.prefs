@@ -1,5 +1,5 @@
-#Mon Jul 14 16:29:54 IRST 2008
-DELEGATES_PREFERENCE=delegateValidatorListorg.eclipse.wst.xsd.core.internal.validation.eclipse.XSDDelegatingValidator\=org.eclipse.wst.xsd.core.internal.validation.eclipse.Validator;org.eclipse.wst.wsdl.validation.internal.eclipse.WSDLDelegatingValidator\=org.eclipse.wst.wsdl.validation.internal.eclipse.Validator;
+#Fri Aug 29 13:03:55 IRST 2008
+DELEGATES_PREFERENCE=delegateValidatorListorg.eclipse.wst.wsdl.validation.internal.eclipse.WSDLDelegatingValidator\=org.eclipse.wst.wsdl.validation.internal.eclipse.Validator;org.eclipse.wst.xsd.core.internal.validation.eclipse.XSDDelegatingValidator\=org.eclipse.wst.xsd.core.internal.validation.eclipse.Validator;
 USER_BUILD_PREFERENCE=enabledBuildValidatorList
 USER_MANUAL_PREFERENCE=enabledManualValidatorList
 USER_PREFERENCE=overrideGlobalPreferencestruedisableAllValidationfalseversion1.1.102.v200709122200

@@ -34,6 +34,20 @@ public class ServiceTemplate extends BaseObject implements
 	@JoinColumn(name = "path_id", nullable = false)
 	private Path path;
 
+	public ServiceTemplate() {}
+	
+	public ServiceTemplate(Company company,Path path,CarKind carKind) {
+		this.company=company;
+		this.path=path;
+		this.carKind=carKind;
+	}
+	public ServiceTemplate(Company company,Path path,CarKind carKind,String timed) {
+		this.company=company;
+		this.path=path;
+		this.carKind=carKind;
+		this.timed=timed;
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		if (o == this)

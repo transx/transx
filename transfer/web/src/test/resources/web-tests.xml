@@ -7,13 +7,13 @@
     <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources_${user.language}.properties"/>
     <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources.properties"/>
 
-    <!-- runs all targets #,SooratTests#-->
+    <!-- runs all targets #,SooratTests,PasswordHint#-->
     <target name="run-all-tests" 
-        depends="Login,Logout,PasswordHint,UserTests,Signup,FlushCache,FileUpload,CashTests,RateTests,TicketTempTests,TicketTests,ServiceTests,PassengerTests,CarTests,LodgerTests,DriverTests,PersonTests,ServiceTemplateTests,CarKindTests,CompanyTests,PathTests,CityTests,CountryTests,CityTests,CountryTests,ModifyReserve"
+        depends="Login,Logout,UserTests,Signup,FlushCache,FileUpload,CashTests,RateTests,TicketTempTests,TicketTests,ServiceTests,PassengerTests,CarTests,LodgerTests,DriverTests,PersonTests,ServiceTemplateTests,CarKindTests,CompanyTests,PathTests,CityTests,CountryTests,CityTests,CountryTests,ModifyReserve"
         description="Call and executes all test cases (targets)"/>
     
-    <!-- runs user-related tests #,AddUser-->
-    <target name="UserTests" depends="EditUser,SearchUser,SaveUser,ActiveUsers"
+    <!-- runs user-related tests #,AddUser,SaveUser-->
+    <target name="UserTests" depends="EditUser,SearchUser,ActiveUsers"
         description="Call and executes all user test cases (targets)">
         <echo>Successfully ran all User UI tests!</echo>
     </target>
@@ -155,7 +155,7 @@
                 <setinputfield description="set firstName" name="signupForm:firstName" value="Test"/>
                 <setinputfield description="set lastName" name="signupForm:lastName" value="Name"/>
             	
-            	<setSelectField name="signupForm:company" text="شرکت تعاونی مسافربری شماره 1"/>
+            	<setSelectField name="signupForm:company" text="شرکت آزمایشی"/>
             	
             	<setinputfield description="set city" name="signupForm:city" value="Denver"/>
                 <setinputfield description="set state" name="signupForm:province" value="CO"/>

@@ -43,7 +43,7 @@
         <Menu name="ReportMenu" title="menu.report" description="Report Menu" page="/report/cashes.html" roles="ROLE_ADMIN,ROLE_OWNER,ROLE_MANAGER" width="60">
 	        <Item name="Cashes" title="menu.report.cash" page="/report/cashes.html"/>
         </Menu>
-        <Menu name="UserMenu" title="menu.user" description="User Menu" page="/editProfile.html" roles="ROLE_ADMIN,ROLE_USER" with="60"/>
+        <Menu name="UserMenu" title="menu.user" description="User Menu" page="/editProfile.html" roles="ROLE_ADMIN,ROLE_USER,ROLE_OWNER,ROLE_MANAGER,ROLE_RESERVER,ROLE_CASHIER" with="60"/>
         <Menu name="Logout" title="user.logout" page="/logout.jsp" roles="ROLE_ADMIN,ROLE_USER" width="40"/>
           
 

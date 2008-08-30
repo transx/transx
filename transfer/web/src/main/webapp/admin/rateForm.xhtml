@@ -26,18 +26,21 @@
     <t:message for="rateType" styleClass="fieldError"/>
     <h:selectOneRadio value="#{rateForm.rate.rateType}" id="rateType" required="true" styleClass="radio">
 		<f:selectItems value="#{lookupProvider.rateTypeItems}"/>
+        <v:commonsValidator type="required" arg="#{text['rate.rateType']}"/>
 	</h:selectOneRadio>
 	
 	<h:outputLabel styleClass="desc" for="quality" value="#{text['rate.quality']}"/>
     <t:message for="quality" styleClass="fieldError"/>
     <h:selectOneRadio value="#{rateForm.rate.quality}" id="quality" required="true" styleClass="select">
         <f:selectItems value="#{lookupProvider.qualityItems}"/>
+        <v:commonsValidator type="required" arg="#{text['rate.quality']}"/>
     </h:selectOneRadio>
 	
     <h:outputLabel styleClass="desc" for="path" value="#{text['rate.path']}"/>
     <t:message for="path" styleClass="fieldError"/>
     <h:selectOneMenu value="#{rateForm.pathID}" id="path" required="true" styleClass="select">
         <f:selectItems value="#{lookupProvider.pathMap}"/>
+        <v:commonsValidator type="required" arg="#{text['rate.path']}"/>
     </h:selectOneMenu>
     
     <h:outputLabel styleClass="desc" for="price" value="#{text['rate.price']}"/>

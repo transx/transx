@@ -100,4 +100,12 @@
 		</component>
 	</tag>
 	
+	<!-- tag>
+		<tag-name>selectManyShuttle</tag-name>
+		<component>
+			<component-type>com.asta.app2.CoreSelectManyShuttle</component-type>
+			<renderer-type>com.asta.app2.Shuttle</renderer-type>
+		</component>
+	</tag -->
+	
 </facelet-taglib>

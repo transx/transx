@@ -31,11 +31,11 @@ public class Driver extends BaseObject implements Serializable,
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(length = 50, unique = true)
+	@Column(length = 50)
 	private String code;
-	@Column(name = "code_note", length = 50, unique = true)
+	@Column(name = "code_note", length = 50)
 	private String codeNote;
-	@Column(name = "licence_number", length = 50, nullable = false, unique = true)
+	@Column(name = "licence_number", length = 50, nullable = false)
 	private String licenceNumber;
 	@Column(name = "licence_issue", length = 100, nullable = false)
 	private String licenceIssue;
@@ -82,7 +82,8 @@ public class Driver extends BaseObject implements Serializable,
 
 	@Override
 	public String toString() {
-		return getCode();
+		return (person != null ? person.getLastName():"-0-")+"_"+
+			   (person != null ? person.getFirstName():"");
 	}
 
 	public int compareTo(Driver driver) {

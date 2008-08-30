@@ -1,33 +1,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
       xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
-      xmlns:v="http://corejsf.com/validator">
+      xmlns:v="http://corejsf.com/validator" xmlns:tr="http://myfaces.apache.org/trinidad">
 
 <f:view>
 <f:loadBundle var="text" basename="#{countryForm.bundleName}"/>
     <head>
         <title>#{text['countryDetail.title']}</title>
         <meta name="heading" content="#{text['countryDetail.heading']}"/>
-        <style type="text/css">
-            .jscalendar-DB-div-style {
-                position: absolute;
-                margin-top: -120px;
-                margin-left: -508px;
-            }
-    </style>
     </head>
 <body id="countryForm">
 
 <h:form id="countryForm" onsubmit="return validateCountryForm(this)">
 <h:inputHidden value="#{countryForm.country.id}" id="id"/>
-<h:panelGrid columns="3">
-    <h:outputLabel styleClass="desc" for="name" value="#{text['country.name']}"/>
-    <t:message for="name" styleClass="fieldError"/>
-    <h:inputText styleClass="text medium" id="name" value="#{countryForm.country.name}" required="true" maxlength="150">
-        <v:commonsValidator type="required" arg="#{text['country.name']}"/>
-    </h:inputText>
 
-    <h:panelGroup styleClass="buttonBar bottom">
+<tr:panelGroupLayout layout="vertical">
+    <tr:panelGroupLayout layout="horizontal">
+	    <h:outputLabel styleClass="desc" for="name" value="#{text['country.name']}"/>
+	    <t:message for="name" styleClass="fieldError"/>
+	    <h:inputText styleClass="text medium" id="name" value="#{countryForm.country.name}" required="true" maxlength="150">
+	        <v:commonsValidator type="required" arg="#{text['country.name']}"/>
+	    </h:inputText>
+    </tr:panelGroupLayout>
+
+    <tr:panelGroupLayout layout="horizontal">
         <h:commandButton value="#{text['button.save']}" action="#{countryForm.save}" id="save" styleClass="button"/>
 
         <c:if test="${not empty countryForm.country.id}">
@@ -37,9 +33,9 @@
 
         <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
             id="cancel" styleClass="button" onclick="bCancel=true"/>
-    </h:panelGroup>
-    <h:outputText/><h:outputText/>
-</h:panelGrid>
+    </tr:panelGroupLayout>
+
+</tr:panelGroupLayout>
 </h:form>
 
 <v:validatorScript functionName="validateCountryForm"/>

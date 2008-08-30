@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>Transfer Modular Application</name>
-    <url>http://www.mycompany.com</url>
+    <url>http://www.asta.ir</url>
 
     <prerequisites>
         <maven>2.0.6</maven>
@@ -446,8 +446,10 @@
         <jpa.version>1.0</jpa.version>
         <jstl.version>1.1.2</jstl.version>
         <log4j.version>1.2.13</log4j.version>
-        <myfaces.tomahawk.version>1.1.6</myfaces.tomahawk.version>
         <myfaces.version>1.2.3</myfaces.version>
+        <myfaces.tomahawk.version>1.1.6</myfaces.tomahawk.version>
+        <myfaces.trinidad.version>1.2.8</myfaces.trinidad.version>
+        <myfaces.orchestra.version>1.2</myfaces.orchestra.version>
         <oscache.version>2.3</oscache.version>
         <sitemesh.version>2.2.1</sitemesh.version>
         <spring.security.version>2.0.1</spring.security.version>
@@ -458,5 +460,6 @@
         <!-- Properties calculated by AppFuse when running full-source plugin -->
     	<jasper.version>3.0.0</jasper.version>
     	<el.version>1.2</el.version>
+    	<a4j.trinidad.version>1.0.5</a4j.trinidad.version>
     </properties>
 </project>

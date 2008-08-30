@@ -2,6 +2,7 @@
                  xmlns:h="http://java.sun.com/jsf/html"
                  xmlns:c="http://java.sun.com/jstl/core">
 	HeLlo there !
+ 	<ui:debug hotkey="d" rendered="true"/>
     <c:choose>
         <c:when test="#{not empty param.debug and param.debug == 'true'}">
             <h:outputText value="#{msgs.debugHeaders}"/>

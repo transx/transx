@@ -14,6 +14,10 @@ public interface ServiceTemplateDao extends GenericDao<ServiceTemplate, Long>{
 	List<ServiceTemplate> findServiceTemplateByPath(long path_id);
 
 	List<ServiceTemplate> getAllByCompany(Company company);
+
+	ServiceTemplate findServiceTemplateByTemplate(ServiceTemplate template);
+
+	ServiceTemplate findServiceTemplateByTemplateWithTime(ServiceTemplate template);
 }
 
 

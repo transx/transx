@@ -18,7 +18,9 @@
 <h:panelGrid columns="3">
 
     <h:outputLabel styleClass="desc" for="number" value="#{text['cash.number']}"/>
-    <h:inputText value="#{cashForm.cash.number}" id="number" styleClass="text small"/>
+    <h:inputText value="#{cashForm.cash.number}" id="number" styleClass="text small" required="true">
+    	<v:commonsValidator type="required" arg="#{text['cash.number']}"/>
+    </h:inputText>
     <t:message for="number" styleClass="fieldError"/>
 
     <h:panelGroup styleClass="buttonBar bottom">

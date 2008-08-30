@@ -24,7 +24,9 @@
             <supported-locale>zh_TW</supported-locale>
             <supported-locale>fa</supported-locale>
         </locale-config>
-        <message-bundle>ApplicationResources</message-bundle>   
+        <message-bundle>ApplicationResources</message-bundle>
+        <default-render-kit-id>org.apache.myfaces.trinidad.core</default-render-kit-id>
+        <view-handler>org.ajax4jsf.framework.ajax.AjaxViewHandler</view-handler>
     </application>
 
     <component>
@@ -254,7 +256,29 @@
       	</renderer>
 	</render-kit>
    	<!-- SelectChair-END -->
-	
+	<!-- Hello Trinidad-START -->
+	<managed-bean>
+    	<managed-bean-name>helloTrinidadBacking</managed-bean-name>
+    	<managed-bean-class>
+       		com.asta.app2.tutorial.hellotrinidad.HelloTrinidadBacking
+    	</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+  	</managed-bean>
+  	<navigation-rule>
+    	<from-view-id>/tutorial/hellotrinidad/sayHello.xhtml</from-view-id>
+    	<navigation-case>
+      		<from-outcome>success</from-outcome>
+      		<to-view-id>/tutorial/hellotrinidad/page2.xhtml</to-view-id>
+   		</navigation-case>
+  	</navigation-rule>
+  	<navigation-rule>
+    	<from-view-id>/tutorial/hellotrinidad/page2.xhtml</from-view-id>
+    	<navigation-case>
+      		<from-outcome>back</from-outcome>
+      		<to-view-id>/tutorial/hellotrinidad/sayHello.xhtml</to-view-id>
+    	</navigation-case>
+  	</navigation-rule>
+	<!-- Hello Trinidad-END -->
 	
    <!-- tutorial -END ##########################################################-->
    
@@ -303,6 +327,10 @@
 	        <navigation-case>
 	            <from-outcome>reserveContainer</from-outcome>
 	            <to-view-id>/tutorial/reservecontainer/reserve.xhtml</to-view-id>
+	        </navigation-case>
+	        <navigation-case>
+	            <from-outcome>helloTrinidad</from-outcome>
+	            <to-view-id>/tutorial/hellotrinidad/sayHello.xhtml</to-view-id>
 	        </navigation-case>
     </navigation-rule>
     <navigation-rule>

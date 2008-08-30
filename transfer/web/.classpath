@@ -50,7 +50,11 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/commons-dbcp/commons-dbcp/1.2.1/commons-dbcp-1.2.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/commons-digester/commons-digester/1.8/commons-digester-1.8.jar" sourcepath="M2_REPO/commons-digester/commons-digester/1.8/commons-digester-1.8-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/commons-digester/commons-digester/1.7/commons-digester-1.7.jar" sourcepath="M2_REPO/commons-digester/commons-digester/1.7/commons-digester-1.7-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/commons-digester/commons-digester/1.7/commons-digester-1.7-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-el/commons-el/1.0/commons-el-1.0.jar" sourcepath="M2_REPO/commons-el/commons-el/1.0/commons-el-1.0-sources.jar">
 		<attributes>
@@ -64,9 +68,9 @@
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/commons-httpclient/commons-httpclient/3.0/commons-httpclient-3.0.jar" sourcepath="M2_REPO/commons-httpclient/commons-httpclient/3.0/commons-httpclient-3.0-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.3/commons-lang-2.3.jar" sourcepath="M2_REPO/commons-lang/commons-lang/2.3/commons-lang-2.3-sources.jar"/>
-	<classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.jar">
+	<classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" sourcepath="M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/commons-pool/commons-pool/1.2/commons-pool-1.2.jar" sourcepath="M2_REPO/commons-pool/commons-pool/1.2/commons-pool-1.2-sources.jar">
@@ -86,9 +90,9 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/org/directwebremoting/dwr/2.0.1/dwr-2.0.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/net/sf/ehcache/ehcache/1.4.1/ehcache-1.4.1.jar" sourcepath="M2_REPO/net/sf/ehcache/ehcache/1.4.1/ehcache-1.4.1-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/net/sf/ehcache/ehcache/1.5.0/ehcache-1.5.0.jar" sourcepath="M2_REPO/net/sf/ehcache/ehcache/1.5.0/ehcache-1.5.0-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/net/sf/ehcache/ehcache/1.4.1/ehcache-1.4.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/net/sf/ehcache/ehcache/1.5.0/ehcache-1.5.0-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" sourcepath="M2_REPO/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1-sources.jar"/>
@@ -109,11 +113,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/com/lowagie/itext/1.3.1/itext-1.3.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/jasperreports/jasperreports/2.0.5/jasperreports-2.0.5.jar" sourcepath="M2_REPO/jasperreports/jasperreports/2.0.5/jasperreports-2.0.5-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jasperreports/jasperreports/3.0.0/jasperreports-3.0.0.jar" sourcepath="M2_REPO/jasperreports/jasperreports/3.0.0/jasperreports-3.0.0-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/jfree/jcommon/1.0.0/jcommon-1.0.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/jdom/jdom/1.0/jdom-1.0.jar" sourcepath="M2_REPO/jdom/jdom/1.0/jdom-1.0-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/eclipse/jdtcore/3.1.0/jdtcore-3.1.0.jar"/>
-	<classpathentry kind="var" path="M2_REPO/jfree/jfreechart/1.0.1/jfreechart-1.0.1.jar" sourcepath="M2_REPO/jfree/jfreechart/1.0.1/jfreechart-1.0.1-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jfree/jfreechart/1.0.0/jfreechart-1.0.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/jmock/jmock/2.4.0/jmock-2.4.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/jmock/jmock-junit4/2.4.0/jmock-junit4-2.4.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/sun/facelets/jsf-facelets/1.1.14/jsf-facelets-1.1.14.jar"/>
@@ -129,8 +133,8 @@
 	<classpathentry kind="var" path="M2_REPO/junit/junit-dep/4.4/junit-dep-4.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.13/log4j-1.2.13.jar" sourcepath="M2_REPO/log4j/log4j/1.2.13/log4j-1.2.13-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/mail/mail/1.4/mail-1.4.jar" sourcepath="M2_REPO/javax/mail/mail/1.4/mail-1.4-sources.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/apache/myfaces/core/myfaces-api/1.2.2/myfaces-api-1.2.2.jar" sourcepath="M2_REPO/org/apache/myfaces/core/myfaces-api/1.2.2/myfaces-api-1.2.2-sources.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/apache/myfaces/core/myfaces-impl/1.2.2/myfaces-impl-1.2.2.jar" sourcepath="M2_REPO/org/apache/myfaces/core/myfaces-impl/1.2.2/myfaces-impl-1.2.2-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/myfaces/core/myfaces-api/1.2.3/myfaces-api-1.2.3.jar" sourcepath="M2_REPO/org/apache/myfaces/core/myfaces-api/1.2.3/myfaces-api-1.2.3-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/myfaces/core/myfaces-impl/1.2.3/myfaces-impl-1.2.3.jar" sourcepath="M2_REPO/org/apache/myfaces/core/myfaces-impl/1.2.3/myfaces-impl-1.2.3-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/5.0.5/mysql-connector-java-5.0.5.jar"/>
 	<classpathentry kind="var" path="M2_REPO/oro/oro/2.0.8/oro-2.0.8.jar" sourcepath="M2_REPO/oro/oro/2.0.8/oro-2.0.8-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/opensymphony/oscache/2.3/oscache-2.3.jar" sourcepath="M2_REPO/opensymphony/oscache/2.3/oscache-2.3-sources.jar"/>
@@ -175,6 +179,17 @@
 	<classpathentry kind="var" path="M2_REPO/org/apache/myfaces/tomahawk/tomahawk/1.1.6/tomahawk-1.1.6.jar" sourcepath="M2_REPO/org/apache/myfaces/tomahawk/tomahawk/1.1.6/tomahawk-1.1.6-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/org/apache/myfaces/tomahawk/tomahawk/1.1.6/tomahawk-1.1.6-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="/transfer-core"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/myfaces/trinidad/trinidad-api/1.2.8/trinidad-api-1.2.8.jar" sourcepath="M2_REPO/org/apache/myfaces/trinidad/trinidad-api/1.2.8/trinidad-api-1.2.8-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/org/apache/myfaces/trinidad/trinidad-api/1.2.8/trinidad-api-1.2.8-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/org/apache/myfaces/trinidad/trinidad-impl/1.2.8/trinidad-impl-1.2.8.jar" sourcepath="M2_REPO/org/apache/myfaces/trinidad/trinidad-impl/1.2.8/trinidad-impl-1.2.8-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/z/tools/maven/.m2/repository/org/apache/myfaces/trinidad/trinidad-impl/1.2.8/trinidad-impl-1.2.8-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/org/tuckey/urlrewritefilter/3.0.4/urlrewritefilter-3.0.4.jar"/>
@@ -225,6 +240,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar" sourcepath="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2-sources.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/transfer-core"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
