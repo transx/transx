@@ -16,6 +16,7 @@
     <name>Transfer Modular Application - Web (JSF)</name>
     
     <build>
+    	<finalName>trp</finalName>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -285,6 +286,12 @@
             <artifactId>tomahawk</artifactId>
             <version>${myfaces.tomahawk.version}</version>
         </dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.tomahawk</groupId>
+			<artifactId>tomahawk-sandbox</artifactId>
+			<version>${myfaces.tomahawk.sandbox.version}</version>
+		</dependency>        
+        <!-- 
         <dependency>
             <groupId>org.apache.myfaces.trinidad</groupId>
             <artifactId>trinidad-api</artifactId>
@@ -297,12 +304,32 @@
             <version>${myfaces.trinidad.version}</version>
             <scope>compile</scope>
         </dependency>
-        <!-- dependency>
+         -->
+        <dependency>
 			<groupId>org.apache.myfaces.orchestra</groupId>
 			<artifactId>myfaces-orchestra-core</artifactId>
-			<version>1.2</version>
-		</dependency -->
-        
+			<version>${myfaces.orchestra.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.orchestra</groupId>
+			<artifactId>myfaces-orchestra-core15</artifactId>
+			<version>${myfaces.orchestra.core15.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.myfaces.orchestra</groupId>
+			<artifactId>myfaces-orchestra-sandbox</artifactId>
+			<version>${myfaces.orchestra.sandbox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>1.5.3</version>
+		</dependency>
         <dependency>
             <groupId>org.apache.shale</groupId>
             <artifactId>shale-test</artifactId>

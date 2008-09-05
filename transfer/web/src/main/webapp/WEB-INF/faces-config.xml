@@ -25,8 +25,15 @@
             <supported-locale>fa</supported-locale>
         </locale-config>
         <message-bundle>ApplicationResources</message-bundle>
+        <!-- 
         <default-render-kit-id>org.apache.myfaces.trinidad.core</default-render-kit-id>
         <view-handler>org.ajax4jsf.framework.ajax.AjaxViewHandler</view-handler>
+         --> 
+        
+  		<variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+		<navigation-handler>org.apache.myfaces.custom.redirectTracker.RedirectTrackerNavigationHandler</navigation-handler>
+		<navigation-handler>org.apache.myfaces.orchestra.urlParamNav.UrlParameterNavigationHandler</navigation-handler>
+		<view-handler>org.apache.myfaces.orchestra.urlParamNav.UrlParameterViewHandler</view-handler>
     </application>
 
     <component>
@@ -279,7 +286,42 @@
     	</navigation-case>
   	</navigation-rule>
 	<!-- Hello Trinidad-END -->
-	
+	<!-- Hello Orchestra-START -->
+    <navigation-rule>
+        <description>rules leading from the reservationBook view</description>
+        <from-view-id>/tutorial/helloorchestra/reservationBook.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservation.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>new</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservation.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <description>rules leading from the reservation view</description>
+        <from-view-id>/tutorial/helloorchestra/reservation.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>save</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>delete</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+	<!-- Hello Orchestra-END -->
+    
    <!-- tutorial -END ##########################################################-->
    
     <navigation-rule>
@@ -331,6 +373,10 @@
 	        <navigation-case>
 	            <from-outcome>helloTrinidad</from-outcome>
 	            <to-view-id>/tutorial/hellotrinidad/sayHello.xhtml</to-view-id>
+	        </navigation-case>
+	        <navigation-case>
+	            <from-outcome>helloOrchestra</from-outcome>
+	            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
 	        </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -1565,15 +1611,11 @@
         </managed-property>
     </managed-bean>
     <!--Ticket-beans-END-->
-    <!--Reserve-beans-START-->
+    <!--Reserve-beans-START
  	<managed-bean>
  		<managed-bean-name>reserveForm</managed-bean-name>
  		<managed-bean-class>com.asta.app2.webapp.action.ReserveForm</managed-bean-class>
- 		<managed-bean-scope>request</managed-bean-scope>
-        <managed-property>
-            <property-name>id</property-name>
-            <value>#{param.id}</value>
-        </managed-property>
+ 		<managed-bean-scope>session</managed-bean-scope>
         <managed-property>
             <property-name>serviceManager</property-name>
             <value>#{serviceManager}</value>
@@ -1599,6 +1641,7 @@
             <value>#{pathManager}</value>
         </managed-property>
  	</managed-bean>
+    -->
     <!--Reserve-beans-END-->
     <!--TicketTemp-beans-START-->
     <managed-bean>

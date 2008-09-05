@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import javax.faces.model.SelectItem;
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.asta.app2.Constants;
 import com.asta.app2.model.Chair;
@@ -85,14 +85,20 @@ public class ReserveForm extends BasePage implements Serializable {
 	}
 
 	public String edit() {
-		if (id != 0) {
-			service = serviceManager.get(id);
-		}
+//		if (id != 0) {
+//			service = serviceManager.get(id);
+//		}
 		return "edit";
 	}
-
+	@Transactional
+	public String enter() {
+		return "edit";
+	}
+	
+	@Transactional
 	public String save() throws IOException {
-		service = serviceManager.get(service.getId());
+		//service should be update for check is Opened.
+		//service = serviceManager.get(service.getId());
 		if (service.isOpened()) {
 			boolean isNew = (passenger.getId() == null);
 			String lastName = null;
@@ -102,27 +108,20 @@ public class ReserveForm extends BasePage implements Serializable {
 			lastName = getRequest().getParameter("reserveForm:lastName");
 			genderString = getRequest().getParameter("reserveForm:gender");
 			pathString = getRequest().getParameter("reserveForm:path");
-			if (lastName != null && lastName != "" && genderString != null
-					&& pathString != null) {
+
+			if (lastName == null || lastName == "" || genderString == null || pathString == null) {
+				addError("errors.reserve.required");
+			} else {
 				Gender gender = null;
 				if (genderString.equals(Gender.MALE.toString()))
 					gender = Gender.MALE;
 				else
 					gender = Gender.FEMALE;
-				passenger.setLastName(lastName);
 				passenger.setGender(gender);
-				passenger.setFirstName(getRequest().getParameter(
-						"reserveForm:firstName"));
-				passenger.setPassportNumber(getRequest().getParameter(
-						"reserveForm:passportNumber"));
-			}
-
-			if (lastName == null || lastName == "" || genderString == null
-					|| pathString == null) {
-				addError("errors.reserve.required");
-			} else {
-				Path path = pathManager.get(Long.valueOf(pathString)
-						.longValue());
+				passenger.setLastName(lastName);
+				passenger.setFirstName(getRequest().getParameter("reserveForm:firstName"));
+				passenger.setPassportNumber(getRequest().getParameter("reserveForm:passportNumber"));
+				Path path = pathManager.get(Long.valueOf(pathString).longValue());
 				passenger = passengerManager.save(passenger);
 				ticketTemp.setPassenger(passenger);
 				ticketTemp.setPath(path);
@@ -132,16 +131,13 @@ public class ReserveForm extends BasePage implements Serializable {
 				ticketTemp.setReserverId(getCurrentUsername());
 				
 				String key;
-				StringBuffer buffer = new StringBuffer();
-				setSelectedChairs(getRequest().getParameterValues(
-						"reserveForm:selectedChairs"));
+				setSelectedChairs(null);
+				ticketTemp.getChairs().clear();
+				setSelectedChairs(getRequest().getParameterValues("reserveForm:selectedChairs"));
 				if (selectedChairs != null && selectedChairs.length > 0){
-					for (int i = 0; (selectedChairs != null)
-							&& (i < selectedChairs.length); i++) {
+					for (int i = 0; (selectedChairs != null)&& (i < selectedChairs.length); i++) {
 						long id = Long.valueOf(selectedChairs[i]).longValue();
 						ticketTemp.addChair(chairManager.get(id));
-						buffer.append(selectedChairs[i]);
-						buffer.append(", ");
 					}
 					key = (isNew) ? "reserve.added" : "reserve.updated";
 				}else{
@@ -150,14 +146,14 @@ public class ReserveForm extends BasePage implements Serializable {
 				try {
 					ticketTemp.setCount(ticketTemp.getChairs().size());
 					ticketTempManager.saveTicketTemp(getCurrentUser().getCompany(),ticketTemp);
+					tts.add(ticketTemp);
 					if (key.equals("reserve.empty")){
 						addError(key);
 					}else{
-						addMessage(key, buffer.toString());
+						addMessage(key, ticketTemp.getChairs().toString());
 					}
 				} catch (ChairReservedException cre) {
-					addError("errors.reserved.chair", ticketTemp.getChairs()
-							.toString());
+					addError("errors.reserved.chair", ticketTemp.getChairs().toString());
 				}
 			}
 		}else{
@@ -167,18 +163,23 @@ public class ReserveForm extends BasePage implements Serializable {
 		return "edit";
 	}
 
+	@Transactional
 	public String refresh() {
-		service = serviceManager.get(service.getId());
+		tickets.clear();
+		tts.clear();
+		setTickets(ticketManager.getTicketsByService(getCurrentUser().getCompany(), service));
+		setTts(ticketTempManager.findTicketTempsByService(getCurrentUser().getCompany(), service)); 
 		return "edit";
 	}
-
+	@Transactional
 	public String newTT() {
 //		service = serviceManager.get(service.getId());
 		passenger = new Passenger();
+		ticketTemp = new TicketTemp();
 		isChairDisabled = "false";
 		return "edit";
 	}
-
+	@Transactional
 	public List<ChairModel> getChairModels() {
 		chairModels = new ArrayList<ChairModel>();
 		chairModels.clear();
@@ -188,10 +189,7 @@ public class ReserveForm extends BasePage implements Serializable {
 				chairmate[chair.getId().intValue()] = chair.getId().toString();
 			}
 			for (Chair chair : ticket.getChairs()) {
-				ChairModel model = new ChairModel(chair.getId(), chairmate,
-						Constants.CHAIR_REGISTERED, ticket.getReserverId(),
-						ticket.getPassenger(), ticket.getPath().getId()
-								.toString());
+				ChairModel model = new ChairModel(chair.getId(), chairmate,Constants.CHAIR_REGISTERED, ticket.getReserverId(),ticket.getPassenger(), ticket.getPath().getId().toString());
 				chairModels.add(model);
 			}
 		}
@@ -201,19 +199,28 @@ public class ReserveForm extends BasePage implements Serializable {
 				chairmate[chair.getId().intValue()] = chair.getId().toString();
 			}
 			for (Chair chair : tt.getChairs()) {
-				ChairModel model = new ChairModel(chair.getId(), chairmate,
-						Constants.CHAIR_RESERVED, tt.getReserverId(), tt
-								.getPassenger(), tt.getPath().getId()
-								.toString());
+				ChairModel model = new ChairModel(chair.getId(), chairmate,Constants.CHAIR_RESERVED, tt.getReserverId(), tt.getPassenger(), tt.getPath().getId().toString());
 				chairModels.add(model);
 			}
 		}
 		return chairModels;
 	}
 
+	@Transactional
+	public List<Ticket> getTickets() {
+		if (tickets == null)
+			tickets = ticketManager.getTicketsByService(getCurrentUser().getCompany(),service);
+		return tickets;
+	}
+	@Transactional
+	public List<TicketTemp> getTts() {
+		if (tts == null)
+			tts = ticketTempManager.findTicketTempsByService(getCurrentUser().getCompany(),service);
+		return tts;
+	}
+
 	public String getCurrentUsername() {
-		HttpServletRequest request = getRequest();
-		return request.getRemoteUser();
+		return getRequest().getRemoteUser();
 	}
 
 	public void setPassengerManager(PassengerManager passengerManager) {
@@ -228,17 +235,6 @@ public class ReserveForm extends BasePage implements Serializable {
 		this.service = service;
 	}
 
-	public List<Ticket> getTickets() {
-		if (tickets == null)
-			tickets = ticketManager.getTicketsByService(getCurrentUser().getCompany(),service);
-		return tickets;
-	}
-
-	public List<TicketTemp> getTts() {
-		if (tts == null)
-			tts = ticketTempManager.findTicketTempsByService(getCurrentUser().getCompany(),service);
-		return tts;
-	}
 
 	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
@@ -378,6 +374,10 @@ public class ReserveForm extends BasePage implements Serializable {
 
 	public void setPathManager(PathManager pathManager) {
 		this.pathManager = pathManager;
+	}
+
+	public void setTts(List<TicketTemp> tts) {
+		this.tts = tts;
 	}
 
 }

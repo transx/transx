@@ -285,5 +285,10 @@
             <artifactId>velocity</artifactId>
             <version>${velocity.version}</version>
         </dependency>
+  		<dependency>
+			<groupId>org.apache.myfaces.orchestra</groupId>
+			<artifactId>myfaces-orchestra-core</artifactId>
+			<version>${myfaces.orchestra.core.version}</version>
+		</dependency>
     </dependencies>
 </project>

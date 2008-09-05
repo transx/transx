@@ -92,18 +92,19 @@ public class ReserveContainerVerticalRenderer extends Renderer {
 			encodeFacet(component, content, context);
 		}
 
-		writer.startElement("input", component);
-		writer.writeAttribute("id", formId + ":" + "selectedChairs" + ":"
-				+ item.getLabel(), "id");
-		writer.writeAttribute("type", "checkbox", "type");
-		writer.writeAttribute("value", item.getLabel(), "value");
-		writer.writeAttribute("class", "checkbox2", null);
-		writer.writeAttribute("name", formId + ":" + "selectedChairs", "name");
-
-		if (item.isDisabled())
-			writer.writeAttribute("disabled", "disabled", "disabled");
-
-		writer.endElement("input");
+		if (!item.isDisabled()){
+			writer.startElement("input", component);
+			writer.writeAttribute("id", formId + ":" + "selectedChairs" + ":"
+					+ item.getLabel(), "id");
+			writer.writeAttribute("type", "checkbox", "type");
+			writer.writeAttribute("value", item.getLabel(), "value");
+			writer.writeAttribute("class", "checkbox2", null);
+			writer.writeAttribute("name", formId + ":" + "selectedChairs", "name");
+			if (item.isDisabled())
+				writer.writeAttribute("disabled", "disabled", "disabled");
+			writer.endElement("input");
+		}
+		
 		writer.startElement("br", component);
 		writer.endElement("br");
 		writer.startElement("input", component);

@@ -3,6 +3,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
        default-lazy-init="true">
 
+	<!-- reserveForm-START -->
+	<bean name="reserveForm" class="com.asta.app2.webapp.action.ReserveForm" scope="conversation.access">
+		<property name="serviceManager" ref="serviceManager"/>
+		<property name="ticketManager" ref="ticketManager"/>
+		<property name="ticketTempManager" ref="ticketTempManager"/>
+		<property name="chairManager" ref="chairManager"/>
+		<property name="passengerManager" ref="passengerManager"/>
+		<property name="pathManager" ref="pathManager"/>
+	</bean>
+	
+
     <!-- Add new DAOs here -->
 
     <!-- Add new Managers here -->

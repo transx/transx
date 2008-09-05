@@ -1,9 +1,7 @@
 <projectDescription>
   <name>transfer-webapp</name>
   <comment/>
-  <projects>
-    <project>transfer-core</project>
-  </projects>
+  <projects/>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

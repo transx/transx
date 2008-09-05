@@ -3,6 +3,66 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
        default-lazy-init="true">
 
+	<import resource="classpath*:/META-INF/spring-orchestra-init.xml"/>
+
+	<!-- register our custom spring scope -->
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+		<property name="scopes">
+			<map>
+				<entry key="conversation.manual">
+					<bean class="org.apache.myfaces.orchestra.conversation.spring.SpringConversationScope">
+						<property name="timeout" value="35"/>
+
+						<property name="advices">
+							<list>
+								<ref bean="persistentContextConversationInterceptor"/>
+							</list>
+						</property>
+					</bean>
+				</entry>
+                <entry key="conversation.access">
+                    <bean class="org.apache.myfaces.orchestra.conversation.spring.SpringConversationScope">
+                        <property name="advices">
+                            <list>
+                                <ref bean="persistentContextConversationInterceptor"/>
+                            </list>
+                        </property>
+                        <property name="lifetime" value="access"/>
+                    </bean>
+                </entry>				
+				<entry key="conversation.flash">
+					<bean class="org.apache.myfaces.orchestra.conversation.spring.SpringConversationScope">
+						<property name="advices">
+							<list>
+								<ref bean="persistentContextConversationInterceptor"/>
+							</list>
+						</property>
+						<property name="lifetime" value="flash"/>
+					</bean>
+				</entry>
+				<entry key="conversation.viewController">
+					<bean class="org.apache.myfaces.orchestra.viewController.spring.SpringViewControllerScope">
+						<property name="advices">
+							<list>
+								<ref bean="persistentContextConversationInterceptor"/>
+							</list>
+						</property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="persistentContextConversationInterceptor"
+		  class="org.apache.myfaces.orchestra.conversation.spring.PersistenceContextConversationInterceptor">
+		<property name="persistenceContextFactory" ref="persistentContextFactory"/>
+	</bean>
+
+	<bean id="persistentContextFactory"
+		  class="org.apache.myfaces.orchestra.conversation.spring.HibernatePersistenceContextFactory">
+		<property name="entityManagerFactory" ref="sessionFactory"/>
+	</bean>	
+
     <!-- Hibernate SessionFactory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -18,6 +78,10 @@
             <!-- hibernate.jdbc.batch_size=0 -->
         </property>
     </bean>
+
+	<bean id="managedDataSource" class="org.apache.myfaces.orchestra.connectionManager.ConnectionManagerDataSource">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
 
     <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">

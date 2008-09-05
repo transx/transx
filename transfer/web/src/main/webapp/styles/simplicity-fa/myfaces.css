@@ -9,14 +9,21 @@
 }
 
 ul.scrollerTable, table.scroller {
-	padding: 0;
-	margin: 0;
+	padding: 0px;
+	margin:0px;
 	float: right;
 	margin-top: -5px;
 	direction: ltr;
 }
 
+table.scroller td{
+	padding-bottom: 0;
+	text-decoration: underline;
+	text-align: center;
+}
+
 .scroller img { border: 1px solid #999 }
+
 
 .summary {
     font-size: 12px;

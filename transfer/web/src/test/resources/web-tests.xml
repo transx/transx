@@ -7,13 +7,13 @@
     <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources_${user.language}.properties"/>
     <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources.properties"/>
 
-    <!-- runs all targets #,SooratTests,PasswordHint#-->
+    <!-- runs all targets #,SooratTests#-->
     <target name="run-all-tests" 
-        depends="Login,Logout,UserTests,Signup,FlushCache,FileUpload,CashTests,RateTests,TicketTempTests,TicketTests,ServiceTests,PassengerTests,CarTests,LodgerTests,DriverTests,PersonTests,ServiceTemplateTests,CarKindTests,CompanyTests,PathTests,CityTests,CountryTests,CityTests,CountryTests,ModifyReserve"
+        depends="Login,Logout,UserTests,Signup,PasswordHint,FlushCache,FileUpload,CashTests,RateTests,TicketTempTests,TicketTests,ServiceTests,PassengerTests,CarTests,LodgerTests,DriverTests,PersonTests,ServiceTemplateTests,CarKindTests,CompanyTests,PathTests,CityTests,CountryTests,CityTests,CountryTests,ModifyReserve"
         description="Call and executes all test cases (targets)"/>
     
-    <!-- runs user-related tests #,AddUser,SaveUser-->
-    <target name="UserTests" depends="EditUser,SearchUser,ActiveUsers"
+    <!-- runs user-related tests #,AddUser-->
+    <target name="UserTests" depends="EditUser,SaveUser,SearchUser,ActiveUsers"
         description="Call and executes all user test cases (targets)">
         <echo>Successfully ran all User UI tests!</echo>
     </target>

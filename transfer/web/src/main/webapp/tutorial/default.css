@@ -1,0 +1,154 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+body
+{
+	color: black;
+	font: Verdana Arial sans-serif;
+}
+
+h1
+{
+	background-color: #9999ff;
+	color: white;
+	display: block;
+}
+
+h2
+{
+	color: #6633ff;
+}
+
+h3
+{
+	color: #6633ff;
+}
+
+.navigation
+{
+	display: inline;
+}
+
+.navigation ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+
+table thead
+{
+	background-color: #9999ff;
+	color: white;
+}
+
+.TR1
+{
+	background-color: #ffffdd;
+}
+
+.TR2
+{
+	background-color: #eeeeee;
+}
+
+.fixtext
+{
+	font-weight: bold;
+	vertical-align: top;
+}
+
+.selection
+{
+	font-weight: normal;
+	vertical-align: top;
+}
+
+input, textarea, select, button
+{
+	border-width: 1px;
+	border-color: #bbbbbb;
+	border-style: solid;
+}
+
+tfoot
+{
+	text-align: right;
+}
+
+.inputTable tfoot tr td
+{
+	text-align: right;
+}
+
+.nowrap
+{
+	white-space: nowrap;
+}
+
+.tLeft
+{
+	text-align: left;
+}
+
+.tRight
+{
+	text-align: right;
+}
+
+.formInput
+{
+	text-align: left;
+}
+
+.formData
+{
+	text-align: left;	
+}
+
+.formAction
+{
+	text-align: right;
+}
+
+div.section *
+{
+	margin-left: 20px;
+}
+
+div.section h3
+{
+	font-weight: bold;
+	margin-left: 0px;
+}
+
+div.example *
+{
+	margin-left: 20px;
+}
+
+div.example A
+{
+	font-style: italic;
+	margin-left: 0px;
+}
+
+div.pagedoc
+{
+	border-bottom: 2px solid black;
+}	

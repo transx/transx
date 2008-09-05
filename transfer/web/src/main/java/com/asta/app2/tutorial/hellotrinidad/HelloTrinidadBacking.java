@@ -4,8 +4,8 @@ package com.asta.app2.tutorial.hellotrinidad;
 
 import javax.faces.context.FacesContext;
 
-import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
-import org.apache.myfaces.trinidad.util.Service;
+//import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
+//import org.apache.myfaces.trinidad.util.Service;
 
 
 /**
@@ -17,15 +17,15 @@ import org.apache.myfaces.trinidad.util.Service;
  * A typical simple backing bean, that is backed to <code>sayHello.xhtml</code>
  * 
  */
-public class HelloTrinidadBacking
+/*public class HelloTrinidadBacking
 {
 
   //properties
   private String _name;
 
-  /**
+  *//**
    * default empty constructor
-   */
+   *//*
   public HelloTrinidadBacking()
   {   
   }
@@ -41,9 +41,9 @@ public class HelloTrinidadBacking
     this._name = name;
   }
 
-  /**
+  *//**
    * Method that is backed to a submit button of a form.
-   */
+   *//*
   public String send()
   {
     FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -54,4 +54,4 @@ public class HelloTrinidadBacking
     //do real logic
     return ("success");
   }
-}
+}*/

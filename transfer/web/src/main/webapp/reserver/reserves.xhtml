@@ -27,10 +27,7 @@
                 <h:outputText value="#{text['service.id']}" />
             </t:commandSortHeader>
         </f:facet>
-        <h:commandLink action="#{reserveForm.edit}" value="#{service.id}">
-            <f:param name="id" value="#{service.id}"/>
-            <f:param name="from" value="list"/>
-        </h:commandLink>
+        <h:outputText value="#{service.id}" />
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -38,7 +35,7 @@
                 <h:outputText value="#{text['service.timed']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.timed}" escape="true"/>
+    	<h:outputText value="#{service.timed}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -46,7 +43,7 @@
                 <h:outputText value="#{text['service.weekday']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.weekday.label}" escape="true"/>
+    	<h:outputText value="#{service.weekday.label}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -54,7 +51,7 @@
                 <h:outputText value="#{text['service.datebook']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.datebookFormatted}" escape="true"/>
+    	<h:outputText value="#{service.datebookFormatted}" escape="true"/>
     </t:column>
     <!-- t:column>
         <f:facet name="header">
@@ -62,7 +59,7 @@
                 <h:outputText value="#{text['service.enabled']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:selectBooleanCheckbox value="#{service.enabled}" id="enabled" disabled="true"/>
+    	<h:selectBooleanCheckbox value="#{service.enabled}" id="enabled" disabled="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -70,7 +67,7 @@
                 <h:outputText value="#{text['service.serviceLocked']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:selectBooleanCheckbox value="#{service.serviceLocked}" id="serviceLocked" disabled="true"/>
+    	<h:selectBooleanCheckbox value="#{service.serviceLocked}" id="serviceLocked" disabled="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -78,7 +75,7 @@
                 <h:outputText value="#{text['service.opened']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:selectBooleanCheckbox value="#{service.opened}" id="opened" disabled="true"/>
+    	<h:selectBooleanCheckbox value="#{service.opened}" id="opened" disabled="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -86,7 +83,7 @@
                 <h:outputText value="#{text['service.serviceExpired']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:selectBooleanCheckbox value="#{service.serviceExpired}" id="serviceExpired" disabled="true"/>
+    	<h:selectBooleanCheckbox value="#{service.serviceExpired}" id="serviceExpired" disabled="true"/>
     </t:column-->
     <!--t:column>
         <f:facet name="header">
@@ -94,7 +91,7 @@
                 <h:outputText value="#{text['service.company']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.company}" escape="true"/>
+    	<h:outputText value="#{service.company}" escape="true"/>
     </t:column-->
     <t:column>
         <f:facet name="header">
@@ -102,7 +99,7 @@
                 <h:outputText value="#{text['service.carKind']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.carKind}" escape="true"/>
+    	<h:outputText value="#{service.carKind}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -110,7 +107,7 @@
                 <h:outputText value="#{text['service.car']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.car}" escape="true"/>
+   	 	<h:outputText value="#{service.car}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -118,7 +115,7 @@
                 <h:outputText value="#{text['service.path']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.path}" escape="true"/>
+    	<h:outputText value="#{service.path}" escape="true"/>
     </t:column>
     <!-- t:column>
         <f:facet name="header">
@@ -144,6 +141,14 @@
         </f:facet>
     <h:outputText value="#{service.lodgers}" escape="true"/>
     </t:column-->
+    <t:column>
+        <f:facet name="header">
+            <h:outputText value="#{text['service.enter.reserve']}" />
+        </f:facet>
+        <h:commandLink action="#{reserveForm.enter}" value="#{text['service.enter.reserve']}">
+            <f:setPropertyActionListener target="#{reserveForm.service}" value="#{service}"/>
+        </h:commandLink>
+    </t:column>
    
 </t:dataTable>
 

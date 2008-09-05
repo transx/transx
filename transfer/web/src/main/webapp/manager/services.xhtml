@@ -86,8 +86,8 @@
         <f:facet name="header">
             <h:outputText value="#{text['service.opened']}" />
         </f:facet>
-		<h:graphicImage value="/images/iconOpen.png" rendered="#{service.opened}"/>
-		<h:graphicImage value="/images/iconClose.png" rendered="#{!service.opened}"/>
+		<h:graphicImage value="/images/iconOpen.png" rendered="#{service.opened}" alt="#{text['service.opened']}"/>
+		<h:graphicImage value="/images/iconClose.png" rendered="#{!service.opened}" alt="#{text['service.opened']}"/>
     </t:column>
     <!-- t:column>
         <f:facet name="header">
@@ -174,7 +174,9 @@
         <f:facet name="header">
            <h:outputText value="#{text['service.serviceExpired']}" />
         </f:facet>
-        <h:commandLink action="#{serviceForm.expireService}" value="#{text['service.serviceExpired']}" rendered="#{!service.serviceExpired}">
+        <h:commandLink action="#{serviceForm.expireService}" 
+        	value="#{text['service.serviceExpired']}" rendered="#{!service.serviceExpired}"
+        	id="expire" onclick="bCancel=true; return confirmExpire('سرویس')">
             <f:param name="id" value="#{service.id}"/>
         </h:commandLink>
     </t:column>   

@@ -57,12 +57,6 @@ public class TicketTempManagerImpl extends GenericManagerImpl<TicketTemp, Long>
 
 		List<Chair> allReservedChairs = new ArrayList<Chair>();
 
-		for (Ticket element : allTs) {
-			for (Chair chair : element.getChairs()) {
-				allReservedChairs.add(chair);
-			}
-		}
-
 		for (TicketTemp element : allTts) {
 			for (Chair chair : element.getChairs()) {
 				allReservedChairs.add(chair);
@@ -71,6 +65,11 @@ public class TicketTempManagerImpl extends GenericManagerImpl<TicketTemp, Long>
 		if (oldTt != null) {
 			for (Chair chair : oldTt.getChairs()) {
 				allReservedChairs.remove(chair);
+			}
+		}
+		for (Ticket element : allTs) {
+			for (Chair chair : element.getChairs()) {
+				allReservedChairs.add(chair);
 			}
 		}
 		boolean confirm = true;
@@ -86,8 +85,7 @@ public class TicketTempManagerImpl extends GenericManagerImpl<TicketTemp, Long>
 
 		if (!confirm) {
 			ticketTemp.setChairs(notValidChairs);
-			throw new ChairReservedException("Chairs '"
-					+ notValidChairs.toString() + "' already reserved!");
+			throw new ChairReservedException("Chairs '" + notValidChairs.toString() + "' already reserved!");
 		} else {
 			if (oldTt != null) {
 				oldTt.setChairs(ticketTemp.getChairs());

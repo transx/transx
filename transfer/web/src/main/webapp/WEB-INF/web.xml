@@ -38,15 +38,15 @@
         </param-value>
     </context-param>
 	<!-- FaceletViewHandler configuration -->
-    <!-- this config goes to the faces-config.xml becuase of integrate with Trinidad -->
-    <!--context-param>
+    <!-- #this config goes to the faces-config.xml becuase of integrate with Trinidad -->
+    <context-param>
         <param-name>org.ajax4jsf.VIEW_HANDLERS</param-name>
         <param-value>com.sun.facelets.FaceletViewHandler</param-value>
-    </context-param -->
-	<context-param>
+    </context-param>
+	<!-- context-param>
 	  <param-name>org.apache.myfaces.trinidad.ALTERNATE_VIEW_HANDLER</param-name>
 	  <param-value>com.sun.facelets.FaceletViewHandler</param-value>
-	</context-param>
+	</context-param -->
     
     <context-param>
         <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
@@ -55,10 +55,10 @@
     <!-- Trinidad by default uses an optimized client-side state saving
        mechanism. To disable that, uncomment the following 
        and in our project we have som incompatible part with optimization so we do uncomment!-->
-  <context-param>
+  <!-- context-param>
     <param-name>org.apache.myfaces.trinidad.CLIENT_STATE_METHOD</param-name>
     <param-value>all</param-value>
-  </context-param>
+  </context-param -->
     <context-param>
         <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
         <param-value>.xhtml</param-value>
@@ -72,11 +72,19 @@
         <param-value>
             /WEB-INF/taglibs/acegijsf.taglib.xml;
             /WEB-INF/taglibs/corejsf-validator.taglib.xml;
-            /WEB-INF/taglibs/tomahawk.taglib.xml;
             /WEB-INF/taglibs/transfer.taglib.xml
         </param-value>
     </context-param>
+	<context-param>
+		<param-name>org.apache.myfaces.ADD_RESOURCE_CLASS</param-name>
+		<param-value>org.apache.myfaces.component.html.util.StreamingAddResource</param-value>
+	</context-param>
 
+	<context-param>
+		<param-name>org.apache.myfaces.redirectTracker.POLICY</param-name>
+		<param-value>org.apache.myfaces.custom.redirectTracker.policy.MessagesRedirectTrackPolicy</param-value>
+	</context-param>
+	
     <filter>
         <filter-name>ajax4jsf</filter-name>
         <filter-class>org.ajax4jsf.Filter</filter-class>
@@ -146,10 +154,23 @@
         <filter-name>sitemesh</filter-name>
         <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
     </filter>
-    <filter>
+    <!-- filter>
     	<filter-name>trinidad</filter-name>
     	<filter-class>org.apache.myfaces.trinidad.webapp.TrinidadFilter</filter-class>
-  	</filter>
+  	</filter -->
+	<filter>
+		<filter-name>orchestraRequestParameterFilter</filter-name>
+		<filter-class>org.apache.myfaces.orchestra.requestParameterProvider.RequestParameterServletFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>orchestraFilter</filter-name>
+		<filter-class>org.apache.myfaces.orchestra.conversation.jsf.filter.OrchestraServletFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>orchestraBasicFrameworkAdapterFilter</filter-name>
+		<filter-class>org.apache.myfaces.orchestra.frameworkAdapter.basic.BasicFrameworkAdapterFilter</filter-class>
+	</filter>
+
 
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
@@ -171,17 +192,17 @@
         <filter-name>ajax4jsf</filter-name>
         <servlet-name>faces</servlet-name>
         <!-- this setting commented becuase of integrate with Trinidad
+         -->
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
-         -->
     </filter-mapping>
-    <filter-mapping>
+    <!-- filter-mapping>
     	<filter-name>trinidad</filter-name>
     	<servlet-name>faces</servlet-name>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>
-  	</filter-mapping>
+  	</filter-mapping -->
     <!-- Commented out for 2 reasons: 1) it's a pain when developing JSPs, and
                                       2) it causes the Signup webtest to fail -->
     <!--filter-mapping>
@@ -236,6 +257,20 @@
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
+   	<filter-mapping>
+		<filter-name>orchestraBasicFrameworkAdapterFilter</filter-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</filter-mapping>
+   	<filter-mapping>
+		<filter-name>orchestraRequestParameterFilter</filter-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</filter-mapping>
+   	<filter-mapping>
+		<filter-name>orchestraFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 
     <listener>
         <listener-class>com.opensymphony.clickstream.ClickstreamListener</listener-class>
@@ -261,6 +296,10 @@
     <listener>
         <listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
     </listener>
+	<listener>
+		<listener-class>org.apache.myfaces.orchestra.conversation.servlet.ConversationManagerSessionListener</listener-class>
+	</listener>
+
 
     <servlet>
         <servlet-name>faces</servlet-name>
@@ -282,11 +321,12 @@
         <servlet-class>org.codehaus.xfire.spring.XFireSpringServlet</servlet-class>
     </servlet>
 
-  	<!-- resource loader servlet Apache Trinidad-->
+  	<!-- resource loader servlet Apache Trinidad
   	<servlet>
     	<servlet-name>resources</servlet-name>
     	<servlet-class>org.apache.myfaces.trinidad.webapp.ResourceServlet</servlet-class>
   	</servlet>
+  	-->
 
     <servlet-mapping>
         <servlet-name>faces</servlet-name>
@@ -303,10 +343,10 @@
         <url-pattern>/services/*</url-pattern>
     </servlet-mapping>
 
-	<servlet-mapping>
+	<!-- servlet-mapping>
 	   <servlet-name>resources</servlet-name>
 	   <url-pattern>/adf/*</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 
     <session-config>
         <session-timeout>10</session-timeout>

@@ -224,11 +224,6 @@ input.checkbox, input.radio{
     font-weight: bold;
 }
 
-input.checkbox2{
-    margin-right: 15px;
-    margin-left: 20px;
-}
-
 table.checkbox, table.radio{
     display: inline;
     line-height: 1.4em;
@@ -551,7 +546,7 @@ form .reservedChairLabel{
 
 form .registeredChairLabelFemale {
    padding: 0px;
-   border: thin solid red;
+   border: thin solid rgb(255,128,0);
    color: black;
    background: rgb(100,150,255);
    width: 70px;
@@ -561,7 +556,7 @@ form .registeredChairLabelFemale {
 
 form .reservedChairLabelFemale{
    padding: 0px;
-   border: thin solid red;
+   border: thin solid rgb(255,128,0);
    color: black;
    background: rgb(195,217,255);
    width: 70px;
@@ -576,6 +571,10 @@ form .emptyChairLabel{
    background: white;
    width: 70px;
    margin-bottom: 1px;
+}
+
+input.checkbox2{
+    margin: 0;
 }
 
 .evenRows {

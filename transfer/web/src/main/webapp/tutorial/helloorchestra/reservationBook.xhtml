@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:trans="http://app2.asta.com/tags/jsf"
+      xmlns:tr="http://myfaces.apache.org/trinidad"
+      xmlns:t="http://myfaces.apache.org/tomahawk">
+<head>
+	<link href="default.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+<ui:composition template="/tutorial/template.xhtml">
+
+
+  <ui:define name="title">
+   The SayHello Orchestra DEMO (hotel reservation) page 1!
+  </ui:define>
+ <ui:define name="body">
+	  
+<f:view>
+  <div class="pagedoc">
+    <p>
+    This trivial webapp presents a simple room-reservation system for a hotel.
+    This hotel has an unlimited number of rooms, but is closed on Saturday and
+    Sunday nights.
+    </p>
+    <p>
+    The presentation logic for this page is in bean <code>reservationBookView</code>
+    which is in a "manual" conversation. As this manual conversation is never
+    explicitly invalidated, this is effectively like "session" scope - except that it
+    integrates correctly with "conversation contexts", ie multiple concurrent windows
+    are supported.
+    </p>
+    <p>
+    The reservation subpage uses bean <code>reservationView</code> which is in an
+    "access" conversation. Before navigating to that view, this page pushes needed
+    parameters data into it using the t:updateActionListener (for JSF1.2, use the
+    standard f:setPropertyActionListener component instead). This creates the bean
+    instance.
+    </p>
+  </div>
+
+  <h:form id="main">
+    <h3>Reservations List</h3>
+    <h:dataTable var="reservation" value="#{reservationBookView.book.reservations}">
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Name"/>
+        </f:facet>
+        <h:commandLink id="edit" action="edit" value="#{reservation.name}">
+          <f:setPropertyActionListener target="#{reservationView.book}" value="#{reservationBookView.book}"/>	
+          <f:setPropertyActionListener target="#{reservationView.reservation}" value="#{reservation}"/>	
+        </h:commandLink>
+      </h:column>
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Start"/>
+        </f:facet>
+        <h:outputText value="#{reservation.start}">
+          <f:convertDateTime pattern="dd-MMM-yyyy"/>
+        </h:outputText>
+      </h:column>
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Days"/>
+        </f:facet>
+        <h:outputText value="#{reservation.days}"/>
+      </h:column>
+    </h:dataTable>
+    <h:commandButton id="new" action="new" value="New">
+      <f:setPropertyActionListener target="#{reservationView.book}" value="#{reservationBookView.book}"/>	
+    </h:commandButton>
+  </h:form>
+
+</f:view>
+	  
+  </ui:define>
+
+  
+</ui:composition>
+
+
+</body>
+</html>  
+  

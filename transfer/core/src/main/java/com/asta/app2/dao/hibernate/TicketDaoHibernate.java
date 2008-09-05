@@ -20,7 +20,7 @@ public class TicketDaoHibernate extends GenericDaoHibernate<Ticket, Long> implem
 	}
 
 	public List<Ticket> getAllTickets(Company company) {
-		return getHibernateTemplate().find("from Ticket");
+		return getHibernateTemplate().find("from Ticket as tic where tic.company=?",company);
 	}
 	
 	/**

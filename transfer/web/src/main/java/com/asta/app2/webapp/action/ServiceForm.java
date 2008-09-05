@@ -2,13 +2,11 @@ package com.asta.app2.webapp.action;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.faces.event.ValueChangeEvent;
 
-import org.apache.myfaces.trinidad.component.core.input.CoreSelectManyShuttle;
 import org.springframework.security.context.SecurityContext;
 import org.springframework.security.context.SecurityContextHolder;
 
@@ -31,6 +29,10 @@ import com.asta.app2.service.ServiceTemplateManager;
 import com.asta.app2.util.BundleUtil;
 
 public class ServiceForm extends BasePage implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6475994219784037987L;
 	private ServiceManager serviceManager;
 	private Service service = new Service();
 	private Long id;
@@ -50,10 +52,6 @@ public class ServiceForm extends BasePage implements Serializable {
 	private String[] serviceLodgers;
 	private String[] servicePaths;
 
-	private CoreSelectManyShuttle driverShuttle;
-	
-
-
 	public void carKindChanged(ValueChangeEvent carKindEvent){
 		String carKindID = (String) carKindEvent.getNewValue();
 		setAvailableCars(carManager.getCarKindMap(getCurrentUser().getCompany(),carKindManager.get(Long.valueOf(carKindID).longValue())));
@@ -65,7 +63,14 @@ public class ServiceForm extends BasePage implements Serializable {
 		setAvailablePaths(pathManager.getSubPathMap(pathManager.get(Long.valueOf(pathID).longValue()).getId()));
 		//setAvailableCars(getAvailableCars());
 	}
-	
+
+	public void driverChanged(ValueChangeEvent evt){
+    	serviceDrivers = (String[]) evt.getNewValue(); 
+    }    
+
+	public void lodgerChanged(ValueChangeEvent evt){
+		serviceLodgers = (String[]) evt.getNewValue(); 
+	}    
 	
 	public String delete() {
 		try{
@@ -89,7 +94,7 @@ public class ServiceForm extends BasePage implements Serializable {
 			setCarID(service.getCar().getId().toString());
 		} else {
 			service = new Service();
-			//make default carKind
+			//make default carKind -2L volvo40
 			setCarKindID(carKindManager.get(-2L).getId().toString());
 		}
 
@@ -99,9 +104,8 @@ public class ServiceForm extends BasePage implements Serializable {
 	public String save() {
 		boolean isNew = (service.getId() == null);
 
-		SecurityContext ctx = SecurityContextHolder.getContext();
-		User currentUser = (User) ctx.getAuthentication().getPrincipal();
-		service.setCompany(currentUser.getCompany());
+
+		service.setCompany(getCurrentUser().getCompany());
 
 		service.setCarKind(carKindManager.get(Long.valueOf(getCarKindID()).longValue()));
 		service.setPath(pathManager.get(Long.valueOf(getPathID()).longValue()));
@@ -113,27 +117,20 @@ public class ServiceForm extends BasePage implements Serializable {
 		if (getCarID() != null && !getCarID().equals(Constants.EMPTY))
 		service.setCar(carManager.get(Long.valueOf(getCarID()).longValue()));
 
-		
-		String allSelectedDrivers = getRequest().getParameter("serviceForm:serviceDrivers:trailing:items");
-		if (allSelectedDrivers != null && !allSelectedDrivers.equals("")){
-			setServiceDrivers(allSelectedDrivers.split(";"));
-			for (int i = 0; (serviceDrivers != null) && (i < serviceDrivers.length); i++) {
-				long id = Long.valueOf(serviceDrivers[i]).longValue();
-				service.addDriver(driverManager.get(id));
-	//			log.debug("i="+i+", value="+serviceDrivers[i]+"\n");
-			}
-		}
 
-		setServiceLodgers(getRequest().getParameterValues("serviceForm:serviceLodgers"));
 		setServicePaths(getRequest().getParameterValues("serviceForm:servicePaths"));
-
-		for (int i = 0; (serviceLodgers != null) && (i < serviceLodgers.length); i++) {
-			long id = Long.valueOf(serviceLodgers[i]).longValue();
-			service.addLodger(lodgerManager.get(id));
-		}
 		for (int i = 0; (servicePaths != null) && (i < servicePaths.length); i++) {
 			long id = Long.valueOf(servicePaths[i]).longValue();
 			service.addPath(pathManager.get(id));
+		}
+		for (int i = 0; (serviceLodgers != null) && (i < serviceLodgers.length); i++) {
+			long id = Long.valueOf(serviceLodgers[i]).longValue();
+			service.addLodger(lodgerManager.get(id));
+			//log.debug("i="+i+", value="+serviceLodgers[i]+"\n");
+		}
+		for (int i = 0; (serviceDrivers != null) && (i < serviceDrivers.length); i++) {
+			long id = Long.valueOf(serviceDrivers[i]).longValue();
+			service.addDriver(driverManager.get(id));
 		}
 
 		serviceManager.save(service);
@@ -185,6 +182,48 @@ public class ServiceForm extends BasePage implements Serializable {
 		return "stayHere";
 	}
 
+	public String[] getServiceDrivers() {
+		if (serviceDrivers == null){
+			serviceDrivers = new String[service.getDrivers().size()];
+		
+			int i = 0;
+			if (serviceDrivers.length > 0) {
+				for (Driver driver : service.getDrivers()) {
+					serviceDrivers[i] = driver.getId().toString();
+					i++;
+				}
+			}
+		}
+		return serviceDrivers;
+	}
+
+	public String[] getServiceLodgers() {
+		if (serviceLodgers == null){
+			serviceLodgers = new String[service.getLodgers().size()];
+	
+			int i = 0;
+			if (serviceLodgers.length > 0) {
+				for (Lodger lodger : service.getLodgers()) {
+					serviceLodgers[i] = lodger.getId().toString();
+					i++;
+				}
+			}
+		}
+		return serviceLodgers;
+	}
+
+	public String[] getServicePaths() {
+		servicePaths = new String[service.getPaths().size()];
+
+		int i = 0;
+		if (servicePaths.length > 0) {
+			for (Path path : service.getPaths()) {
+				servicePaths[i] = path.getId().toString();
+				i++;
+			}
+		}
+		return servicePaths;
+	}
 
 	public void setCarKindManager(CarKindManager carKindManager) {
 		this.carKindManager = carKindManager;
@@ -253,53 +292,6 @@ public class ServiceForm extends BasePage implements Serializable {
 		return availablePaths;
 	}
 
-	public String[] getServiceDrivers() {
-		serviceDrivers = new String[service.getDrivers().size()];
-
-		int i = 0;
-		if (serviceDrivers.length > 0) {
-			for (Driver driver : service.getDrivers()) {
-				serviceDrivers[i] = driver.getId().toString();
-				i++;
-			}
-		}
-		return serviceDrivers;
-	}
-
-	public String[] getServiceLodgers() {
-		serviceLodgers = new String[service.getLodgers().size()];
-
-		int i = 0;
-		if (serviceLodgers.length > 0) {
-			for (Lodger lodger : service.getLodgers()) {
-				serviceLodgers[i] = lodger.getId().toString();
-				i++;
-			}
-		}
-		return serviceLodgers;
-	}
-
-	public String[] getServicePaths() {
-		servicePaths = new String[service.getPaths().size()];
-
-		int i = 0;
-		if (servicePaths.length > 0) {
-			for (Path path : service.getPaths()) {
-				servicePaths[i] = path.getId().toString();
-				i++;
-			}
-		}
-		return servicePaths;
-	}
-
-	public CoreSelectManyShuttle getDriverShuttle() {
-		return driverShuttle;
-	}
-
-	public void setDriverShuttle(CoreSelectManyShuttle driverShuttle) {
-		this.driverShuttle = driverShuttle;
-	}
-	
 	public void setServiceDrivers(String[] serviceDrivers) {
 		this.serviceDrivers = serviceDrivers;
 	}

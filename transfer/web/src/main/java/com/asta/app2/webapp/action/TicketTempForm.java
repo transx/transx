@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -97,7 +99,7 @@ public class TicketTempForm extends BasePage implements Serializable {
 	 * 
 	 * if (isNew) { return "list"; } else { return "edit"; } }
 	 */
-
+	@Transactional
 	public String issueTicket() {
 		if (id != null) {
 			TicketTemp tt = ticketTempManager.get(id);

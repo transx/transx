@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:trans="http://app2.asta.com/tags/jsf"
+      xmlns:tr="http://myfaces.apache.org/trinidad"
+      xmlns:t="http://myfaces.apache.org/tomahawk">
+<head>
+	<link href="default.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+<ui:composition template="/tutorial/template.xhtml">
+
+
+  <ui:define name="title">
+   The SayHello Orchestra DEMO (hotel reservation) page 2!
+  </ui:define>
+ <ui:define name="body">
+	  
+<f:view>
+  <div class="pagedoc">
+    <p>
+    This hotel has an unlimited number of rooms, but is closed on Saturday and
+    Sunday nights.
+    </p>
+    <p>
+    The ReservationView backing bean for this page is in "access" scope, meaning that
+    the same instance is used when this view is rendered multiple times. However when
+    control is passed back to the parent view it is deleted; on return to this view a
+    new instance is then created with all member properties of course reset to their
+    default values.
+    </p>
+    <p>
+    The access-scope works where "request" scope would not; it retains all the properties
+    needed to render this page across repeated renders of this page. However it is cleaner
+    than "session" scope because (a) memory is released when this bean is no longer in use,
+    (b) a new instance is created upon later return to this page, and (c) it works with
+    multiple concurrent windows as a new instance exists for each window. 
+    </p>
+  </div>
+
+  <h:form id="main">
+    <h3>Reservation Information</h3>
+    <h:panelGrid columns="2">
+      <h:outputText value="Backing Bean instance:"/>
+      <h:outputText value="#{reservationView.instanceId}"/>
+    </h:panelGrid>
+
+    <h:panelGrid columns="2">
+      <h:outputText value="name"/>
+      <h:inputText id="name" size="20" value="#{reservationView.reservation.name}" required="true" readonly="#{reservationView.viewMode}"/>
+      <h:outputText value="start"/>
+      <t:inputCalendar id="start" value="#{reservationView.reservation.start}"
+        renderAsPopup="true" popupDateFormat="dd-MMM-yyyy"
+        required="true"
+        readonly="#{reservationView.viewMode}"/>
+      <h:outputText value="days"/>
+      <h:inputText id="days" value="#{reservationView.reservation.days}" required="true" readonly="#{reservationView.viewMode}">
+        <f:validateLongRange minimum="1" maximum="5"/>
+      </h:inputText>
+      <h:outputText value="reservation state:"/>
+      <h:outputText rendered="#{!reservationView.viewMode}" value="#{reservationView.reservationState}"/>
+    </h:panelGrid>
+
+    <h:commandButton id="check" action="#{reservationView.checkAvailability}" value="Check Availability" rendered="#{!reservationView.viewMode}"/>
+    <h:commandButton id="save" action="#{reservationView.save}" value="Save" rendered="#{!reservationView.viewMode}"/>
+    <h:commandButton id="delete" action="#{reservationView.remove}" value="Delete" rendered="#{reservationView.viewMode}"/>
+    <h:commandButton id="cancel" action="cancel" value="Cancel" immediate="true"/>
+  </h:form>
+
+</f:view>
+	  
+  </ui:define>
+
+  
+</ui:composition>
+
+
+</body>
+</html>  
+  

@@ -51,6 +51,7 @@
 			</c:forEach>
 			<trans:selectChairItem itemLabel="${chairId}" itemValue="${chairId} " itemDisabled="${IS_CHAIR_REGISTED}" x="${x}" y="${y}" cssClass="${CSS_CLASS}" passengerName="${PASSENGER_NAME}" itemFemale="${ITEM_FEMALE}"/>
 			<f:facet name="${chairId} ">
+				<c:if test="${IS_CHAIR_DISABLED}">
 				<h:commandLink immediate="true" action="#{reserveForm.changeChair}">
 					<f:setPropertyActionListener target="#{reserveForm.isChairRegisted}" value="${IS_CHAIR_REGISTED}"/>
 					<f:setPropertyActionListener target="#{reserveForm.isChairReserved}" value="${IS_CHAIR_RESERVED}"/>
@@ -59,6 +60,10 @@
 					<f:setPropertyActionListener target="#{reserveForm.pathID}" value="${PATH_ID}"/>
 					<h:graphicImage value="/images/numbers/${chairId}.ico"/>
 				</h:commandLink>
+				</c:if>
+				<c:if test="${!IS_CHAIR_DISABLED}">
+					<h:graphicImage value="/images/numbers/${chairId}.ico"/>
+				</c:if>
 			</f:facet>
 			<c:set var="x" value="${x+1}" />
 		</c:forEach>

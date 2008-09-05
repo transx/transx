@@ -181,5 +181,12 @@
 		<constructor-arg ref="cashDao"/>
 	</bean>
 
+    <!-- reservationBook-example-START -->
+    <bean name="reservationBookView"
+        class="com.asta.app2.tutorial.helloorchestra.ReservationBookView"
+        scope="conversation.manual"/>
+    <bean name="reservationView"
+        class="com.asta.app2.tutorial.helloorchestra.ReservationView"
+        scope="conversation.access"/>
     <!-- Add new Managers here -->
 </beans>

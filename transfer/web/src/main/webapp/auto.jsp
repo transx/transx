@@ -1,6 +1,7 @@
 <html>
    <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
-   <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>   
+   <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+   <%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
    <f:view>
       <head> 
          <link href="styles.css" rel="stylesheet" type="text/css"/> 
@@ -8,8 +9,10 @@
             <h:outputText value="#{msgs.indexWindowTitle}"/>
          </title>
       </head>
-
       <body>
+		<t:panelGrid columns="3" >
+	 	</t:panelGrid>	
+		<t:outputLabel></t:outputLabel>
          <h:outputText value="#{msgs.indexPageTitle}" styleClass="emphasis"/>
          <h:form>
             <table>
@@ -86,6 +89,7 @@
                      <h:graphicImage value="" rendered=""></h:graphicImage>
                      <h:inputText binding="" disabled="" converter=""></h:inputText>
                      <f:convertNumber pattern="###,###.00"/>
+                     <f:setPropertyActionListener target="" value=""/>
                   </td>
                </tr>
             </table>
