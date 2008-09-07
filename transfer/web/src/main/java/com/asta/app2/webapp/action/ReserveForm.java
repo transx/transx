@@ -99,7 +99,7 @@ public class ReserveForm extends BasePage implements Serializable {
 	public String save() throws IOException {
 		//service should be update for check is Opened.
 		//service = serviceManager.get(service.getId());
-		if (service.isOpened()) {
+		if (service.getOpened()) {
 			boolean isNew = (passenger.getId() == null);
 			String lastName = null;
 			String genderString = null;
