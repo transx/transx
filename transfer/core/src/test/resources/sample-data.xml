@@ -1193,14 +1193,14 @@
         <value description="service_opened">0</value>
         <value description="service_expired">0</value>
         <value description="company_id">-1</value>
-        <value description="car_kind_id">-1</value>
+        <value description="car_kind_id">-2</value>
         <value description="path_id">-1</value>
         <value description="car_id">-1</value>
         <value description="template_id">-1</value>
     </row>
     <row>
         <value description="id">-3</value>
-        <value description="timed">8:00</value>
+        <value description="timed">18:00</value>
         <value description="weekday">TUESDAY</value>
         <value description="datebook">2008-06-17</value>
         <value description="service_enabled">1</value>

@@ -48,6 +48,10 @@
         <level value="DEBUG"/>
     </logger>
 
+	<logger name="org.hibernate.cache">
+		<level value="INFO"/>
+	</logger>
+
     <logger name="com.asta.app2.webapp.filter.StaticFilter">
         <level value="INFO"/>
     </logger>

@@ -13,6 +13,9 @@
 		<property name="pathManager" ref="pathManager"/>
 	</bean>
 	
+	<bean name="search" class="com.asta.app2.webapp.action.SearchForm" scope="conversation.access">
+		<property name="serviceManager" ref="serviceManager"/>	
+	</bean>
 
     <!-- Add new DAOs here -->
 

@@ -19,6 +19,12 @@ public class Path extends BaseObject implements Comparable<Path> {
 	private City end;
 	private Long space;
 
+	public Path() {}
+	
+	public Path(Long id) {
+		this.id = id;
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)

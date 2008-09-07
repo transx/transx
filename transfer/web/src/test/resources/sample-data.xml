@@ -1200,7 +1200,7 @@
     </row>
     <row>
         <value description="id">-3</value>
-        <value description="timed">8:00</value>
+        <value description="timed">18:00</value>
         <value description="weekday">TUESDAY</value>
         <value description="datebook">2008-06-17</value>
         <value description="service_enabled">1</value>

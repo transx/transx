@@ -96,4 +96,8 @@ public class GenericManagerImpl<T, PK extends Serializable> implements GenericMa
     public void remove(PK id) {
         genericDao.remove(id);
     }
+
+	public List<T> searchByExample(T exampleEntity) {
+		return genericDao.searchByExample(exampleEntity);
+	}
 }

@@ -71,4 +71,11 @@ public interface GenericDao <T, PK extends Serializable> {
      * @return a list of the records found
      */
     List<T> findByNamedQuery(String queryName, Map<String, Object> queryParams);
+    
+    
+	/**
+	 * Find a list of records by using a sample entity
+	 * @param exampleEntity: Specifies an entity which contain the search values
+	 */            
+    List<T> searchByExample(T exampleEntity);
 }

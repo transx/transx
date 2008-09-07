@@ -3,6 +3,7 @@ package com.asta.app2.webapp.action;
 import java.io.Serializable;
 import java.util.Map;
 
+import com.asta.app2.Constants;
 import com.asta.app2.model.Path;
 import com.asta.app2.service.CityManager;
 import com.asta.app2.service.PathManager;
@@ -65,7 +66,7 @@ public class PathForm extends BasePage implements Serializable {
 		boolean isNew = (path.getId() == null);
 		path.setStart(cityManager.get(Long.valueOf(getStartID()).longValue()));
 		path.setEnd(cityManager.get(Long.valueOf(getEndID()).longValue()));
-		if (getParentID() != null){
+		if (!getParentID().equals(Constants.EMPTY)){
 			path.setParent(pathManager.get(Long.valueOf(getParentID()).longValue()));
 		}
 		pathManager.save(path);

@@ -4,9 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.asta.app2.dao.CityDao;
+import com.asta.app2.Constants;
 import com.asta.app2.dao.PathDao;
-import com.asta.app2.model.City;
 import com.asta.app2.model.Path;
 import com.asta.app2.service.CityManager;
 import com.asta.app2.service.PathManager;
@@ -30,7 +29,7 @@ public class PathManagerImpl extends GenericManagerImpl<Path, Long> implements
 		Map<String, String> map = new TreeMap<String, String>();
 		map.clear();
 		if (withEmpty) {
-			map.put("", null);
+			map.put("- - - - - - - - - -", Constants.EMPTY);
 		}
 		for (Path path : paths) {
 			map.put(path.toString() == null ? "" : path.toString(), path
@@ -44,7 +43,7 @@ public class PathManagerImpl extends GenericManagerImpl<Path, Long> implements
 		Map<String, String> map = new TreeMap<String, String>();
 		map.clear();
 		if (withEmpty) {
-			map.put("", null);
+			map.put("- - - - - - - - - -", Constants.EMPTY);
 		}
 		for (Path path : paths) {
 			map.put(path.toString() == null ? "" : path.toString(), path

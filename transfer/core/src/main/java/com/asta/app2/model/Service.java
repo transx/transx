@@ -51,13 +51,13 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 	private Date datebook;
 
 	@Column(name = "service_enabled")
-	private boolean enabled;
+	private Boolean enabled;
 	@Column(name = "service_locked")
-	private boolean serviceLocked;
+	private Boolean serviceLocked;
 	@Column(name = "service_opened")
-	private boolean opened;
+	private Boolean opened;
 	@Column(name = "service_expired")
-	private boolean serviceExpired;
+	private Boolean serviceExpired;
 
 	@ManyToOne
 	@JoinColumn(name = "company_id", nullable = false)
@@ -170,23 +170,23 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 		this.datebook = datebook;
 	}
 
-	public boolean isEnabled() {
+	public Boolean getEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public boolean isServiceLocked() {
+	public Boolean getServiceLocked() {
 		return serviceLocked;
 	}
 
-	public void setServiceLocked(boolean serviceLocked) {
+	public void setServiceLocked(Boolean serviceLocked) {
 		this.serviceLocked = serviceLocked;
 	}
 
-	public boolean isOpened() {
+	public Boolean getOpened() {
 		return opened;
 	}
 
@@ -194,11 +194,11 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 		this.opened = opened;
 	}
 
-	public boolean isServiceExpired() {
+	public Boolean getServiceExpired() {
 		return serviceExpired;
 	}
 
-	public void setServiceExpired(boolean serviceExpired) {
+	public void setServiceExpired(Boolean serviceExpired) {
 		this.serviceExpired = serviceExpired;
 	}
 

@@ -31,28 +31,26 @@ public class HibernatePersistenceContextFactory implements PersistenceContextFac
 
             public void bind()
             {
+            	SessionHolder current = (SessionHolder)TransactionSynchronizationManager.getResource(sessionFactory);
                 synchronized(bindings)
                 {
-                    SessionHolder current = (SessionHolder)TransactionSynchronizationManager.getResource(sessionFactory);
-
                     if (current != null)
                         TransactionSynchronizationManager.unbindResource(sessionFactory);
 
                     bindings.push(current);
 
-                    TransactionSynchronizationManager.bindResource(sessionFactory,
-                        new SessionHolder(em));
+                    TransactionSynchronizationManager.bindResource(sessionFactory,new SessionHolder(em));
                 }
             }
 
             public void unbind()
             {
+            	Object holder = null;
                 synchronized(bindings)
                 {
                     if (TransactionSynchronizationManager.hasResource(sessionFactory))
                         TransactionSynchronizationManager.unbindResource(sessionFactory);
 
-                    Object holder = null;
                     if (bindings.size() > 0)
                         holder = bindings.pop();
                     

@@ -96,6 +96,12 @@ public class LookupProvider extends BasePage {
 		}
 		return carKindMap;
 	}
+	public Map<String, String> getCarKindMapWithEmpty() {
+		if (carKindMap == null) {
+			carKindMap = carKindManager.getMap(true);
+		}
+		return carKindMap;
+	}
 
 	public Map<String, String> getPathMap() {
 		if (pathMap == null)
@@ -103,9 +109,21 @@ public class LookupProvider extends BasePage {
 		return pathMap;
 	}
 
+	public Map<String, String> getPathMapWithEmpty() {
+		if (pathMap == null)
+			pathMap = pathManager.getPathMap(true);
+		return pathMap;
+	}
+
 	public Map<String, String> getParentPathMap() {
 		if (parentPathMap == null)
 			parentPathMap = pathManager.getParentPathMap(false);
+		return parentPathMap;
+	}
+
+	public Map<String, String> getPathParentMapWithEmpty() {
+		if (parentPathMap == null)
+			parentPathMap = pathManager.getParentPathMap(true);
 		return parentPathMap;
 	}
 

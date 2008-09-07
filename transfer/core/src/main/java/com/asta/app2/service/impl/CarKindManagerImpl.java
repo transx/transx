@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.asta.app2.Constants;
 import com.asta.app2.dao.CarKindDao;
 import com.asta.app2.model.CarKind;
 import com.asta.app2.model.LabelValue;
@@ -33,7 +34,7 @@ public class CarKindManagerImpl extends GenericManagerImpl<CarKind, Long>
 		Map<String, String> map = new TreeMap<String, String>();
 		map.clear();
 		if (withEmpty) {
-			map.put("", null);
+			map.put("- - - - - - - - - -", Constants.EMPTY);
 		}
 		for (CarKind carKind : carKinds) {
 			map.put(carKind.toString() == null ? "" : carKind.toString(),

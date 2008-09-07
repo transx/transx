@@ -39,14 +39,14 @@ public class CarKind extends BaseObject implements Comparable<CarKind> {
 	@Column(length = 10, nullable = true)
 	private CarType type;
 
-	public CarType getType() {
-		return type;
+	public CarKind() {
+		// TODO Auto-generated constructor stub
 	}
-
-	public void setType(CarType type) {
-		this.type = type;
+	
+	public CarKind(Long id) {
+		this.id = id;
 	}
-
+	
 	@Override
 	public boolean equals(Object o) {
 		if (o == this)
@@ -66,6 +66,11 @@ public class CarKind extends BaseObject implements Comparable<CarKind> {
 	@Override
 	public String toString() {
 		return getName()+" "+getCapacity();
+	}
+
+	public int compareTo(CarKind carKind) {
+		String otherCarKind = carKind.toString();
+		return this.toString().compareTo(otherCarKind);
 	}
 
 	public Long getId() {
@@ -99,10 +104,14 @@ public class CarKind extends BaseObject implements Comparable<CarKind> {
 	public void setQuality(Quality quality) {
 		this.quality = quality;
 	}
-
-	public int compareTo(CarKind carKind) {
-		String otherCarKind = carKind.toString();
-		return this.toString().compareTo(otherCarKind);
+	public CarType getType() {
+		return type;
+	}
+	
+	public void setType(CarType type) {
+		this.type = type;
 	}
 
+
 }
+

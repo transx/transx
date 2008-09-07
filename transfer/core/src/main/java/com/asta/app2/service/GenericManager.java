@@ -52,4 +52,7 @@ public interface GenericManager<T, PK extends Serializable> {
      * @param id the identifier (primary key) of the object to remove
      */
     void remove(PK id);
+
+    	
+    List<T> searchByExample(T exampleEntity);
 }

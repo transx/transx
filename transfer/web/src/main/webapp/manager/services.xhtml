@@ -1,6 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
       xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
 
 <f:view>
 <f:loadBundle var="text" basename="#{serviceList.bundleName}"/>
@@ -14,6 +15,27 @@
 
 <h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
 <h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+ <t:collapsiblePanel id="serachCollapse" title="#{text['button.search']}">
+ 	<t:panelGrid columns="2">
+	    <h:outputLabel styleClass="desc" for="timed" value="#{text['service.timed']}"/>
+	    <h:inputText styleClass="text small" id="timed" value="#{serviceList.service.timed}" required="false" maxlength="10"/>
+	    
+        <h:outputLabel styleClass="desc" for="path" value="#{text['service.path']}"/>
+    	<h:selectOneMenu value="#{serviceList.pathID}" id="path" required="false" styleClass="select">
+	        <f:selectItems value="#{lookupProvider.pathParentMapWithEmpty}"/>
+	    </h:selectOneMenu>
+
+	    <h:outputLabel styleClass="desc" for="carKind" value="#{text['service.carKind']}"/>
+	    <h:selectOneMenu value="#{serviceList.carKindID}" id="carKind" required="false" styleClass="select">
+	        <f:selectItems value="#{lookupProvider.carKindMapWithEmpty}"/>
+	    </h:selectOneMenu>
+
+		<h:outputText />
+	    <h:commandButton value="#{text['button.search']}" action="#{serviceList.search}" id="search" styleClass="button"/>
+		
+    </t:panelGrid>
+ </t:collapsiblePanel>
 
 <t:dataTable id="services" var="service" style="margin-top: 10px"
     value="#{serviceList.services}" rows="10" sortColumn="#{serviceList.sortColumn}"

@@ -10,10 +10,17 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.asta.app2.dao.GenericDao;
+import com.asta.app2.model.BaseObject;
+import com.asta.app2.util.ReflectionUtils;
 
 /**
  * This class serves as the Base class for all other DAOs - namely to hold
@@ -32,7 +39,7 @@ import com.asta.app2.dao.GenericDao;
  * @param <T> a type variable
  * @param <PK> the primary key for that type
  */
-public class GenericDaoHibernate<T, PK extends Serializable> extends HibernateDaoSupport implements GenericDao<T, PK> {
+public class GenericDaoHibernate<T extends BaseObject, PK extends Serializable> extends HibernateDaoSupport implements GenericDao<T, PK> {
     /**
      * Log variable for all child classes. Uses LogFactory.getLog(getClass()) from Commons Logging
      */
@@ -128,4 +135,26 @@ public class GenericDaoHibernate<T, PK extends Serializable> extends HibernateDa
            params, 
            values);
    }
+
+	public List<T> searchByExample(T exampleEntity) {
+		
+		DetachedCriteria dCriteria = DetachedCriteria.forClass(this.persistentClass);
+		
+		for(Map.Entry<String, Object> e: ReflectionUtils.getNotNullSimpleFields(exampleEntity).entrySet()){
+			log.debug("key="+e.getKey()+" _ vallue="+e.getValue().toString());
+			if(e.getValue() instanceof String){
+				String value = ((String) e.getValue()).trim();
+				if (value.length() > 0)
+					dCriteria.add(Restrictions.ilike(e.getKey(), (String)e.getValue(), MatchMode.ANYWHERE));
+			}else{
+				dCriteria.add(Restrictions.eq(e.getKey(), e.getValue()));
+			}
+		}
+		dCriteria.setProjection(null);
+		dCriteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+		
+		Criteria criteria = dCriteria.getExecutableCriteria(getSession());
+		return criteria.list();
+	}
+
 }
