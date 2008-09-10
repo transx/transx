@@ -45,8 +45,7 @@ public class TicketTempManagerImpl extends GenericManagerImpl<TicketTemp, Long>
 	}
 	
 	@Transactional
-	public TicketTemp saveTicketTemp(Company company,TicketTemp ticketTemp)
-			throws ChairReservedException {
+	public TicketTemp saveTicketTemp(Company company,TicketTemp ticketTemp) throws ChairReservedException {
 		TicketTemp oldTt = null;
 		List<TicketTemp> tts = findTicketTempByServiceAndPassenger(company,ticketTemp);
 		if (tts.size() > 0)
@@ -84,7 +83,10 @@ public class TicketTempManagerImpl extends GenericManagerImpl<TicketTemp, Long>
 		}
 
 		if (!confirm) {
-			ticketTemp.setChairs(notValidChairs);
+			for(Chair element: notValidChairs){
+//				log.debug("not valid chair:"+element.getId().toString());
+				ticketTemp.getChairs().remove(element);
+			}
 			throw new ChairReservedException("Chairs '" + notValidChairs.toString() + "' already reserved!");
 		} else {
 			if (oldTt != null) {
@@ -93,8 +95,10 @@ public class TicketTempManagerImpl extends GenericManagerImpl<TicketTemp, Long>
 				oldTt.setPath(ticketTemp.getPath());
 				oldTt.setReserveDate(ticketTemp.getReserveDate());
 				oldTt.setCount(ticketTemp.getChairs().size());
+				log.debug("still in old entity:"+oldTt.getId());
 				return dao.saveTicketTemp(company,oldTt);
 			} else {
+				log.debug("New Save Accoured!");
 				return dao.saveTicketTemp(company,ticketTemp);
 			}
 		}

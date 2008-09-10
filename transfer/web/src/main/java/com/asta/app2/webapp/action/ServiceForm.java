@@ -7,9 +7,6 @@ import java.util.Map;
 
 import javax.faces.event.ValueChangeEvent;
 
-import org.springframework.security.context.SecurityContext;
-import org.springframework.security.context.SecurityContextHolder;
-
 import com.asta.app2.Constants;
 import com.asta.app2.model.City;
 import com.asta.app2.model.Driver;
@@ -17,7 +14,6 @@ import com.asta.app2.model.Lodger;
 import com.asta.app2.model.Path;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.ServiceTemplate;
-import com.asta.app2.model.User;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.CarManager;
 import com.asta.app2.service.CityManager;
@@ -109,11 +105,8 @@ public class ServiceForm extends BasePage implements Serializable {
 
 		service.setCarKind(carKindManager.get(Long.valueOf(getCarKindID()).longValue()));
 		service.setPath(pathManager.get(Long.valueOf(getPathID()).longValue()));
-		if (isNew)
-			service.setTemplate(serviceTemplateManager.findServiceTemplateByTemplate(new ServiceTemplate(getCurrentUser().getCompany(),service.getPath(),service.getCarKind())));
-		else
-			service.setTemplate(serviceTemplateManager.findServiceTemplateByTemplateWithTime(new ServiceTemplate(getCurrentUser().getCompany(),service.getPath(),service.getCarKind(),service.getTimed())));
-				
+		service.setTemplate(serviceTemplateManager.findServiceTemplateByTemplate(new ServiceTemplate(getCurrentUser().getCompany(),service.getPath(),service.getCarKind())));
+		
 		if (getCarID() != null && !getCarID().equals(Constants.EMPTY))
 		service.setCar(carManager.get(Long.valueOf(getCarID()).longValue()));
 
@@ -133,6 +126,8 @@ public class ServiceForm extends BasePage implements Serializable {
 			service.addDriver(driverManager.get(id));
 		}
 
+		if (isNew)
+			service.setServiceExpired(Boolean.FALSE);
 		serviceManager.save(service);
 
 		String key = (isNew) ? "service.added" : "service.updated";
@@ -145,41 +140,42 @@ public class ServiceForm extends BasePage implements Serializable {
 		}
 	}
 
-	public String closeService() {
+/*	public String closeService() {
 		if (id != null) {
 			Service service = serviceManager.get(id);
-			service.setOpened(false);
+			service.setOpened(Boolean.FALSE);
 			serviceManager.save(service);
 		}
-		return "stayHere";
+		return Constants.NO_WHERE;
 	}
 
 	public String openService() {
 		if (id != null) {
 			Service service = serviceManager.get(id);
-			service.setOpened(true);
+			service.setOpened(Boolean.TRUE);
 			serviceManager.save(service);
 		}
-		return "stayHere";
+		return Constants.NO_WHERE;
 	}
 
 	public String enableService() {
 		if (id != null) {
 			Service service = serviceManager.get(id);
-			service.setEnabled(true);
-			service.setOpened(true);
+			service.setEnabled(Boolean.TRUE);
+			service.setOpened(Boolean.TRUE);
 			serviceManager.save(service);
 		}
-		return "stayHere";
-	}
+		return "return";
+	}*/
 
 	public String expireService() {
 		if (id != null) {
 			Service service = serviceManager.get(id);
-			service.setServiceExpired(true);
+			service.setOpened(Boolean.FALSE);
+			service.setServiceExpired(Boolean.TRUE);
 			serviceManager.save(service);
 		}
-		return "stayHere";
+		return Constants.NO_WHERE;
 	}
 
 	public String[] getServiceDrivers() {

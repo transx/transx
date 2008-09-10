@@ -41,10 +41,10 @@ public class ChairModel implements Serializable {
 	public ChairModel() {
 	}
 
-	public ChairModel(Long id, String[] chairmate, String chairType,
+	public ChairModel(Long id, String chairType,
 			String reserverID, Passenger passenger, String pathID) {
 		this.id = id;
-		this.chairmate = chairmate;
+		//this.chairmate = chairmate;
 		this.chairType = chairType;
 		this.reserverID = reserverID;
 		this.passenger = passenger;

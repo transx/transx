@@ -254,6 +254,16 @@ function confirmExpire(obj){
 	}
 }
 
+function confirmExpireService(obj){
+	var msg = "آیا از بایگانی کردن " + obj +  " اطمینان دارید ؟ ";
+	ans = confirm(msg);
+	if (ans){
+		return true;
+	}else {
+		return false;
+	}
+}
+
 function highlightTableRows(tableId) {
     var previousClass = null;
     var table = document.getElementById(tableId); 

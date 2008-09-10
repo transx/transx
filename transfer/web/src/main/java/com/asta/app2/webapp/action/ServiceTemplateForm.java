@@ -5,13 +5,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.springframework.security.context.SecurityContext;
-import org.springframework.security.context.SecurityContextHolder;
 
 import com.asta.app2.Constants;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.ServiceTemplate;
-import com.asta.app2.model.User;
 import com.asta.app2.model.enums.Weekday;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.PathManager;
@@ -71,10 +68,7 @@ public class ServiceTemplateForm extends BasePage implements Serializable {
 	public String save() {
 		boolean isNew = (serviceTemplate.getId() == null);
 		
-		SecurityContext ctx = SecurityContextHolder.getContext();
-		User currentUser = (User) ctx.getAuthentication().getPrincipal();
-		serviceTemplate.setCompany(currentUser.getCompany());
-		
+		serviceTemplate.setCompany(getCurrentUser().getCompany());
 		serviceTemplate.setCarKind(carKindManager.get(Long.valueOf(getCarKindID()).longValue()));
 		serviceTemplate.setPath(pathManager.get(Long.valueOf(getPathID()).longValue()));
 		
@@ -120,7 +114,8 @@ public class ServiceTemplateForm extends BasePage implements Serializable {
 			start.setTime(dateStart);
 			end.setTime(dateEnd);
 			int count = DateUtil.getDays(start,end);
-			
+			serviceTemplate.setCompany(getCurrentUser().getCompany());
+			serviceTemplate.setCarKind(carKindManager.get(Long.valueOf(getCarKindID()).longValue()));
 			for (int i = 0; i < count+1; i = i+getCounter()) {
 				
 				Service service = new Service(serviceTemplate,serviceTemplate.getCompany(),serviceTemplate.getCarKind(),serviceTemplate.getPath(),serviceTemplate.getTimed(),start.getTime());
@@ -152,7 +147,7 @@ public class ServiceTemplateForm extends BasePage implements Serializable {
 						weekday = Weekday.SATURDAY;
 				}
 				service.setWeekday(weekday);
-				
+				service.setServiceExpired(Boolean.FALSE);
 				serviceManager.save(service);
 				start.add(Calendar.DATE, getCounter());
 			}

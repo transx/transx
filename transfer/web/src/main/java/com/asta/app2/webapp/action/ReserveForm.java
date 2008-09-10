@@ -85,9 +85,9 @@ public class ReserveForm extends BasePage implements Serializable {
 	}
 
 	public String edit() {
-//		if (id != 0) {
-//			service = serviceManager.get(id);
-//		}
+		if (id != 0) {
+			service = serviceManager.get(id);
+		}
 		return "edit";
 	}
 	@Transactional
@@ -100,7 +100,7 @@ public class ReserveForm extends BasePage implements Serializable {
 		//service should be update for check is Opened.
 		//service = serviceManager.get(service.getId());
 		if (service.getOpened()) {
-			boolean isNew = (passenger.getId() == null);
+			boolean isNew = (ticketTemp.getId() == null);
 			String lastName = null;
 			String genderString = null;
 			String pathString = null;
@@ -110,7 +110,7 @@ public class ReserveForm extends BasePage implements Serializable {
 			pathString = getRequest().getParameter("reserveForm:path");
 
 			if (lastName == null || lastName == "" || genderString == null || pathString == null) {
-				addError("errors.reserve.required");
+				addError("reserve.required");
 			} else {
 				Gender gender = null;
 				if (genderString.equals(Gender.MALE.toString()))
@@ -146,18 +146,19 @@ public class ReserveForm extends BasePage implements Serializable {
 				try {
 					ticketTemp.setCount(ticketTemp.getChairs().size());
 					ticketTempManager.saveTicketTemp(getCurrentUser().getCompany(),ticketTemp);
-					tts.add(ticketTemp);
+					if (isNew)
+						tts.add(ticketTemp);
 					if (key.equals("reserve.empty")){
 						addError(key);
 					}else{
 						addMessage(key, ticketTemp.getChairs().toString());
 					}
 				} catch (ChairReservedException cre) {
-					addError("errors.reserved.chair", ticketTemp.getChairs().toString());
+					addError("reserve.chair", ticketTemp.getChairs().toString());
 				}
 			}
 		}else{
-			addError("errors.reserve.closed");
+			addError("reserve.closed");
 			return "list";
 		}
 		return "edit";
@@ -184,22 +185,22 @@ public class ReserveForm extends BasePage implements Serializable {
 		chairModels = new ArrayList<ChairModel>();
 		chairModels.clear();
 		for (Ticket ticket : getTickets()) {
-			String[] chairmate = new String[getCapacity() + 1];
+//			String[] chairmate = new String[getCapacity() + 1];
+//			for (Chair chair : ticket.getChairs()) {
+//				chairmate[chair.getId().intValue()] = chair.getId().toString();
+//			}
 			for (Chair chair : ticket.getChairs()) {
-				chairmate[chair.getId().intValue()] = chair.getId().toString();
-			}
-			for (Chair chair : ticket.getChairs()) {
-				ChairModel model = new ChairModel(chair.getId(), chairmate,Constants.CHAIR_REGISTERED, ticket.getReserverId(),ticket.getPassenger(), ticket.getPath().getId().toString());
+				ChairModel model = new ChairModel(chair.getId(),Constants.CHAIR_REGISTERED, ticket.getReserverId(),ticket.getPassenger(), ticket.getPath().getId().toString());
 				chairModels.add(model);
 			}
 		}
 		for (TicketTemp tt : getTts()) {
-			String[] chairmate = new String[getCapacity() + 1];
+//			String[] chairmate = new String[getCapacity() + 1];
+//			for (Chair chair : tt.getChairs()) {
+//				chairmate[chair.getId().intValue()] = chair.getId().toString();
+//			}
 			for (Chair chair : tt.getChairs()) {
-				chairmate[chair.getId().intValue()] = chair.getId().toString();
-			}
-			for (Chair chair : tt.getChairs()) {
-				ChairModel model = new ChairModel(chair.getId(), chairmate,Constants.CHAIR_RESERVED, tt.getReserverId(), tt.getPassenger(), tt.getPath().getId().toString());
+				ChairModel model = new ChairModel(chair.getId(),Constants.CHAIR_RESERVED, tt.getReserverId(), tt.getPassenger(), tt.getPath().getId().toString());
 				chairModels.add(model);
 			}
 		}

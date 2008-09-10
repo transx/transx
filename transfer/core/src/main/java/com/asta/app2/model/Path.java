@@ -43,9 +43,9 @@ public class Path extends BaseObject implements Comparable<Path> {
 
 	@Override
 	public String toString() {
-		return getStart().getName()
+		return 	  (start != null ? getStart().getName(): "")
 				+ (parent != null ? "_" + parent.getEnd().getName() : "") + "_"
-				+ getEnd().getName();
+				+ (end != null ? getEnd().getName() : "");
 	}
 
 	public int compareTo(Path path) {

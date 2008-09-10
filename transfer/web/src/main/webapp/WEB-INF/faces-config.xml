@@ -796,6 +796,10 @@
             <from-outcome>edit</from-outcome>
             <to-view-id>/manager/serviceForm.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>reutrn</from-outcome>
+            <to-view-id>/manager/services.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/manager/serviceForm.xhtml</from-view-id>
@@ -1508,7 +1512,7 @@
     </managed-bean>
     <!--Passenger-beans-END-->
 
-    <!--Service-beans-START-->
+    <!--Service-beans-START
     <managed-bean>
         <managed-bean-name>serviceList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.ServiceList</managed-bean-class>
@@ -1518,6 +1522,7 @@
             <value>#{serviceManager}</value>
         </managed-property>
     </managed-bean>
+    -->
 
     <managed-bean>
         <managed-bean-name>serviceForm</managed-bean-name>

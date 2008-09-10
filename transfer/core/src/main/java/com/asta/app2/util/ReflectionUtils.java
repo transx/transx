@@ -1,7 +1,6 @@
 /* *Class created on [ Sep 7, 2008 | 2:16:29 PM ] */ 
 package com.asta.app2.util;
 
-import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
@@ -21,7 +20,7 @@ import com.asta.app2.model.enums.Weekday;
  * @author Hossein Rahmani
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
-public class ReflectionUtils<T extends Serializable> {
+public class ReflectionUtils {
 	
 	static Class[] basicClasses = new Class[] {
 		Byte.class,
@@ -41,6 +40,36 @@ public class ReflectionUtils<T extends Serializable> {
 		Gender.class,
 		RateType.class
 	};
+	
+	public static Map<String,BaseObject> getNotNullEntityFields(BaseObject entity) {
+		Map<String,BaseObject> r = new HashMap<String,BaseObject>();
+		if (entity == null)
+			return r;
+		for (Method method : entity.getClass().getMethods()) {
+			if ( 
+					BaseObject.class.isAssignableFrom(method.getReturnType())
+					&& method.getName().startsWith("get")
+					&& (method.getParameterTypes() == null || method
+							.getParameterTypes().length == 0)
+					) {
+				try {
+					BaseObject related = (BaseObject) method.invoke(entity);
+					if (related != null) {
+						String propertyName = method.getName().substring("get".length());
+						propertyName = propertyName.substring(0,1).toLowerCase() + propertyName.substring(1,propertyName.length());
+						r.put(propertyName,related);
+					}
+				} catch (IllegalArgumentException e) {
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return r;
+	}
 	
 	public static Map<String,Object> getNotNullSimpleFields(BaseObject entity) {
 		Map<String,Object> r = new HashMap<String,Object>();

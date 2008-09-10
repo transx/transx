@@ -26,7 +26,7 @@ public class ServiceTemplateDaoHibernate extends GenericDaoHibernate<ServiceTemp
 	}
 
 	public ServiceTemplate findServiceTemplateByTemplate(ServiceTemplate template) {
-		List<ServiceTemplate> sts =getHibernateTemplate().find("from ServiceTemplate as sertmp where sertmp.company=? and sertmp.path=? and sertmp.carKind=?",new Object[]{template.getCompany(),template.getPath(),template.getCarKind()}); 
+		List<ServiceTemplate> sts =getHibernateTemplate().find("from ServiceTemplate as sertmp where sertmp.company=? and sertmp.path=?",new Object[]{template.getCompany(),template.getPath()}); 
 		if (sts.size()>0)
 			return sts.get(0);
 		else

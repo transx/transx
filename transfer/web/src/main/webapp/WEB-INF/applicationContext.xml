@@ -17,6 +17,10 @@
 		<property name="serviceManager" ref="serviceManager"/>	
 	</bean>
 
+	<bean name="serviceList" class="com.asta.app2.webapp.action.ServiceList" scope="conversation.access">
+		<property name="serviceManager" ref="serviceManager"/>	
+	</bean>
+
     <!-- Add new DAOs here -->
 
     <!-- Add new Managers here -->

@@ -1193,7 +1193,7 @@
         <value description="service_opened">0</value>
         <value description="service_expired">0</value>
         <value description="company_id">-1</value>
-        <value description="car_kind_id">-2</value>
+        <value description="car_kind_id">-3</value>
         <value description="path_id">-1</value>
         <value description="car_id">-1</value>
         <value description="template_id">-1</value>

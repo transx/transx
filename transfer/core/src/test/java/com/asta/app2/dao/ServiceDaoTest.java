@@ -114,12 +114,13 @@ public class ServiceDaoTest extends BaseDaoTestCase {
 	public void testSearchService(){
 		Service service = new Service();
 
-		service.setTimed("8:00");
+//		service.setTimed("8:00");
 		//service.setDatebook(new Date());
 //		service.setWeekday(Weekday.THURSDAY);
 //		service.setEnabled(true);
-		CarKind ck = carKindDao.get(-2L);
-		service.setCarKind(ck); 
+		CarKind ck = carKindDao.get(-3L);
+		CarKind ck2 = new CarKind(-1L);
+		service.setCarKind(ck2); 
 		
 		List<Service> ss = serviceDao.searchByExample(service);
 		log.debug("the size of list ="+ss.size());

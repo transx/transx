@@ -39,9 +39,7 @@ public class CarKind extends BaseObject implements Comparable<CarKind> {
 	@Column(length = 10, nullable = true)
 	private CarType type;
 
-	public CarKind() {
-		// TODO Auto-generated constructor stub
-	}
+	public CarKind() {}
 	
 	public CarKind(Long id) {
 		this.id = id;

@@ -2,6 +2,7 @@ package com.asta.app2.dao.hibernate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -139,22 +140,45 @@ public class GenericDaoHibernate<T extends BaseObject, PK extends Serializable> 
 	public List<T> searchByExample(T exampleEntity) {
 		
 		DetachedCriteria dCriteria = DetachedCriteria.forClass(this.persistentClass);
-		
-		for(Map.Entry<String, Object> e: ReflectionUtils.getNotNullSimpleFields(exampleEntity).entrySet()){
-			log.debug("key="+e.getKey()+" _ vallue="+e.getValue().toString());
-			if(e.getValue() instanceof String){
-				String value = ((String) e.getValue()).trim();
-				if (value.length() > 0)
-					dCriteria.add(Restrictions.ilike(e.getKey(), (String)e.getValue(), MatchMode.ANYWHERE));
-			}else{
-				dCriteria.add(Restrictions.eq(e.getKey(), e.getValue()));
-			}
+		createEntityCriteria(dCriteria, "", exampleEntity);
+		for(Map.Entry<String, BaseObject> entry:ReflectionUtils.getNotNullEntityFields(exampleEntity).entrySet()){
+			log.debug("key="+entry.getKey()+"###vallue="+entry.getValue().toString());
+			createEntityCriteria(dCriteria, entry.getKey() + ".", entry.getValue());
 		}
+		
 		dCriteria.setProjection(null);
 		dCriteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
 		
 		Criteria criteria = dCriteria.getExecutableCriteria(getSession());
 		return criteria.list();
+	}
+
+	private void createEntityCriteria(DetachedCriteria dCriteria, String prefix,BaseObject exampleEntity) {
+		if (exampleEntity == null)
+			return;
+		if (getSessionFactory().getClassMetadata(exampleEntity.getClass()) == null)
+			return;
+		if (prefix == null)
+			prefix = "";
+		
+		//log.debug("entityClass: "+ exampleEntity.getClass());
+		String[] propertyNames = getSessionFactory().getClassMetadata(exampleEntity.getClass()).getPropertyNames();
+		//log.debug("class:%s, hibernate properties:%s"+ exampleEntity.getClass().getSimpleName()+"2:"+ Arrays.toString(propertyNames));
+		String pkProperty = getSessionFactory().getClassMetadata(exampleEntity.getClass()).getIdentifierPropertyName();
+		Arrays.sort(propertyNames);
+		for(Map.Entry<String, Object> e: ReflectionUtils.getNotNullSimpleFields(exampleEntity).entrySet()){
+			log.debug("key="+e.getKey()+"___vallue="+e.getValue().toString());
+			if (!(pkProperty.equals(e.getKey()) || Arrays.binarySearch(propertyNames, e.getKey()) >= 0))
+				continue;
+			
+			if(e.getValue() instanceof String){
+				String value = ((String) e.getValue()).trim();
+				if (value.length() > 0)
+					dCriteria.add(Restrictions.ilike(prefix + e.getKey(), (String)e.getValue(), MatchMode.ANYWHERE));
+			}else{
+				dCriteria.add(Restrictions.eq(prefix + e.getKey(), e.getValue()));
+			}
+		}
 	}
 
 }

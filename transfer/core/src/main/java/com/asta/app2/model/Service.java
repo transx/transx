@@ -190,7 +190,7 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 		return opened;
 	}
 
-	public void setOpened(boolean opened) {
+	public void setOpened(Boolean opened) {
 		this.opened = opened;
 	}
 
@@ -286,25 +286,30 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 	}
 
 	public Driver getDriver1() {
-		Driver driver1 = new Driver();
-		if (drivers.size() > 0)
+		if (drivers.size() > 0){
+			Driver driver1 = new Driver();
 			driver1 = getDriverList().get(0);
-
-		return driver1;
+			return driver1;
+		}
+		return null;
 	}
 
 	public Driver getDriver2() {
-		Driver driver2 = new Driver();
-		if (drivers.size() > 1)
+		if (drivers.size() > 1){
+			Driver driver2 = new Driver();
 			driver2 = getDriverList().get(1);
-		return driver2;
+			return driver2;
+		}
+		return null;
 	}
 
 	public Driver getDriver3() {
-		Driver driver3 = new Driver();
-		if (drivers.size() > 2)
+		if (drivers.size() > 2){
+			Driver driver3 = new Driver();
 			driver3 = getDriverList().get(2);
-		return driver3;
+			return driver3;
+		}
+		return null;
 	}
 
 	public List<Driver> getDriverList() {

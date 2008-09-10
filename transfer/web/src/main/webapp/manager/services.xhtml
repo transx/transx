@@ -15,9 +15,12 @@
 
 <h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
 <h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
-
+ <h:panelGroup/>
  <t:collapsiblePanel id="serachCollapse" title="#{text['button.search']}">
- 	<t:panelGrid columns="2">
+ 	<t:panelGrid columns="8">
+	    <h:commandButton value="#{text['button.search']}" action="#{serviceList.search}" id="search" styleClass="button"/>
+		<h:outputText />
+		
 	    <h:outputLabel styleClass="desc" for="timed" value="#{text['service.timed']}"/>
 	    <h:inputText styleClass="text small" id="timed" value="#{serviceList.service.timed}" required="false" maxlength="10"/>
 	    
@@ -30,10 +33,7 @@
 	    <h:selectOneMenu value="#{serviceList.carKindID}" id="carKind" required="false" styleClass="select">
 	        <f:selectItems value="#{lookupProvider.carKindMapWithEmpty}"/>
 	    </h:selectOneMenu>
-
-		<h:outputText />
-	    <h:commandButton value="#{text['button.search']}" action="#{serviceList.search}" id="search" styleClass="button"/>
-		
+    
     </t:panelGrid>
  </t:collapsiblePanel>
 
@@ -47,19 +47,19 @@
         <f:facet name="header">
                 <h:outputText value="#{text['service.enabled']}" />
         </f:facet>
-        <h:commandLink action="#{serviceForm.enableService}" value="#{text['service.enabled']}" rendered="#{!service.enabled}">
-            <f:param name="id" value="#{service.id}"/>
+        <h:commandLink action="#{serviceList.enableService}" value="#{text['service.enabled']}" rendered="#{!service.enabled}">
+           	<f:setPropertyActionListener target="#{serviceList.serviceTemp}" value="#{service}"/>
         </h:commandLink>
     </t:column>
     <t:column>
         <f:facet name="header">
         	    <h:outputText value="#{text['service.opened']}" />
        	</f:facet>
-        <h:commandLink action="#{serviceForm.closeService}" value="#{text['button.close']}" rendered="#{service.opened}">
-            <f:param name="id" value="#{service.id}"/>
+        <h:commandLink action="#{serviceList.closeService}" value="#{text['button.close']}" rendered="#{service.opened}">
+           	<f:setPropertyActionListener target="#{serviceList.serviceTemp}" value="#{service}"/>
         </h:commandLink>
-        <h:commandLink action="#{serviceForm.openService}" value="#{text['button.open']}" rendered="#{!service.opened}">
-            <f:param name="id" value="#{service.id}"/>
+        <h:commandLink action="#{serviceList.openService}" value="#{text['button.open']}" rendered="#{!service.opened}">
+           	<f:setPropertyActionListener target="#{serviceList.serviceTemp}" value="#{service}"/>
         </h:commandLink>
     </t:column>
     <t:column>
@@ -170,25 +170,19 @@
 
     <t:column>
         <f:facet name="header">
-            <t:commandSortHeader columnName="paths" arrow="true">
-                <h:outputText value="#{text['service.paths']}" />
-            </t:commandSortHeader>
+          	<h:outputText value="#{text['service.paths']}" />
         </f:facet>
     	<h:outputText value="#{service.paths}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
-            <t:commandSortHeader columnName="drivers" arrow="true">
-                <h:outputText value="#{text['service.drivers']}" />
-            </t:commandSortHeader>
+           <h:outputText value="#{text['service.drivers']}" />
         </f:facet>
     	<h:outputText value="#{service.drivers}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
-            <t:commandSortHeader columnName="lodgers" arrow="true">
-                <h:outputText value="#{text['service.lodgers']}" />
-            </t:commandSortHeader>
+        	<h:outputText value="#{text['service.lodgers']}" />
         </f:facet>
     	<h:outputText value="#{service.lodgers}" escape="true"/>
     </t:column>
@@ -198,8 +192,9 @@
         </f:facet>
         <h:commandLink action="#{serviceForm.expireService}" 
         	value="#{text['service.serviceExpired']}" rendered="#{!service.serviceExpired}"
-        	id="expire" onclick="bCancel=true; return confirmExpire('سرویس')">
-            <f:param name="id" value="#{service.id}"/>
+        	id="expire" onclick="bCancel=true; return confirmExpireService('سرویس')">
+           	 <f:param name="id" value="#{service.id}"/>
+           	 <f:param name="from" value="list"/>
         </h:commandLink>
     </t:column>   
 </t:dataTable>

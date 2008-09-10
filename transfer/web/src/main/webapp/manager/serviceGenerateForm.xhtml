@@ -18,7 +18,8 @@
     </head>
 <body id="serviceGenerateForm">
 
-<t:saveState id="serviceGenerateFormSave1" value="#{serviceTemplateForm.serviceTemplate}"/>
+<t:saveState id="serviceGenerateFormSave1" value="#{serviceTemplateForm.serviceTemplate.id}"/>
+<t:saveState id="serviceGenerateFormSave2" value="#{serviceTemplateForm.serviceTemplate.path}"/>
 
 <h:form id="serviceGenerateForm" onsubmit="return validateServiceGenerateForm(this)">
 <h:inputHidden value="#{serviceTemplateForm.serviceTemplate.id}" id="id"/>
@@ -30,13 +31,15 @@
     </h:inputText>
     <t:message for="timed" styleClass="fieldError"/>
  
-    <h:outputLabel styleClass="desc" value="#{text['serviceTemplate.carKind']}"/>
-    <h:outputText value="#{serviceTemplateForm.serviceTemplate.carKind}"/>
-    <h:outputText/>
- 
     <h:outputLabel styleClass="desc" value="#{text['serviceTemplate.path']}"/>
     <h:outputText value="#{serviceTemplateForm.serviceTemplate.path}"/>
     <h:outputText/>
+    
+    <h:outputLabel styleClass="desc" for="carKind" value="#{text['serviceTemplate.carKind']}"/>
+    <h:selectOneMenu value="#{serviceTemplateForm.carKindID}" id="carKind" required="false" styleClass="select">
+        <f:selectItems value="#{lookupProvider.carKindMap}"/>
+    </h:selectOneMenu>
+    <t:message for="carKind" styleClass="fieldError"/>
     
     <h:outputLabel styleClass="desc" for="dateStart" value="#{text['serviceTemplate.dateStart']}"/>
   	<trans:inputDate2 id="dateStart" value="#{serviceTemplateForm.dateStart}"
