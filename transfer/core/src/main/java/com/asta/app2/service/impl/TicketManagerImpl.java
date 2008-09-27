@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.asta.app2.dao.TicketDao;
+import com.asta.app2.exception.TicketDidNotIssuedException;
+import com.asta.app2.exception.TicketIssuedException;
 import com.asta.app2.model.Cash;
 import com.asta.app2.model.Company;
 import com.asta.app2.model.Service;
@@ -15,8 +17,6 @@ import com.asta.app2.model.Ticket;
 import com.asta.app2.model.TicketTemp;
 import com.asta.app2.service.CashManager;
 import com.asta.app2.service.SettingManager;
-import com.asta.app2.service.TicketDidNotIssuedException;
-import com.asta.app2.service.TicketIssuedException;
 import com.asta.app2.service.TicketManager;
 import com.asta.app2.service.TicketTempManager;
 

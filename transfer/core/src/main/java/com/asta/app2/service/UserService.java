@@ -6,6 +6,7 @@ import javax.jws.WebService;
 
 import org.springframework.security.userdetails.UsernameNotFoundException;
 
+import com.asta.app2.exception.UserExistsException;
 import com.asta.app2.model.User;
 
 /**

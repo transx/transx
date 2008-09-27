@@ -13,9 +13,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import com.asta.app2.Constants;
 import com.asta.app2.dao.RoleDao;
 import com.asta.app2.dao.UserDao;
+import com.asta.app2.exception.UserExistsException;
 import com.asta.app2.model.Role;
 import com.asta.app2.model.User;
-import com.asta.app2.service.UserExistsException;
 
 public class UserManagerImplTest extends BaseManagerMockTestCase {
     //~ Instance fields ========================================================

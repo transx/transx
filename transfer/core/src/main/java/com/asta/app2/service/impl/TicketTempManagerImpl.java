@@ -9,12 +9,12 @@ import java.util.Set;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.asta.app2.dao.TicketTempDao;
+import com.asta.app2.exception.ChairReservedException;
 import com.asta.app2.model.Chair;
 import com.asta.app2.model.Company;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.Ticket;
 import com.asta.app2.model.TicketTemp;
-import com.asta.app2.service.ChairReservedException;
 import com.asta.app2.service.TicketManager;
 import com.asta.app2.service.TicketTempManager;
 

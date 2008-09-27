@@ -50,7 +50,7 @@
     
     <context-param>
         <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-        <param-value>client</param-value>
+        <param-value>server</param-value>
     </context-param>
     <!-- Trinidad by default uses an optimized client-side state saving
        mechanism. To disable that, uncomment the following 

@@ -27,8 +27,9 @@
         <Menu name="ManagerMenu" title="menu.manager" roles="ROLE_MANAGER" page="/manager/serviceTemplates.html" width="60">
 	        <Item name="ServiceTemplate" title="menu.manager.serviceTemplate" page="/manager/serviceTemplates.html"/>
 	        <Item name="Service" title="menu.manager.service" 	page="/manager/services.html"/>
-	        <Item name="SooratSodor" title="menu.manager.sooratSodor" page="/manager/sooratSodors.html"/>
-	        <Item name="Soorat" title="menu.manager.soorat" page="/manager/soorats.html"/>
+	        <Item name="SooratInner" title="menu.manager.sooratInner" page="/manager/sooratInners.html"/>
+	        <Item name="SooratOuter" title="menu.manager.sooratOuter" page="/manager/sooratOuters.html"/>
+	        <Item name="SooratPrivate" title="menu.manager.sooratPrivate" page="/manager/sooratPrivates.html"/>
         	<Item name="Cash" 	title="menu.manager.cash" page="/manager/cashes.html"/>
         	<Item name="Driver" title="menu.manager.driver" 	page="/manager/drivers.html"/>
 	        <Item name="Car" 	title="menu.manager.car" 		page="/manager/cars.html"/>

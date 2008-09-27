@@ -42,13 +42,13 @@ public class Setting extends BaseObject {
 	private String seriPrivate;
 
 	@Column(name = "serial_inner", length = 20, nullable = false)
-	private int serialInner;
+	private String serialInner;
 
 	@Column(name = "serial_outer", length = 20, nullable = false)
-	private int serialOuter;
+	private String serialOuter;
 
 	@Column(name = "serial_private", length = 20, nullable = false)
-	private int serialPrivate;
+	private String serialPrivate;
 
 	@Column(nullable = false)
 	private long snack;
@@ -68,6 +68,76 @@ public class Setting extends BaseObject {
 
 	@Column(nullable = true)
 	private Long stamp;
+
+	@Override
+	public boolean equals(Object o) {
+		if (o == this)
+			return true;
+		if (o instanceof Setting)
+			return true;
+
+		final Setting setting = (Setting) o;
+		return (ticketNumber != null ? ticketNumber.equals(setting
+				.getTicketNumber()) : false);
+	}
+
+	@Override
+	public int hashCode() {
+		return (ticketNumber != null ? ticketNumber.hashCode() : 0);
+	}
+
+	@Override
+	public String toString() {
+		return getRateType() + "_" + getTicketNumber();
+	}
+	
+	public String getSeriInner() {
+		return seriInner;
+	}
+
+	public void setSeriInner(String seriInner) {
+		this.seriInner = seriInner;
+	}
+
+	public String getSeriOuter() {
+		return seriOuter;
+	}
+
+	public void setSeriOuter(String seriOuter) {
+		this.seriOuter = seriOuter;
+	}
+
+	public String getSeriPrivate() {
+		return seriPrivate;
+	}
+
+	public void setSeriPrivate(String seriPrivate) {
+		this.seriPrivate = seriPrivate;
+	}
+
+	public String getSerialInner() {
+		return serialInner;
+	}
+
+	public void setSerialInner(String serialInner) {
+		this.serialInner = serialInner;
+	}
+
+	public String getSerialOuter() {
+		return serialOuter;
+	}
+
+	public void setSerialOuter(String serialOuter) {
+		this.serialOuter = serialOuter;
+	}
+
+	public String getSerialPrivate() {
+		return serialPrivate;
+	}
+
+	public void setSerialPrivate(String serialPrivate) {
+		this.serialPrivate = serialPrivate;
+	}
 
 	public Long getId() {
 		return id;
@@ -91,76 +161,6 @@ public class Setting extends BaseObject {
 
 	public void setTicketNumber(Long ticketNumber) {
 		this.ticketNumber = ticketNumber;
-	}
-
-	public String getSeriInner() {
-		return seriInner;
-	}
-
-	public void setSeriInner(String seriInner) {
-		this.seriInner = seriInner;
-	}
-
-	public String getSeriOuter() {
-		return seriOuter;
-	}
-
-	public void setSeriOuter(String seriOuter) {
-		this.seriOuter = seriOuter;
-	}
-
-	public String getSeriPrivate() {
-		return seriPrivate;
-	}
-
-	public void setSeriSole(String seriPrivate) {
-		this.seriPrivate = seriPrivate;
-	}
-
-	public int getSerialInner() {
-		return serialInner;
-	}
-
-	public void setSerialInner(int serialInner) {
-		this.serialInner = serialInner;
-	}
-
-	public int getSerialOuter() {
-		return serialOuter;
-	}
-
-	public void setSerialOuter(int serialOuter) {
-		this.serialOuter = serialOuter;
-	}
-
-	public int getSerialPrivate() {
-		return serialPrivate;
-	}
-
-	public void setSerialPrivate(int serialPrivate) {
-		this.serialPrivate = serialPrivate;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (o == this)
-			return true;
-		if (o instanceof Setting)
-			return true;
-
-		final Setting setting = (Setting) o;
-		return (ticketNumber != null ? ticketNumber.equals(setting
-				.getTicketNumber()) : false);
-	}
-
-	@Override
-	public int hashCode() {
-		return (ticketNumber != null ? ticketNumber.hashCode() : 0);
-	}
-
-	@Override
-	public String toString() {
-		return getRateType() + "_" + getTicketNumber();
 	}
 
 	public long getSnack() {

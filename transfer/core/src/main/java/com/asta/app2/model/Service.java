@@ -25,6 +25,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.asta.app2.model.enums.SooratType;
 import com.asta.app2.model.enums.Weekday;
 import com.asta.app2.util.DateUtil;
 
@@ -66,12 +67,11 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 	@JoinColumn(name = "car_kind_id", nullable = false)
 	private CarKind carKind;
 	@ManyToOne
-	@JoinColumn(name = "path_id", nullable = false)
+	@JoinColumn(name = "path_id", nullable = true)
 	private Path path;
 	@ManyToOne
 	@JoinColumn(name = "car_id", nullable = true)
 	private Car car;
-
 	@ManyToOne
 	@JoinColumn(name = "template_id", nullable = false)
 	private ServiceTemplate template;
@@ -89,6 +89,17 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private Set<Path> paths = new HashSet<Path>();
 
+	@Enumerated(EnumType.STRING)
+	@Column(name="soorat_type", length = 10, nullable = false)
+	private SooratType sooratType;
+	
+	public SooratType getSooratType() {
+		return sooratType;
+	}
+
+	public void setSooratType(SooratType sooratType) {
+		this.sooratType = sooratType;
+	}
 
 	public Service() {
 	}
@@ -97,13 +108,14 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 		this.id = id;
 	}
 
-	public Service(ServiceTemplate template,Company company,CarKind carKind,Path path, String timed, Date datebook) {
+	public Service(ServiceTemplate template,Company company,CarKind carKind,Path path, String timed, Date datebook,SooratType sooratType) {
 		this.template = template;
 		this.company = company; 
 		this.carKind = carKind;
 		this.path = path;
 		this.timed = timed;
 		this.datebook = datebook;
+		this.sooratType = sooratType;
 	}
 	
 	@Override

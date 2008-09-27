@@ -13,9 +13,9 @@ import org.springframework.security.providers.encoding.PasswordEncoder;
 import org.springframework.security.userdetails.UsernameNotFoundException;
 
 import com.asta.app2.dao.UserDao;
+import com.asta.app2.exception.UserExistsException;
 import com.asta.app2.model.Company;
 import com.asta.app2.model.User;
-import com.asta.app2.service.UserExistsException;
 import com.asta.app2.service.UserManager;
 import com.asta.app2.service.UserService;
 

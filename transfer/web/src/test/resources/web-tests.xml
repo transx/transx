@@ -1275,7 +1275,7 @@
                     text=".*${passengerDetail.title}.*" regex="true"/>
 
                 <!-- enter required fields -->
-                <setInputField description="set lastName" name="passengerForm:lastName" value="TvCoRqSjQaLyGnVwTgJvEgAbLhXbKhDnXdRsDnXeEmPfHvBuBdBrNoFcTwHxBjFpZfUxObNhHbFaFbLwOaIfMiAgRyFxEkPuWbSh"/>
+                <setInputField description="set lastName" name="passengerForm:lastName" value="Jorji"/>
             	<setRadioButton description="Check radio button passengerForm:gender: MALE" name="passengerForm:gender" value="MALE"/>
 
                 <clickbutton label="${button.save}" description="Click button 'Save'"/>

@@ -16,8 +16,8 @@
 
     <licenses>
         <license>
-            <name>©2008 ASTA</name>
-            <url>http://asta.ir</url>
+            <name>©2008 TRP</name>
+            <url>http://trp.ir</url>
         </license>
     </licenses>
 
@@ -255,11 +255,22 @@
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>dbunit-maven-plugin</artifactId>
                         <configuration>
-                            <src>src/main/resources/default-data.xml</src>
+                            <src>src/main/resources/production-data.xml</src>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
+           	<properties>
+		        <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
+		        <jdbc.groupId>mysql</jdbc.groupId>
+		        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+		        <jdbc.version>5.0.5</jdbc.version>
+		        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+		        <jdbc.url><![CDATA[jdbc:mysql://mysql5.metawerx.net:3506/trp3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
+		        <jdbc.username>trp3</jdbc.username>
+		        <jdbc.password>TrP30523cF</jdbc.password>
+	        	<mail.host>mail.metawerx.net</mail.host> 
+        	</properties>
         </profile>
 
         <!-- ================= Database Profiles ================= -->
@@ -349,19 +360,6 @@
                 <jdbc.password>appfuse</jdbc.password>
             </properties>
         </profile>
-       <profile>
-        	<id>mysql5</id>
-        	<properties>
-		        <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-		        <jdbc.groupId>mysql</jdbc.groupId>
-		        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
-		        <jdbc.version>5.0.5</jdbc.version>
-		        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-		        <jdbc.url><![CDATA[jdbc:mysql://database.trp.ir/chapar?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
-		        <jdbc.username>chapar</jdbc.username>
-		        <jdbc.password>chapar0102</jdbc.password>
-        	</properties>
-        </profile>
         <!-- ================= Container Profiles ================= -->
         <profile>
             <id>jboss</id>
@@ -427,6 +425,9 @@
         <jdbc.username>root</jdbc.username>
         <jdbc.password>root</jdbc.password>
     
+    	<!-- Mail setting -->
+    	<mail.host>localhost</mail.host> 
+    
         <!-- Properties calculated by AppFuse when running full-source plugin -->
         <acegijsf.version>1.1.3</acegijsf.version>
         <ajax4jsf.version>1.0.6</ajax4jsf.version>
@@ -447,8 +448,8 @@
         <jstl.version>1.1.2</jstl.version>
         <log4j.version>1.2.13</log4j.version>
         <myfaces.version>1.2.4</myfaces.version>
-        <myfaces.tomahawk.version>1.1.7-SNAPSHOT</myfaces.tomahawk.version>
-        <myfaces.tomahawk.sandbox.version>1.1.7-SNAPSHOT</myfaces.tomahawk.sandbox.version>
+        <myfaces.tomahawk.version>1.1.7</myfaces.tomahawk.version>
+        <myfaces.tomahawk.sandbox.version>1.1.8-SNAPSHOT</myfaces.tomahawk.sandbox.version>
         <myfaces.trinidad.version>1.2.8</myfaces.trinidad.version>
         <myfaces.orchestra.core.version>1.3-SNAPSHOT</myfaces.orchestra.core.version>
         <myfaces.orchestra.core15.version>1.1-SNAPSHOT</myfaces.orchestra.core15.version>

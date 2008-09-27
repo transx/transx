@@ -1168,6 +1168,7 @@
         <column>path_id</column>    
         <column>car_id</column>    
         <column>template_id</column>
+        <column>soorat_type</column>
     <row>
         <value description="id">-1</value>
         <value description="timed">8:00</value>
@@ -1182,6 +1183,7 @@
         <value description="path_id">-1</value>
         <value description="car_id">-1</value>
         <value description="template_id">-1</value>
+        <value description="soorat_type">OUTER</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -1194,9 +1196,10 @@
         <value description="service_expired">0</value>
         <value description="company_id">-1</value>
         <value description="car_kind_id">-3</value>
-        <value description="path_id">-1</value>
+        <null/>
         <value description="car_id">-1</value>
         <value description="template_id">-1</value>
+        <value description="soorat_type">PRIVATE</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -1212,6 +1215,7 @@
         <value description="path_id">-1</value>
         <value description="car_id">-1</value>
         <value description="template_id">-1</value>
+        <value description="soorat_type">INNER</value>
     </row>
     </table>
     <table name="service_driver">
@@ -2112,11 +2116,14 @@
         <column>cashier_id</column>
         <column>passenger_count</column>
         <column>total_is_t_a</column>
+        <column>soorat_type</column>
+        <column>days</column>
+        <column>pathway</column> 
     <row>
         <value description="id">-1</value>
         <value description="service_id">-1</value>
-        <value description="seri">الف/د/86/1</value>
-        <value description="serial">000000</value>
+        <value description="seri">الف/86/1</value>
+        <value description="serial">100000</value>
         <value description="issued">0</value>
         <value description="destroyed">0</value>
         <value description="total">111</value>
@@ -2132,12 +2139,15 @@
         <null/>
         <value description="passenger_count">0</value>
         <value description="total_is_t_a">-0</value>
+        <value description="soorat_type">OUTER</value>
+		<value description="days">0</value>
+		<null/>
     </row>
     <row>
         <value description="id">-2</value>
         <value description="service_id">-2</value>
-        <value description="seri">000</value>
-        <value description="serial">000000</value>
+        <value description="seri">86/الف</value>
+        <value description="serial">100000</value>
         <value description="issued">0</value>
         <value description="destroyed">0</value>
         <value description="total">111</value>
@@ -2153,12 +2163,15 @@
         <null/>
         <value description="passenger_count">0</value>
         <value description="total_is_t_a">-0</value>
+        <value description="soorat_type">PRIVATE</value>
+		<value description="days">3</value>
+		<value description="pathway">تهران - بندر</value>
     </row>
     <row>
         <value description="id">-3</value>
         <value description="service_id">-3</value>
-        <value description="seri">000</value>
-        <value description="serial">000000</value>
+        <value description="seri">الف/د/86/1</value>
+        <value description="serial">428997</value>
         <value description="issued">0</value>
         <value description="destroyed">0</value>
         <value description="total">111</value>
@@ -2174,6 +2187,9 @@
         <null/>
         <value description="passenger_count">0</value>
         <value description="total_is_t_a">-0</value>
+        <value description="soorat_type">INNER</value>
+		<value description="days">0</value>
+		<null/>
     </row>
     </table>
     <!--Soorat-END-->

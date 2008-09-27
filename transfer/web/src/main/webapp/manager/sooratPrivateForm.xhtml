@@ -1,0 +1,134 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
+
+<f:view>
+<f:loadBundle var="text" basename="#{sooratPrivateForm.bundleName}"/>
+    <head>
+        <title>#{text['sooratDetailPrivate.title']}</title>
+        <meta name="heading" content="#{text['sooratDetailPrivate.heading']}"/>
+    </head>
+<body id="sooratPrivateForm">
+
+<h:form id="sooratPrivateForm" onsubmit="return validateSooratForm(this)">
+<h:inputHidden value="#{sooratPrivateForm.soorat.id}" id="id"/>
+<t:panelGrid columns="3">
+
+    <h:panelGroup>
+	   <t:outputLabel styleClass="desc2" for="serial" value="#{text['soorat.serial']}"/>
+	   <h:inputText styleClass="text small" id="serial" value="#{sooratPrivateForm.setting.serialPrivate}" required="true" maxlength="10">
+	       <v:commonsValidator type="required" arg="#{text['soorat.serial']}"/>
+	   </h:inputText>
+	   <t:message for="serial" styleClass="fieldError"/>
+   </h:panelGroup>	
+    <h:panelGroup>
+	    <t:outputLabel styleClass="desc2" for="seri" value="#{text['soorat.seri']}"/>
+	    <h:inputText styleClass="text small" id="seri" value="#{sooratPrivateForm.setting.seriPrivate}" required="true" maxlength="20">
+	        <v:commonsValidator type="required" arg="#{text['soorat.seri']}"/>
+	    </h:inputText>
+	    <t:message for="seri" styleClass="fieldError"/>
+    </h:panelGroup>	
+	<h:outputText />
+	
+    <t:panelGrid columns="2">
+    	<h:outputLabel styleClass="desc2" for="datebook" value="#{text['service.datebook']}"/>
+	    <h:panelGroup>
+  		<trans:inputDate2 id="datebook" value="#{sooratPrivateForm.service.datebook}"
+			rendered="true" required="true">
+		</trans:inputDate2>		
+    	<t:message for="datebook" styleClass="fieldError"/>
+    	</h:panelGroup>
+    </t:panelGrid>
+    <h:panelGroup>
+	    <h:outputLabel styleClass="desc2" for="timed" value="#{text['service.timed']}"/>
+	    <h:inputText styleClass="text small" id="timed" value="#{sooratPrivateForm.service.timed}" required="true" maxlength="10">
+	        <v:commonsValidator type="required" arg="#{text['service.timed']}"/>
+	    </h:inputText>
+	    <t:message for="timed" styleClass="fieldError"/>
+	</h:panelGroup>
+    <h:panelGroup>
+	    <h:outputLabel styleClass="desc2" for="days" value="#{text['soorat.days']}"/>
+	    <h:inputText styleClass="text small" id="days" value="#{sooratPrivateForm.soorat.days}" required="true" maxlength="10">
+	        <v:commonsValidator type="required" arg="#{text['soorat.days']}"/>
+	    </h:inputText>
+	    <t:message for="days" styleClass="fieldError"/>
+	</h:panelGroup>
+	<h:panelGroup>
+		<h:outputLabel styleClass="desc2" for="carKind" value="#{text['service.carKind']}" />
+		<h:selectOneMenu id="carKind" value="#{sooratPrivateForm.carKindID}">
+			<f:selectItems value="#{lookupProvider.carKindMap}"/>
+		</h:selectOneMenu>
+	</h:panelGroup>
+
+</t:panelGrid>
+
+<t:panelGrid columns="2">
+	<h:outputLabel styleClass="desc2" for="pathway" value="#{text['soorat.pathway']}"/>
+	<h:inputText styleClass="text large" id="pathway" value="#{sooratPrivateForm.soorat.pathway}"/>
+</t:panelGrid>
+
+<t:panelGrid columns="6" rowClasses="oddRows,evenRows" >
+	
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.passengerCount']}"/>
+	    <h:inputText value="#{sooratPrivateForm.soorat.passengerCount}" converter="javax.faces.Integer" styleClass="text small"/>
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.total']}"/>
+	    <h:inputText value="#{sooratPrivateForm.soorat.total}" converter="javax.faces.Long" styleClass="text small" />
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.snack']}"/>
+	   	<h:inputText value="#{sooratPrivateForm.soorat.snack}" converter="javax.faces.Long" styleClass="text small" />
+	
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.commission']}"/>
+	    <h:inputText value="#{sooratPrivateForm.setting.commission}" styleClass="text small" id="commission" maxlength="2">
+	       <v:commonsValidator type="required" arg="#{text['soorat.commission']}"/>
+	    </h:inputText>
+    	<h:outputLabel styleClass="desc2" value="#{text['soorat.governmentToll']}"/>
+		<h:inputText value="#{sooratPrivateForm.soorat.governmentToll}" converter="javax.faces.Long" styleClass="text small" />
+		<h:outputText />
+		<h:outputText />
+	
+   		<h:outputLabel styleClass="desc2" value="#{text['soorat.insuranceSarneshin']}"/>	
+	    <h:inputText styleClass="text small" id="insuranceSarneshin" value="#{sooratPrivateForm.soorat.insuranceSarneshin}">
+	       <v:commonsValidator type="required" arg="#{text['soorat.insuranceSarneshin']}"/>
+		</h:inputText>
+   		<h:outputLabel styleClass="desc2" value="#{text['soorat.insuranceBadaneh']}"/>	
+	    <h:inputText styleClass="text small" id="insuranceBadaneh" value="#{sooratPrivateForm.soorat.insuranceBadaneh}">
+	       <v:commonsValidator type="required" arg="#{text['soorat.insuranceBadaneh']}"/>
+	    </h:inputText>
+	    <h:outputLabel styleClass="desc2" value="#{text['soorat.stamp']}" />
+	    <h:inputText styleClass="text small" id="stamp" value="#{sooratPrivateForm.setting.stamp}">
+	       <v:commonsValidator type="required" arg="#{text['soorat.stamp']}"/>
+	    </h:inputText>   
+ 
+</t:panelGrid>
+
+<t:panelGrid columns="3">
+	<h:outputLabel styleClass="desc2" value="#{text['soorat.totalIsTA']}"/>
+	<h:inputText value="#{sooratPrivateForm.soorat.totalIsTA}" id="totalIsTA" disabled="true" styleClass="text medium"/>
+	<h:outputText />
+	<h:outputLabel styleClass="desc2" value="#{text['soorat.commission']}"/>
+	<h:inputText value="#{sooratPrivateForm.soorat.commission}" id="commissionSoorat" disabled="true" styleClass="text medium"/>
+	<h:outputText />
+	<h:outputLabel styleClass="desc2" value="#{text['soorat.driverPay']}"/>
+	<h:inputText value="#{sooratPrivateForm.soorat.driverPay}" id="driverPay" disabled="true" styleClass="text medium"/>
+	<h:outputText />
+</t:panelGrid>
+
+<t:panelGrid columns="4">
+    <h:commandButton value="#{text['button.calc']}" 	 action="#{sooratPrivateForm.calcPrivate}" id="calc" styleClass="button"/>
+    <h:commandButton value="#{text['button.save']}" 	 action="#{sooratPrivateForm.savePrivate}" id="save" styleClass="button"/>
+    <h:commandButton value="#{text['button.savePrint']}" action="#{sooratPrivateForm.savePrintPrivate}" id="savePrint" styleClass="button"/>
+    <h:commandButton value="#{text['button.cancel']}" 	 action="cancel" immediate="true" id="cancel" styleClass="button" onclick="bCancel=true"/>
+</t:panelGrid> 
+
+</h:form>
+
+<v:validatorScript functionName="validateSooratForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('sooratForm'));
+    //highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

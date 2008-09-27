@@ -3,6 +3,7 @@ package com.asta.app2.service;
 
 import java.util.List;
 
+import com.asta.app2.exception.ChairReservedException;
 import com.asta.app2.model.Company;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.TicketTemp;

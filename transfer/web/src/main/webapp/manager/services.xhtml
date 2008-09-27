@@ -17,7 +17,7 @@
 <h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
  <h:panelGroup/>
  <t:collapsiblePanel id="serachCollapse" title="#{text['button.search']}">
- 	<t:panelGrid columns="8">
+ 	<t:panelGrid columns="10">
 	    <h:commandButton value="#{text['button.search']}" action="#{serviceList.search}" id="search" styleClass="button"/>
 		<h:outputText />
 		
@@ -34,6 +34,9 @@
 	        <f:selectItems value="#{lookupProvider.carKindMapWithEmpty}"/>
 	    </h:selectOneMenu>
     
+    	<h:outputLabel styleClass="desc" for="serviceExpired" value="#{text['service.serviceExpired']}" />
+    	<h:selectBooleanCheckbox value="#{serviceList.service.serviceExpired}" styleClass="checkbox"/>
+    	
     </t:panelGrid>
  </t:collapsiblePanel>
 

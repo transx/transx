@@ -21,6 +21,19 @@
 		<property name="serviceManager" ref="serviceManager"/>	
 	</bean>
 
+	<bean name="sooratList" class="com.asta.app2.webapp.action.SooratList" scope="conversation.access">
+		<property name="sooratManager" ref="sooratManager"/>
+		<property name="serviceManager" ref="serviceManager"/>
+	</bean>
+
+	<bean name="sooratPrivateForm" class="com.asta.app2.webapp.action.SooratPrivateForm" scope="conversation.access">
+		<property name="sooratManager" ref="sooratManager"/>
+		<property name="serviceManager" ref="serviceManager"/>
+		<property name="settingManager" ref="settingManager"/>
+		<property name="insuranceSarneshinManager" ref="insuranceSarneshinManager"/>
+		<property name="insuranceBadanehManager" ref="insuranceBadanehManager"/>
+	</bean>
+
     <!-- Add new DAOs here -->
 
     <!-- Add new Managers here -->

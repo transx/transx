@@ -21,7 +21,7 @@ import com.asta.app2.model.Ticket;
 import com.asta.app2.model.TicketTemp;
 import com.asta.app2.model.enums.Gender;
 import com.asta.app2.service.ChairManager;
-import com.asta.app2.service.ChairReservedException;
+import com.asta.app2.exception.ChairReservedException;
 import com.asta.app2.service.PassengerManager;
 import com.asta.app2.service.PathManager;
 import com.asta.app2.service.ServiceManager;

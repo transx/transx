@@ -9,13 +9,14 @@
             <h:outputText value="#{msgs.indexWindowTitle}"/>
          </title>
       </head>
-      <body>
+      <body >
+      	
 		<t:panelGrid columns="3" >
 	 	</t:panelGrid>	
 		<t:outputLabel></t:outputLabel>
          <h:outputText value="#{msgs.indexPageTitle}" styleClass="emphasis"/>
          <h:form>
-            <table>
+            <>
                <tr>
                   <td>
                      <h:outputText value="#{msgs.namePrompt}"/>

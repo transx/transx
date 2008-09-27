@@ -8,10 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRDataSourceProvider;
-import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -19,9 +15,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.data.JRTableModelDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.util.JRColorUtil;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import com.asta.app2.Constants;
@@ -43,6 +37,10 @@ import com.asta.app2.service.TicketManager;
 import com.asta.app2.webapp.util.ChairModel;
 import com.asta.app2.webapp.util.ChairModelForPrint;
 
+/**
+ * This form used for calculate sooratInner
+ * @author  <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
+ */
 public class SooratSodorForm extends BasePage implements Serializable {
 	private SooratManager sooratManager;
 	private ServiceManager serviceManager;

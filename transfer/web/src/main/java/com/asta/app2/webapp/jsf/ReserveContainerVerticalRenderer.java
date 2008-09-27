@@ -2,6 +2,7 @@
 package com.asta.app2.webapp.jsf;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -126,8 +127,21 @@ public class ReserveContainerVerticalRenderer extends Renderer {
 		if (facet != null) {
 			if (facet.isRendered()) {
 				facet.encodeBegin(context);
-				if (facet.getRendersChildren())
+				if (facet.getRendersChildren()){
 					facet.encodeChildren(context);
+//					List<UIComponent> chchs = facet.getChildren();
+//					if (chchs.size() > 0){
+//						for (UIComponent chch : chchs) {
+//							if (chch.isRendered()){
+//								chch.encodeBegin(context);
+//								if (chch.getRendersChildren()){
+//									chch.encodeChildren(context);
+//								}
+//								chch.encodeEnd(context);
+//							}
+//						}
+//					}
+				}
 				facet.encodeEnd(context);
 			}
 		}

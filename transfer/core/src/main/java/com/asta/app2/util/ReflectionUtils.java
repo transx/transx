@@ -14,6 +14,7 @@ import com.asta.app2.model.enums.Distance;
 import com.asta.app2.model.enums.Gender;
 import com.asta.app2.model.enums.Quality;
 import com.asta.app2.model.enums.RateType;
+import com.asta.app2.model.enums.SooratType;
 import com.asta.app2.model.enums.Weekday;
 	
 /**
@@ -38,7 +39,8 @@ public class ReflectionUtils {
 		CarType.class,
 		Distance.class,
 		Gender.class,
-		RateType.class
+		RateType.class,
+		SooratType.class
 	};
 	
 	public static Map<String,BaseObject> getNotNullEntityFields(BaseObject entity) {

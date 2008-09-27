@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.asta.app2.Constants;
 import com.asta.app2.dao.PassengerDao;
 import com.asta.app2.model.Passenger;
 import com.asta.app2.model.Service;
@@ -31,7 +32,7 @@ public class PassengerManagerImpl extends GenericManagerImpl<Passenger, Long>imp
 		Map<String, String> map = new TreeMap<String, String>();
 		map.clear();
 		if (withEmpty)
-			map.put("", "");
+			map.put(Constants.EMPTY, "- - - - - - - - - -");
 		for (Passenger passenger : passengers) {
 			map.put(passenger.toString() == null ? "" : passenger.toString(), passenger
 					.getId().toString());

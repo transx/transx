@@ -1,5 +1,5 @@
 /* *Class created on [ Jul 24, 2008 | 10:37:46 AM ] */
-package com.asta.app2.service;
+package com.asta.app2.exception;
 
 /**
  * An exception that is thrown by classes wanting to register on ticket twice .

@@ -908,43 +908,59 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
-    <!--Soorat-nav-END-->
-    <!--SooratSodor-nav-START-->
     <navigation-rule>
-    	<from-view-id>/manager/sooratSodors.xhtml</from-view-id>
+    	<from-view-id>/manager/sooratInners.xhtml</from-view-id>
     	<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/manager/serviceForm.xhtml</to-view-id>
+			<to-view-id>/manager/serviceInnerForm.xhtml</to-view-id>
 		</navigation-case>
     	<navigation-case>
 			<from-outcome>issueInner</from-outcome>
-			<to-view-id>/manager/sooratSodorInnerForm.xhtml</to-view-id>
-		</navigation-case>
-    	<navigation-case>
-			<from-outcome>issuePrivate</from-outcome>
-			<to-view-id>/manager/sooratSodorPrivateForm.xhtml</to-view-id>
-		</navigation-case>
-    	<navigation-case>
-			<from-outcome>issueForeign</from-outcome>
-			<to-view-id>/manager/sooratSodorForeignForm.xhtml</to-view-id>
+			<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
 		</navigation-case>
     </navigation-rule>
     <navigation-rule>
-    	<from-view-id>/manager/sooratSodorInnerForm.xhtml</from-view-id>
+    	<from-view-id>/manager/sooratInnerForm.xhtml</from-view-id>
     	<navigation-case>
 			<from-outcome>edit</from-outcome>
-			<to-view-id>/manager/sooratSodorInnerForm.xhtml</to-view-id>
+			<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
 		</navigation-case>
     	<navigation-case>
 			<from-outcome>list</from-outcome>
-			<to-view-id>/manager/soorats.xhtml</to-view-id>
+			<to-view-id>/manager/sooratInners.xhtml</to-view-id>
 		</navigation-case>
     	<navigation-case>
 			<from-outcome>cancel</from-outcome>
-			<to-view-id>/manager/sooratSodors.xhtml</to-view-id>
+			<to-view-id>/manager/sooratInners.xhtml</to-view-id>
 		</navigation-case>
     </navigation-rule>
-    <!--SooratSodor-nav-END-->
+    <navigation-rule>
+    	<from-view-id>/manager/sooratPrivates.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>add</from-outcome>
+    		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    		<from-outcome>edit</from-outcome>
+    		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<from-view-id>/manager/sooratPrivateForm.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>edit</from-outcome>
+    		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    		<from-outcome>list</from-outcome>
+    		<to-view-id>/manager/sooratPrivates.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    		<from-outcome>cancel</from-outcome>
+    		<to-view-id>/manager/sooratPrivates.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <!--Soorat-nav-END-->
     
     
     <!--Rate-nav-START-->
@@ -1710,7 +1726,7 @@
     </managed-bean>
     <!--TicketTemp-beans-END-->
 
-    <!--Soorat-beans-START-->
+    <!--Soorat-beans-START
     <managed-bean>
         <managed-bean-name>sooratList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.SooratList</managed-bean-class>
@@ -1720,6 +1736,7 @@
             <value>#{sooratManager}</value>
         </managed-property>
     </managed-bean>
+    -->
 
     <managed-bean>
         <managed-bean-name>sooratForm</managed-bean-name>

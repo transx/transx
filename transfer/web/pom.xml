@@ -82,7 +82,7 @@
                 	<systemProperties>
 						<systemProperty>
 							<name>org.mortbay.jetty.Request.maxFormContentSize</name>
-							<value>500000</value>
+							<value>10000</value>
 						</systemProperty>
 					</systemProperties>
                 </configuration>
@@ -281,11 +281,13 @@
             <artifactId>myfaces-impl</artifactId>
             <version>${myfaces.version}</version>
         </dependency>
+        <!-- 
         <dependency>
             <groupId>org.apache.myfaces.tomahawk</groupId>
-            <artifactId>tomahawk</artifactId>
+            <artifactId>tomahawk12</artifactId>
             <version>${myfaces.tomahawk.version}</version>
         </dependency>
+         -->
 		<dependency>
 			<groupId>org.apache.myfaces.tomahawk</groupId>
 			<artifactId>tomahawk-sandbox</artifactId>

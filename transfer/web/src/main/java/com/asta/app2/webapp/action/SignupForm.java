@@ -13,7 +13,7 @@ import com.asta.app2.Constants;
 import com.asta.app2.model.User;
 import com.asta.app2.service.CompanyManager;
 import com.asta.app2.service.RoleManager;
-import com.asta.app2.service.UserExistsException;
+import com.asta.app2.exception.UserExistsException;
 import com.asta.app2.webapp.util.RequestUtil;
 
 /**

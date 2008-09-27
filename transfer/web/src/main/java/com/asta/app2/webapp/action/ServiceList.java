@@ -79,6 +79,7 @@ public class ServiceList extends BasePage implements Serializable {
 	public List<Service> getListService() {
 		if (listService == null){
 			service.setCompany(new Company(getCurrentUser().getCompany().getId()));
+			service.setServiceExpired(Boolean.FALSE);
 			listService = serviceManager.searchByExample(service);
 		}
 		return listService;

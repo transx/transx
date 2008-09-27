@@ -142,7 +142,7 @@ public class GenericDaoHibernate<T extends BaseObject, PK extends Serializable> 
 		DetachedCriteria dCriteria = DetachedCriteria.forClass(this.persistentClass);
 		createEntityCriteria(dCriteria, "", exampleEntity);
 		for(Map.Entry<String, BaseObject> entry:ReflectionUtils.getNotNullEntityFields(exampleEntity).entrySet()){
-			log.debug("key="+entry.getKey()+"###vallue="+entry.getValue().toString());
+			//log.debug("key="+entry.getKey()+"###vallue="+entry.getValue().toString());
 			createEntityCriteria(dCriteria, entry.getKey() + ".", entry.getValue());
 		}
 		
@@ -167,7 +167,7 @@ public class GenericDaoHibernate<T extends BaseObject, PK extends Serializable> 
 		String pkProperty = getSessionFactory().getClassMetadata(exampleEntity.getClass()).getIdentifierPropertyName();
 		Arrays.sort(propertyNames);
 		for(Map.Entry<String, Object> e: ReflectionUtils.getNotNullSimpleFields(exampleEntity).entrySet()){
-			log.debug("key="+e.getKey()+"___vallue="+e.getValue().toString());
+			//log.debug("key="+e.getKey()+"___vallue="+e.getValue().toString());
 			if (!(pkProperty.equals(e.getKey()) || Arrays.binarySearch(propertyNames, e.getKey()) >= 0))
 				continue;
 			

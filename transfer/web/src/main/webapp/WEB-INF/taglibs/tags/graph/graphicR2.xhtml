@@ -3,7 +3,8 @@
                  xmlns:f="http://java.sun.com/jsf/core"
                  xmlns:c="http://java.sun.com/jstl/core"
                  xmlns:t="http://myfaces.apache.org/tomahawk"
-                 xmlns:trans="http://app2.asta.com/tags/jsf">
+                 xmlns:trans="http://app2.asta.com/tags/jsf"
+                 xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
 
 	<trans:reserveContainerVertical styleClass="reserveContainer" selectedChairClass="selectedChair" registeredChairClass="registeredChair" reservedChairClass="reservedChair" emptyChairClass="emptyChair" errorChairClass="errorChair">
 
@@ -51,8 +52,10 @@
 			</c:forEach>
 			<trans:selectChairItem itemLabel="${chairId}" itemValue="${chairId} " itemDisabled="${IS_CHAIR_REGISTED}" x="${x}" y="${y}" cssClass="${CSS_CLASS}" passengerName="${PASSENGER_NAME}" itemFemale="${ITEM_FEMALE}"/>
 			<f:facet name="${chairId} ">
+				<h:panelGroup>
 				<c:if test="${IS_CHAIR_DISABLED}">
-				<h:commandLink immediate="true" action="#{reserveForm.changeChair}">
+				<t:subform id="subform${chairId}">
+				<h:commandLink alt="click">
 					<f:setPropertyActionListener target="#{reserveForm.isChairRegisted}" value="${IS_CHAIR_REGISTED}"/>
 					<f:setPropertyActionListener target="#{reserveForm.isChairReserved}" value="${IS_CHAIR_RESERVED}"/>
 					<f:setPropertyActionListener target="#{reserveForm.reserverID}" value="${RESERVER_ID}"/>
@@ -60,10 +63,12 @@
 					<f:setPropertyActionListener target="#{reserveForm.pathID}" value="${PATH_ID}"/>
 					<h:graphicImage value="/images/numbers/${chairId}.ico"/>
 				</h:commandLink>
+				</t:subform>
 				</c:if>
 				<c:if test="${!IS_CHAIR_DISABLED}">
 					<h:graphicImage value="/images/numbers/${chairId}.ico"/>
 				</c:if>
+				</h:panelGroup>
 			</f:facet>
 			<c:set var="x" value="${x+1}" />
 		</c:forEach>

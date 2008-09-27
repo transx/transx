@@ -2,8 +2,6 @@ package com.asta.app2.webapp.action;
 
 import java.io.Serializable;
 
-import javax.faces.model.SelectItem;
-
 import com.asta.app2.model.Passenger;
 import com.asta.app2.model.enums.Gender;
 import com.asta.app2.service.PassengerManager;

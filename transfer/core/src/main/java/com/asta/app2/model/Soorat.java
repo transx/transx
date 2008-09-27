@@ -2,15 +2,20 @@
 package com.asta.app2.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.asta.app2.model.enums.SooratType;
 
 /**
  * This entity is for gathering and saving the information of each
@@ -29,59 +34,59 @@ public class Soorat extends BaseObject implements Serializable, Comparable<Soora
 	@ManyToOne
 	@JoinColumn(name = "service_id", nullable = false)
 	private Service service;
+	@ManyToOne
+	@JoinColumn(name = "company_id", nullable = false)
+	private Company company;
+	@ManyToOne
+	@JoinColumn(name = "cash_id", nullable = true)
+	private Cash cash;
+	@ManyToOne
+	@JoinColumn(name = "cashier_id", nullable = true)
+	private User cashier;
 
 	@Column(length = 20, nullable = false)
 	private String seri;
 
 	@Column(length = 20, nullable = false)
-	private int serial;
+	private String serial;
 
 	@Column(nullable = true)
-	private boolean issued;
-
+	private Boolean issued;
 	@Column(nullable = true)
-	private boolean destroyed;
+	private Boolean destroyed;
+	@Column(name = "driver_paid", nullable = false)
+	private Boolean driverPaid;
+	
 	@Column(nullable = false)
 	private Long total;
 	@Column(name = "government_toll", nullable = false)
 	private Long governmentToll;
-
 	@Column(name = "insurance_sarneshin", nullable = false)
 	private Long insuranceSarneshin;
-
 	@Column(name = "insurance_badaneh", nullable = false)
 	private Long insuranceBadaneh;
-
 	@Column(nullable = false)
 	private Long snack;
-
+	@Column(name = "total_is_t_a")
+	private Long totalIsTA;
 	@Column(nullable = false)
 	private Long commission;
-
 	@Column(name = "driver_pay", nullable = false)
 	private Long driverPay;
 
-	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = false)
-	private Company company;
-
-	@ManyToOne
-	@JoinColumn(name = "cash_id", nullable = true)
-	private Cash cash;
-
-	@ManyToOne
-	@JoinColumn(name = "cashier_id", nullable = true)
-	private User cashier;
-
-	@Column(name = "driver_paid", nullable = false)
-	private boolean driverPaid;
 
 	@Column(name = "passenger_count", length = 3, nullable = false)
 	private Integer passengerCount;
+	@Column(nullable = true) 
+	private Long days;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "soorat_type", length = 10, nullable = false)
+	private SooratType sooratType;
 
-	@Column(name = "total_is_t_a")
-	private Long totalIsTA;
-
+	@Column(nullable = true)
+	private String pathway;
+	
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -96,12 +101,13 @@ public class Soorat extends BaseObject implements Serializable, Comparable<Soora
 	@Override
 	public int hashCode() {
 		return (seri != null ? seri.hashCode() :23)+
-			   (serial != 0 ? serial:23);
+			   (serial != null ? serial.hashCode():23);
 	}
 
 	@Override
 	public String toString() {
-		return getSeri()+" - "+ getSerial();
+		return (seri != null ? getSeri():"")+" - "+ 
+				(serial != null ? getSerial():"");
 	}
 
 	public int compareTo(Soorat soorat) {
@@ -133,28 +139,36 @@ public class Soorat extends BaseObject implements Serializable, Comparable<Soora
 		this.seri = seri;
 	}
 
-	public int getSerial() {
+	public String getSerial() {
 		return serial;
 	}
 
-	public void setSerial(int serial) {
+	public void setSerial(String serial) {
 		this.serial = serial;
 	}
 
-	public boolean isDestroyed() {
+	public Boolean getDestroyed() {
 		return destroyed;
 	}
 
-	public void setDestroyed(boolean destroyed) {
+	public void setDestroyed(Boolean destroyed) {
 		this.destroyed = destroyed;
 	}
 
-	public boolean isIssued() {
+	public Boolean getIssued() {
 		return issued;
 	}
 
-	public void setIssued(boolean issued) {
+	public void setIssued(Boolean issued) {
 		this.issued = issued;
+	}
+
+	public Boolean getDriverPaid() {
+		return driverPaid;
+	}
+
+	public void setDriverPaid(Boolean driverPaid) {
+		this.driverPaid = driverPaid;
 	}
 
 	public Long getTotal() {
@@ -221,14 +235,6 @@ public class Soorat extends BaseObject implements Serializable, Comparable<Soora
 		this.company = company;
 	}
 
-	public boolean isDriverPaid() {
-		return driverPaid;
-	}
-
-	public void setDriverPaid(boolean driverPaid) {
-		this.driverPaid = driverPaid;
-	}
-
 	public Cash getCash() {
 		return cash;
 	}
@@ -259,5 +265,29 @@ public class Soorat extends BaseObject implements Serializable, Comparable<Soora
 
 	public void setTotalIsTA(Long totalIsTA) {
 		this.totalIsTA = totalIsTA;
+	}
+
+	public SooratType getSooratType() {
+		return sooratType;
+	}
+
+	public void setSooratType(SooratType sooratType) {
+		this.sooratType = sooratType;
+	}
+
+	public Long getDays() {
+		return days;
+	}
+
+	public void setDays(Long days) {
+		this.days = days;
+	}
+
+	public String getPathway() {
+		return pathway;
+	}
+
+	public void setPathway(String pathway) {
+		this.pathway = pathway;
 	}
 }

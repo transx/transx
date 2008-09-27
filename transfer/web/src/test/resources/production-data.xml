@@ -5,20 +5,16 @@
         <column>id</column>
         <column>name</column>
     <row>
-        <value description="id">1</value>
+        <value description="id">-1</value>
         <value description="name">ایران</value>
     </row>
     <row>
-        <value description="id">2</value>
+        <value description="id">-2</value>
         <value description="name">سوریه</value>
     </row>
     <row>
-        <value description="id">3</value>
+        <value description="id">-3</value>
         <value description="name">ارمنستان</value>
-    </row>
-    <row>
-        <value description="id">4</value>
-        <value description="name">آذربایجان</value>
     </row>
     </table>
     <!--Country-END-->
@@ -137,19 +133,19 @@
         <column>city_id</column>    
     <row>
         <value description="id">-1</value>
-        <value description="name">شرکت تعاونی مسافربری شماره 7</value>
+        <value description="name">شرکت آزمایشی</value>
         <value description="code">11222</value>
         <value description="city_id">-1</value>
     </row>
     <row>
         <value description="id">-2</value>
-        <value description="name">شرکت تعاونی مسافربری شماره 14</value>
+        <value description="name">شرکت شماره 14</value>
         <value description="code">11777</value>
         <value description="city_id">-1</value>
     </row>
     <row>
         <value description="id">-3</value>
-        <value description="name">شرکت تعاونی مسافربری شماره 1</value>
+        <value description="name">شرکت شماره 1</value>
         <value description="code">11111</value>
         <value description="city_id">-1</value>
     </row>
@@ -389,11 +385,15 @@
         </row>
         <row>
             <value description="user_id">-2</value>
-            <value description="role_id">-3</value>
+            <value description="role_id">-4</value>
         </row>
         <row>
             <value description="user_id">-2</value>
-            <value description="role_id">-4</value>
+            <value description="role_id">-5</value>
+        </row>
+        <row>
+            <value description="user_id">-2</value>
+            <value description="role_id">-6</value>
         </row>
         <row>
             <value description="user_id">-3</value>
@@ -575,6 +575,7 @@
         <column>passport_number</column>
         <column>address</column>
         <column>phone</column>
+        <column>company_id</column>
     <row>
         <value description="id">-1</value>
         <value description="first_name">ابراهیم</value>
@@ -587,6 +588,7 @@
         <value description="passport_number">G189056</value>
         <value description="address"> !آدرس در اینجا درج شود</value>
         <value description="phone">0217777777</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -600,6 +602,7 @@
         <value description="passport_number">R765768</value>
         <value description="address"> !آدرس در اینجا درج شود</value>
         <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -613,6 +616,7 @@
         <value description="passport_number">U6789990</value>
         <value description="address"> !آدرس در اینجا درج شود</value>
         <value description="phone">0217777777</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-4</value>
@@ -626,6 +630,7 @@
         <value description="passport_number">G111111</value>
         <value description="address"> !آدرس در اینجا درج شود</value>
         <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-5</value>
@@ -639,6 +644,7 @@
         <value description="passport_number">G527523</value>
         <value description="address"> !آدرس در اینجا درج شود</value>
         <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-6</value>
@@ -652,6 +658,7 @@
         <value description="passport_number">G527523</value>
         <value description="address"> !آدرس در اینجا درج شود</value>
         <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-7</value>
@@ -665,11 +672,12 @@
         <value description="passport_number">G111222</value>
         <value description="address"> !آدرس در اینجا درج شود</value>
         <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-8</value>
-        <value description="first_name">     Ã«Â¢â€˜Â¬Â¢ÃµÅ¸Ãµ</value>
-        <value description="last_name">   Ã¼Â¡ÃªÂ Ã½Â¤â€œÃ®Â</value>
+        <value description="first_name">بهرام</value>
+        <value description="last_name">سلمان پور</value>
         <value description="father_name">پدر</value>
         <value description="gender">MALE</value>
         <value description="birthday">1983-06-03</value>
@@ -678,6 +686,77 @@
         <value description="passport_number">G111222</value>
         <value description="address"> !آدرس در اینجا درج شود</value>
         <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
+    </row>
+    <row>
+        <value description="id">-9</value>
+        <value description="first_name">بهرام</value>
+        <value description="last_name">سمیعی</value>
+        <value description="father_name">پدر</value>
+        <value description="gender">MALE</value>
+        <value description="birthday">1983-06-03</value>
+        <value description="identity_number">119</value>
+        <value description="identity_issue">تهران</value>
+        <value description="passport_number">G111222</value>
+        <value description="address"> !آدرس در اینجا درج شود</value>
+        <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
+    </row>
+    <row>
+        <value description="id">-10</value>
+        <value description="first_name">بهرام</value>
+        <value description="last_name">سامانی</value>
+        <value description="father_name">پدر</value>
+        <value description="gender">MALE</value>
+        <value description="birthday">1983-06-03</value>
+        <value description="identity_number">119</value>
+        <value description="identity_issue">تهران</value>
+        <value description="passport_number">G111222</value>
+        <value description="address"> !آدرس در اینجا درج شود</value>
+        <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
+    </row>
+    <row>
+        <value description="id">-11</value>
+        <value description="first_name">بهرام</value>
+        <value description="last_name">سوادی</value>
+        <value description="father_name">پدر</value>
+        <value description="gender">MALE</value>
+        <value description="birthday">1983-06-03</value>
+        <value description="identity_number">119</value>
+        <value description="identity_issue">تهران</value>
+        <value description="passport_number">G111222</value>
+        <value description="address"> !آدرس در اینجا درج شود</value>
+        <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
+    </row>
+    <row>
+        <value description="id">-12</value>
+        <value description="first_name">بهرام</value>
+        <value description="last_name">سهندی</value>
+        <value description="father_name">پدر</value>
+        <value description="gender">MALE</value>
+        <value description="birthday">1983-06-03</value>
+        <value description="identity_number">119</value>
+        <value description="identity_issue">تهران</value>
+        <value description="passport_number">G111222</value>
+        <value description="address"> !آدرس در اینجا درج شود</value>
+        <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
+    </row>
+    <row>
+        <value description="id">-13</value>
+        <value description="first_name">بهرام</value>
+        <value description="last_name">آذری</value>
+        <value description="father_name">پدر</value>
+        <value description="gender">MALE</value>
+        <value description="birthday">1983-06-03</value>
+        <value description="identity_number">119</value>
+        <value description="identity_issue">تهران</value>
+        <value description="passport_number">G111222</value>
+        <value description="address"> !آدرس در اینجا درج شود</value>
+        <value description="phone">09127777777</value>
+        <value description="company_id">-1</value>
     </row>
     </table>
     <!--Person-END-->
@@ -692,6 +771,8 @@
         <column>insurance_deadline</column>
         <column>contract_deadline</column>
         <column>person_id</column>
+        <column>company_id</column>
+        <column>live_state</column>
     <row>
         <value description="id">-1</value>
         <value description="code">111111111</value>
@@ -702,7 +783,8 @@
         <value description="insurance_deadline">2009-06-03</value>
         <value description="contract_deadline">2010-06-03</value>
         <value description="person_id">-1</value>
-		
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -714,6 +796,8 @@
         <value description="insurance_deadline">2009-06-03</value>
         <value description="contract_deadline">2010-06-03</value>
         <value description="person_id">-2</value>
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -725,10 +809,12 @@
         <value description="insurance_deadline">2009-06-23</value>
         <value description="contract_deadline">2010-06-23</value>
         <value description="person_id">-6</value>
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
     </row>
     <row>
         <value description="id">-4</value>
-        <value description="code"> â€žÂâ€ â‚¬â€¡Ë†Ë†Æ’Â-â€šâ€¡Ë†â‚¬</value>
+        <value description="code">456</value>
         <value description="code_note">کد 4</value>
         <value description="licence_number">10353876</value>
         <value description="licence_issue">خوی</value>
@@ -736,6 +822,73 @@
         <value description="insurance_deadline">2009-06-23</value>
         <value description="contract_deadline">2010-06-23</value>
         <value description="person_id">-8</value>
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
+    </row>
+    <row>
+        <value description="id">-5</value>
+        <value description="code">457</value>
+        <value description="code_note">کد 4</value>
+        <value description="licence_number">10353877</value>
+        <value description="licence_issue">تهران</value>
+        <value description="insurance_number">0003</value>
+        <value description="insurance_deadline">2009-06-23</value>
+        <value description="contract_deadline">2010-06-23</value>
+        <value description="person_id">-9</value>
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
+    </row>
+    <row>
+        <value description="id">-6</value>
+        <value description="code">458</value>
+        <value description="code_note">کد 4</value>
+        <value description="licence_number">10353878</value>
+        <value description="licence_issue">تهران</value>
+        <value description="insurance_number">0003</value>
+        <value description="insurance_deadline">2009-06-23</value>
+        <value description="contract_deadline">2010-06-23</value>
+        <value description="person_id">-10</value>
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
+    </row>
+    <row>
+        <value description="id">-7</value>
+        <value description="code">459</value>
+        <value description="code_note">کد 4</value>
+        <value description="licence_number">10353879</value>
+        <value description="licence_issue">تهران</value>
+        <value description="insurance_number">0003</value>
+        <value description="insurance_deadline">2009-06-23</value>
+        <value description="contract_deadline">2010-06-23</value>
+        <value description="person_id">-11</value>
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
+    </row>
+    <row>
+        <value description="id">-8</value>
+        <value description="code">460</value>
+        <value description="code_note">کد 4</value>
+        <value description="licence_number">10353880</value>
+        <value description="licence_issue">تهران</value>
+        <value description="insurance_number">0003</value>
+        <value description="insurance_deadline">2009-06-23</value>
+        <value description="contract_deadline">2010-06-23</value>
+        <value description="person_id">-12</value>
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
+    </row>
+    <row>
+        <value description="id">-9</value>
+        <value description="code">461</value>
+        <value description="code_note">کد 4</value>
+        <value description="licence_number">10353881</value>
+        <value description="licence_issue">تهران</value>
+        <value description="insurance_number">0003</value>
+        <value description="insurance_deadline">2009-06-23</value>
+        <value description="contract_deadline">2010-06-23</value>
+        <value description="person_id">-13</value>
+        <value description="company_id">-1</value>
+        <value description="live_state">تهران</value>
     </row>
     </table>
     <!--Driver-END-->
@@ -743,21 +896,25 @@
     <table name="Lodger">
         <column>id</column>
         <column>presenter</column>
-        <column>person_id</column>    
+        <column>person_id</column>
+        <column>company_id</column>    
     <row>
         <value description="id">-1</value>
         <value description="presenter">معرف1</value>
         <value description="person_id">-3</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-2</value>
         <value description="presenter">معرف2</value>
         <value description="person_id">-4</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-3</value>
         <value description="presenter">معرف3</value>
         <value description="person_id">-7</value>
+        <value description="company_id">-1</value>
     </row>
     </table>
     <!--Lodger-END-->
@@ -771,7 +928,7 @@
         <column>motor</column>
         <column>chassis</column>
         <column>transit</column>
-        <column>company</column>
+        <column>company_build</column>
         <column>build_year</column>
         <column>statistic_card</column>
         <column>smart_card</column>
@@ -780,7 +937,8 @@
         <column>insurance_body_apart_deadline</column>
         <column>car_kind_id</column>    
         <column>person_id</column>
-        <column>insurance_badaneh_jodaganeh</column>    
+        <column>insurance_badaneh_jodaganeh</column>
+        <column>company_id</column>    
     <row>
         <value description="id">-1</value>
         <value description="code">C0001</value>
@@ -790,7 +948,7 @@
         <value description="motor">0000001</value>
         <value description="chassis">00001</value>
         <value description="transit">T0001</value>
-        <value description="company">ایران خودرو</value>
+        <value description="company_build">ایران خودرو</value>
         <value description="build_year">1380</value>
         <value description="statistic_card">cart0001</value>
         <value description="smart_card">0001</value>
@@ -800,6 +958,7 @@
         <value description="car_kind_id">-1</value>
         <value description="person_id">-6</value>
         <value description="insurance_badaneh_jodaganeh">1</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -810,7 +969,7 @@
         <value description="motor">0000002</value>
         <value description="chassis">00002</value>
         <value description="transit">T0002</value>
-        <value description="company">ایران خودرو</value>
+        <value description="company_build">ایران خودرو</value>
         <value description="build_year">1380</value>
         <value description="statistic_card">cart0002</value>
         <value description="smart_card">0001</value>
@@ -820,6 +979,7 @@
         <value description="car_kind_id">-1</value>
         <value description="person_id">-6</value>
         <value description="insurance_badaneh_jodaganeh">0</value>
+        <value description="company_id">-1</value>
     </row>
     </table>
     <!--Car-END-->
@@ -1008,6 +1168,7 @@
         <column>path_id</column>    
         <column>car_id</column>    
         <column>template_id</column>
+        <column>soorat_type</column>
     <row>
         <value description="id">-1</value>
         <value description="timed">8:00</value>
@@ -1022,6 +1183,7 @@
         <value description="path_id">-1</value>
         <value description="car_id">-1</value>
         <value description="template_id">-1</value>
+        <value description="soorat_type">OUTER</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -1033,14 +1195,15 @@
         <value description="service_opened">0</value>
         <value description="service_expired">0</value>
         <value description="company_id">-1</value>
-        <value description="car_kind_id">-1</value>
-        <value description="path_id">-1</value>
+        <value description="car_kind_id">-3</value>
+        <null/>
         <value description="car_id">-1</value>
         <value description="template_id">-1</value>
+        <value description="soorat_type">PRIVATE</value>
     </row>
     <row>
         <value description="id">-3</value>
-        <value description="timed">8:00</value>
+        <value description="timed">18:00</value>
         <value description="weekday">TUESDAY</value>
         <value description="datebook">2008-06-17</value>
         <value description="service_enabled">1</value>
@@ -1052,6 +1215,7 @@
         <value description="path_id">-1</value>
         <value description="car_id">-1</value>
         <value description="template_id">-1</value>
+        <value description="soorat_type">INNER</value>
     </row>
     </table>
     <table name="service_driver">
@@ -1113,35 +1277,7 @@
             <value description="service_id">-3</value>
             <value description="path_id">-4</value>
         </row>
-    </table>    
-    <table name="service_passenger">
-        <column>service_id</column>
-        <column>passenger_id</column>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-1</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-3</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-4</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-5</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-6</value>
-        </row>
-        <row>
-            <value description="service_id">-1</value>
-            <value description="passenger_id">-7</value>
-        </row>
-    </table>    
+    </table>     
     <!--Service-END-->
 
 	<!--Chair-START-->
@@ -1208,6 +1344,8 @@
         <column>cash_expired</column>
         <column>count_ticket</column>
         <column>total_price</column>
+        <column>company_id</column>
+        <column>number_cash</column>
     <row>
         <value description="id">-1</value>
         <null/>
@@ -1216,6 +1354,8 @@
         <value description="cash_expired">0</value>
         <value description="count_tikcet">0</value>
         <value description="total_price">0</value>
+        <value description="company_id">-1</value>
+        <value description="number_cash">3</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -1225,6 +1365,8 @@
         <value description="cash_expired">0</value>
         <value description="count_tikcet">0</value>
         <value description="total_price">0</value>
+        <value description="company_id">-1</value>
+        <value description="number_cash">2</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -1234,6 +1376,8 @@
         <value description="cash_expired">0</value>
         <value description="count_tikcet">23</value>
         <value description="total_price">3756100</value>
+        <value description="company_id">-1</value>
+        <value description="number_cash">1</value>
     </row>
     </table>
     <!--Cash-END-->
@@ -1256,14 +1400,15 @@
         <column>path_id</column>    
         <column>cash_id</column>    
         <column>returner_id</column>
-        <column>return_date</column>    
+        <column>return_date</column>
+        <column>company_id</column>    
     <row>
         <value description="id">-1</value>
         <value description="number">46182018</value>
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1276,6 +1421,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -1283,7 +1429,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">300000</value>
         <value description="count">2</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1296,6 +1442,7 @@
 		<value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -1303,7 +1450,7 @@
         <value description="price">108100</value>
         <value description="toll">4441</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">110000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1316,6 +1463,7 @@
 		<value description="cash_id">-3</value>        
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-4</value>
@@ -1323,7 +1471,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">80000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1336,6 +1484,7 @@
 		<value description="cash_id">-3</value>        
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-5</value>
@@ -1343,7 +1492,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>        
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">160000</value>
         <value description="count">2</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1356,6 +1505,7 @@
 		<value description="cash_id">-3</value>        
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-6</value>
@@ -1363,8 +1513,8 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
-        <value description="count">2</value>
+        <value description="total">150000</value>
+        <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
         <value description="issued">1</value>
@@ -1376,6 +1526,7 @@
    		<value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-7</value>
@@ -1383,7 +1534,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1396,6 +1547,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-8</value>
@@ -1403,7 +1555,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1416,6 +1568,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-9</value>
@@ -1423,7 +1576,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1436,6 +1589,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-10</value>
@@ -1443,7 +1597,7 @@
         <value description="price">108100</value>
         <value description="toll">4441</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">110000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1456,6 +1610,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-11</value>
@@ -1463,7 +1618,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1476,6 +1631,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-12</value>
@@ -1483,7 +1639,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1496,6 +1652,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-13</value>
@@ -1503,7 +1660,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1516,6 +1673,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-14</value>
@@ -1523,7 +1681,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1536,6 +1694,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-15</value>
@@ -1543,7 +1702,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">600000</value>
         <value description="count">4</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1556,6 +1715,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-16</value>
@@ -1563,7 +1723,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">80000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1576,6 +1736,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-17</value>
@@ -1583,7 +1744,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">80000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1596,6 +1757,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-18</value>
@@ -1603,7 +1765,7 @@
         <value description="price">108100</value>
         <value description="toll">4441</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">110000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1616,6 +1778,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-19</value>
@@ -1623,7 +1786,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">150000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1636,6 +1799,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-20</value>
@@ -1643,7 +1807,7 @@
         <value description="price">148100</value>
         <value description="toll">6059</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">300000</value>
         <value description="count">2</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1656,6 +1820,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-21</value>
@@ -1663,7 +1828,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">80000</value>
         <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1676,6 +1841,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-22</value>
@@ -1683,7 +1849,7 @@
         <value description="price">73100</value>
         <value description="toll">3025</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
+        <value description="total">240000</value>
         <value description="count">3</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
@@ -1696,6 +1862,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-23</value>
@@ -1703,8 +1870,8 @@
         <value description="price">108100</value>
         <value description="toll">4441</value>
         <value description="snack">1900</value>
-        <value description="total">0</value>
-        <value description="count">2</value>
+        <value description="total">110000</value>
+        <value description="count">1</value>
         <value description="reserve_date">2008-06-10</value>
         <value description="issue_date">2008-06-10</value>
         <value description="issued">1</value>
@@ -1716,6 +1883,7 @@
         <value description="cash_id">-3</value>
         <null/>
         <null/>
+        <value description="company_id">-1</value>
     </row>
     </table>
     <table name="ticket_chair">
@@ -1860,6 +2028,7 @@
         <column>passenger_id</column>    
         <column>service_id</column>    
         <column>path_id</column>    
+        <column>company_id</column>
     <row>
         <value description="id">-1</value>
         <value description="count">1</value>
@@ -1870,6 +2039,7 @@
         <value description="passenger_id">-5</value>
         <value description="service_id">-1</value>
         <value description="path_id">-1</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -1881,6 +2051,7 @@
         <value description="passenger_id">-6</value>
         <value description="service_id">-1</value>
         <value description="path_id">-3</value>
+        <value description="company_id">-1</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -1892,6 +2063,7 @@
         <value description="passenger_id">-7</value>
         <value description="service_id">-1</value>
         <value description="path_id">-4</value>
+        <value description="company_id">-1</value>
     </row>
     </table>
     <table name="ticket_temp_chair">
@@ -1938,11 +2110,20 @@
         <column>snack</column>
         <column>commission</column>
         <column>driver_pay</column>
+        <column>driver_paid</column>
+        <column>company_id</column>
+        <column>cash_id</column>
+        <column>cashier_id</column>
+        <column>passenger_count</column>
+        <column>total_is_t_a</column>
+        <column>soorat_type</column>
+        <column>days</column>
+        <column>pathway</column> 
     <row>
         <value description="id">-1</value>
         <value description="service_id">-1</value>
-        <value description="seri">الف/د/86/1</value>
-        <value description="serial">000000</value>
+        <value description="seri">الف/86/1</value>
+        <value description="serial">100000</value>
         <value description="issued">0</value>
         <value description="destroyed">0</value>
         <value description="total">111</value>
@@ -1952,12 +2133,21 @@
         <value description="snack">555</value>
         <value description="commission">666</value>
         <value description="driver_pay">777</value>
+        <value description="driver_paid">0</value>
+        <value description="company_id">-1</value>
+        <null/>
+        <null/>
+        <value description="passenger_count">0</value>
+        <value description="total_is_t_a">-0</value>
+        <value description="soorat_type">OUTER</value>
+		<value description="days">0</value>
+		<null/>
     </row>
     <row>
         <value description="id">-2</value>
         <value description="service_id">-2</value>
-        <value description="seri">000</value>
-        <value description="serial">000000</value>
+        <value description="seri">86/الف</value>
+        <value description="serial">100000</value>
         <value description="issued">0</value>
         <value description="destroyed">0</value>
         <value description="total">111</value>
@@ -1967,12 +2157,21 @@
         <value description="snack">555</value>
         <value description="commission">666</value>
         <value description="driver_pay">777</value>
+        <value description="driver_paid">0</value>
+        <value description="company_id">-1</value>
+        <null/>
+        <null/>
+        <value description="passenger_count">0</value>
+        <value description="total_is_t_a">-0</value>
+        <value description="soorat_type">PRIVATE</value>
+		<value description="days">3</value>
+		<value description="pathway">تهران - بندر</value>
     </row>
     <row>
         <value description="id">-3</value>
         <value description="service_id">-3</value>
-        <value description="seri">000</value>
-        <value description="serial">000000</value>
+        <value description="seri">الف/د/86/1</value>
+        <value description="serial">428997</value>
         <value description="issued">0</value>
         <value description="destroyed">0</value>
         <value description="total">111</value>
@@ -1982,6 +2181,15 @@
         <value description="snack">555</value>
         <value description="commission">666</value>
         <value description="driver_pay">777</value>
+        <value description="driver_paid">0</value>
+        <value description="company_id">-1</value>
+        <null/>
+        <null/>
+        <value description="passenger_count">0</value>
+        <value description="total_is_t_a">-0</value>
+        <value description="soorat_type">INNER</value>
+		<value description="days">0</value>
+		<null/>
     </row>
     </table>
     <!--Soorat-END-->
@@ -2030,24 +2238,32 @@
         <column>ticket_number</column>
         <column>seri_inner</column>
         <column>seri_outer</column>
-        <column>seri_sole</column>
+        <column>seri_private</column>
         <column>serial_inner</column>
         <column>serial_outer</column>
-        <column>serial_sole</column>
+        <column>serial_private</column>
         <column>snack</column>
         <column>commission</column>
+        <column>company_id</column>
+        <column>company_phone</column>
+        <column>company_place</column>
+        <column>stamp</column>
     <row>
         <value description="id">1</value>
         <value description="rate_type">ORDINARY</value>
         <value description="ticket_number">46182031</value>
-        <value description="seri_inner">86/1/الف/د</value>
-        <value description="seri_outer">86/1/الف</value>
-        <value description="seri_sole">86/الف</value>
+        <value description="seri_inner">الف/د/86/1</value>
+        <value description="seri_outer">الف/86/1</value>
+        <value description="seri_private">86/الف</value>
         <value description="serial_inner">428998</value>
         <value description="serial_outer">100001</value>
-        <value description="serial_sole">100001</value>
+        <value description="serial_private">100001</value>
         <value description="snack">1900</value>
         <value description="commission">15</value>
+        <value description="company_id">-1</value>
+        <value description="company_phone">65489523</value>
+        <value description="company_place">پایانه جنوب</value>
+        <value description="stamp">20</value>
     </row>
     </table>
     <!--Setting-END-->

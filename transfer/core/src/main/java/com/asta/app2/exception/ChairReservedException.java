@@ -1,5 +1,5 @@
 /* *Class created on [ Jun 30, 2008 | 3:22:53 PM ] */
-package com.asta.app2.service;
+package com.asta.app2.exception;
 
 /**
  * An exception that is thrown by classes wanting to trap manual unique

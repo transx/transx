@@ -1,4 +1,4 @@
-package com.asta.app2.service;
+package com.asta.app2.exception;
 
 
 /**

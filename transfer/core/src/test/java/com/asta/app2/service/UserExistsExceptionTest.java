@@ -2,6 +2,7 @@ package com.asta.app2.service;
 
 import org.springframework.beans.BeanUtils;
 
+import com.asta.app2.exception.UserExistsException;
 import com.asta.app2.model.User;
 
 public class UserExistsExceptionTest extends BaseManagerTestCase {

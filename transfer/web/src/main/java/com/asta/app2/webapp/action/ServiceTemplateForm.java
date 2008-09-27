@@ -9,6 +9,7 @@ import java.util.GregorianCalendar;
 import com.asta.app2.Constants;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.ServiceTemplate;
+import com.asta.app2.model.enums.SooratType;
 import com.asta.app2.model.enums.Weekday;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.PathManager;
@@ -118,7 +119,7 @@ public class ServiceTemplateForm extends BasePage implements Serializable {
 			serviceTemplate.setCarKind(carKindManager.get(Long.valueOf(getCarKindID()).longValue()));
 			for (int i = 0; i < count+1; i = i+getCounter()) {
 				
-				Service service = new Service(serviceTemplate,serviceTemplate.getCompany(),serviceTemplate.getCarKind(),serviceTemplate.getPath(),serviceTemplate.getTimed(),start.getTime());
+				Service service = new Service(serviceTemplate,serviceTemplate.getCompany(),serviceTemplate.getCarKind(),serviceTemplate.getPath(),serviceTemplate.getTimed(),start.getTime(),SooratType.INNER);
 				
 				Weekday weekday;
 				switch(start.get(Calendar.DAY_OF_WEEK)){

@@ -3,6 +3,8 @@ package com.asta.app2.service;
 
 import java.util.List;
 
+import com.asta.app2.exception.TicketDidNotIssuedException;
+import com.asta.app2.exception.TicketIssuedException;
 import com.asta.app2.model.Cash;
 import com.asta.app2.model.Company;
 import com.asta.app2.model.Service;
