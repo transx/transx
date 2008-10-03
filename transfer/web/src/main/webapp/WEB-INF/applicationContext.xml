@@ -32,6 +32,14 @@
 		<property name="settingManager" ref="settingManager"/>
 		<property name="insuranceSarneshinManager" ref="insuranceSarneshinManager"/>
 		<property name="insuranceBadanehManager" ref="insuranceBadanehManager"/>
+		<property name="carKindManager" ref="carKindManager"/>
+		<property name="driverManager" ref="driverManager"/>
+	</bean>
+
+	<bean name="lookupAccessProvider" class="com.asta.app2.webapp.action.LookupAccessProvider" scope="conversation.access">
+		<property name="carKindManager" ref="carKindManager"/>
+		<property name="carManager" ref="carManager"/>
+		<property name="driverManager" ref="driverManager"/>
 	</bean>
 
     <!-- Add new DAOs here -->

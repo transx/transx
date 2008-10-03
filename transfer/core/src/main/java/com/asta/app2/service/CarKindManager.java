@@ -19,6 +19,8 @@ public interface CarKindManager extends GenericManager<CarKind, Long>{
 	CarKind load(CarKind carKind);
 
 	List<LabelValue> getAllCarKindLableValue();
+	
+	Map<Object, Object> getCarKindItems();
 }
 
 

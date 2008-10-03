@@ -42,13 +42,13 @@ public class Setting extends BaseObject {
 	private String seriPrivate;
 
 	@Column(name = "serial_inner", length = 20, nullable = false)
-	private String serialInner;
+	private Long serialInner;
 
 	@Column(name = "serial_outer", length = 20, nullable = false)
-	private String serialOuter;
+	private Long serialOuter;
 
 	@Column(name = "serial_private", length = 20, nullable = false)
-	private String serialPrivate;
+	private Long serialPrivate;
 
 	@Column(nullable = false)
 	private long snack;
@@ -115,27 +115,27 @@ public class Setting extends BaseObject {
 		this.seriPrivate = seriPrivate;
 	}
 
-	public String getSerialInner() {
+	public Long getSerialInner() {
 		return serialInner;
 	}
 
-	public void setSerialInner(String serialInner) {
+	public void setSerialInner(Long serialInner) {
 		this.serialInner = serialInner;
 	}
 
-	public String getSerialOuter() {
+	public Long getSerialOuter() {
 		return serialOuter;
 	}
 
-	public void setSerialOuter(String serialOuter) {
+	public void setSerialOuter(Long serialOuter) {
 		this.serialOuter = serialOuter;
 	}
 
-	public String getSerialPrivate() {
+	public Long getSerialPrivate() {
 		return serialPrivate;
 	}
 
-	public void setSerialPrivate(String serialPrivate) {
+	public void setSerialPrivate(Long serialPrivate) {
 		this.serialPrivate = serialPrivate;
 	}
 

@@ -39,7 +39,7 @@
 	
 		    <h:outputLabel styleClass="desc2" for="firstName" value="#{text['passenger.firstName']}"/>
 			<h:panelGroup>
-			    <h:inputText styleClass="text medium" id="firstName" value="#{reserveForm.passenger.firstName}" maxlength="50" disabled="#{reserveForm.isChairDisabled}"/>
+			    <h:inputText styleClass="text medium" id="firstName" value="#{reserveForm.passenger.firstName}" maxlength="50" disabled="#{reserveForm.disabled}"/>
 			    <t:message for="firstName" styleClass="fieldError"/>
 			</h:panelGroup>
 			
@@ -47,14 +47,14 @@
 			    <h:outputLabel styleClass="desc2" for="lastName" value="#{text['passenger.lastName']}"/>
 			    <span class="req">*</span>
 			</h:panelGroup>
-		    <h:inputText styleClass="text medium" id="lastName" value="#{reserveForm.passenger.lastName}" maxlength="100" disabled="#{reserveForm.isChairDisabled}">
+		    <h:inputText styleClass="text medium" id="lastName" value="#{reserveForm.passenger.lastName}" maxlength="100" disabled="#{reserveForm.disabled}">
 		        <v:commonsValidator type="required" arg="#{text['passenger.lastName']}"/>
 		    </h:inputText>
 		    
 	
 		    <h:outputLabel styleClass="desc2" for="passportNumber" value="#{text['passenger.passportNumber']}"/>
 			<h:panelGroup>
-			    <h:inputText styleClass="text medium" id="passportNumber" value="#{reserveForm.passenger.passportNumber}" maxlength="20" disabled="#{reserveForm.isChairDisabled}">
+			    <h:inputText styleClass="text medium" id="passportNumber" value="#{reserveForm.passenger.passportNumber}" maxlength="20" disabled="#{reserveForm.disabled}">
 			    </h:inputText>
 			    <t:message for="passportNumber" styleClass="fieldError"/>
 			</h:panelGroup>
@@ -64,20 +64,20 @@
 			    <h:outputLabel styleClass="desc2" for="gender" value="#{text['passenger.gender']}"/>
 			    <span class="req">*</span>
 			</h:panelGroup>
-	        <h:selectOneRadio value="#{reserveForm.passenger.gender}" id="gender" styleClass="radio" disabled="#{reserveForm.isChairDisabled}">
-				<f:selectItems value="#{reserveForm.genderItems}"/>
+	        <h:selectOneRadio value="#{reserveForm.passenger.gender}" id="gender" styleClass="radio" disabled="#{reserveForm.disabled}">
+				<f:selectItems value="#{lookupProvider.genderItems}"/>
 			</h:selectOneRadio>
 	
 			<h:panelGroup>
 			    <h:outputLabel styleClass="desc2" for="path" value="#{text['reserve.path']}"/>
 			    <span class="req">*</span>
 			</h:panelGroup>
-		    <h:selectOneRadio value="#{reserveForm.pathID}" id="path" styleClass="radio" disabled="#{reserveForm.isChairDisabled}">
+		    <h:selectOneRadio value="#{reserveForm.pathID}" id="path" styleClass="radio" disabled="#{reserveForm.disabled}">
 		        <f:selectItems value="#{reserveForm.pathMap}"/>
 		    </h:selectOneRadio>
 			
 		    <h:panelGroup styleClass="buttonBar bottom">
-		        <h:commandButton value="#{text['button.save']}" action="#{reserveForm.save}" id="save" styleClass="button"  disabled="#{reserveForm.isChairDisabled}"/>
+		        <h:commandButton value="#{text['button.save']}" action="#{reserveForm.save}" id="save" styleClass="button"  disabled="#{reserveForm.disabled}"/>
 		    </h:panelGroup>		
 	        <h:outputText />
 			

@@ -53,17 +53,21 @@ public class CarKind extends BaseObject implements Comparable<CarKind> {
 			return true;
 
 		final CarKind carKind = (CarKind) o;
-		return (id != null ? id.equals(carKind.getId()) : false);
+		//return (name != null ? name.equals(carKind.getName()) : false);
+		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return (name != null ? name.hashCode() : 0);
+		return (name != null ? name.hashCode() : 0)+
+			   (capacity !=0 ? capacity : 23)+
+			   (type != null ? type.hashCode(): 23);
 	}
 
 	@Override
 	public String toString() {
-		return getName()+" "+getCapacity();
+		return (name != null ? name : "")+"-"+
+		 	   (capacity != 0 ? capacity : "");
 	}
 
 	public int compareTo(CarKind carKind) {

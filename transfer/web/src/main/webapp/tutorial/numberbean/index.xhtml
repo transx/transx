@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<body>
+
+This text above will not be displayed.
+
+<ui:composition template="/tutorial/template.xhtml">
+
+This text will not be displayed.
+
+  <ui:define name="title">
+  	<h:outputText value="#{msgs.title}"/>
+  </ui:define>
+
+This text will also not be displayed.
+
+  <ui:define name="body">         
+  		<h:form>
+            <h1><h:outputText value="#{msgs.enterPayment}"/></h1>
+            
+            <h:panelGrid columns="3">
+               <h:outputText value="#{msgs.amount}"/>
+               <h:inputText id="amount" label="#{msgs.amount}" 
+                     value="#{NumberBean.amount}"> 
+                  <f:convertNumber minFractionDigits="2"/> 
+               </h:inputText>
+               <h:message for="amount" styleClass="errorMessage"/>
+
+               <h:outputText value="#{msgs.creditCard}"/>
+               <h:inputText id="card" value="#{NumberBean.card}"/>
+               <h:message for="card" styleClass="errorMessage"/>
+
+            </h:panelGrid>
+            <h:commandButton value="#{msgs.process}" action="process"/>
+         </h:form>
+        </ui:define>
+
+This text will not be displayed.
+  
+</ui:composition>
+
+This text below will also not be displayed.
+
+</body>
+</html>

@@ -73,7 +73,7 @@ public class Service extends BaseObject implements Serializable,Comparable<Servi
 	@JoinColumn(name = "car_id", nullable = true)
 	private Car car;
 	@ManyToOne
-	@JoinColumn(name = "template_id", nullable = false)
+	@JoinColumn(name = "template_id", nullable = true)
 	private ServiceTemplate template;
 	
 	@ManyToMany(fetch = FetchType.EAGER)

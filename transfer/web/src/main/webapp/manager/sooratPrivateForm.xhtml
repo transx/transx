@@ -12,19 +12,20 @@
 <body id="sooratPrivateForm">
 
 <h:form id="sooratPrivateForm" onsubmit="return validateSooratForm(this)">
+<h:messages/>
 <h:inputHidden value="#{sooratPrivateForm.soorat.id}" id="id"/>
 <t:panelGrid columns="3">
 
     <h:panelGroup>
 	   <t:outputLabel styleClass="desc2" for="serial" value="#{text['soorat.serial']}"/>
-	   <h:inputText styleClass="text small" id="serial" value="#{sooratPrivateForm.setting.serialPrivate}" required="true" maxlength="10">
+	   <h:inputText styleClass="text small" id="serial" value="#{sooratPrivateForm.soorat.serial}" required="true" maxlength="10">
 	       <v:commonsValidator type="required" arg="#{text['soorat.serial']}"/>
 	   </h:inputText>
 	   <t:message for="serial" styleClass="fieldError"/>
    </h:panelGroup>	
     <h:panelGroup>
 	    <t:outputLabel styleClass="desc2" for="seri" value="#{text['soorat.seri']}"/>
-	    <h:inputText styleClass="text small" id="seri" value="#{sooratPrivateForm.setting.seriPrivate}" required="true" maxlength="20">
+	    <h:inputText styleClass="text small" id="seri" value="#{sooratPrivateForm.soorat.seri}" required="true" maxlength="20">
 	        <v:commonsValidator type="required" arg="#{text['soorat.seri']}"/>
 	    </h:inputText>
 	    <t:message for="seri" styleClass="fieldError"/>
@@ -54,64 +55,102 @@
 	    </h:inputText>
 	    <t:message for="days" styleClass="fieldError"/>
 	</h:panelGroup>
+	
 	<h:panelGroup>
 		<h:outputLabel styleClass="desc2" for="carKind" value="#{text['service.carKind']}" />
-		<h:selectOneMenu id="carKind" value="#{sooratPrivateForm.carKindID}">
-			<f:selectItems value="#{lookupProvider.carKindMap}"/>
+		<h:selectOneMenu id="carKind" value="#{sooratPrivateForm.service.carKind}" required="true">
+			<trans:convertCarKind/>
+			<f:selectItems value="#{lookupAccessProvider.carKindItems}"/>
 		</h:selectOneMenu>
-	</h:panelGroup>
-
+	</h:panelGroup> 
+	<h:panelGroup>
+		<h:outputLabel styleClass="desc2" for="car" value="#{text['service.car']}" />
+		<h:selectOneMenu id="car" value="#{sooratPrivateForm.service.car}" converter="com.asta.app2.model.Car">
+			<f:selectItems value="#{lookupAccessProvider.carItems}"/>
+		</h:selectOneMenu>
+	</h:panelGroup> 
+	<h:outputText/>
+		
 </t:panelGrid>
 
-<t:panelGrid columns="2">
+<t:panelGrid columns="3">
 	<h:outputLabel styleClass="desc2" for="pathway" value="#{text['soorat.pathway']}"/>
 	<h:inputText styleClass="text large" id="pathway" value="#{sooratPrivateForm.soorat.pathway}"/>
+    <t:message for="pathway" styleClass="fieldError"/>
+	
+   	<h:outputLabel styleClass="desc" for="serviceDrivers" value="#{text['service.drivers']}"/>
+   	<t:selectManyPicklist value="#{sooratPrivateForm.driverSelected}" size="4" valueChangeListener="#{sooratPrivateForm.driverChanged}" id="serviceDrivers" >
+    	<f:selectItems value="#{lookupAccessProvider.driverItemsMapString}"/>
+   	</t:selectManyPicklist>
+    <t:message for="serviceDrivers" styleClass="fieldError"/>
 </t:panelGrid>
 
 <t:panelGrid columns="6" rowClasses="oddRows,evenRows" >
 	
-    	<h:outputLabel styleClass="desc2" value="#{text['soorat.passengerCount']}"/>
-	    <h:inputText value="#{sooratPrivateForm.soorat.passengerCount}" converter="javax.faces.Integer" styleClass="text small"/>
-    	<h:outputLabel styleClass="desc2" value="#{text['soorat.total']}"/>
-	    <h:inputText value="#{sooratPrivateForm.soorat.total}" converter="javax.faces.Long" styleClass="text small" />
-    	<h:outputLabel styleClass="desc2" value="#{text['soorat.snack']}"/>
-	   	<h:inputText value="#{sooratPrivateForm.soorat.snack}" converter="javax.faces.Long" styleClass="text small" />
+    	<h:outputLabel styleClass="desc2" for="passengerCount" value="#{text['soorat.passengerCount']}"/>
+	    <h:inputText id="passengerCount" value="#{sooratPrivateForm.soorat.passengerCount}" converter="javax.faces.Integer" styleClass="text small" required="true">
+	    </h:inputText>
+    	<h:outputLabel styleClass="desc2" for="total" value="#{text['soorat.total']}"/>
+	    <h:inputText id="total" value="#{sooratPrivateForm.soorat.total}" converter="javax.faces.Long" styleClass="text small" required="true">
+	    	<f:convertNumber minFractionDigits="2"/>
+	       <v:commonsValidator type="required" arg="#{text['soorat.total']}"/>
+	    </h:inputText>
+    	<h:outputLabel styleClass="desc2" for="snack" value="#{text['soorat.snack']}"/>
+	   	<h:inputText id="snack" value="#{sooratPrivateForm.soorat.snack}" converter="javax.faces.Long" styleClass="text small" required="true">
+	   		<f:convertNumber minFractionDigits="2"/>
+	       <v:commonsValidator type="required" arg="#{text['soorat.snack']}"/>
+	   	</h:inputText>
 	
-    	<h:outputLabel styleClass="desc2" value="#{text['soorat.commission']}"/>
-	    <h:inputText value="#{sooratPrivateForm.setting.commission}" styleClass="text small" id="commission" maxlength="2">
+    	<h:outputLabel styleClass="desc2" for="commission" value="#{text['soorat.commission']}"/>
+	    <h:inputText value="#{sooratPrivateForm.setting.commission}" styleClass="text small" id="commission" maxlength="2" required="true">
 	       <v:commonsValidator type="required" arg="#{text['soorat.commission']}"/>
 	    </h:inputText>
-    	<h:outputLabel styleClass="desc2" value="#{text['soorat.governmentToll']}"/>
-		<h:inputText value="#{sooratPrivateForm.soorat.governmentToll}" converter="javax.faces.Long" styleClass="text small" />
+    	<h:outputLabel styleClass="desc2" for="governmentToll" value="#{text['soorat.governmentToll']}"/>
+		<h:inputText id="governmentToll" value="#{sooratPrivateForm.soorat.governmentToll}" converter="javax.faces.Long" styleClass="text small" required="true">
+			<f:convertNumber minFractionDigits="2"/>
+	       <v:commonsValidator type="required" arg="#{text['soorat.governmentToll']}"/>
+		</h:inputText>
 		<h:outputText />
 		<h:outputText />
 	
-   		<h:outputLabel styleClass="desc2" value="#{text['soorat.insuranceSarneshin']}"/>	
-	    <h:inputText styleClass="text small" id="insuranceSarneshin" value="#{sooratPrivateForm.soorat.insuranceSarneshin}">
+   		<h:outputLabel styleClass="desc2" for="insuranceSarneshin" value="#{text['soorat.insuranceSarneshin']}"/>	
+	    <h:inputText styleClass="text small" id="insuranceSarneshin" value="#{sooratPrivateForm.soorat.insuranceSarneshin}" required="true">
 	       <v:commonsValidator type="required" arg="#{text['soorat.insuranceSarneshin']}"/>
+	       <f:convertNumber minFractionDigits="2"/>
 		</h:inputText>
-   		<h:outputLabel styleClass="desc2" value="#{text['soorat.insuranceBadaneh']}"/>	
-	    <h:inputText styleClass="text small" id="insuranceBadaneh" value="#{sooratPrivateForm.soorat.insuranceBadaneh}">
+   		<h:outputLabel styleClass="desc2" for="insuranceBadaneh" value="#{text['soorat.insuranceBadaneh']}"/>	
+	    <h:inputText styleClass="text small" id="insuranceBadaneh" value="#{sooratPrivateForm.soorat.insuranceBadaneh}" required="true">
 	       <v:commonsValidator type="required" arg="#{text['soorat.insuranceBadaneh']}"/>
+	       <f:convertNumber minFractionDigits="2"/>
 	    </h:inputText>
-	    <h:outputLabel styleClass="desc2" value="#{text['soorat.stamp']}" />
-	    <h:inputText styleClass="text small" id="stamp" value="#{sooratPrivateForm.setting.stamp}">
+	    <h:outputLabel styleClass="desc2" for="stamp" value="#{text['soorat.stamp']}" />
+	    <h:inputText styleClass="text small" id="stamp" value="#{sooratPrivateForm.setting.stamp}" required="true">
 	       <v:commonsValidator type="required" arg="#{text['soorat.stamp']}"/>
+	       <f:convertNumber minFractionDigits="2"/>
 	    </h:inputText>   
  
 </t:panelGrid>
 
-<t:panelGrid columns="3">
+<h:panelGrid columns="3">
 	<h:outputLabel styleClass="desc2" value="#{text['soorat.totalIsTA']}"/>
-	<h:inputText value="#{sooratPrivateForm.soorat.totalIsTA}" id="totalIsTA" disabled="true" styleClass="text medium"/>
+	<h:inputText value="#{sooratPrivateForm.soorat.totalIsTA}" id="totalIsTA" disabled="true" styleClass="text medium">
+		<f:convertNumber minFractionDigits="2"/> 
+	</h:inputText>
 	<h:outputText />
+	
 	<h:outputLabel styleClass="desc2" value="#{text['soorat.commission']}"/>
-	<h:inputText value="#{sooratPrivateForm.soorat.commission}" id="commissionSoorat" disabled="true" styleClass="text medium"/>
+	<h:inputText value="#{sooratPrivateForm.soorat.commission}" id="commissionSoorat" disabled="true" styleClass="text medium">
+		<f:convertNumber minFractionDigits="2"/> 
+	</h:inputText>
 	<h:outputText />
+	
 	<h:outputLabel styleClass="desc2" value="#{text['soorat.driverPay']}"/>
-	<h:inputText value="#{sooratPrivateForm.soorat.driverPay}" id="driverPay" disabled="true" styleClass="text medium"/>
+	<h:inputText value="#{sooratPrivateForm.soorat.driverPay}" id="driverPay" disabled="true" styleClass="text medium">
+		<f:convertNumber minFractionDigits="2"/> 
+	</h:inputText>
 	<h:outputText />
-</t:panelGrid>
+	
+</h:panelGrid>
 
 <t:panelGrid columns="4">
     <h:commandButton value="#{text['button.calc']}" 	 action="#{sooratPrivateForm.calcPrivate}" id="calc" styleClass="button"/>

@@ -15,6 +15,8 @@ public interface ServiceManager extends GenericManager<Service, Long>{
 
 	Service getService(String serviceId);
 
+	Service saveService(Service service);
+	
 	List<Service> getAllServices(Company company);
 
 	List<Service> getAllServicesReadyForReserve(Company company);

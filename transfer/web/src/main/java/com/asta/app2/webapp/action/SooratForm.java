@@ -34,6 +34,18 @@ public class SooratForm extends BasePage implements Serializable {
 
         return "list";
     }
+    
+    public String expire(){
+    	soorat = sooratManager.get(id);
+    	soorat.setDestroyed(Boolean.TRUE);
+    	Service service = soorat.getService();
+    	service.setServiceExpired(Boolean.TRUE);
+    	service.setEnabled(Boolean.FALSE);
+    	service.setOpened(Boolean.FALSE);
+    	soorat.setService(service);
+    	sooratManager.save(soorat);
+    	return "list";
+    }
 
     public String edit() {
         if (id != null) {

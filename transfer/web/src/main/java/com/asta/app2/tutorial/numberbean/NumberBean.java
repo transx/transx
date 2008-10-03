@@ -21,8 +21,20 @@ public class NumberBean implements Serializable {
   protected int max;
   protected int guess;
   protected int actual;
-    
-  // Default Constructor
+
+  private long amount;
+
+  private CreditCard card = new CreditCard("");
+  
+public CreditCard getCard() {
+	return card;
+}
+
+public void setCard(CreditCard card) {
+	this.card = card;
+}
+
+// Default Constructor
   public NumberBean() {
     this.min = 1;
     this.max = 10;
@@ -75,5 +87,13 @@ public class NumberBean implements Serializable {
   public void setMin(int min) { this.min = min; }
   public void setMax(int max) { this.max = max; }
   public void setGuess(int guess) { this.guess = guess; }
+
+public long getAmount() {
+	return amount;
+}
+
+public void setAmount(long amount) {
+	this.amount = amount;
+}
     
 }

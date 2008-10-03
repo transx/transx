@@ -111,6 +111,7 @@
     </build>
 
     <repositories>
+        <!-- Needed for Appfuse
         <repository>
             <id>central</id>
             <url>http://repo1.maven.org/maven2</url>
@@ -119,12 +120,14 @@
             <id>appfuse</id>
             <url>http://static.appfuse.org/repository</url>
         </repository>
-        <!-- Needed for Facelets -->
+        -->
+        <!-- Needed for Facelets
         <repository>
             <id>java.net</id>
             <url>http://download.java.net/maven/1/</url>
             <layout>legacy</layout>
         </repository>
+         -->
     </repositories>
 
     <pluginRepositories>
@@ -421,7 +424,7 @@
         <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
         <jdbc.version>5.0.5</jdbc.version>
         <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-        <jdbc.url><![CDATA[jdbc:mysql://localhost/transfer?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
+        <jdbc.url><![CDATA[jdbc:mysql://localhost/trp3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
         <jdbc.username>root</jdbc.username>
         <jdbc.password>root</jdbc.password>
     

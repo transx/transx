@@ -64,4 +64,34 @@ public class CarManagerImpl extends GenericManagerImpl<Car, Long> implements
 		return map;
 	}
 
+
+	public Map<Object, Object> getCarItems(Company company,boolean withEmpty) {
+		List<Car> cars = carDao.getAllCarByCompany(company);
+
+		Map<Object, Object> map = new LinkedHashMap<Object, Object>();
+
+		if (withEmpty)
+			map.put("- - - - - - - - - -", Constants.EMPTY);
+
+		for (Car car : cars) {
+			map.put(car, car);
+		}
+		return map;
+	}
+
+
+	public Map<Object, Object> getCarWithKindItems(Company company,CarKind carKind) {
+		List<Car> cars = carDao.getAllCarByKind(company,carKind);
+
+		Map<Object, Object> map = new LinkedHashMap<Object, Object>();
+		map.clear();
+		map.put("- - - - - - - - - -", Constants.EMPTY);
+		if (cars.size()>0){
+			for (Car car : cars) {
+				map.put(car, car);
+			}
+		}
+		return map;
+	}
+
 }

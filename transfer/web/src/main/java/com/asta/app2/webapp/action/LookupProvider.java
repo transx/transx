@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.faces.model.SelectItem;
 
+import com.asta.app2.model.CarKind;
 import com.asta.app2.model.LabelValue;
 import com.asta.app2.model.enums.CarType;
 import com.asta.app2.model.enums.Gender;
@@ -103,6 +104,10 @@ public class LookupProvider extends BasePage {
 		return carKindMap;
 	}
 
+	public List<CarKind> getCarKinds(){
+		return carKindManager.getAll();
+	}
+	
 	public Map<String, String> getPathMap() {
 		if (pathMap == null)
 			pathMap = pathManager.getPathMap(false);

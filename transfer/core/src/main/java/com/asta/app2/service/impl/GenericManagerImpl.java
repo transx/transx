@@ -72,6 +72,13 @@ public class GenericManagerImpl<T, PK extends Serializable> implements GenericMa
     /**
      * {@inheritDoc}
      */
+	public List<T> getAllDistinct() {
+		return genericDao.getAllDistinct();
+	}
+    
+    /**
+     * {@inheritDoc}
+     */
     public T get(PK id) {
         return genericDao.get(id);
     }
@@ -100,4 +107,5 @@ public class GenericManagerImpl<T, PK extends Serializable> implements GenericMa
 	public List<T> searchByExample(T exampleEntity) {
 		return genericDao.searchByExample(exampleEntity);
 	}
+
 }

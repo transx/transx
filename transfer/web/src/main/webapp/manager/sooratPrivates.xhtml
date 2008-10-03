@@ -13,7 +13,7 @@
 <body id="sooratList">
 <h:form id="editsoorat">
 
-<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.add']}" action="#{sooratPrivateForm.editPrivate}" id="add" immediate="true" styleClass="button"/>
 <h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
  <h:panelGroup/>
  <t:collapsiblePanel id="serachCollapse" title="#{text['button.search']}">
@@ -150,7 +150,9 @@
                 <h:outputText value="#{text['soorat.total']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{soorat.total}" escape="true"/>
+    	<h:outputText value="#{soorat.total}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -158,7 +160,9 @@
                 <h:outputText value="#{text['soorat.snack']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{soorat.snack}" escape="true"/>
+    	<h:outputText value="#{soorat.snack}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -166,7 +170,9 @@
                 <h:outputText value="#{text['soorat.commission']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{soorat.commission}" escape="true"/>
+    	<h:outputText value="#{soorat.commission}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -174,7 +180,9 @@
                 <h:outputText value="#{text['soorat.governmentToll']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{soorat.governmentToll}" escape="true"/>
+    	<h:outputText value="#{soorat.governmentToll}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -182,7 +190,9 @@
                 <h:outputText value="#{text['soorat.insuranceSarneshin']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{soorat.insuranceSarneshin}" escape="true"/>
+    	<h:outputText value="#{soorat.insuranceSarneshin}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -190,7 +200,9 @@
                 <h:outputText value="#{text['soorat.insuranceBadaneh']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{soorat.insuranceBadaneh}" escape="true"/>
+    	<h:outputText value="#{soorat.insuranceBadaneh}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -198,7 +210,9 @@
                 <h:outputText value="#{text['soorat.driverPay']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{soorat.driverPay}" escape="true"/>
+    	<h:outputText value="#{soorat.driverPay}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
     </t:column>
 
     <t:column>
@@ -217,7 +231,7 @@
         <f:facet name="header">
            <h:outputText value="#{text['service.serviceExpired']}" />
         </f:facet>
-        <h:commandLink action="#{sooratForm.expireSoorat}" 
+        <h:commandLink action="#{sooratForm.expire}" 
         	value="#{text['service.serviceExpired']}" rendered="#{!soorat.service.serviceExpired}"
         	id="expire" onclick="bCancel=true; return confirmExpireService('صورت')">
            	 <f:param name="id" value="#{soorat.id}"/>

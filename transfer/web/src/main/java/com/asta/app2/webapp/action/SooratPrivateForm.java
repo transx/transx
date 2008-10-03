@@ -3,7 +3,10 @@ package com.asta.app2.webapp.action;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+
+import javax.faces.event.ValueChangeEvent;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,16 +20,20 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
+import com.asta.app2.model.CarKind;
+import com.asta.app2.model.Driver;
 import com.asta.app2.model.Passenger;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.Setting;
 import com.asta.app2.model.Soorat;
+import com.asta.app2.model.enums.SooratType;
+import com.asta.app2.service.CarKindManager;
+import com.asta.app2.service.DriverManager;
 import com.asta.app2.service.InsuranceBadanehManager;
 import com.asta.app2.service.InsuranceSarneshinManager;
 import com.asta.app2.service.ServiceManager;
 import com.asta.app2.service.SettingManager;
 import com.asta.app2.service.SooratManager;
-import com.asta.app2.service.TicketManager;
 
 /**
  * This class used for calculate sooratPrivate
@@ -38,6 +45,8 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 	private SettingManager settingManager;
 	private InsuranceSarneshinManager insuranceSarneshinManager;
 	private InsuranceBadanehManager insuranceBadanehManager;
+	private CarKindManager carKindManager;
+	private DriverManager driverManager;
 	private Soorat soorat = new Soorat();
 	private Service service = new Service();
 	private Setting setting;
@@ -45,9 +54,12 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 	private int capacity = 0;
 	private Passenger newPassenger;
 	private Long snack;
-
-	@Transactional
+	private CarKind carKind;
+	private String[] driverSelected; 
+	
+	
 	public String editPrivate() {
+
 		if (soorat.getId() != null) {
 			//soorat = sooratManager.get(id);
 			//service = serviceManager.save(service);
@@ -69,8 +81,10 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 //			addError("soorat.notFound");
 			soorat = new Soorat();
 			service = new Service();
+			// this part is about set default CarKind in add method
+			service.setCarKind(carKindManager.findByName("ولوو").get(0));
 			soorat.setSeri(getSetting().getSeriPrivate());
-			soorat.setSerial(getSetting().getSerialPrivate());
+			soorat.setSerial(getSetting().getSerialPrivate().toString());
 		}
 		return "edit";
 	}
@@ -86,39 +100,74 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 
 	public String savePrivate() {
 		try{
-			serviceManager.save(service);
-			soorat.setService(getService());
+			boolean isNew = (soorat.getId() == null);
+			service.setCompany(getCurrentUser().getCompany());
+			service.setSooratType(SooratType.PRIVATE);
+			service.setDrivers(new HashSet<Driver>());
+			for (int i = 0; (driverSelected != null) && (i < driverSelected.length); i++) {
+				long id = Long.valueOf(driverSelected[i]).longValue();
+				service.addDriver(driverManager.get(id));
+			}
+			service = serviceManager.saveService(service);
+			soorat.setService(service);
+			soorat.setSooratType(SooratType.PRIVATE);
 			soorat.setCompany(getCurrentUser().getCompany());
 			soorat.setTotalIsTA(soorat.getTotal() - (soorat.getGovernmentToll()+soorat.getInsuranceSarneshin()+setting.getStamp()));
 			soorat.setCommission((soorat.getTotalIsTA()* setting.getCommission())/100);
 			soorat.setDriverPay(soorat.getTotalIsTA() - (soorat.getCommission()+soorat.getInsuranceBadaneh()+soorat.getSnack()));
-			soorat.setIssued(true);
+			if (soorat.getIssued() == null)
+				soorat.setIssued(Boolean.TRUE);
+			if (soorat.getDriverPaid() == null)
+				soorat.setDriverPaid(Boolean.FALSE);
+
+			soorat.setStamp(setting.getStamp());
 			sooratManager.save(soorat);
-			setting.setSerialInner(setting.getSerialInner()+1);
+			setting.setSerialPrivate(setting.getSerialPrivate()+1);
 			settingManager.save(setting);
-			addMessage("soorat.added");
-			return "list";
+			if (isNew) {
+				addMessage("soorat.added");
+	            return "list";
+	        } else {
+	        	addMessage("soorat.updated");
+	            return "edit";
+	        }
+
 		}catch(Exception e){
 			addError("soorat.notAadded");
 			return "edit";
 		}	
 	}
-
+	
+	@Transactional
 	public String savePrintPrivate() {
 		try{
-			soorat.setService(getService());
+			boolean isNew = (soorat.getId() == null);
+			service.setCompany(getCurrentUser().getCompany());
+			service.setSooratType(SooratType.PRIVATE);
+			service.setDrivers(new HashSet<Driver>());
+			for (int i = 0; (driverSelected != null) && (i < driverSelected.length); i++) {
+				long id = Long.valueOf(driverSelected[i]).longValue();
+				service.addDriver(driverManager.get(id));
+			}
+			service = serviceManager.saveService(service);
+			soorat.setService(service);
+			soorat.setSooratType(SooratType.PRIVATE);
 			soorat.setCompany(getCurrentUser().getCompany());
 			soorat.setTotalIsTA(soorat.getTotal() - (soorat.getGovernmentToll()+soorat.getInsuranceSarneshin()+setting.getStamp()));
 			soorat.setCommission((soorat.getTotalIsTA()* setting.getCommission())/100);
 			soorat.setDriverPay(soorat.getTotalIsTA() - (soorat.getCommission()+soorat.getInsuranceBadaneh()+soorat.getSnack()));
-			soorat.setIssued(true);
+			if (soorat.getIssued() == null)
+				soorat.setIssued(Boolean.TRUE);
+			if (soorat.getDriverPaid() == null)
+				soorat.setDriverPaid(Boolean.FALSE);
+
+			soorat.setStamp(setting.getStamp());
 			sooratManager.save(soorat);
-			
-			setting.setSerialInner(setting.getSerialInner()+1);
+			setting.setSerialPrivate(setting.getSerialPrivate()+1);
 			settingManager.save(setting);
 			try{
 				
-				Map parameters = new HashMap();
+				Map<String, String> parameters = new HashMap<String, String>();
 				parameters.put("SOORAT_DATEBOOK", service.getDatebookFormatted());
 				parameters.put("SOORAT_STATE", getCurrentUser().getCompany().getCity().getName());
 				parameters.put("SOORAT_TIMED", service.getTimed());
@@ -155,32 +204,46 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 				parameters.put("SOORAT_DRIVER2_SIGN", service.getDriver2().getPerson().getFullName());
 				parameters.put("SOORAT_COMPANYSIGN", getCurrentUser().getCompany().getName()+" - "+setting.getCompanyPlace());
 				
-				parameters.put("SOORAT_END", service.getPath().getEnd().getName());
-				parameters.put("SOORAT_START",service.getPath().getStart().getName());
+//				parameters.put("SOORAT_END", service.getPath().getEnd().getName());
+//				parameters.put("SOORAT_START",service.getPath().getStart().getName());
 				parameters.put("SOORAT_INSURANCEBADANEH", soorat.getInsuranceBadaneh().toString());
 				parameters.put("SOORAT_COMMISSION", soorat.getCommission().toString());
 				parameters.put("SOORAT_DRIVERPAY", soorat.getDriverPay().toString());
+				
+				getResponse().setContentType("application/pdf");
+				getResponse().addHeader("Content-Disposition", "attachment; filename=preview.pdf");
 				
 				InputStream is = getServletContext().getResourceAsStream("/WEB-INF/reports/sooratPrivate.jrxml");
 				JasperDesign jasperDesign = JRXmlLoader.load(is);
 				JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 				JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,new JREmptyDataSource());
 				
-				JasperPrintManager jasperPrintManager = new JasperPrintManager();
-				jasperPrintManager.printReport(jasperPrint, false);
+				JasperExportManager.exportReportToPdfStream(jasperPrint, getResponse().getOutputStream());
+				getFacesContext().getApplication().getStateManager().saveView(getFacesContext());
+				getFacesContext().responseComplete();
+
 			}catch(Exception e){
 				addError("soorat.notPrinted");
 				log.debug(e);
-				return "list";
+				return "edit";
 			}
-			addMessage("soorat.added");
-			return "list";
+			if (isNew) {
+				addMessage("soorat.added");
+	            return "list";
+	        } else {
+	        	addMessage("soorat.updated");
+	            return "edit";
+	        }
 		}catch(Exception e){
 			addError("soorat.notAadded");
 			return "edit";
 		}	
 	}
 
+	public void driverChanged(ValueChangeEvent evt){
+    	driverSelected = (String[]) evt.getNewValue(); 
+    }    
+	
 	public Setting getSetting() {
 		if (setting == null)
 			setting = settingManager.getSettingByCompany(getCurrentUser().getCompany());
@@ -244,5 +307,40 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 
 	public void setSnack(Long snack) {
 		this.snack = snack;
+	}
+
+	public CarKind getCarKind() {
+		return carKind;
+	}
+
+	public void setCarKind(CarKind carKind) {
+		this.carKind = carKind;
+	}
+
+	public void setCarKindManager(CarKindManager carKindManager) {
+		this.carKindManager = carKindManager;
+	}
+
+	public void setDriverManager(DriverManager driverManager) {
+		this.driverManager = driverManager;
+	}
+
+	public String[] getDriverSelected() {
+		if (driverSelected == null){
+			driverSelected = new String[service.getDrivers().size()];
+		
+			int i = 0;
+			if (driverSelected.length > 0) {
+				for (Driver driver : service.getDrivers()) {
+					driverSelected[i] = driver.getId().toString();
+					i++;
+				}
+			}
+		}
+		return driverSelected;
+	}
+
+	public void setDriverSelected(String[] driverSelected) {
+		this.driverSelected = driverSelected;
 	}
 }

@@ -18,7 +18,8 @@ public interface CarManager extends GenericManager<Car, Long>{
 	List<Car> findCarByCode(Company company,String code);
 	Map<String, String> getMap(Company company,boolean withEmpty);
 	Map<String, String> getCarKindMap(Company company,CarKind carKind);
-	
+	Map<Object, Object> getCarItems(Company company,boolean withEmpty);
+	Map<Object, Object> getCarWithKindItems(Company company,CarKind carKind);
 }
 
 

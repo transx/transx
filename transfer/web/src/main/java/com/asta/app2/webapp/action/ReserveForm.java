@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.faces.model.SelectItem;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.asta.app2.Constants;
@@ -30,7 +29,7 @@ import com.asta.app2.service.TicketTempManager;
 import com.asta.app2.webapp.util.ChairModel;
 
 /**
- * 
+ * this class is all about reservation page (reserveForm.xhtml)
  * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 public class ReserveForm extends BasePage implements Serializable {
@@ -38,16 +37,18 @@ public class ReserveForm extends BasePage implements Serializable {
 	private Service service = new Service();
 	private Passenger passenger = new Passenger();
 	private Passenger newPassenger = new Passenger();
-	private ServiceManager serviceManager;
+	private TicketTemp ticketTemp = new TicketTemp();
 	private Long id;
-	private List<Ticket> tickets;
-	private List<TicketTemp> tts;
 
+	private ServiceManager serviceManager;
 	private TicketManager ticketManager;
 	private TicketTempManager ticketTempManager;
 	private ChairManager chairManager;
 	private PathManager pathManager;
+	private PassengerManager passengerManager;
 
+	private List<Ticket> tickets;
+	private List<TicketTemp> tts;
 	private List<ChairModel> chairModels;
 
 	private int capacity = 0;
@@ -55,31 +56,27 @@ public class ReserveForm extends BasePage implements Serializable {
 	private String reserverID = "?";
 	private String pathID;
 	private Map<String, String> pathMap;
-	private PassengerManager passengerManager;
 
 	private String chairCode = "?";
 	private String isChairDisabled = "true";
 	private String isChairReserved = "false";
 	private String isChairRegisted = "true";
-	private TicketTemp ticketTemp = new TicketTemp();
-	// the name of this field is hard coded inside of reserveContainer
-	// component.
+	private boolean disabled = true;
+	// this field is hard coded inside of reserveContainer component.
 	private String[] selectedChairs;
-	private static SelectItem[] genderItems = {
-			new SelectItem(Gender.MALE, Gender.MALE.getLabel()),
-			new SelectItem(Gender.FEMALE, Gender.FEMALE.getLabel()) };
+
 
 	public String changeChair() {
 
 		if (isChairRegisted.equals("true"))
-			isChairDisabled = "true";
+			setDisabled(true);
 		else
-			isChairDisabled = "false";
+			setDisabled(false);
 		if (isChairReserved.equals("true")) {
-			if (reserverID.equals(getCurrentUsername()))
-				isChairDisabled = "false";
+			if (reserverID.equals(getRequest().getRemoteUser()))
+				setDisabled(false);
 			else
-				isChairDisabled = "true";
+				setDisabled(true);
 		}
 		return null;
 	}
@@ -90,7 +87,7 @@ public class ReserveForm extends BasePage implements Serializable {
 		}
 		return "edit";
 	}
-	@Transactional
+	
 	public String enter() {
 		return "edit";
 	}
@@ -128,7 +125,7 @@ public class ReserveForm extends BasePage implements Serializable {
 				ticketTemp.setService(service);
 				ticketTemp.setCommitted(false);
 				ticketTemp.setReserveDate(new Date());
-				ticketTemp.setReserverId(getCurrentUsername());
+				ticketTemp.setReserverId(getRequest().getRemoteUser());
 				
 				String key;
 				setSelectedChairs(null);
@@ -170,6 +167,7 @@ public class ReserveForm extends BasePage implements Serializable {
 		tts.clear();
 		setTickets(ticketManager.getTicketsByService(getCurrentUser().getCompany(), service));
 		setTts(ticketTempManager.findTicketTempsByService(getCurrentUser().getCompany(), service)); 
+		setDisabled(false);
 		return "edit";
 	}
 	@Transactional
@@ -177,10 +175,9 @@ public class ReserveForm extends BasePage implements Serializable {
 //		service = serviceManager.get(service.getId());
 		passenger = new Passenger();
 		ticketTemp = new TicketTemp();
-		isChairDisabled = "false";
+		setDisabled(false);
 		return "edit";
 	}
-	@Transactional
 	public List<ChairModel> getChairModels() {
 		chairModels = new ArrayList<ChairModel>();
 		chairModels.clear();
@@ -218,10 +215,6 @@ public class ReserveForm extends BasePage implements Serializable {
 		if (tts == null)
 			tts = ticketTempManager.findTicketTempsByService(getCurrentUser().getCompany(),service);
 		return tts;
-	}
-
-	public String getCurrentUsername() {
-		return getRequest().getRemoteUser();
 	}
 
 	public void setPassengerManager(PassengerManager passengerManager) {
@@ -264,10 +257,6 @@ public class ReserveForm extends BasePage implements Serializable {
 	public int getCapacity() {
 		capacity = service.getCarKind().getCapacity();
 		return capacity;
-	}
-
-	public void setChairModels(List<ChairModel> chairModels) {
-		this.chairModels = chairModels;
 	}
 
 	public Map<String, String> getPathMap() {
@@ -360,10 +349,6 @@ public class ReserveForm extends BasePage implements Serializable {
 		this.passenger = passenger;
 	}
 
-	public SelectItem[] getGenderItems() {
-		return genderItems;
-	}
-
 	public Passenger getNewPassenger() {
 		newPassenger = new Passenger();
 		return newPassenger;
@@ -379,6 +364,14 @@ public class ReserveForm extends BasePage implements Serializable {
 
 	public void setTts(List<TicketTemp> tts) {
 		this.tts = tts;
+	}
+
+	public boolean getDisabled() {
+		return disabled;
+	}
+
+	public void setDisabled(boolean disabled) {
+		this.disabled = disabled;
 	}
 
 }

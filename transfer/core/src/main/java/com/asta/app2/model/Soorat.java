@@ -2,7 +2,6 @@
 package com.asta.app2.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -86,6 +85,9 @@ public class Soorat extends BaseObject implements Serializable, Comparable<Soora
 
 	@Column(nullable = true)
 	private String pathway;
+	
+	@Column(nullable = false)
+	private Long stamp;
 	
 	@Override
 	public boolean equals(Object o) {
@@ -289,5 +291,13 @@ public class Soorat extends BaseObject implements Serializable, Comparable<Soora
 
 	public void setPathway(String pathway) {
 		this.pathway = pathway;
+	}
+
+	public Long getStamp() {
+		return stamp;
+	}
+
+	public void setStamp(Long stamp) {
+		this.stamp = stamp;
 	}
 }

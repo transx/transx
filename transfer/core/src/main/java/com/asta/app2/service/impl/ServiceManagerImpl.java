@@ -2,8 +2,6 @@
 package com.asta.app2.service.impl;
 
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import com.asta.app2.dao.ServiceDao;
 import com.asta.app2.model.Company;
@@ -51,6 +49,10 @@ public class ServiceManagerImpl extends GenericManagerImpl<Service, Long> implem
 */
 	public List<Service> getAllServicesReadyForSoorat(Company company) {
 		return serviceDao.getAllServicesReadyForSoorat(company);
+	}
+
+	public Service saveService(Service service) {
+		return serviceDao.saveService(service);
 	}
 
 }

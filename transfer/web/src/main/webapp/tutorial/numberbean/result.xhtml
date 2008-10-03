@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:trans="http://app2.asta.com/tags/jsf">
+<body>
+
+<ui:composition template="/tutorial/template.xhtml">
+
+  <ui:define name="title">
+	<h:outputText value="#{msgs.title}"/>
+  </ui:define>
+	<ui:define name="body">
+         <h:form>
+            <h1><h:outputText value="#{msgs.paymentInformation}"/></h1>
+            <h:panelGrid columns="2">
+               <h:outputText value="#{msgs.amount}"/>
+               <h:outputText value="#{NumberBean.amount}"> 
+                  <f:convertNumber type="currency"/>
+               </h:outputText>
+               
+               <h:outputText value="#{NumberBean.card}">
+                  <trans:convertCreditCard separator="-"/>
+               </h:outputText>
+               
+            </h:panelGrid>
+            <h:commandButton value="Back" action="back"/>
+         </h:form>
+      </ui:define>
+  
+</ui:composition>
+
+</body>
+</html>

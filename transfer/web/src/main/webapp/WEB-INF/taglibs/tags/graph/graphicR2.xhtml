@@ -55,7 +55,7 @@
 				<h:panelGroup>
 				<c:if test="${IS_CHAIR_DISABLED}">
 				<t:subform id="subform${chairId}">
-				<h:commandLink alt="click">
+				<h:commandLink alt="click" immediate="true" action="#{reserveForm.changeChair}">
 					<f:setPropertyActionListener target="#{reserveForm.isChairRegisted}" value="${IS_CHAIR_REGISTED}"/>
 					<f:setPropertyActionListener target="#{reserveForm.isChairReserved}" value="${IS_CHAIR_RESERVED}"/>
 					<f:setPropertyActionListener target="#{reserveForm.reserverID}" value="${RESERVER_ID}"/>

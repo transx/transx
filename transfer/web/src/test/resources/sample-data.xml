@@ -2119,6 +2119,7 @@
         <column>soorat_type</column>
         <column>days</column>
         <column>pathway</column> 
+        <column>stamp</column>
     <row>
         <value description="id">-1</value>
         <value description="service_id">-1</value>
@@ -2142,6 +2143,7 @@
         <value description="soorat_type">OUTER</value>
 		<value description="days">0</value>
 		<null/>
+		<value description="stamp">10</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -2166,6 +2168,7 @@
         <value description="soorat_type">PRIVATE</value>
 		<value description="days">3</value>
 		<value description="pathway">تهران - بندر</value>
+		<value description="stamp">20</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -2190,6 +2193,7 @@
         <value description="soorat_type">INNER</value>
 		<value description="days">0</value>
 		<null/>
+		<value description="stamp">30</value>
     </row>
     </table>
     <!--Soorat-END-->

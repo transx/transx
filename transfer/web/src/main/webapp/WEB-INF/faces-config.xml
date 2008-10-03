@@ -57,7 +57,44 @@
    		<component-class>org.apache.myfaces.custom.avandate2.UIInputDate2</component-class>
    	</component>
    	
+   	<converter>
+   		<converter-id>com.corejsf.CreditCard</converter-id>
+   		<converter-class>com.asta.app2.webapp.jsf.CreditCardConverter</converter-class>
+   	</converter>
+   	
+   	<converter>
+   		<converter-for-class>com.asta.app2.tutorial.numberbean.CreditCard</converter-for-class>
+   		<converter-class>com.asta.app2.webapp.jsf.CreditCardConverter</converter-class>
+   	</converter>
+   	
+   	<converter>
+   		<converter-id>com.asta.app2.model.CarKind</converter-id>
+   		<converter-class>com.asta.app2.webapp.jsf.CarKindConverter</converter-class>
+   	</converter>
+   	
+   	<converter>
+   		<converter-for-class>com.asta.app2.model.CarKind</converter-for-class>
+   		<converter-class>com.asta.app2.webapp.jsf.CarKindConverter</converter-class>
+   	</converter>
+   	
+   	<converter>
+   		<converter-id>com.asta.app2.model.Car</converter-id>
+   		<converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
+   	</converter>
+   	
+   	<converter>
+   		<converter-for-class>com.asta.app2.model.Car</converter-for-class>
+   		<converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
+   	</converter>
+   	
    <!-- tutorial -START ########################################################-->
+   
+	<application>
+      	<resource-bundle>
+         	<base-name>com.asta.app2.tutorial.messages</base-name>
+         	<var>msgs</var>
+      	</resource-bundle>
+   	</application>
    
    <!-- report-START -->
 	<managed-bean>
@@ -74,13 +111,6 @@
         </managed-property>
    </managed-bean>
    <!-- report-END -->
-   
-	<application>
-      	<resource-bundle>
-         	<base-name>com.asta.app2.tutorial.messages</base-name>
-         	<var>msgs</var>
-      	</resource-bundle>
-   	</application>
  	<!-- SayHello-START -->
   	<component>
     	<component-type>com.asta.app2.tutorial.SayHello</component-type>
@@ -93,7 +123,7 @@
       		<renderer-class>com.asta.app2.tutorial.sayhello.SayHelloRenderer</renderer-class>
     	</renderer>
 	</render-kit>
-	    <!-- Managed Beans for sayhello.jsp -->
+    <!-- Managed Beans for sayhello.jsp -->
     <managed-bean>
         <managed-bean-name>sayHelloBean</managed-bean-name>
         <managed-bean-class>com.asta.app2.tutorial.sayhello.SayHelloBean</managed-bean-class>
@@ -134,6 +164,20 @@
 	      <to-view-id>/tutorial/numberbean/guess.xhtml</to-view-id>
 	    </navigation-case>
 	  </navigation-rule>
+	  <navigation-rule>
+	  	<from-view-id>/tutorial/numberbean/index.xhtml</from-view-id>
+	  		<navigation-case>
+	  			<from-outcome>process</from-outcome>
+	  			<to-view-id>/tutorial/numberbean/result.xhtml</to-view-id>
+	  		</navigation-case>
+	  </navigation-rule>			
+	  <navigation-rule>
+	  	<from-view-id>/tutorial/numberbean/result.xhtml</from-view-id>
+	  		<navigation-case>
+	  			<from-outcome>back</from-outcome>
+	  			<to-view-id>/tutorial/numberbean/index.xhtml</to-view-id>
+	  		</navigation-case>
+	  </navigation-rule>			
 	<!-- NumberBean-END -->
    	<!-- Spinner-START-->
    	<component>
@@ -341,6 +385,10 @@
 	        <navigation-case>
 	            <from-outcome>number4bean</from-outcome>
 	            <to-view-id>/tutorial/numberbean/guess.xhtml</to-view-id>
+	        </navigation-case>
+	        <navigation-case>
+	            <from-outcome>paymnet4bean</from-outcome>
+	            <to-view-id>/tutorial/numberbean/index.xhtml</to-view-id>
 	        </navigation-case>
 	        <navigation-case>
 	            <from-outcome>spinner</from-outcome>

@@ -57,4 +57,15 @@ public class CarKindManagerImpl extends GenericManagerImpl<CarKind, Long>
 
 		return list;
 	}
+
+	public Map<Object, Object> getCarKindItems() {
+		List<CarKind> list = carKindDao.getAllDistinct();
+		Map<Object, Object> map = new TreeMap<Object, Object>();
+		
+		for (CarKind ck: list){
+			map.put(ck, ck);
+		}
+		return map;
+	}
+	
 }

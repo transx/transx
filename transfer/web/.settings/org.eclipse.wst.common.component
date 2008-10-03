@@ -270,10 +270,10 @@
     <dependent-module archiveName="struts-menu-2.4.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/struts-menu/struts-menu/2.4.3/struts-menu-2.4.3.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="tomahawk-1.1.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/myfaces/tomahawk/tomahawk/1.1.7-SNAPSHOT/tomahawk-1.1.7-SNAPSHOT.jar">
+    <dependent-module archiveName="tomahawk-1.1.8-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/myfaces/tomahawk/tomahawk/1.1.8-SNAPSHOT/tomahawk-1.1.8-SNAPSHOT.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
-    <dependent-module archiveName="tomahawk-sandbox-1.1.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/myfaces/tomahawk/tomahawk-sandbox/1.1.7-SNAPSHOT/tomahawk-sandbox-1.1.7-SNAPSHOT.jar">
+    <dependent-module archiveName="tomahawk-sandbox-1.1.8-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/org/apache/myfaces/tomahawk/tomahawk-sandbox/1.1.8-SNAPSHOT/tomahawk-sandbox-1.1.8-SNAPSHOT.jar">
       <dependency-type>uses</dependency-type>
     </dependent-module>
     <dependent-module archiveName="transfer-core-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/asta/app2/transfer-core/1.0-SNAPSHOT/transfer-core-1.0-SNAPSHOT.jar">

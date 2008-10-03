@@ -23,6 +23,13 @@ public interface GenericManager<T, PK extends Serializable> {
     List<T> getAll();
 
     /**
+     * Generic method used to get all objects of a particular type. This
+     * is the same as lookup up all rows in a table.
+     * @return List of populated objects
+     */
+    List<T> getAllDistinct();
+
+    /**
      * Generic method to get an object based on class and identifier. An
      * ObjectRetrievalFailureException Runtime Exception is thrown if
      * nothing is found.

@@ -108,4 +108,24 @@
 		</component>
 	</tag -->
 	
+	<tag>
+		<tag-name>convertCreditCard</tag-name>
+		<converter>
+			<converter-id>com.corejsf.CreditCard</converter-id>
+		</converter>
+	</tag>
+	
+	<tag>
+		<tag-name>convertCarKind</tag-name>
+		<converter>
+			<converter-id>com.asta.app2.model.CarKind</converter-id>
+		</converter>
+	</tag>
+	<tag>
+		<tag-name>convertCar</tag-name>
+		<converter>
+			<converter-id>com.asta.app2.model.Car</converter-id>
+		</converter>
+	</tag>
+	
 </facelet-taglib>

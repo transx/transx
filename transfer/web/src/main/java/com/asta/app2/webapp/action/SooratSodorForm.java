@@ -86,7 +86,7 @@ public class SooratSodorForm extends BasePage implements Serializable {
 		}
 		setting = settingManager.getSettingByCompany(getCurrentUser().getCompany());
 		soorat.setSeri(setting.getSeriInner());
-		soorat.setSerial(setting.getSerialInner());
+		soorat.setSerial(setting.getSerialInner().toString());
 		return "issueInner";
 	}
 
