@@ -21,6 +21,19 @@ public enum SooratType {
 		}
 		return "Unknown";
 	}
+	
+	public String getStringValue(){
+		switch (this) {
+		case INNER :
+			return "INNER";
+		case OUTER:
+			return "OUTER";
+		case PRIVATE:
+			return "PRIVATE";
+		default:
+			return "UnKnown";
+		}
+	}
 }
 
 

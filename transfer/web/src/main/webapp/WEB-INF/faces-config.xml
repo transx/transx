@@ -848,6 +848,22 @@
             <from-outcome>reutrn</from-outcome>
             <to-view-id>/manager/services.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+        	<from-outcome>editPrivate</from-outcome>
+        	<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        	<from-outcome>editInner</from-outcome>
+        	<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+        	<from-outcome>editOuter</from-outcome>
+        	<to-view-id>/manager/sooratOuterForm.xhtml</to-view-id>
+        </navigation-case>
+       	<navigation-case>
+			<from-outcome>issueInner</from-outcome>
+			<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
+		</navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/manager/serviceForm.xhtml</from-view-id>
@@ -989,14 +1005,14 @@
     		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
     	</navigation-case>
     	<navigation-case>
-    		<from-outcome>edit</from-outcome>
+    		<from-outcome>editPrivate</from-outcome>
     		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
     	</navigation-case>
     </navigation-rule>
     <navigation-rule>
     	<from-view-id>/manager/sooratPrivateForm.xhtml</from-view-id>
     	<navigation-case>
-    		<from-outcome>edit</from-outcome>
+    		<from-outcome>editPrivate</from-outcome>
     		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
     	</navigation-case>
     	<navigation-case>

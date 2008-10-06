@@ -30,8 +30,6 @@
 		<property name="sooratManager" ref="sooratManager"/>
 		<property name="serviceManager" ref="serviceManager"/>
 		<property name="settingManager" ref="settingManager"/>
-		<property name="insuranceSarneshinManager" ref="insuranceSarneshinManager"/>
-		<property name="insuranceBadanehManager" ref="insuranceBadanehManager"/>
 		<property name="carKindManager" ref="carKindManager"/>
 		<property name="driverManager" ref="driverManager"/>
 	</bean>

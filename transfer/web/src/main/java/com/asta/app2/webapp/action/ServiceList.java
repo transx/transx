@@ -10,6 +10,10 @@ import com.asta.app2.model.Path;
 import com.asta.app2.model.Service;
 import com.asta.app2.service.ServiceManager;
 
+/**
+ * 
+ * @author <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
+ */
 public class ServiceList extends BasePage implements Serializable {
     private ServiceManager serviceManager;
     private List<Service> listService;
@@ -111,7 +115,6 @@ public class ServiceList extends BasePage implements Serializable {
 		serviceTemp.setEnabled(Boolean.TRUE);
 		serviceTemp.setOpened(Boolean.TRUE);
 		serviceManager.save(serviceTemp);
-//		return "return";
 		return Constants.NO_WHERE;
 	}
 
@@ -122,10 +125,6 @@ public class ServiceList extends BasePage implements Serializable {
 		return Constants.NO_WHERE;
 	}
 	
-	public void setListService(List<Service> listService) {
-		this.listService = listService;
-	}
-	
     public Service getService() {
 		return service;
 	}
@@ -134,9 +133,6 @@ public class ServiceList extends BasePage implements Serializable {
 		this.service = service;
 	}
 
-	public void setServiceManager(ServiceManager serviceManager) {
-        this.serviceManager = serviceManager;
-    }
     
     public String getPathID() {
 		return pathID;
@@ -162,8 +158,16 @@ public class ServiceList extends BasePage implements Serializable {
 		this.serviceTemp = serviceTemp;
 	}
 
+	public void setServiceManager(ServiceManager serviceManager) {
+		this.serviceManager = serviceManager;
+	}
+
 	public void setListServiceForReserve(List<Service> listServiceForReserve) {
 		this.listServiceForReserve = listServiceForReserve;
+	}
+
+	public void setListService(List<Service> listService) {
+		this.listService = listService;
 	}
 }
 

@@ -8,6 +8,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+import java.util.TimeZone;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -15,6 +16,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.util.StringUtils;
 
 import com.asta.app2.Constants;
+import com.asta.app2.model.enums.Weekday;
 import com.asta.app2.util.date.GregorianDate;
 import com.asta.app2.util.date.JalaliDate;
 import com.asta.app2.util.date.JalaliDateUtil;
@@ -313,4 +315,47 @@ public class DateUtil {
 		}
 		return elapsed;
 	}
+	
+	public static Weekday getWeekday(Date date){
+		GregorianCalendar gcalender = new GregorianCalendar();
+		gcalender.setTime(date);
+		Weekday weekday;
+		switch(gcalender.get(Calendar.DAY_OF_WEEK)){
+			case Calendar.SUNDAY :
+				weekday = Weekday.SUNDAY;
+				break;
+			case Calendar.MONDAY :
+				weekday = Weekday.MONDAY;
+				break;
+			case Calendar.TUESDAY : 
+				weekday = Weekday.TUESDAY;
+				break;
+			case Calendar.WEDNESDAY : 
+				weekday = Weekday.WEDNESDAY;
+				break;
+			case Calendar.THURSDAY :
+				weekday = Weekday.THURSDAY;
+				break;
+			case Calendar.FRIDAY : 
+				weekday = Weekday.FRIDAY;
+				break;
+			case Calendar.SATURDAY :
+				weekday = Weekday.SATURDAY;
+				break;
+			default :
+				weekday = Weekday.SATURDAY;
+		}
+		return weekday;
+	}
+	
+	public static Date getDateZone(Date date){
+		GregorianCalendar gCalender = new GregorianCalendar();
+		gCalender.setTime(date);
+		TimeZone zone = TimeZone.getTimeZone("Asia/Tehran");
+		gCalender.setTimeZone(zone);
+		System.out.println(gCalender.getTime().toGMTString());
+		System.out.println(gCalender.getTime());
+		return gCalender.getTime();
+	}
+	
 }

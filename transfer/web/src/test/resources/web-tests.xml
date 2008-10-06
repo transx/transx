@@ -149,7 +149,7 @@
                 <invoke description="click signup link" url="/signup.html"/>
                 <verifytitle description="view signup title" text=".*${signup.title}.*" regex="true"/>
                 
-                <setinputfield description="set username" name="signupForm:username" value="signup-user"/>
+                <setinputfield description="set username" name="signupForm:username" value="signup-user3"/>
                 <setinputfield description="set password" name="signupForm:password" value="test"/>
                 <setinputfield description="set confirmPassword" name="signupForm:confirmPassword" value="test"/>
                 <setinputfield description="set firstName" name="signupForm:firstName" value="Test"/>
@@ -161,7 +161,7 @@
                 <setinputfield description="set state" name="signupForm:province" value="CO"/>
                 <setselectfield description="Select country" name="signupForm:country" value="US"/>
                 <setinputfield description="set postalCode" name="signupForm:postalCode" value="80210"/>
-                <setinputfield description="set email" name="signupForm:email" value="sid.moradi@gmail.com"/>
+                <setinputfield description="set email" name="signupForm:email" value="sid.moradi3@gmail.com"/>
                 <setinputfield description="set website" name="signupForm:website" value="http://moradidesigns.com"/>
                 <setinputfield description="set passwordHint" name="signupForm:passwordHint" value="test"/>
                 

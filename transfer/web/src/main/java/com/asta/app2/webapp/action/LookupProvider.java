@@ -12,6 +12,7 @@ import com.asta.app2.model.enums.CarType;
 import com.asta.app2.model.enums.Gender;
 import com.asta.app2.model.enums.Quality;
 import com.asta.app2.model.enums.RateType;
+import com.asta.app2.model.enums.SooratType;
 import com.asta.app2.model.enums.Weekday;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.CarManager;
@@ -70,6 +71,11 @@ public class LookupProvider extends BasePage {
 			new SelectItem(CarType.TYPE1, CarType.TYPE1.getLabel()),
 			new SelectItem(CarType.TYPE2, CarType.TYPE2.getLabel()) };
 
+	private static SelectItem[] sooratTypeItems = {
+			new SelectItem(SooratType.INNER, SooratType.INNER.getLabel()),
+			new SelectItem(SooratType.OUTER, SooratType.OUTER.getLabel()),
+			new SelectItem(SooratType.PRIVATE, SooratType.PRIVATE.getLabel())};
+	
 	public SelectItem[] getCarTypeItems() {
 		return carTypeItems;
 	}
@@ -90,6 +96,10 @@ public class LookupProvider extends BasePage {
 		return weekdayItems;
 	}
 
+	public SelectItem[] getSooratTypeItems() {
+		return sooratTypeItems;
+	}
+	
 	public Map<String, String> getCarKindMap() {
 		if (carKindMap == null) {
 			List<LabelValue> list = carKindManager.getAllCarKindLableValue();

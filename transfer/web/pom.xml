@@ -33,7 +33,7 @@
                     <schema>${dbunit.schema}</schema>
                     <skip>${maven.test.skip}</skip>
                 </configuration>
-                <executions>
+                <!--executions>
                     <execution>
                         <id>test-compile</id>
                         <phase>test-compile</phase>
@@ -42,14 +42,14 @@
                         </goals>
                     </execution>
                     <execution>
-                        <!-- Runs before integration tests and jetty:run-war -->
+                        
                         <id>test</id>
                         <phase>test</phase>
                         <goals>
                             <goal>operation</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions-->
                 <dependencies>
                     <dependency>
                         <groupId>${jdbc.groupId}</groupId>

@@ -17,9 +17,14 @@
 <h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
  <h:panelGroup/>
  <t:collapsiblePanel id="serachCollapse" title="#{text['button.search']}">
- 	<t:panelGrid columns="10">
+ 	<t:panelGrid columns="12">
 	    <h:commandButton value="#{text['button.search']}" action="#{serviceList.search}" id="search" styleClass="button"/>
 		<h:outputText />
+		
+	    <h:outputLabel styleClass="desc" for="sooratType" value="#{text['service.sooratType']}"/>
+    	<h:selectOneMenu value="#{serviceList.service.sooratType}" id="sooratType" required="false" styleClass="select">
+        	<f:selectItems value="#{lookupProvider.sooratTypeItems}"/>
+    	</h:selectOneMenu>
 		
 	    <h:outputLabel styleClass="desc" for="timed" value="#{text['service.timed']}"/>
 	    <h:inputText styleClass="text small" id="timed" value="#{serviceList.service.timed}" required="false" maxlength="10"/>
@@ -46,24 +51,32 @@
     headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
     columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
 
+	<c:set var="SOORAT_TYPE" value="#{service.sooratType.stringValue}"/>	
+	<c:set var="SOORAT_TYPE_INNER" value="INNER"/>	
+	<c:set var="SOORAT_TYPE_OUTER" value="OUTER"/>	
+	<c:set var="SOORAT_TYPE_PRIVATE" value="PRIVATE"/>	
     <t:column>
         <f:facet name="header">
                 <h:outputText value="#{text['service.enabled']}" />
         </f:facet>
+  		<h:panelGroup rendered="${SOORAT_TYPE != SOORAT_TYPE_PRIVATE}" >
         <h:commandLink action="#{serviceList.enableService}" value="#{text['service.enabled']}" rendered="#{!service.enabled}">
            	<f:setPropertyActionListener target="#{serviceList.serviceTemp}" value="#{service}"/>
         </h:commandLink>
+        </h:panelGroup>
     </t:column>
     <t:column>
         <f:facet name="header">
         	    <h:outputText value="#{text['service.opened']}" />
        	</f:facet>
+  		<h:panelGroup rendered="${SOORAT_TYPE != SOORAT_TYPE_PRIVATE}" >
         <h:commandLink action="#{serviceList.closeService}" value="#{text['button.close']}" rendered="#{service.opened}">
            	<f:setPropertyActionListener target="#{serviceList.serviceTemp}" value="#{service}"/>
         </h:commandLink>
         <h:commandLink action="#{serviceList.openService}" value="#{text['button.open']}" rendered="#{!service.opened}">
            	<f:setPropertyActionListener target="#{serviceList.serviceTemp}" value="#{service}"/>
         </h:commandLink>
+        </h:panelGroup>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -171,23 +184,36 @@
     	<h:outputText value="#{service.path}" escape="true"/>
     </t:column>
 
-    <t:column>
+    <!-- t:column>
         <f:facet name="header">
           	<h:outputText value="#{text['service.paths']}" />
         </f:facet>
     	<h:outputText value="#{service.paths}" escape="true"/>
-    </t:column>
-    <t:column>
+    </t:column -->
+    <!-- t:column>
         <f:facet name="header">
            <h:outputText value="#{text['service.drivers']}" />
         </f:facet>
     	<h:outputText value="#{service.drivers}" escape="true"/>
-    </t:column>
-    <t:column>
+    </t:column -->
+    <!-- t:column>
         <f:facet name="header">
         	<h:outputText value="#{text['service.lodgers']}" />
         </f:facet>
     	<h:outputText value="#{service.lodgers}" escape="true"/>
+    </t:column -->
+    <t:column>
+        <f:facet name="header">
+	        <h:outputText value="#{text['soorat.sodor']}" />
+        </f:facet>
+        <h:commandLink action="#{sooratPrivateForm.editPrivate}" value="#{text['soorat.sodor.private']}" rendered="${SOORAT_TYPE == SOORAT_TYPE_PRIVATE}">
+          	<f:setPropertyActionListener target="#{sooratPrivateForm.service}" value="#{service}"/>
+        </h:commandLink>
+        <h:commandLink action="#{sooratSodorForm.editInner}" value="#{text['soorat.sodor.inner']}" rendered="${SOORAT_TYPE == SOORAT_TYPE_INNER}">
+            <f:param name="id" value="#{service.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+
     </t:column>
     <t:column>
         <f:facet name="header">

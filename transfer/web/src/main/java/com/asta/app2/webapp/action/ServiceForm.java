@@ -14,7 +14,6 @@ import com.asta.app2.model.Lodger;
 import com.asta.app2.model.Path;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.ServiceTemplate;
-import com.asta.app2.model.enums.SooratType;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.CarManager;
 import com.asta.app2.service.CityManager;
@@ -24,11 +23,9 @@ import com.asta.app2.service.PathManager;
 import com.asta.app2.service.ServiceManager;
 import com.asta.app2.service.ServiceTemplateManager;
 import com.asta.app2.util.BundleUtil;
+import com.asta.app2.util.DateUtil;
 
 public class ServiceForm extends BasePage implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6475994219784037987L;
 	private ServiceManager serviceManager;
 	private Service service = new Service();
@@ -49,6 +46,7 @@ public class ServiceForm extends BasePage implements Serializable {
 	private String[] serviceLodgers;
 	private String[] servicePaths;
 
+	
 	public void carKindChanged(ValueChangeEvent event){
 		String carKindID = (String) event.getNewValue();
 		setAvailableCars(carManager.getCarKindMap(getCurrentUser().getCompany(),carKindManager.get(Long.valueOf(carKindID).longValue())));
@@ -84,11 +82,14 @@ public class ServiceForm extends BasePage implements Serializable {
 	public String edit() {
 		if (id != null) {
 			service = serviceManager.get(id);
-			setCarKindID(service.getCarKind().getId().toString());
-			setPathID(service.getPath().getId().toString());
-			setAvailableCars(carManager.getCarKindMap(getCurrentUser().getCompany(),service.getCarKind()));
+			if (service.getPath() != null)
+				setPathID(service.getPath().getId().toString());
 			if (service.getCar() != null)
-			setCarID(service.getCar().getId().toString());
+				setCarID(service.getCar().getId().toString());
+			if (service.getCar() != null){
+				setCarKindID(service.getCarKind().getId().toString());
+				setAvailableCars(carManager.getCarKindMap(getCurrentUser().getCompany(),service.getCarKind()));
+			}	
 		} else {
 			service = new Service();
 			//make default carKind -2L volvo40
@@ -107,7 +108,8 @@ public class ServiceForm extends BasePage implements Serializable {
 		service.setCarKind(carKindManager.get(Long.valueOf(getCarKindID()).longValue()));
 		service.setPath(pathManager.get(Long.valueOf(getPathID()).longValue()));
 		service.setTemplate(serviceTemplateManager.findServiceTemplateByTemplate(new ServiceTemplate(getCurrentUser().getCompany(),service.getPath(),service.getCarKind())));
-		service.setSooratType(SooratType.INNER);
+		service.setDatebook(DateUtil.getDateZone(service.getDatebook()));
+		service.setWeekday(DateUtil.getWeekday(service.getDatebook()));
 		
 		if (getCarID() != null && !getCarID().equals(Constants.EMPTY))
 		service.setCar(carManager.get(Long.valueOf(getCarID()).longValue()));

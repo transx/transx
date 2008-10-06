@@ -255,7 +255,8 @@ public class ReserveForm extends BasePage implements Serializable {
 	}
 
 	public int getCapacity() {
-		capacity = service.getCarKind().getCapacity();
+		if (service.getCarKind() != null)
+			capacity = service.getCarKind().getCapacity();
 		return capacity;
 	}
 

@@ -42,6 +42,7 @@ import com.asta.app2.webapp.util.ChairModelForPrint;
  * @author  <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 public class SooratSodorForm extends BasePage implements Serializable {
+	private static final long serialVersionUID = -5862857722668822271L;
 	private SooratManager sooratManager;
 	private ServiceManager serviceManager;
 	private TicketManager ticketManager;

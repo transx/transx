@@ -15,7 +15,6 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -29,29 +28,25 @@ import com.asta.app2.model.Soorat;
 import com.asta.app2.model.enums.SooratType;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.DriverManager;
-import com.asta.app2.service.InsuranceBadanehManager;
-import com.asta.app2.service.InsuranceSarneshinManager;
 import com.asta.app2.service.ServiceManager;
 import com.asta.app2.service.SettingManager;
 import com.asta.app2.service.SooratManager;
+import com.asta.app2.util.DateUtil;
 
 /**
  * This class used for calculate sooratPrivate
  * @author  <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
 public class SooratPrivateForm extends BasePage implements Serializable {
+	private static final long serialVersionUID = 3752111698477620274L;
 	private SooratManager sooratManager;
 	private ServiceManager serviceManager;
 	private SettingManager settingManager;
-	private InsuranceSarneshinManager insuranceSarneshinManager;
-	private InsuranceBadanehManager insuranceBadanehManager;
 	private CarKindManager carKindManager;
 	private DriverManager driverManager;
 	private Soorat soorat = new Soorat();
 	private Service service = new Service();
 	private Setting setting;
-	private Long id;
-	private int capacity = 0;
 	private Passenger newPassenger;
 	private Long snack;
 	private CarKind carKind;
@@ -80,13 +75,15 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 		} else {
 //			addError("soorat.notFound");
 			soorat = new Soorat();
-			service = new Service();
-			// this part is about set default CarKind in add method
-			service.setCarKind(carKindManager.findByName("ولوو").get(0));
 			soorat.setSeri(getSetting().getSeriPrivate());
 			soorat.setSerial(getSetting().getSerialPrivate().toString());
+			if (service.getId() == null){
+				service = new Service();
+				// this part is about set default CarKind in add method + need for carKindConverter
+				service.setCarKind(carKindManager.findByName("ولوو").get(0));
+			}
 		}
-		return "edit";
+		return "editPrivate";
 	}
 
 	public String calcPrivate(){
@@ -97,12 +94,14 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 		soorat.setDriverPay(soorat.getTotalIsTA() - (soorat.getCommission()+soorat.getInsuranceBadaneh()+soorat.getSnack()));
 		return "edit";
 	}	
-
+	@Transactional
 	public String savePrivate() {
 		try{
 			boolean isNew = (soorat.getId() == null);
 			service.setCompany(getCurrentUser().getCompany());
 			service.setSooratType(SooratType.PRIVATE);
+			service.setDatebook(DateUtil.getDateZone(service.getDatebook()));
+			service.setWeekday(DateUtil.getWeekday(service.getDatebook()));
 			service.setDrivers(new HashSet<Driver>());
 			for (int i = 0; (driverSelected != null) && (i < driverSelected.length); i++) {
 				long id = Long.valueOf(driverSelected[i]).longValue();
@@ -144,6 +143,8 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 			boolean isNew = (soorat.getId() == null);
 			service.setCompany(getCurrentUser().getCompany());
 			service.setSooratType(SooratType.PRIVATE);
+			service.setDatebook(DateUtil.getDateZone(service.getDatebook()));
+			service.setWeekday(DateUtil.getWeekday(service.getDatebook()));
 			service.setDrivers(new HashSet<Driver>());
 			for (int i = 0; (driverSelected != null) && (i < driverSelected.length); i++) {
 				long id = Long.valueOf(driverSelected[i]).longValue();
@@ -266,10 +267,6 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 		this.soorat = soorat;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public Service getService() {
 		return service;
 	}
@@ -282,11 +279,6 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 		this.serviceManager = serviceManager;
 	}
 
-	public void setInsuranceBadanehManager(
-			InsuranceBadanehManager insuranceBadanehManager) {
-		this.insuranceBadanehManager = insuranceBadanehManager;
-	}
-
 	public Passenger getNewPassenger() {
 		newPassenger = new Passenger();
 		return newPassenger;
@@ -294,11 +286,6 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 
 	public void setSetting(Setting setting) {
 		this.setting = setting;
-	}
-
-	public void setInsuranceSarneshinManager(
-			InsuranceSarneshinManager insuranceSarneshinManager) {
-		this.insuranceSarneshinManager = insuranceSarneshinManager;
 	}
 
 	public Long getSnack() {
