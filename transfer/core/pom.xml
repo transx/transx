@@ -65,21 +65,20 @@
                         </component>
                     </components>
                     <componentProperties>
-                        <drop>false</drop>
+                        <drop>true</drop>
                         <jdk5>true</jdk5>
                         <propertyfile>target/test-classes/jdbc.properties</propertyfile>
-                        <outputfilename>schemaBackup.sql</outputfilename>
                         <skip>${maven.test.skip}</skip>
                     </componentProperties>
                 </configuration>
-                <!--  executions>
+                <executions>
                     <execution>
                         <phase>process-test-resources</phase>
                         <goals>
                             <goal>hbm2ddl</goal>
                         </goals>
                     </execution>
-                </executions-->
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>${jdbc.groupId}</groupId>
@@ -103,18 +102,14 @@
                     <schema>${dbunit.schema}</schema>
                     <skip>${maven.test.skip}</skip>
                 </configuration>
-                <!-- executions>
+                <executions>
                     <execution>
                         <phase>test-compile</phase>
                         <goals>
-                            <goal>export</goal>
+                            <goal>operation</goal>
                         </goals>
-                        <configuration>
-                        	<format>xml</format>
-                        	<dest>target/dbunit/export.xml</dest>
-                        </configuration>
                     </execution>
-                </executions -->
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>${jdbc.groupId}</groupId>
@@ -132,7 +127,6 @@
         </testResources>
     </build>
 
-    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
     <!-- Dependencies calculated by AppFuse when running full-source plugin -->
     <dependencies>
         <dependency>

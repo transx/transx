@@ -138,8 +138,6 @@
     </pluginRepositories>
 
     <!-- Dependencies calculated by AppFuse when running full-source plugin -->
-    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
-    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
     <dependencies>
         <dependency>
             <groupId>${jdbc.groupId}</groupId>
@@ -415,7 +413,7 @@
                 
         <!-- Database settings -->
         <dbunit.dataTypeFactoryName>org.dbunit.dataset.datatype.DefaultDataTypeFactory</dbunit.dataTypeFactoryName>
-        <dbunit.operation.type>NONE</dbunit.operation.type>
+        <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
         
         <hibernate.cache.provider_class>org.hibernate.cache.EhCacheProvider</hibernate.cache.provider_class>
         <hibernate.cache.provider_configuration_file_resource_path>/ehcache.xml</hibernate.cache.provider_configuration_file_resource_path>

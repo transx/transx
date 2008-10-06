@@ -98,7 +98,7 @@
 						key="textField-1"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DATEBOOK}]]></textFieldExpression>
 				</textField>
@@ -111,7 +111,7 @@
 						key="textField-2"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TIMED}]]></textFieldExpression>
 				</textField>
@@ -124,7 +124,7 @@
 						key="textField-3"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DAYS}]]></textFieldExpression>
 				</textField>
@@ -137,7 +137,7 @@
 						key="textField-4"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUENUMBER}]]></textFieldExpression>
 				</textField>
@@ -150,7 +150,7 @@
 						key="textField-5"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUESERIAL}]]></textFieldExpression>
 				</textField>
@@ -163,7 +163,7 @@
 						key="textField-6"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUEISSUE}]]></textFieldExpression>
 				</textField>
@@ -176,7 +176,7 @@
 						key="textField-7"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_KIND}]]></textFieldExpression>
 				</textField>
@@ -189,7 +189,7 @@
 						key="textField-8"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_CAPACITY}]]></textFieldExpression>
 				</textField>
@@ -202,7 +202,7 @@
 						key="textField-9"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CODE_CO}]]></textFieldExpression>
 				</textField>
@@ -215,7 +215,7 @@
 						key="textField-10"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_START}]]></textFieldExpression>
 				</textField>
@@ -228,7 +228,7 @@
 						key="textField-12"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1}]]></textFieldExpression>
 				</textField>
@@ -241,7 +241,7 @@
 						key="textField-13"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_STATE}]]></textFieldExpression>
 				</textField>
@@ -254,7 +254,7 @@
 						key="textField-14"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -267,7 +267,7 @@
 						key="textField-15"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -280,7 +280,7 @@
 						key="textField-16"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_CODE}]]></textFieldExpression>
 				</textField>
@@ -293,7 +293,7 @@
 						key="textField-17"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2}]]></textFieldExpression>
 				</textField>
@@ -306,7 +306,7 @@
 						key="textField-18"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_STATE}]]></textFieldExpression>
 				</textField>
@@ -319,7 +319,7 @@
 						key="textField-19"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -332,7 +332,7 @@
 						key="textField-20"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -345,7 +345,7 @@
 						key="textField-21"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_POLICY}]]></textFieldExpression>
 				</textField>
@@ -358,7 +358,7 @@
 						key="textField-22"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_POLICY_DATE}]]></textFieldExpression>
 				</textField>
@@ -371,7 +371,7 @@
 						key="textField-23"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_OTHER_COMPANY}]]></textFieldExpression>
 				</textField>
@@ -384,7 +384,7 @@
 						key="textField-24"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_PASSENGERCOUNT}]]></textFieldExpression>
 				</textField>
@@ -397,7 +397,7 @@
 						key="textField-25"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TOTAL}]]></textFieldExpression>
 				</textField>
@@ -410,7 +410,7 @@
 						key="textField-26"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TOOSHEEZAFI}]]></textFieldExpression>
 				</textField>
@@ -423,7 +423,7 @@
 						key="textField-27"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMMISSION}]]></textFieldExpression>
 				</textField>
@@ -436,7 +436,7 @@
 						key="textField-28"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_GOVERNMENTTOLL}]]></textFieldExpression>
 				</textField>
@@ -449,7 +449,7 @@
 						key="textField-29"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_INSURANCESARNESHIN}]]></textFieldExpression>
 				</textField>
@@ -462,7 +462,7 @@
 						key="textField-30"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVERPAY}]]></textFieldExpression>
 				</textField>
@@ -475,7 +475,7 @@
 						key="textField-31"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_SIGN}]]></textFieldExpression>
 				</textField>
@@ -488,7 +488,7 @@
 						key="textField-32"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_SIGN}]]></textFieldExpression>
 				</textField>
@@ -501,7 +501,7 @@
 						key="textField-33"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMPANYSIGN}]]></textFieldExpression>
 				</textField>
@@ -514,7 +514,7 @@
 						key="textField-70"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_END}]]></textFieldExpression>
 				</textField>
@@ -527,7 +527,7 @@
 						key="textField-71"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_CODE}]]></textFieldExpression>
 				</textField>
@@ -540,7 +540,7 @@
 						key="textField-72"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_INSURANCEBADANEH}]]></textFieldExpression>
 				</textField>
@@ -553,7 +553,7 @@
 						key="textField-73"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DATEBOOK}]]></textFieldExpression>
 				</textField>
@@ -566,7 +566,7 @@
 						key="textField-74"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TIMED}]]></textFieldExpression>
 				</textField>
@@ -579,7 +579,7 @@
 						key="textField-75"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DAYS}]]></textFieldExpression>
 				</textField>
@@ -592,7 +592,7 @@
 						key="textField-76"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUENUMBER}]]></textFieldExpression>
 				</textField>
@@ -605,7 +605,7 @@
 						key="textField-77"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUESERIAL}]]></textFieldExpression>
 				</textField>
@@ -618,7 +618,7 @@
 						key="textField-78"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUEISSUE}]]></textFieldExpression>
 				</textField>
@@ -631,7 +631,7 @@
 						key="textField-79"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_KIND}]]></textFieldExpression>
 				</textField>
@@ -644,7 +644,7 @@
 						key="textField-80"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_CAPACITY}]]></textFieldExpression>
 				</textField>
@@ -657,7 +657,7 @@
 						key="textField-81"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CODE_CO}]]></textFieldExpression>
 				</textField>
@@ -670,7 +670,7 @@
 						key="textField-82"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_START}]]></textFieldExpression>
 				</textField>
@@ -683,7 +683,7 @@
 						key="textField-83"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1}]]></textFieldExpression>
 				</textField>
@@ -696,7 +696,7 @@
 						key="textField-84"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_STATE}]]></textFieldExpression>
 				</textField>
@@ -709,7 +709,7 @@
 						key="textField-85"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -722,7 +722,7 @@
 						key="textField-86"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -735,7 +735,7 @@
 						key="textField-87"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_CODE}]]></textFieldExpression>
 				</textField>
@@ -748,7 +748,7 @@
 						key="textField-88"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2}]]></textFieldExpression>
 				</textField>
@@ -761,7 +761,7 @@
 						key="textField-89"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_STATE}]]></textFieldExpression>
 				</textField>
@@ -774,7 +774,7 @@
 						key="textField-90"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -787,7 +787,7 @@
 						key="textField-91"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -800,7 +800,7 @@
 						key="textField-92"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_POLICY}]]></textFieldExpression>
 				</textField>
@@ -813,7 +813,7 @@
 						key="textField-93"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_POLICY_DATE}]]></textFieldExpression>
 				</textField>
@@ -826,7 +826,7 @@
 						key="textField-94"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_OTHER_COMPANY}]]></textFieldExpression>
 				</textField>
@@ -839,7 +839,7 @@
 						key="textField-95"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_PASSENGERCOUNT}]]></textFieldExpression>
 				</textField>
@@ -852,7 +852,7 @@
 						key="textField-96"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TOTAL}]]></textFieldExpression>
 				</textField>
@@ -865,7 +865,7 @@
 						key="textField-97"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TOOSHEEZAFI}]]></textFieldExpression>
 				</textField>
@@ -878,7 +878,7 @@
 						key="textField-98"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMMISSION}]]></textFieldExpression>
 				</textField>
@@ -891,7 +891,7 @@
 						key="textField-99"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_GOVERNMENTTOLL}]]></textFieldExpression>
 				</textField>
@@ -904,7 +904,7 @@
 						key="textField-100"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_INSURANCESARNESHIN}]]></textFieldExpression>
 				</textField>
@@ -917,7 +917,7 @@
 						key="textField-101"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVERPAY}]]></textFieldExpression>
 				</textField>
@@ -930,7 +930,7 @@
 						key="textField-102"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_SIGN}]]></textFieldExpression>
 				</textField>
@@ -943,7 +943,7 @@
 						key="textField-103"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_SIGN}]]></textFieldExpression>
 				</textField>
@@ -956,7 +956,7 @@
 						key="textField-104"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMPANYSIGN}]]></textFieldExpression>
 				</textField>
@@ -969,7 +969,7 @@
 						key="textField-105"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_END}]]></textFieldExpression>
 				</textField>
@@ -982,7 +982,7 @@
 						key="textField-106"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_CODE}]]></textFieldExpression>
 				</textField>
@@ -995,7 +995,7 @@
 						key="textField-107"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="Tahoma (tahoma.ttf)" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="nesf2.TTF" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_INSURANCEBADANEH}]]></textFieldExpression>
 				</textField>
