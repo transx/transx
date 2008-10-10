@@ -6,6 +6,7 @@ import java.util.Map;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.CarManager;
 import com.asta.app2.service.DriverManager;
+import com.asta.app2.service.PathManager;
 
 /**
  * 
@@ -18,7 +19,6 @@ public class LookupAccessProvider extends BasePage{
 	public void setCarKindManager(CarKindManager carKindManager) {
 		this.carKindManager = carKindManager;
 	}
-
 	public Map<Object, Object> getCarKindItems() {
 		if (carKindItems == null)
 			carKindItems = carKindManager.getCarKindItems();
@@ -30,7 +30,6 @@ public class LookupAccessProvider extends BasePage{
 	public void setCarManager(CarManager carManager) {
 		this.carManager = carManager;
 	}
-
 	public Map<Object, Object> getCarItems() {
 		if (carItems == null)
 			carItems = carManager.getCarItems(getCurrentUser().getCompany(),false);
@@ -42,11 +41,21 @@ public class LookupAccessProvider extends BasePage{
 	public void setDriverManager(DriverManager driverManager) {
 		this.driverManager = driverManager;
 	}
-
 	public Map<String, String> getDriverItemsMapString() {
 		if (driverItemsMapString == null)
 			driverItemsMapString = driverManager.getMap(getCurrentUser().getCompany(), false);
 		return driverItemsMapString;
+	}
+	
+	private Map<Object, Object> pathParentItems;
+	private PathManager pathManager;
+	public void setPathManager(PathManager pathManager) {
+		this.pathManager = pathManager;
+	}
+	public Map<Object, Object> getPathParentItems() {
+		if (pathParentItems == null)
+			pathParentItems = pathManager.getPathParentItems(false);
+		return pathParentItems;
 	}
 	
 	

@@ -127,5 +127,11 @@
 			<converter-id>com.asta.app2.model.Car</converter-id>
 		</converter>
 	</tag>
+	<tag>
+		<tag-name>convertPath</tag-name>
+		<converter>
+			<converter-id>com.asta.app2.model.Path</converter-id>
+		</converter>
+	</tag>
 	
 </facelet-taglib>

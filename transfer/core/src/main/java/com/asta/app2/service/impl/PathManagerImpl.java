@@ -71,4 +71,16 @@ public class PathManagerImpl extends GenericManagerImpl<Path, Long> implements
 		this.cityManager = cityManager;
 	}
 
+	public Map<Object, Object> getPathParentItems(boolean withEmpty) {
+		List<Path> paths = pathDao.getParentPath();
+		Map<Object, Object> map = new TreeMap<Object, Object>();
+		if (withEmpty) {
+			map.put("- - - - - - - - - -", Constants.EMPTY);
+		}
+		for (Path path : paths) {
+			map.put(path, path);
+		}
+		return map;
+	}
+
 }

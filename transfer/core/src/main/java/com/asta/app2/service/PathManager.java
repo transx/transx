@@ -11,5 +11,5 @@ public interface PathManager extends GenericManager<Path, Long>{
 	Map<String, String> getPathMap(boolean withEmpty);
 	Map<String, String> getParentPathMap(boolean withEmpty);
 	Map<String, String> getSubPathMap(long id);
-	
+	Map<Object, Object> getPathParentItems(boolean withEmpty);
 }
