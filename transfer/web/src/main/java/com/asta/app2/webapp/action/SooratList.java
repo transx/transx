@@ -12,10 +12,10 @@ import com.asta.app2.service.SooratManager;
 
 public class SooratList extends BasePage implements Serializable {
     private SooratManager sooratManager;
-    private ServiceManager serviceManager; 
-    private Soorat sooratTemp = new Soorat();
+    private Soorat soorat = new Soorat();
     
     private List<Soorat> listSooratPrivate;
+    private List<Soorat> listSooratInner;
     
     public SooratList() {
         setSortColumn("id"); // sets the default sort column
@@ -33,43 +33,59 @@ public class SooratList extends BasePage implements Serializable {
     public List<Soorat> getSooratPrivates() {
     	return sort(getlistSooratPrivate());
     }
+    public List<Soorat> getSooratInners() {
+    	return sort(getListSooratInner());
+    }
 
     public String searchSooratPrivate(){
-    	sooratTemp.setCompany(new Company(getCurrentUser().getCompany().getId()));
-    	sooratTemp.setSooratType(SooratType.PRIVATE);
-    	setlistSooratPrivate(sooratManager.searchByExample(sooratTemp));
+    	soorat.setCompany(new Company(getCurrentUser().getCompany().getId()));
+    	soorat.setSooratType(SooratType.PRIVATE);
+    	setlistSooratPrivate(sooratManager.searchByExample(soorat));
     	return Constants.NO_WHERE;
     }
 
-    public List<Soorat> getlistSooratPrivate() {
+    public String searchSooratInner(){
+    	soorat.setCompany(new Company(getCurrentUser().getCompany().getId()));
+    	soorat.setSooratType(SooratType.INNER);
+    	setListSooratInner(sooratManager.searchByExample(soorat));
+    	return Constants.NO_WHERE;
+    }
+    
+
+	public List<Soorat> getlistSooratPrivate() {
 		if (listSooratPrivate == null){
-			sooratTemp = new Soorat();
-			sooratTemp.setCompany(new Company(getCurrentUser().getCompany().getId()));
-			sooratTemp.setSooratType(SooratType.PRIVATE);
-			listSooratPrivate = sooratManager.searchByExample(sooratTemp);
+			soorat = new Soorat();
+			soorat.setCompany(new Company(getCurrentUser().getCompany().getId()));
+			soorat.setSooratType(SooratType.PRIVATE);
+			listSooratPrivate = sooratManager.searchByExample(soorat);
 		}
 		return listSooratPrivate;
 	}
-	
 
-    public void setSooratManager(SooratManager sooratManager) {
+    public List<Soorat> getListSooratInner() {
+		if (listSooratInner == null){
+			soorat = new Soorat();
+			soorat.setCompany(new Company(getCurrentUser().getCompany().getId()));
+			soorat.setSooratType(SooratType.INNER);
+			listSooratInner = sooratManager.searchByExample(soorat);
+		}
+    	return listSooratInner;
+	}
+
+	public void setSooratManager(SooratManager sooratManager) {
         this.sooratManager = sooratManager;
     }
-    
+	public void setListSooratInner(List<Soorat> listSooratInner) {
+		this.listSooratInner = listSooratInner;
+	}
 	public void setlistSooratPrivate(List<Soorat> listSooratPrivate) {
 		this.listSooratPrivate = listSooratPrivate;
 	}
-
-	public void setServiceManager(ServiceManager serviceManager) {
-		this.serviceManager = serviceManager;
+	public Soorat getSoorat() {
+		return soorat;
 	}
-
-	public Soorat getSooratTemp() {
-		return sooratTemp;
-	}
-
-	public void setSooratTemp(Soorat sooratTemp) {
-		this.sooratTemp = sooratTemp;
+	public void setSoorat(Soorat soorat) {
+		this.soorat = soorat;
 	}
 }
 

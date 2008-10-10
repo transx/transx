@@ -6,8 +6,8 @@
 <f:view>
 <f:loadBundle var="text" basename="#{sooratPrivateForm.bundleName}"/>
     <head>
-        <title>#{text['sooratDetailPrivate.title']}</title>
-        <meta name="heading" content="#{text['sooratDetailPrivate.heading']}"/>
+        <title>#{text['sooratPrivateDetail.title']}</title>
+        <meta name="heading" content="#{text['sooratPrivateDetail.heading']}"/>
     </head>
 <body id="sooratPrivateForm">
 
@@ -92,12 +92,12 @@
 	    </h:inputText>
     	<h:outputLabel styleClass="desc2" for="total" value="#{text['soorat.total']}"/>
 	    <h:inputText id="total" value="#{sooratPrivateForm.soorat.total}" converter="javax.faces.Long" styleClass="text small" required="true">
-	    	<f:convertNumber minFractionDigits="2"/>
+	    	<f:convertNumber minFractionDigits="1"/>
 	       <v:commonsValidator type="required" arg="#{text['soorat.total']}"/>
 	    </h:inputText>
     	<h:outputLabel styleClass="desc2" for="snack" value="#{text['soorat.snack']}"/>
 	   	<h:inputText id="snack" value="#{sooratPrivateForm.soorat.snack}" converter="javax.faces.Long" styleClass="text small" required="true">
-	   		<f:convertNumber minFractionDigits="2"/>
+	   		<f:convertNumber minFractionDigits="1"/>
 	       <v:commonsValidator type="required" arg="#{text['soorat.snack']}"/>
 	   	</h:inputText>
 	
@@ -107,7 +107,7 @@
 	    </h:inputText>
     	<h:outputLabel styleClass="desc2" for="governmentToll" value="#{text['soorat.governmentToll']}"/>
 		<h:inputText id="governmentToll" value="#{sooratPrivateForm.soorat.governmentToll}" converter="javax.faces.Long" styleClass="text small" required="true">
-			<f:convertNumber minFractionDigits="2"/>
+			<f:convertNumber minFractionDigits="1"/>
 	       <v:commonsValidator type="required" arg="#{text['soorat.governmentToll']}"/>
 		</h:inputText>
 		<h:outputText />
@@ -116,17 +116,17 @@
    		<h:outputLabel styleClass="desc2" for="insuranceSarneshin" value="#{text['soorat.insuranceSarneshin']}"/>	
 	    <h:inputText styleClass="text small" id="insuranceSarneshin" value="#{sooratPrivateForm.soorat.insuranceSarneshin}" required="true">
 	       <v:commonsValidator type="required" arg="#{text['soorat.insuranceSarneshin']}"/>
-	       <f:convertNumber minFractionDigits="2"/>
+	       <f:convertNumber minFractionDigits="1"/>
 		</h:inputText>
    		<h:outputLabel styleClass="desc2" for="insuranceBadaneh" value="#{text['soorat.insuranceBadaneh']}"/>	
 	    <h:inputText styleClass="text small" id="insuranceBadaneh" value="#{sooratPrivateForm.soorat.insuranceBadaneh}" required="true">
 	       <v:commonsValidator type="required" arg="#{text['soorat.insuranceBadaneh']}"/>
-	       <f:convertNumber minFractionDigits="2"/>
+	       <f:convertNumber minFractionDigits="1"/>
 	    </h:inputText>
 	    <h:outputLabel styleClass="desc2" for="stamp" value="#{text['soorat.stamp']}" />
-	    <h:inputText styleClass="text small" id="stamp" value="#{sooratPrivateForm.setting.stamp}" required="true">
+	    <h:inputText styleClass="text small" id="stamp" value="#{sooratPrivateForm.soorat.stamp}" required="true">
 	       <v:commonsValidator type="required" arg="#{text['soorat.stamp']}"/>
-	       <f:convertNumber minFractionDigits="2"/>
+	       <f:convertNumber minFractionDigits="1"/>
 	    </h:inputText>   
  
 </t:panelGrid>
@@ -134,19 +134,19 @@
 <h:panelGrid columns="3">
 	<h:outputLabel styleClass="desc2" value="#{text['soorat.totalIsTA']}"/>
 	<h:inputText value="#{sooratPrivateForm.soorat.totalIsTA}" id="totalIsTA" disabled="true" styleClass="text medium">
-		<f:convertNumber minFractionDigits="2"/> 
+		<f:convertNumber minFractionDigits="1"/> 
 	</h:inputText>
 	<h:outputText />
 	
 	<h:outputLabel styleClass="desc2" value="#{text['soorat.commission']}"/>
 	<h:inputText value="#{sooratPrivateForm.soorat.commission}" id="commissionSoorat" disabled="true" styleClass="text medium">
-		<f:convertNumber minFractionDigits="2"/> 
+		<f:convertNumber minFractionDigits="1"/> 
 	</h:inputText>
 	<h:outputText />
 	
 	<h:outputLabel styleClass="desc2" value="#{text['soorat.driverPay']}"/>
 	<h:inputText value="#{sooratPrivateForm.soorat.driverPay}" id="driverPay" disabled="true" styleClass="text medium">
-		<f:convertNumber minFractionDigits="2"/> 
+		<f:convertNumber minFractionDigits="1"/> 
 	</h:inputText>
 	<h:outputText />
 	

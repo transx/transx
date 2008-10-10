@@ -21,7 +21,6 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import com.asta.app2.model.CarKind;
 import com.asta.app2.model.Driver;
-import com.asta.app2.model.Passenger;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.Setting;
 import com.asta.app2.model.Soorat;
@@ -47,36 +46,23 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 	private Soorat soorat = new Soorat();
 	private Service service = new Service();
 	private Setting setting;
-	private Passenger newPassenger;
 	private Long snack;
 	private CarKind carKind;
 	private String[] driverSelected; 
 	
 	
 	public String editPrivate() {
-
+		setting = settingManager.getSettingByCompany(getCurrentUser().getCompany());
 		if (soorat.getId() != null) {
-			//soorat = sooratManager.get(id);
-			//service = serviceManager.save(service);
-			//soorat = new Soorat();
-			//soorat.setService(service);
-			service = soorat.getService();
-			service.setOpened(false);
-			//Distance distance;
-			//if (service.getPath().getSpace() >= 300)
-			//	distance = Distance.UP300;
-			//else
-			//	distance = Distance.DOWN300;
-			//List<InsuranceSarneshin> iss = insuranceSarneshinManager.findISbyDistanceCapacity(distance, getCapacity());
-			//List<InsuranceBadaneh> ibs = insuranceBadanehManager.findISbyQualityJodaganehSpace(service.getCarKind().getQuality(), service.getCar().getInsuranceBadanehJodaganeh(), service.getPath().getSpace());
 
-			//soorat.setInsuranceSarneshin(iss.get(0).getPrice());
-			//soorat.setInsuranceBadaneh(ibs.get(0).getPrice());
+			service = soorat.getService();
+			service.setOpened(Boolean.FALSE);
+
 		} else {
-//			addError("soorat.notFound");
 			soorat = new Soorat();
-			soorat.setSeri(getSetting().getSeriPrivate());
-			soorat.setSerial(getSetting().getSerialPrivate().toString());
+			soorat.setSeri(setting.getSeriPrivate());
+			soorat.setSerial(setting.getSerialPrivate().toString());
+			soorat.setStamp(setting.getStamp());
 			if (service.getId() == null){
 				service = new Service();
 				// this part is about set default CarKind in add method + need for carKindConverter
@@ -87,13 +73,14 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 	}
 
 	public String calcPrivate(){
-		long totalIsTA = soorat.getTotal() - (soorat.getGovernmentToll()+soorat.getInsuranceSarneshin()+setting.getStamp());
+		long totalIsTA = soorat.getTotal() - (soorat.getGovernmentToll()+soorat.getInsuranceSarneshin()+soorat.getStamp());
 		double totalIsTADouble = Long.valueOf(totalIsTA).doubleValue();
 		soorat.setTotalIsTA(Math.round(totalIsTADouble));
 		soorat.setCommission((soorat.getTotalIsTA()* setting.getCommission())/100);
 		soorat.setDriverPay(soorat.getTotalIsTA() - (soorat.getCommission()+soorat.getInsuranceBadaneh()+soorat.getSnack()));
 		return "edit";
 	}	
+
 	@Transactional
 	public String savePrivate() {
 		try{
@@ -111,7 +98,7 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 			soorat.setService(service);
 			soorat.setSooratType(SooratType.PRIVATE);
 			soorat.setCompany(getCurrentUser().getCompany());
-			soorat.setTotalIsTA(soorat.getTotal() - (soorat.getGovernmentToll()+soorat.getInsuranceSarneshin()+setting.getStamp()));
+			soorat.setTotalIsTA(soorat.getTotal() - (soorat.getGovernmentToll()+soorat.getInsuranceSarneshin()+soorat.getStamp()));
 			soorat.setCommission((soorat.getTotalIsTA()* setting.getCommission())/100);
 			soorat.setDriverPay(soorat.getTotalIsTA() - (soorat.getCommission()+soorat.getInsuranceBadaneh()+soorat.getSnack()));
 			if (soorat.getIssued() == null)
@@ -119,7 +106,6 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 			if (soorat.getDriverPaid() == null)
 				soorat.setDriverPaid(Boolean.FALSE);
 
-			soorat.setStamp(setting.getStamp());
 			sooratManager.save(soorat);
 			setting.setSerialPrivate(setting.getSerialPrivate()+1);
 			settingManager.save(setting);
@@ -154,7 +140,7 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 			soorat.setService(service);
 			soorat.setSooratType(SooratType.PRIVATE);
 			soorat.setCompany(getCurrentUser().getCompany());
-			soorat.setTotalIsTA(soorat.getTotal() - (soorat.getGovernmentToll()+soorat.getInsuranceSarneshin()+setting.getStamp()));
+			soorat.setTotalIsTA(soorat.getTotal() - (soorat.getGovernmentToll()+soorat.getInsuranceSarneshin()+soorat.getStamp()));
 			soorat.setCommission((soorat.getTotalIsTA()* setting.getCommission())/100);
 			soorat.setDriverPay(soorat.getTotalIsTA() - (soorat.getCommission()+soorat.getInsuranceBadaneh()+soorat.getSnack()));
 			if (soorat.getIssued() == null)
@@ -162,7 +148,6 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 			if (soorat.getDriverPaid() == null)
 				soorat.setDriverPaid(Boolean.FALSE);
 
-			soorat.setStamp(setting.getStamp());
 			sooratManager.save(soorat);
 			setting.setSerialPrivate(setting.getSerialPrivate()+1);
 			settingManager.save(setting);
@@ -246,8 +231,6 @@ public class SooratPrivateForm extends BasePage implements Serializable {
     }    
 	
 	public Setting getSetting() {
-		if (setting == null)
-			setting = settingManager.getSettingByCompany(getCurrentUser().getCompany());
 		return setting;
 	}
 	
@@ -277,11 +260,6 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 
 	public void setServiceManager(ServiceManager serviceManager) {
 		this.serviceManager = serviceManager;
-	}
-
-	public Passenger getNewPassenger() {
-		newPassenger = new Passenger();
-		return newPassenger;
 	}
 
 	public void setSetting(Setting setting) {

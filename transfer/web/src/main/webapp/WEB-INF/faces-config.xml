@@ -87,6 +87,16 @@
    		<converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
    	</converter>
    	
+   	<converter>
+   		<converter-id>com.asta.app2.model.Path</converter-id>
+   		<converter-class>com.asta.app2.webapp.jsf.PathConverter</converter-class>
+   	</converter>
+   	
+   	<converter>
+   		<converter-for-class>com.asta.app2.model.Path</converter-for-class>
+   		<converter-class>com.asta.app2.webapp.jsf.PathConverter</converter-class>
+   	</converter>
+   	
    <!-- tutorial -START ########################################################-->
    
 	<application>
@@ -95,6 +105,14 @@
          	<var>msgs</var>
       	</resource-bundle>
    	</application>
+   
+   <!-- itext-START -->
+   <managed-bean>
+   		<managed-bean-name>itext</managed-bean-name>
+   		<managed-bean-class>com.asta.app2.tutorial.itext.ItextBean</managed-bean-class>
+   		<managed-bean-scope>request</managed-bean-scope>
+   </managed-bean>
+   <!-- itext-END -->
    
    <!-- report-START -->
 	<managed-bean>
@@ -370,6 +388,10 @@
    
     <navigation-rule>
 	        <from-view-id>/mainMenu.xhtml</from-view-id>
+	        <navigation-case>
+				<from-outcome>itext</from-outcome>	        	
+	        	<to-view-id>/tutorial/itext/itext.xhml</to-view-id>
+	        </navigation-case>
 	        <navigation-case>
 	            <from-outcome>ajax4jsf</from-outcome>
 	            <to-view-id>/tutorial/ajax4jsf.xhtml</to-view-id>
@@ -975,18 +997,14 @@
     <navigation-rule>
     	<from-view-id>/manager/sooratInners.xhtml</from-view-id>
     	<navigation-case>
-			<from-outcome>edit</from-outcome>
-			<to-view-id>/manager/serviceInnerForm.xhtml</to-view-id>
-		</navigation-case>
-    	<navigation-case>
-			<from-outcome>issueInner</from-outcome>
+			<from-outcome>editInner</from-outcome>
 			<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
 		</navigation-case>
     </navigation-rule>
     <navigation-rule>
     	<from-view-id>/manager/sooratInnerForm.xhtml</from-view-id>
     	<navigation-case>
-			<from-outcome>edit</from-outcome>
+			<from-outcome>editInner</from-outcome>
 			<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
 		</navigation-case>
     	<navigation-case>
@@ -1789,18 +1807,6 @@
         </managed-property>
     </managed-bean>
     <!--TicketTemp-beans-END-->
-
-    <!--Soorat-beans-START
-    <managed-bean>
-        <managed-bean-name>sooratList</managed-bean-name>
-        <managed-bean-class>com.asta.app2.webapp.action.SooratList</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-        <managed-property>
-            <property-name>sooratManager</property-name>
-            <value>#{sooratManager}</value>
-        </managed-property>
-    </managed-bean>
-    -->
 
     <managed-bean>
         <managed-bean-name>sooratForm</managed-bean-name>

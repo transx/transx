@@ -181,7 +181,7 @@
                 <h:outputText value="#{text['service.path']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{service.path}" escape="true"/>
+    	<h:outputText value="#{service.path.end}" escape="true"/>
     </t:column>
 
     <!-- t:column>
@@ -209,11 +209,9 @@
         <h:commandLink action="#{sooratPrivateForm.editPrivate}" value="#{text['soorat.sodor.private']}" rendered="${SOORAT_TYPE == SOORAT_TYPE_PRIVATE}">
           	<f:setPropertyActionListener target="#{sooratPrivateForm.service}" value="#{service}"/>
         </h:commandLink>
-        <h:commandLink action="#{sooratSodorForm.editInner}" value="#{text['soorat.sodor.inner']}" rendered="${SOORAT_TYPE == SOORAT_TYPE_INNER}">
-            <f:param name="id" value="#{service.id}"/>
-            <f:param name="from" value="list"/>
+        <h:commandLink action="#{sooratInnerForm.editInner}" value="#{text['soorat.sodor.inner']}" rendered="${SOORAT_TYPE == SOORAT_TYPE_INNER}">
+          	<f:setPropertyActionListener target="#{sooratInnerForm.service}" value="#{service}"/>
         </h:commandLink>
-
     </t:column>
     <t:column>
         <f:facet name="header">

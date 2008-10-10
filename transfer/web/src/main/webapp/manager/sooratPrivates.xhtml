@@ -6,30 +6,30 @@
 <f:view>
 <f:loadBundle var="text" basename="#{sooratList.bundleName}"/>
     <head>
-        <title>#{text['sooratList.title']}</title>
-        <meta name="heading" content="#{text['sooratList.heading']}"/>
+        <title>#{text['sooratPrivateList.title']}</title>
+        <meta name="heading" content="#{text['sooratPrivateList.heading']}"/>
         <meta name="menu" content="ManagerMenu"/>
     </head>
-<body id="sooratList">
-<h:form id="editsoorat">
+<body id="sooratPrivateList">
+<h:form id="editSooratPrivate">
 
-<h:commandButton value="#{text['button.add']}" action="#{sooratPrivateForm.editPrivate}" id="add" immediate="true" styleClass="button"/>
-<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
- <h:panelGroup/>
+<h:panelGroup/>
  <t:collapsiblePanel id="serachCollapse" title="#{text['button.search']}">
  	<t:panelGrid columns="8">
 	    <h:commandButton value="#{text['button.search']}" action="#{sooratList.searchSooratPrivate}" id="search" styleClass="button"/>
 		<h:outputText />
 		
-	    <h:outputLabel styleClass="desc" for="seri" value="#{text['soorat.seri']}"/>
-	    <h:inputText styleClass="text small" id="sooratTempSeri" value="#{sooratList.sooratTemp.seri}" required="false" maxlength="10"/>
+	    <h:outputLabel styleClass="desc" for="sooratSeri" value="#{text['soorat.seri']}"/>
+	    <h:inputText styleClass="text small" id="sooratSeri" value="#{sooratList.soorat.seri}" required="false" maxlength="10"/>
     
-	    <h:outputLabel styleClass="desc" for="serial" value="#{text['soorat.serial']}"/>
-	    <h:inputText styleClass="text small" id="sooratTempSerial" value="#{sooratList.sooratTemp.serial}" required="false" maxlength="10"/>
+	    <h:outputLabel styleClass="desc" for="sooratSerial" value="#{text['soorat.serial']}"/>
+	    <h:inputText styleClass="text small" id="sooratSerial" value="#{sooratList.soorat.serial}" required="false" maxlength="10"/>
     
     </t:panelGrid>
  </t:collapsiblePanel>
-
+<h:outputText/>	
+<h:commandButton value="#{text['button.add']}" action="#{sooratPrivateForm.editPrivate}" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
 <t:dataTable id="soorats" var="soorat" style="margin-top: 10px"
     value="#{sooratList.sooratPrivates}" rows="10" sortColumn="#{sooratList.sortColumn}"
     sortAscending="#{sooratList.ascending}" styleClass="scrollerTable table"
@@ -38,9 +38,7 @@
 
     <t:column>
         <f:facet name="header">
-            <t:commandSortHeader columnName="id" arrow="true">
-                <h:outputText value="#{text['service.id']}" />
-            </t:commandSortHeader>
+        	<h:outputText value="#{text['service.id']}" />
         </f:facet>
         <h:commandLink action="#{sooratPrivateForm.editPrivate}" value="#{soorat.id}">
             <f:setPropertyActionListener target="#{sooratPrivateForm.soorat}" value="#{soorat}"/>
@@ -48,11 +46,11 @@
     </t:column>
     <t:column>
         <f:facet name="header">
-            <h:outputText value="#{text['button.edit']}" />
+            <t:graphicImage url="../images/edit.png" border="0" alt="#{text['button.edit']}" />
         </f:facet>
         <h:commandLink action="#{sooratPrivateForm.editPrivate}" immediate="true">
             <f:setPropertyActionListener target="#{sooratPrivateForm.soorat}" value="#{soorat}"/>
-            <t:graphicImage url="../images/edit.png" border="0" alt="Edit" />
+            <t:graphicImage url="../images/edit.png" border="0" alt="#{text['button.edit']}" />
         </h:commandLink>
     </t:column>
     <t:column>

@@ -4,52 +4,72 @@
       xmlns:a4j="https://ajax4jsf.dev.java.net/ajax">
 
 <f:view>
-<f:loadBundle var="text" basename="#{serviceList.bundleName}"/>
+<f:loadBundle var="text" basename="#{sooratList.bundleName}"/>
     <head>
-        <title>#{text['serviceList.title']}</title>
-        <meta name="heading" content="#{text['serviceList.heading']}"/>
+        <title>#{text['sooratInnerList.title']}</title>
+        <meta name="heading" content="#{text['sooratInnerList.heading']}"/>
         <meta name="menu" content="ManagerMenu"/>
     </head>
-<body id="serviceList">
-<h:form id="editService">
+<body id="sooratInnerListBodyId">
+<h:form id="editSooratInnerFormId">
 
 
-<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+<h:panelGroup/>
+ <t:collapsiblePanel id="serachCollapse" title="#{text['button.search']}">
+ 	<t:panelGrid columns="8">
+	    <h:commandButton value="#{text['button.search']}" action="#{sooratList.searchSooratInner}" id="search" styleClass="button"/>
+		<h:outputText />
+		
+	    <h:outputLabel styleClass="desc" for="sooratSeri" value="#{text['soorat.seri']}"/>
+	    <h:inputText styleClass="text small" id="sooratSeri" value="#{sooratList.soorat.seri}" required="false" maxlength="10"/>
+    
+	    <h:outputLabel styleClass="desc" for="sooratSerial" value="#{text['soorat.serial']}"/>
+	    <h:inputText styleClass="text small" id="sooratSerial" value="#{sooratList.soorat.serial}" required="false" maxlength="10"/>
+    
+    </t:panelGrid>
+ </t:collapsiblePanel>
 
-<t:dataTable id="services" var="service" style="margin-top: 10px"
-    value="#{serviceList.servicesReadyForSoorat}" rows="10" sortColumn="#{serviceList.sortColumn}"
+
+<t:dataTable id="sooratInnerTableId" var="soorat" style="margin-top: 10px"
+    value="#{sooratList.sooratInners}" rows="10" sortColumn="#{sooratList.sortColumn}"
     sortAscending="#{serviceList.ascending}" styleClass="scrollerTable table"
     headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
     columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
 
-    <t:column>
-        <f:facet name="header">
-            <h:outputText value="#{text['service.actions']}" />
-        </f:facet>
-        <h:commandLink action="#{serviceForm.closeService}" value="#{text['button.close']}" rendered="#{service.opened}">
-            <f:param name="id" value="#{service.id}"/>
-            <f:param name="from" value="list"/>
-        </h:commandLink>
-        <h:commandLink action="#{serviceForm.openService}" value="#{text['button.open']}" rendered="#{!service.opened}">
-            <f:param name="id" value="#{service.id}"/>
-            <f:param name="from" value="list"/>
-        </h:commandLink>
-    </t:column>
-    <t:column>
-        <f:facet name="header">
-            <h:outputText value="#{text['button.edit']}" />
-        </f:facet>
-        <h:commandLink action="#{serviceForm.edit}" value="#{text['button.edit']}">
-            <f:param name="id" value="#{service.id}"/>
-        </h:commandLink>
-    </t:column>
-    <t:column>
+ <t:column>
         <f:facet name="header">
             <t:commandSortHeader columnName="id" arrow="true">
                 <h:outputText value="#{text['service.id']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{service.id}" escape="true"/>
+        <h:commandLink action="#{sooratInnerForm.editInner}" value="#{soorat.id}">
+            <f:setPropertyActionListener target="#{sooratInnerForm.soorat}" value="#{soorat}"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:graphicImage url="../images/edit.png" border="0" alt="Edit" />
+        </f:facet>
+        <h:commandLink action="#{sooratInnerForm.editInner}" immediate="true">
+            <f:setPropertyActionListener target="#{sooratInnerForm.soorat}" value="#{soorat}"/>
+            <t:graphicImage url="../images/edit.png" border="0" alt="Edit" />
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="seri" arrow="true">
+                <h:outputText value="#{text['soorat.seri']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.seri}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="serial" arrow="true">
+                <h:outputText value="#{text['soorat.serial']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.serial}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -57,15 +77,7 @@
                 <h:outputText value="#{text['service.timed']}" />
             </t:commandSortHeader>
         </f:facet>
-    	<h:outputText value="#{service.timed}" escape="true"/>
-    </t:column>
-    <t:column>
-        <f:facet name="header">
-            <t:commandSortHeader columnName="weekday" arrow="true">
-                <h:outputText value="#{text['service.weekday']}" />
-            </t:commandSortHeader>
-        </f:facet>
-    <h:outputText value="#{service.weekday.label}" escape="true"/>
+    	<h:outputText value="#{soorat.service.timed}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -73,30 +85,7 @@
                 <h:outputText value="#{text['service.datebook']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.datebookFormatted}" escape="true"/>
-    </t:column>
-    <t:column>
-        <f:facet name="header">
-            <t:commandSortHeader columnName="enabled" arrow="true">
-                <h:outputText value="#{text['service.enabled']}" />
-            </t:commandSortHeader>
-        </f:facet>
-    <h:selectBooleanCheckbox value="#{service.enabled}" id="enabled" disabled="true"/>
-    </t:column>
-    <t:column>
-        <f:facet name="header">
-            <t:commandSortHeader columnName="serviceLocked" arrow="true">
-                <h:outputText value="#{text['service.serviceLocked']}" />
-            </t:commandSortHeader>
-        </f:facet>
-    <h:selectBooleanCheckbox value="#{service.serviceLocked}" id="serviceLocked" disabled="true"/>
-    </t:column>
-    <t:column>
-        <f:facet name="header">
-            <h:outputText value="#{text['service.opened']}" />
-        </f:facet>
-		<h:graphicImage value="/images/iconOpen.png" rendered="#{service.opened}"/>
-		<h:graphicImage value="/images/iconClose.png" rendered="#{!service.opened}"/>
+    	<h:outputText value="#{soorat.service.datebookFormatted}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -104,24 +93,23 @@
                 <h:outputText value="#{text['service.serviceExpired']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:selectBooleanCheckbox value="#{service.serviceExpired}" id="serviceExpired" disabled="true"/>
+    	<h:selectBooleanCheckbox value="#{soorat.service.serviceExpired}" id="serviceExpired" disabled="true"/>
     </t:column>
-
     <t:column>
         <f:facet name="header">
             <t:commandSortHeader columnName="carKind" arrow="true">
                 <h:outputText value="#{text['service.carKind']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.carKind}" escape="true"/>
+    	<h:outputText value="#{soorat.service.carKind}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
-            <t:commandSortHeader columnName="car" arrow="true">
-                <h:outputText value="#{text['service.car']}" />
+            <t:commandSortHeader columnName="capacity" arrow="true">
+                <h:outputText value="#{text['carKind.capacity']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.car}" escape="true"/>
+    	<h:outputText value="#{soorat.service.carKind.capacity}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
@@ -129,41 +117,122 @@
                 <h:outputText value="#{text['service.path']}" />
             </t:commandSortHeader>
         </f:facet>
-    <h:outputText value="#{service.path}" escape="true"/>
+    	<h:outputText value="#{soorat.service.path}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
-	        <h:outputText value="#{text['soorat.sodor.inner']}" />
+            <t:commandSortHeader columnName="car" arrow="true">
+                <h:outputText value="#{text['service.car']}" />
+            </t:commandSortHeader>
         </f:facet>
-        <h:commandLink action="#{sooratSodorForm.editInner}" value="#{text['soorat.sodor.inner']}">
-            <f:param name="id" value="#{service.id}"/>
-            <f:param name="from" value="list"/>
-        </h:commandLink>
+    	<h:outputText value="#{soorat.service.car}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
-	        <h:outputText value="#{text['soorat.sodor.private']}" />
+            <t:commandSortHeader columnName="passengerCount" arrow="true">
+                <h:outputText value="#{text['soorat.passengerCount']}" />
+            </t:commandSortHeader>
         </f:facet>
-        <h:commandLink action="#{sooratSodorForm.editPrivate}" value="#{text['soorat.sodor.private']}">
-            <f:param name="id" value="#{service.id}"/>
-            <f:param name="from" value="list"/>
-        </h:commandLink>
+    	<h:outputText value="#{soorat.passengerCount}" escape="true"/>
     </t:column>
     <t:column>
         <f:facet name="header">
-	        <h:outputText value="#{text['soorat.sodor.foreign']}" />
+            <t:commandSortHeader columnName="total" arrow="true">
+                <h:outputText value="#{text['soorat.total']}" />
+            </t:commandSortHeader>
         </f:facet>
-        <h:commandLink action="#{sooratSodorForm.editForeign}" value="#{text['soorat.sodor.outer']}">
-            <f:param name="id" value="#{service.id}"/>
-            <f:param name="from" value="list"/>
-        </h:commandLink>
+    	<h:outputText value="#{soorat.total}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="snack" arrow="true">
+                <h:outputText value="#{text['soorat.snack']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.snack}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="commission" arrow="true">
+                <h:outputText value="#{text['soorat.commission']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.commission}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="governmentToll" arrow="true">
+                <h:outputText value="#{text['soorat.governmentToll']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.governmentToll}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="insuranceSarneshin" arrow="true">
+                <h:outputText value="#{text['soorat.insuranceSarneshin']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.insuranceSarneshin}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="insuranceBadaneh" arrow="true">
+                <h:outputText value="#{text['soorat.insuranceBadaneh']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.insuranceBadaneh}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="driverPay" arrow="true">
+                <h:outputText value="#{text['soorat.driverPay']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{soorat.driverPay}" escape="true">
+    		<f:convertNumber type="currency"/>
+    	</h:outputText>
     </t:column>
 
-   
+    <t:column>
+        <f:facet name="header">
+           <h:outputText value="#{text['service.drivers']}" />
+        </f:facet>
+    	<h:outputText value="#{soorat.service.drivers}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+        	<h:outputText value="#{text['service.lodgers']}" />
+        </f:facet>
+    	<h:outputText value="#{soorat.service.lodgers}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+           <h:outputText value="#{text['service.serviceExpired']}" />
+        </f:facet>
+        <h:commandLink action="#{sooratForm.expire}" 
+        	value="#{text['service.serviceExpired']}" rendered="#{!soorat.service.serviceExpired}"
+        	id="expire" onclick="bCancel=true; return confirmExpireService('صورت')">
+           	 <f:param name="id" value="#{soorat.id}"/>
+           	 <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>   
 </t:dataTable>
 
 <ui:include src="/common/tableFooter.xhtml">
-    <ui:param name="tableName" value="services"/>
+    <ui:param name="tableName" value="sooratInnerTableId"/>
 </ui:include>
 
 <script type="text/javascript">

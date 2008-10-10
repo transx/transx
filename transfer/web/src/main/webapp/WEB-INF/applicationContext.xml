@@ -23,7 +23,6 @@
 
 	<bean name="sooratList" class="com.asta.app2.webapp.action.SooratList" scope="conversation.access">
 		<property name="sooratManager" ref="sooratManager"/>
-		<property name="serviceManager" ref="serviceManager"/>
 	</bean>
 
 	<bean name="sooratPrivateForm" class="com.asta.app2.webapp.action.SooratPrivateForm" scope="conversation.access">
@@ -38,6 +37,18 @@
 		<property name="carKindManager" ref="carKindManager"/>
 		<property name="carManager" ref="carManager"/>
 		<property name="driverManager" ref="driverManager"/>
+		<property name="pathManager" ref="pathManager"/>
+	</bean>
+
+	<bean name="sooratInnerForm" class="com.asta.app2.webapp.action.SooratInnerForm" scope="conversation.access">
+		<property name="sooratManager" ref="sooratManager"/>
+		<property name="serviceManager" ref="serviceManager"/>
+		<property name="settingManager" ref="settingManager"/>
+		<property name="ticketManager" ref="ticketManager"/>
+		<property name="carKindManager" ref="carKindManager"/> 
+		<property name="driverManager" ref="driverManager"/>
+		<property name="insuranceSarneshinManager" ref="insuranceSarneshinManager"/>
+		<property name="insuranceBadanehManager" ref="insuranceBadanehManager"/>  
 	</bean>
 
     <!-- Add new DAOs here -->
