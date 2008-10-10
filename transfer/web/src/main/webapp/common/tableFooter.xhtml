@@ -1,7 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
       xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
-
+<f:view>
+<f:loadBundle var="text" basename="#{serviceList.bundleName}"/>
 <h:panelGrid columns="1" styleClass="scrollerTable" columnClasses="standardTable_ColumnCentered">
     <t:dataScroller id="scroll" 
     				for="#{tableName}" 
@@ -15,24 +16,25 @@
         			paginatorTableClass="paginator"
        			 	paginatorActiveColumnStyle="font-weight:bold;">
         <f:facet name="first" >
-            <t:graphicImage url="/images/arrow-first.gif" alt="first"/>
+            <t:graphicImage url="/images/arrow-first.gif" alt="#{text['button.first']}"/>
         </f:facet>
         <f:facet name="last">
-            <t:graphicImage url="/images/arrow-last.gif" alt="last"/>
+            <t:graphicImage url="/images/arrow-last.gif" alt="#{text['button.last']}"/>
         </f:facet>
         <f:facet name="previous">
-            <t:graphicImage url="/images/arrow-previous.gif" alt="previous"/>
+            <t:graphicImage url="/images/arrow-previous.gif" alt="#{text['button.previous']}"/>
         </f:facet>
         <f:facet name="next">
-            <t:graphicImage url="/images/arrow-next.gif" alt="next"/>
+            <t:graphicImage url="/images/arrow-next.gif" alt="#{text['button.next']}"/>
         </f:facet>
         <f:facet name="fastforward">
-            <t:graphicImage url="/images/arrow-ff.gif" alt="fastforward"/>
+            <t:graphicImage url="/images/arrow-ff.gif" alt="#{text['button.fastForward']}"/>
         </f:facet>
         <f:facet name="fastrewind">
-            <t:graphicImage url="/images/arrow-fr.gif" alt="fastrewind"/>
+            <t:graphicImage url="/images/arrow-fr.gif" alt="#{text['button.fastRewind']}"/>
         </f:facet>
     </t:dataScroller>
 </h:panelGrid>
+</f:view>
 
 </html>

@@ -138,6 +138,8 @@
     </pluginRepositories>
 
     <!-- Dependencies calculated by AppFuse when running full-source plugin -->
+    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
+    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
     <dependencies>
         <dependency>
             <groupId>${jdbc.groupId}</groupId>
@@ -413,7 +415,7 @@
                 
         <!-- Database settings -->
         <dbunit.dataTypeFactoryName>org.dbunit.dataset.datatype.DefaultDataTypeFactory</dbunit.dataTypeFactoryName>
-        <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
+        <dbunit.operation.type>NONE</dbunit.operation.type>
         
         <hibernate.cache.provider_class>org.hibernate.cache.EhCacheProvider</hibernate.cache.provider_class>
         <hibernate.cache.provider_configuration_file_resource_path>/ehcache.xml</hibernate.cache.provider_configuration_file_resource_path>
@@ -463,7 +465,7 @@
         <velocity.version>1.4</velocity.version>
         <xfire.version>1.2.6</xfire.version>
         <!-- Properties calculated by AppFuse when running full-source plugin -->
-    	<jasper.version>3.0.0</jasper.version>
+    	<jasper.version>3.0.1</jasper.version>
     	<el.version>1.2</el.version>
     	<a4j.trinidad.version>1.0.5</a4j.trinidad.version>
     </properties>

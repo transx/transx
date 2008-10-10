@@ -1592,7 +1592,7 @@
         <webtest name="modifyReserve">
             <steps>
 				<invoke url="http://localhost:8080/login.jsp"/>
-            	<clickLink label="سپند -> �?ارسی"/>
+            	<!--clickLink label="سپند -> فارسی"/-->
 				<setInputField description="Set password field j_password: user" name="j_password" value="user"/>
 				<clickButton label="ورود"/>
 				<clickLink label="رزرور"/>
@@ -1628,7 +1628,6 @@
 				<setCheckbox name="reserveForm:selectedChairs" value="30"/>
 				<setCheckbox name="reserveForm:selectedChairs" value="31"/>
 				<clickButton label="ذخیره"/>
-				<clickButton label="تجدید"/>
 			</steps>
 		</webtest> 
     	<echo>Successfully ran all Reservation UI tests!</echo>
