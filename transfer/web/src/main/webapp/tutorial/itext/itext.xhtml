@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<body>
+
+This text above will not be displayed.
+
+<ui:composition template="/tutorial/template.xhtml">
+
+This text will not be displayed.
+
+  <ui:define name="title">
+  	<h:outputText value="iText tutorial page!"/>
+  </ui:define>
+
+This text will also not be displayed.
+
+  <ui:define name="body">         
+  		<h:form>
+			<h:panelGrid columns="1">
+            <h:commandButton value="Hello World" action="#{itext.hello}"/>
+            <h:commandButton value="Hello Burst" action="#{itext.helloBurst}"/>
+            <h:commandButton value="Fox Dog" action="#{itext.foxDog}"/>
+            <h:commandButton value="Pdfp Table" action="#{itext.pdfptable}"/>
+            <h:commandButton value="Table" action="#{itext.table}"/>
+            <h:commandButton value="Simple Table" action="#{itext.simpleTable}"/>
+            <h:commandButton value="Multi Column" action="#{itext.column}"/>
+            <h:commandButton value="Custom Column" action="#{itext.customColumn}"/>
+            <h:commandButton value="Standard Font" action="#{itext.standardFont}"/>
+            <h:commandButton value="Font Metrics" action="#{itext.fontMetrics}"/>
+            <h:commandButton value="Font Type1 AFM" action="#{itext.fontType1AFM}"/>
+            <h:commandButton value="Font Ttf" action="#{itext.fontTtf}"/>
+            <h:commandButton value="Font Say Peace" action="#{itext.fontPeace}"/>
+			</h:panelGrid>
+         </h:form>
+        </ui:define>
+
+This text will not be displayed.
+  
+</ui:composition>
+
+This text below will also not be displayed.
+
+</body>
+</html>
