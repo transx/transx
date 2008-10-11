@@ -99,7 +99,7 @@ FROM
 						key="textField-2"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DATEBOOK}]]></textFieldExpression>
 				</textField>
@@ -112,7 +112,7 @@ FROM
 						key="textField-3"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_STATE}]]></textFieldExpression>
 				</textField>
@@ -125,7 +125,7 @@ FROM
 						key="textField-4"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TIMED}]]></textFieldExpression>
 				</textField>
@@ -138,7 +138,7 @@ FROM
 						key="textField-5"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1}]]></textFieldExpression>
 				</textField>
@@ -151,7 +151,7 @@ FROM
 						key="textField-6"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_STATE}]]></textFieldExpression>
 				</textField>
@@ -164,7 +164,7 @@ FROM
 						key="textField-7"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -177,7 +177,7 @@ FROM
 						key="textField-8"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -190,7 +190,7 @@ FROM
 						key="textField-9"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_CODE}]]></textFieldExpression>
 				</textField>
@@ -203,7 +203,7 @@ FROM
 						key="textField-10"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_CODE}]]></textFieldExpression>
 				</textField>
@@ -216,7 +216,7 @@ FROM
 						key="textField-11"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -229,7 +229,7 @@ FROM
 						key="textField-12"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -242,7 +242,7 @@ FROM
 						key="textField-13"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_STATE}]]></textFieldExpression>
 				</textField>
@@ -255,7 +255,7 @@ FROM
 						key="textField-14"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2}]]></textFieldExpression>
 				</textField>
@@ -268,7 +268,7 @@ FROM
 						key="textField-15"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_CODE}]]></textFieldExpression>
 				</textField>
@@ -281,7 +281,7 @@ FROM
 						key="textField-16"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -294,7 +294,7 @@ FROM
 						key="textField-17"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -307,7 +307,7 @@ FROM
 						key="textField-18"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_STATE}]]></textFieldExpression>
 				</textField>
@@ -320,7 +320,7 @@ FROM
 						key="textField-19"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3}]]></textFieldExpression>
 				</textField>
@@ -333,7 +333,7 @@ FROM
 						key="textField-20"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUENUMBER}]]></textFieldExpression>
 				</textField>
@@ -346,7 +346,7 @@ FROM
 						key="textField-21"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUESERIAL}]]></textFieldExpression>
 				</textField>
@@ -359,7 +359,7 @@ FROM
 						key="textField-22"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUEISSUE}]]></textFieldExpression>
 				</textField>
@@ -372,7 +372,7 @@ FROM
 						key="textField-23"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_KIND}]]></textFieldExpression>
 				</textField>
@@ -385,7 +385,7 @@ FROM
 						key="textField-24"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_CAPACITY}]]></textFieldExpression>
 				</textField>
@@ -398,7 +398,7 @@ FROM
 						key="textField-25"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CODE_CO}]]></textFieldExpression>
 				</textField>
@@ -411,7 +411,7 @@ FROM
 						key="textField-26"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_PASSENGERCOUNT}]]></textFieldExpression>
 				</textField>
@@ -424,7 +424,7 @@ FROM
 						key="textField-27"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TOTAL}]]></textFieldExpression>
 				</textField>
@@ -437,7 +437,7 @@ FROM
 						key="textField-28"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_TOOSHEEZAFI}]]></textFieldExpression>
 				</textField>
@@ -450,7 +450,7 @@ FROM
 						key="textField-29"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_GOVERNMENTTOLL}]]></textFieldExpression>
 				</textField>
@@ -463,7 +463,7 @@ FROM
 						key="textField-30"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_INSURANCESARNESHIN}]]></textFieldExpression>
 				</textField>
@@ -476,7 +476,7 @@ FROM
 						key="textField-31"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMPANY_NAME}]]></textFieldExpression>
 				</textField>
@@ -489,7 +489,7 @@ FROM
 						key="textField-32"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMPANYPLACE}]]></textFieldExpression>
 				</textField>
@@ -502,7 +502,7 @@ FROM
 						key="textField-33"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMPANY_CITY}]]></textFieldExpression>
 				</textField>
@@ -515,7 +515,7 @@ FROM
 						key="textField-34"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMPANY_PHONE}]]></textFieldExpression>
 				</textField>
@@ -528,7 +528,7 @@ FROM
 						key="textField-35"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_SIGN}]]></textFieldExpression>
 				</textField>
@@ -541,7 +541,7 @@ FROM
 						key="textField-36"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_SIGN}]]></textFieldExpression>
 				</textField>
@@ -554,7 +554,7 @@ FROM
 						key="textField-37"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_SIGN}]]></textFieldExpression>
 				</textField>
@@ -567,7 +567,7 @@ FROM
 						key="textField-38"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMPANYSIGN}]]></textFieldExpression>
 				</textField>
@@ -580,7 +580,7 @@ FROM
 						key="textField-39"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_END}]]></textFieldExpression>
 				</textField>
@@ -593,7 +593,7 @@ FROM
 						key="textField-40"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DATEBOOK}]]></textFieldExpression>
 				</textField>
@@ -606,7 +606,7 @@ FROM
 						key="textField-41"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUENUMBER}]]></textFieldExpression>
 				</textField>
@@ -619,7 +619,7 @@ FROM
 						key="textField-42"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUESERIAL}]]></textFieldExpression>
 				</textField>
@@ -632,7 +632,7 @@ FROM
 						key="textField-43"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_PLAQUEISSUE}]]></textFieldExpression>
 				</textField>
@@ -645,7 +645,7 @@ FROM
 						key="textField-44"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_KIND}]]></textFieldExpression>
 				</textField>
@@ -658,7 +658,7 @@ FROM
 						key="textField-45"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_CAR_CAPACITY}]]></textFieldExpression>
 				</textField>
@@ -671,7 +671,7 @@ FROM
 						key="textField-46"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_START}]]></textFieldExpression>
 				</textField>
@@ -684,7 +684,7 @@ FROM
 						key="textField-47"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1}]]></textFieldExpression>
 				</textField>
@@ -697,7 +697,7 @@ FROM
 						key="textField-48"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_STATE}]]></textFieldExpression>
 				</textField>
@@ -710,7 +710,7 @@ FROM
 						key="textField-49"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -723,7 +723,7 @@ FROM
 						key="textField-50"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -736,7 +736,7 @@ FROM
 						key="textField-51"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER1_CODE}]]></textFieldExpression>
 				</textField>
@@ -749,7 +749,7 @@ FROM
 						key="textField-52"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2}]]></textFieldExpression>
 				</textField>
@@ -762,7 +762,7 @@ FROM
 						key="textField-53"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_STATE}]]></textFieldExpression>
 				</textField>
@@ -775,7 +775,7 @@ FROM
 						key="textField-54"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -788,7 +788,7 @@ FROM
 						key="textField-55"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -801,7 +801,7 @@ FROM
 						key="textField-56"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER2_CODE}]]></textFieldExpression>
 				</textField>
@@ -814,7 +814,7 @@ FROM
 						key="textField-57"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3}]]></textFieldExpression>
 				</textField>
@@ -827,7 +827,7 @@ FROM
 						key="textField-58"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_STATE}]]></textFieldExpression>
 				</textField>
@@ -840,7 +840,7 @@ FROM
 						key="textField-59"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_LICENCE}]]></textFieldExpression>
 				</textField>
@@ -853,7 +853,7 @@ FROM
 						key="textField-60"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_IDENTITYNUMBER}]]></textFieldExpression>
 				</textField>
@@ -866,7 +866,7 @@ FROM
 						key="textField-61"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVER3_CODE}]]></textFieldExpression>
 				</textField>
@@ -891,7 +891,7 @@ FROM
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 </box>
 					<textElement textAlignment="Right">
-						<font fontName="Tahoma" size="8"/>
+						<font fontName="Tahoma" pdfFontName="/com/asta/app2/fonts/roya.ttf" size="8" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$F{passenger}]]></textFieldExpression>
 				</textField>
@@ -908,7 +908,7 @@ FROM
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 </box>
 					<textElement>
-						<font fontName="Times-Roman" size="8"/>
+						<font fontName="Times-Roman" pdfFontName="/com/asta/app2/fonts/roya.ttf" size="8" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$F{ticketPrice}]]></textFieldExpression>
 				</textField>
@@ -925,7 +925,7 @@ FROM
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 </box>
 					<textElement>
-						<font fontName="Times-Roman" size="8"/>
+						<font fontName="Times-Roman" pdfFontName="/com/asta/app2/fonts/roya.ttf" size="8" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$F{chairNumber}]]></textFieldExpression>
 				</textField>
@@ -942,7 +942,7 @@ FROM
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 </box>
 					<textElement>
-						<font fontName="Times-Roman" size="8"/>
+						<font fontName="Times-Roman" pdfFontName="/com/asta/app2/fonts/roya.ttf" size="8" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$F{ticketNumber}]]></textFieldExpression>
 				</textField>
@@ -963,7 +963,7 @@ FROM
 						key="textField-62"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_PASSENGERCOUNT}]]></textFieldExpression>
 				</textField>
@@ -976,7 +976,7 @@ FROM
 						key="textField-63"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_COMMISSION}]]></textFieldExpression>
 				</textField>
@@ -989,7 +989,7 @@ FROM
 						key="textField-64"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_GOVERNMENTTOLL}]]></textFieldExpression>
 				</textField>
@@ -1002,7 +1002,7 @@ FROM
 						key="textField-65"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_INSURANCESARNESHIN}]]></textFieldExpression>
 				</textField>
@@ -1015,7 +1015,7 @@ FROM
 						key="textField-66"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_DRIVERPAY}]]></textFieldExpression>
 				</textField>
@@ -1028,7 +1028,7 @@ FROM
 						key="textField-67"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SOORAT_INSURANCEBADANEH}]]></textFieldExpression>
 				</textField>

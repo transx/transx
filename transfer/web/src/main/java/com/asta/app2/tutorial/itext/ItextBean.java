@@ -153,11 +153,11 @@ public class ItextBean extends BasePage{
 			//step4: we add paragraph o the document
 			BaseFont bf;
 			Font font;
-			bf = BaseFont.createFont("/com/asta/app2/tutorial/itext/nazlib.ttf",BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+			bf = BaseFont.createFont("/com/asta/app2/fonts/nazlib.ttf",BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
 			font = new Font(bf, 12);
 			System.out.println(bf.getClass().getName());
 			document.add(new Paragraph(	"This is font nazlib black italic (embedded)ضصثقفغعهخحجچگکمنتالبیسشظطزرذدپو./", font));
-			bf = BaseFont.createFont("/com/asta/app2/tutorial/itext/nazlib.ttf",BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+			bf = BaseFont.createFont("/com/asta/app2/fonts/nazlib.ttf",BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 			font = new Font(bf, 12);
 			document.add(new Paragraph("This is font nazlib black italic (not embedded)ضصثقفغعهخحجچگکمنتالبیسشظطزرذدپو", font));
 			document.add(new Paragraph("PostScript name:" + bf.getPostscriptFontName()));

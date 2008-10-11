@@ -136,7 +136,7 @@ public class SayPeace extends DefaultHandler {
 			throws ParserConfigurationException, SAXException,
 			FactoryConfigurationError, DocumentException, IOException {
 		this.document = document;
-		f = new Font(BaseFont.createFont("/home/sid/ws/asta.ootooboos2/transfer/web/src/main/java/com/asta/app2/fonts/ARIALUNI.TTF",
+		f = new Font(BaseFont.createFont("/home/sid/Documnets/ARIALUNI.TTF",
 				BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
 		SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
 		parser.parse(is, this);

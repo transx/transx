@@ -71,7 +71,7 @@ public class SooratInnerForm extends BasePage implements Serializable{
 		if (soorat.getId() != null) {
 			service = soorat.getService();
 			service.setOpened(Boolean.FALSE);
-			service = serviceManager.saveService(service);
+			service = serviceManager.save(service);
 			soorat.setService(service);
 			Distance distance;
 			if (service.getPath().getSpace() >= 300)
@@ -139,7 +139,7 @@ public class SooratInnerForm extends BasePage implements Serializable{
 				long id = Long.valueOf(driverSelected[i]).longValue();
 				service.addDriver(driverManager.get(id));
 			}
-			service = serviceManager.saveService(service);
+			service = serviceManager.save(service);
 			soorat.setService(service);
 			soorat.setSooratType(SooratType.INNER);
 			soorat.setCompany(getCurrentUser().getCompany());
@@ -180,7 +180,7 @@ public class SooratInnerForm extends BasePage implements Serializable{
 				long id = Long.valueOf(driverSelected[i]).longValue();
 				service.addDriver(driverManager.get(id));
 			}
-			service = serviceManager.saveService(service);
+			service = serviceManager.save(service);
 			soorat.setService(service);
 			soorat.setSooratType(SooratType.INNER);
 			soorat.setCompany(getCurrentUser().getCompany());
@@ -253,9 +253,9 @@ public class SooratInnerForm extends BasePage implements Serializable{
 				JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 				JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,new JRBeanCollectionDataSource(getChairModelsForPrint()));
 				
-				JasperExportManager.exportReportToPdfFile(jasperPrint,"soorat.pdf");
-//				getFacesContext().getApplication().getStateManager().saveView(getFacesContext());
-//				getFacesContext().responseComplete();
+				JasperExportManager.exportReportToPdfStream(jasperPrint, getResponse().getOutputStream());
+				getFacesContext().getApplication().getStateManager().saveView(getFacesContext());
+				getFacesContext().responseComplete();
 			}catch(Exception e){
 				addError("soorat.notPrinted");
 				log.debug(e);
