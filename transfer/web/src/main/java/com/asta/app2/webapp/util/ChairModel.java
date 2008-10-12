@@ -4,6 +4,7 @@ package com.asta.app2.webapp.util;
 import java.io.Serializable;
 
 import com.asta.app2.model.Passenger;
+import com.asta.app2.model.enums.TicketTempType;
 
 /**
  * 
@@ -12,52 +13,39 @@ import com.asta.app2.model.Passenger;
 public class ChairModel implements Serializable {
 	private static final long serialVersionUID = -8841138605259338661L;
 	private Long id;
-	private String[] chairmate;
 	private String chairType;
 	private String reserverID;
-	private Passenger passenger;
 	private String pathID;
-	private Long ticketNumber;
-	private Long ticketPrice;
-	private Long ticketToll;
-	private Long ticketSnack;
-	
-	public Long getTicketSnack() {
-		return ticketSnack;
-	}
-
-	public void setTicketSnack(Long ticketSnack) {
-		this.ticketSnack = ticketSnack;
-	}
-
-	public Long getTicketToll() {
-		return ticketToll;
-	}
-
-	public void setTicketToll(Long ticketToll) {
-		this.ticketToll = ticketToll;
-	}
+	private Passenger passenger;
+	private TicketTempType ticketTempType;
 
 	public ChairModel() {
 	}
 
-	public ChairModel(Long id, String chairType,
-			String reserverID, Passenger passenger, String pathID) {
+	public ChairModel(Long id, String chairType,String reserverID, Passenger passenger, String pathID) {
 		this.id = id;
-		//this.chairmate = chairmate;
 		this.chairType = chairType;
 		this.reserverID = reserverID;
 		this.passenger = passenger;
 		this.pathID = pathID;
 	}
 
-	public ChairModel(Long id, Passenger passenger, Long ticketNumber, Long ticketPrice,Long ticketToll,Long ticketSnack) {
+	public ChairModel(Long id, String chairType,String reserverID, Passenger passenger, String pathID,TicketTempType ticketTempType) {
 		this.id = id;
+		this.chairType = chairType;
+		this.reserverID = reserverID;
 		this.passenger = passenger;
-		this.ticketNumber = ticketNumber;
-		this.ticketPrice = ticketPrice;
-		this.ticketToll = ticketToll;
-		this.ticketSnack = ticketSnack;
+		this.pathID = pathID;
+		this.ticketTempType = ticketTempType;
+	}
+
+
+	public TicketTempType getTicketTempType() {
+		return ticketTempType;
+	}
+
+	public void setTicketTempType(TicketTempType ticketTempType) {
+		this.ticketTempType = ticketTempType;
 	}
 
 	public Long getId() {
@@ -66,14 +54,6 @@ public class ChairModel implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String[] getChairmate() {
-		return chairmate;
-	}
-
-	public void setChairmate(String[] chairmate) {
-		this.chairmate = chairmate;
 	}
 
 	public String getChairType() {
@@ -106,21 +86,5 @@ public class ChairModel implements Serializable {
 
 	public void setPathID(String pathID) {
 		this.pathID = pathID;
-	}
-
-	public Long getTicketNumber() {
-		return ticketNumber;
-	}
-
-	public void setTicketNumber(Long ticketNumber) {
-		this.ticketNumber = ticketNumber;
-	}
-
-	public Long getTicketPrice() {
-		return ticketPrice;
-	}
-
-	public void setTicketPrice(Long ticketPrice) {
-		this.ticketPrice = ticketPrice;
 	}
 }

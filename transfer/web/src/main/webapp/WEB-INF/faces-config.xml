@@ -1282,7 +1282,11 @@
         </managed-property>
 	</managed-bean>
 
-    
+    <managed-bean>
+    	<managed-bean-name>lookupSessionProvider</managed-bean-name>
+	    <managed-bean-class>com.asta.app2.webapp.action.LookupSessionProvider</managed-bean-class>
+	    <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 
     <!--Country-beans-START-->
     <managed-bean>

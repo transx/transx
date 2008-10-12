@@ -41,7 +41,7 @@ import com.asta.app2.webapp.util.ChairModelForPrint;
  * This form used for calculate sooratInner
  * @author  <a href="mailto:saeid3@gmail.com">Saeid Moradi</a>
  */
-public class SooratSodorForm extends BasePage implements Serializable {
+/*public class SooratSodorForm extends BasePage implements Serializable {
 	private static final long serialVersionUID = -5862857722668822271L;
 	private SooratManager sooratManager;
 	private ServiceManager serviceManager;
@@ -407,4 +407,4 @@ public class SooratSodorForm extends BasePage implements Serializable {
 	public void setSnack(Long snack) {
 		this.snack = snack;
 	}
-}
+}*/

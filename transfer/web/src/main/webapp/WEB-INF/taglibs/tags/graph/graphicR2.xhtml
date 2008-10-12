@@ -27,6 +27,7 @@
 			<c:set var="PASSENGER_NAME" value="" />
 			<c:set var="PATH_ID" value="#{bean[pathID]}" />
 			<c:set var="ITEM_FEMALE" value="false"/>
+			<c:set var="TICKET_TEMP_TYPE" value="SELL"/>
 			<c:forEach items="#{bean[chairs]}" var="chairModel">
 				<c:if test="${chairModel.id == chairId}" >
 					<c:if test="${chairModel.chairType == CHAIR_REGISTED}">
@@ -37,7 +38,8 @@
 					<c:if test="${chairModel.chairType == CHAIR_RESERVED}">
 						<c:set var="CSS_CLASS" value="reservedChair"/>	
 						<c:set var="IS_CHAIR_RESERVED" value="true"/>	
-						<c:set var="IS_CHAIR_DISABLED" value="true"/>	
+						<c:set var="IS_CHAIR_DISABLED" value="true"/>
+						<c:set var="TICKET_TEMP_TYPE" value="${chairModel.ticketTempType}"/>	
 					</c:if>	
 					<c:set var="RESERVER_ID" value="${chairModel.reserverID}"/>	
 					<c:set var="PASSENGER" value="${chairModel.passenger}"/>	
@@ -61,6 +63,7 @@
 					<f:setPropertyActionListener target="#{reserveForm.reserverID}" value="${RESERVER_ID}"/>
 					<f:setPropertyActionListener target="#{reserveForm.passenger}" value="${PASSENGER}"/>
 					<f:setPropertyActionListener target="#{reserveForm.pathID}" value="${PATH_ID}"/>
+					<f:setPropertyActionListener target="#{reserveForm.ticketTempType}" value="${TICKET_TEMP_TYPE}"/>
 					<h:graphicImage value="/images/numbers/${chairId}.ico"/>
 				</h:commandLink>
 				</t:subform>

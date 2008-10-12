@@ -45,6 +45,7 @@ import com.asta.app2.service.TicketManager;
 import com.asta.app2.util.DateUtil;
 import com.asta.app2.webapp.util.ChairModel;
 import com.asta.app2.webapp.util.ChairModelForPrint;
+import com.asta.app2.webapp.util.ChairModelForTicket;
 
 public class SooratInnerForm extends BasePage implements Serializable{
 	private static final long serialVersionUID = 2877356581527934935L;
@@ -61,7 +62,7 @@ public class SooratInnerForm extends BasePage implements Serializable{
 	private Service service = new Service();
 	private Setting setting = new Setting();
 	private int capacity = 0;
-	private List<ChairModel> chairModels;
+	private List<ChairModelForTicket> chairModels;
 	private List<Ticket> tickets;
 	private Collection<ChairModelForPrint> chairModelForPrints;
 	private String[] driverSelected;
@@ -273,8 +274,8 @@ public class SooratInnerForm extends BasePage implements Serializable{
     	driverSelected = (String[]) evt.getNewValue(); 
     }   
 	
-	public List<ChairModel> getChairModels() {
-		chairModels = new ArrayList<ChairModel>();
+	public List<ChairModelForTicket> getChairModels() {
+		chairModels = new ArrayList<ChairModelForTicket>();
 		chairModels.clear();
 		Integer passengerCount = 0;
 		Long total =0L;
@@ -282,7 +283,7 @@ public class SooratInnerForm extends BasePage implements Serializable{
 		Long toll = 0L;
 		for (Ticket ticket : getTickets()) {
 			for (Chair chair : ticket.getChairs()) {
-				ChairModel model = new ChairModel(chair.getId(), ticket
+				ChairModelForTicket model = new ChairModelForTicket(chair.getId(), ticket
 						.getPassenger(), ticket.getNumber(), ticket.getPrice(),
 						ticket.getToll(), ticket.getSnack());
 				chairModels.add(model);

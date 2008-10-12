@@ -75,6 +75,16 @@
 		    <h:selectOneRadio value="#{reserveForm.pathID}" id="path" styleClass="radio" disabled="#{reserveForm.disabled}">
 		        <f:selectItems value="#{reserveForm.pathMap}"/>
 		    </h:selectOneRadio>
+		    
+			<h:panelGroup>
+			    <h:outputLabel styleClass="desc2" for="ticketTempType" value="#{text['ticketTemp.ticketTempType']}"/>
+			    <span class="req">*</span>
+			</h:panelGroup>
+		    <h:selectOneRadio value="#{reserveForm.ticketTempType}" id="ticketTempType" styleClass="radio" disabled="#{reserveForm.disabled}">
+		        <f:selectItems value="#{lookupSessionProvider.ticketTempTypeItems}"/>
+		    </h:selectOneRadio>
+		    
+		    
 			
 		    <h:panelGroup styleClass="buttonBar bottom">
 		        <h:commandButton value="#{text['button.save']}" action="#{reserveForm.save}" id="save" styleClass="button"  disabled="#{reserveForm.disabled}"/>

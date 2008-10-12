@@ -19,6 +19,7 @@ import com.asta.app2.model.Service;
 import com.asta.app2.model.Ticket;
 import com.asta.app2.model.TicketTemp;
 import com.asta.app2.model.enums.Gender;
+import com.asta.app2.model.enums.TicketTempType;
 import com.asta.app2.service.ChairManager;
 import com.asta.app2.exception.ChairReservedException;
 import com.asta.app2.service.PassengerManager;
@@ -57,7 +58,6 @@ public class ReserveForm extends BasePage implements Serializable {
 	private String pathID;
 	private Map<String, String> pathMap;
 
-	private String chairCode = "?";
 	private String isChairDisabled = "true";
 	private String isChairReserved = "false";
 	private String isChairRegisted = "true";
@@ -65,6 +65,7 @@ public class ReserveForm extends BasePage implements Serializable {
 	// this field is hard coded inside of reserveContainer component.
 	private String[] selectedChairs;
 
+	private TicketTempType ticketTempType;
 
 	public String changeChair() {
 
@@ -126,6 +127,7 @@ public class ReserveForm extends BasePage implements Serializable {
 				ticketTemp.setCommitted(false);
 				ticketTemp.setReserveDate(new Date());
 				ticketTemp.setReserverId(getRequest().getRemoteUser());
+				ticketTemp.setTicketTempType(getTicketTempType());
 				
 				String key;
 				setSelectedChairs(null);
@@ -182,22 +184,14 @@ public class ReserveForm extends BasePage implements Serializable {
 		chairModels = new ArrayList<ChairModel>();
 		chairModels.clear();
 		for (Ticket ticket : getTickets()) {
-//			String[] chairmate = new String[getCapacity() + 1];
-//			for (Chair chair : ticket.getChairs()) {
-//				chairmate[chair.getId().intValue()] = chair.getId().toString();
-//			}
 			for (Chair chair : ticket.getChairs()) {
 				ChairModel model = new ChairModel(chair.getId(),Constants.CHAIR_REGISTERED, ticket.getReserverId(),ticket.getPassenger(), ticket.getPath().getId().toString());
 				chairModels.add(model);
 			}
 		}
 		for (TicketTemp tt : getTts()) {
-//			String[] chairmate = new String[getCapacity() + 1];
-//			for (Chair chair : tt.getChairs()) {
-//				chairmate[chair.getId().intValue()] = chair.getId().toString();
-//			}
 			for (Chair chair : tt.getChairs()) {
-				ChairModel model = new ChairModel(chair.getId(),Constants.CHAIR_RESERVED, tt.getReserverId(), tt.getPassenger(), tt.getPath().getId().toString());
+				ChairModel model = new ChairModel(chair.getId(),Constants.CHAIR_RESERVED, tt.getReserverId(), tt.getPassenger(), tt.getPath().getId().toString(),tt.getTicketTempType());
 				chairModels.add(model);
 			}
 		}
@@ -217,8 +211,21 @@ public class ReserveForm extends BasePage implements Serializable {
 		return tts;
 	}
 
+	
+	public TicketTempType getTicketTempType() {
+		return ticketTempType;
+	}
+
+	public void setTicketTempType(TicketTempType ticketTempType) {
+		this.ticketTempType = ticketTempType;
+	}
+
 	public void setPassengerManager(PassengerManager passengerManager) {
 		this.passengerManager = passengerManager;
+	}
+
+	public TicketTemp getTicketTemp() {
+		return ticketTemp;
 	}
 
 	public Service getService() {
@@ -271,14 +278,6 @@ public class ReserveForm extends BasePage implements Serializable {
 					.getId().toString());
 		}
 		return pathMap;
-	}
-
-	public void setChairCode(String chairCode) {
-		this.chairCode = chairCode;
-	}
-
-	public String getChairCode() {
-		return chairCode;
 	}
 
 	public String getIsChairRegisted() {
