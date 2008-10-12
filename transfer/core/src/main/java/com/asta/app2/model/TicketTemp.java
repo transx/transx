@@ -8,6 +8,8 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.asta.app2.model.enums.TicketTempType;
 import com.asta.app2.util.DateUtil;
 
 /**
@@ -54,10 +57,14 @@ public class TicketTemp extends BaseObject implements Serializable,
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "ticket_temp_chair", joinColumns = { @JoinColumn(name = "ticket_temp_id") }, inverseJoinColumns = @JoinColumn(name = "chair_id"))
 	private Set<Chair> chairs = new HashSet<Chair>();
-
+	
 	@ManyToOne
 	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "ticket_temp_type", length = 20 , nullable = false)
+	private TicketTempType ticketTempType;
 
 	@Override
 	public boolean equals(Object o) {
@@ -184,5 +191,13 @@ public class TicketTemp extends BaseObject implements Serializable,
 
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+	
+	public TicketTempType getTicketTempType() {
+		return ticketTempType;
+	}
+
+	public void setTicketTempType(TicketTempType ticketTempType) {
+		this.ticketTempType = ticketTempType;
 	}
 }

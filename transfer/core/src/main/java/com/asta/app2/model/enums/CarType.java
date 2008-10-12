@@ -14,9 +14,9 @@ public enum CarType {
 	public String getLabel(){
 		switch(this){
 			case TYPE1:
-				return BundleUtil.getMessageBundle("type.type1");
+				return BundleUtil.getMessageBundle("carType.type1");
 			case TYPE2:
-				return BundleUtil.getMessageBundle("type.type2");
+				return BundleUtil.getMessageBundle("carType.type2");
 		}
 		return "Unknown";
 	}

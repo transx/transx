@@ -2029,6 +2029,7 @@
         <column>service_id</column>    
         <column>path_id</column>    
         <column>company_id</column>
+        <column>ticket_temp_type</column>
     <row>
         <value description="id">-1</value>
         <value description="count">1</value>
@@ -2040,6 +2041,7 @@
         <value description="service_id">-1</value>
         <value description="path_id">-1</value>
         <value description="company_id">-1</value>
+        <value description="ticket_temp_type">SELL</value>
     </row>
     <row>
         <value description="id">-2</value>
@@ -2052,6 +2054,7 @@
         <value description="service_id">-1</value>
         <value description="path_id">-3</value>
         <value description="company_id">-1</value>
+        <value description="ticket_temp_type">RESERVE</value>
     </row>
     <row>
         <value description="id">-3</value>
@@ -2064,6 +2067,7 @@
         <value description="service_id">-1</value>
         <value description="path_id">-4</value>
         <value description="company_id">-1</value>
+        <value description="ticket_temp_type">SELL</value>
     </row>
     </table>
     <table name="ticket_temp_chair">
