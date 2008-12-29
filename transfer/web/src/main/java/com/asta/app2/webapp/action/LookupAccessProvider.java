@@ -3,8 +3,14 @@ package com.asta.app2.webapp.action;
 
 import java.util.Map;
 
+import javax.faces.model.SelectItem;
+
+import com.asta.app2.Constants;
+import com.asta.app2.model.Company;
+import com.asta.app2.model.enums.TicketTempType;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.CarManager;
+import com.asta.app2.service.CompanyManager;
 import com.asta.app2.service.DriverManager;
 import com.asta.app2.service.PathManager;
 
@@ -58,5 +64,35 @@ public class LookupAccessProvider extends BasePage{
 		return pathParentItems;
 	}
 	
+	private static SelectItem[] ticketTempTypeItems = {
+		new SelectItem(TicketTempType.SELL, TicketTempType.SELL.getLabel()),
+		new SelectItem(TicketTempType.RESERVE, TicketTempType.RESERVE.getLabel()) };
+
+	public SelectItem[] getTicketTempTypeItems() {
+		return ticketTempTypeItems;
+	}
 	
+	private Map<Company, Company> companyItems;
+	private CompanyManager companyManager;
+	public void setCompanyManager(CompanyManager companyManager) {
+		this.companyManager = companyManager;
+	}
+	public Map<Company, Company> getCompanyItems(){
+		if (companyItems == null)
+			companyItems = companyManager.getCompanyItems(false);
+		return companyItems;
+	} 
+	
+	private Map<String, String> notFilterReserverItems;
+	public Map<String, String> getNotFilterReserverItems(){
+		if(notFilterReserverItems == null)
+			notFilterReserverItems = userManager.getSpecificMap(false, Constants.RESERVER_ROLE);
+		return notFilterReserverItems;
+	}
+	private Map<String, String> reserverItems;
+	public Map<String, String> getReserverItems(){
+		if(reserverItems == null)
+			reserverItems = userManager.getSpecificMap(getCurrentUser().getCompany(),false, Constants.RESERVER_ROLE);
+		return reserverItems;
+	}
 }

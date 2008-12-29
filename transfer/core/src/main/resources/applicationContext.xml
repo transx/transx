@@ -188,5 +188,15 @@
     <bean name="reservationView"
         class="com.asta.app2.tutorial.helloorchestra.ReservationView"
         scope="conversation.access"/>
+
+    <!--CashTemplateManager-START-->
+    <bean id="cashTemplateDao" class="com.asta.app2.dao.hibernate.CashTemplateDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+	<bean id="cashTemplateManager" class="com.asta.app2.service.impl.CashTemplateManagerImpl">
+		<constructor-arg ref="cashTemplateDao"/>
+	</bean>
+
+
     <!-- Add new Managers here -->
 </beans>

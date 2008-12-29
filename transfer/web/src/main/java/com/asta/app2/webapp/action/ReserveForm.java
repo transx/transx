@@ -127,7 +127,7 @@ public class ReserveForm extends BasePage implements Serializable {
 				ticketTemp.setCommitted(false);
 				ticketTemp.setReserveDate(new Date());
 				ticketTemp.setReserverId(getRequest().getRemoteUser());
-				ticketTemp.setTicketTempType(getTicketTempType());
+				ticketTemp.setTicketTempType(ticketTempType);
 				
 				String key;
 				setSelectedChairs(null);

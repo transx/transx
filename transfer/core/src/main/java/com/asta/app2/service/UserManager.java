@@ -8,6 +8,7 @@ import org.springframework.security.userdetails.UsernameNotFoundException;
 import com.asta.app2.dao.UserDao;
 import com.asta.app2.exception.UserExistsException;
 import com.asta.app2.model.Company;
+import com.asta.app2.model.Role;
 import com.asta.app2.model.User;
 
 
@@ -83,10 +84,21 @@ public interface UserManager extends UniversalManager {
     void removeUser(String userId);
 
     /**
-     * Retrieves a list of users , filtering with specific role (ROLE_CASHIER)
+     * Retrieves a list of users , filtering with specific role (e.g. ROLE_CASHIER)
      *
-     * @param withEmpty the boolean value for check the first value of map
+     * @param withEmpty the boolean value for add empty row at the first value of map
+     * @param role_name the String for filter result
      * @return Map of string string for fill the selectOneMenu
      */
 	Map<String, String> getSpecificMap(boolean withEmpty,String role_name);
+
+	/**
+	 * Retrieves a list of users , filtering with specific role (ROLE_CASHIER)
+	 *
+	 * @param company the company entity for filter result
+	 * @param withEmpty the boolean value for add empty row at the first value of map
+	 * @param role_name the String for filter result
+	 * @return Map of string string for fill the selectOneMenu
+	 */
+	Map<String, String> getSpecificMap(Company company,boolean withEmpty,String role_name);
 }

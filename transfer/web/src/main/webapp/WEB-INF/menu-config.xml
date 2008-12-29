@@ -20,6 +20,7 @@
 	        <Item name="CarKind" title="menu.admin.carKind" page="/admin/carKinds.html"/>
 	        <Item name="Soorat"  title="menu.manager.soorat" page="/admin/soorats.html"/>
 	        <Item name="Passenger" title="menu.admin.passenger" page="/admin/passengers.html"/>
+        	<Item name="CashTemplate" title="menu.admin.cashTemplate" page="/admin/cashTemplates.html"/>
         </Menu>
         <Menu name="OwnerMenu" title="menu.owner" page="/owner/users.html" roles="ROLE_OWNER" width="40">
             <Item name="Users" title="menu.owner.users" page="/owner/users.html"/>

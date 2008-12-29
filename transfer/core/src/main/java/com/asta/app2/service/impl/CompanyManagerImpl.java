@@ -40,4 +40,17 @@ public class CompanyManagerImpl extends GenericManagerImpl<Company, Long>
 		return map;
 	}
 
+	public Map<Company, Company> getCompanyItems(boolean withEmpty) {
+		List<Company> companies = companyDao.getAllDistinct();
+		Map<Company, Company> map = new TreeMap<Company, Company>();
+		map.clear();
+		if (withEmpty) {
+			map.put(null, null);
+		}
+		for (Company company : companies) {
+			map.put(company, company);
+		}
+		return map;
+	}
+
 }

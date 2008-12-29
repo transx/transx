@@ -118,7 +118,7 @@ public class ItextBean extends BasePage{
 			//step3: we open the document
 			document.open();
 			//step4: we add paragraph o the document
-			new SayPeace(document, new InputSource(new FileInputStream("src/main/webapp/tutorial/itext/say_peace.xml")));
+	//		new SayPeace(document, new InputSource(new FileInputStream("src/main/webapp/tutorial/itext/say_peace.xml")));
 			
 			getFacesContext().getApplication().getStateManager().saveView(getFacesContext());
 			getFacesContext().responseComplete();
@@ -447,7 +447,7 @@ public class ItextBean extends BasePage{
         Font font = FontFactory.getFont(BaseFont.HELVETICA, 10, type);
         Paragraph p = new Paragraph(text, font);
         p.setAlignment(alignment);
-        p.setLeading(font.getSize() * 1.2f);
+//        p.setLeading(font.getSize() * 1.2f);
         return p;
      }
  
@@ -636,7 +636,7 @@ public class ItextBean extends BasePage{
 			Paragraph p = new Paragraph("Academic Year 2006-2007\n\n");
 			p.setAlignment(Element.ALIGN_CENTER);
 			document.add(p);
-			document.add(new FoobarStudyProgram("src/main/webapp/tutorial/itext/studyprogram.xml").getTable());
+//			document.add(new FoobarStudyProgram("src/main/webapp/tutorial/itext/studyprogram.xml").getTable());
 			p = new Paragraph("Sem.: 1 = first semester, 2 = second semester, Y = annual course");
 			p.setAlignment(Element.ALIGN_RIGHT);
 			document.add(p);

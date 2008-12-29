@@ -7,9 +7,9 @@
     <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources_${user.language}.properties"/>
     <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources.properties"/>
 
-    <!-- runs all targets #,SooratTests#-->
+    <!-- runs all targets #,SooratTests,CashTemplateTests,CashTests#-->
     <target name="run-all-tests" 
-        depends="Login,Logout,UserTests,Signup,PasswordHint,FlushCache,FileUpload,CashTests,RateTests,TicketTempTests,TicketTests,ServiceTests,PassengerTests,CarTests,LodgerTests,DriverTests,PersonTests,ServiceTemplateTests,CarKindTests,CompanyTests,PathTests,CityTests,CountryTests,CityTests,CountryTests,ModifyReserve"
+        depends="Login,Logout,UserTests,Signup,PasswordHint,FlushCache,FileUpload,RateTests,TicketTempTests,TicketTests,ServiceTests,PassengerTests,CarTests,LodgerTests,DriverTests,PersonTests,ServiceTemplateTests,CarKindTests,CompanyTests,PathTests,CityTests,CountryTests,CityTests,CountryTests,ModifyReserve"
         description="Call and executes all test cases (targets)"/>
     
     <!-- runs user-related tests #,AddUser-->
@@ -1928,4 +1928,101 @@
         </webtest>
     </target>
     <!--Cash-END-->
+    <!--CashTemplate-START-->
+    <!-- runs cashTemplate-related tests -->
+    <target name="CashTemplateTests"
+        depends="SearchCashTemplates,EditCashTemplate,SaveCashTemplate,AddCashTemplate,DeleteCashTemplate"
+        description="Call and executes all cashTemplate test cases (targets)">
+        <echo>Successfully ran all CashTemplate UI tests!</echo>
+    </target>
+
+    <!-- Verify the cashTemplates list screen displays without errors -->
+    <target name="SearchCashTemplates" description="Tests search for and displaying all people">
+        <webtest name="searchCashTemplates">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View CashTemplate link" url="/admin/cashTemplates.html"/>
+                <verifytitle description="we should see the cashTemplateList title"
+                    text=".*${cashTemplateList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the edit cashTemplate screen displays without errors -->
+    <target name="EditCashTemplate" description="Tests editing an existing CashTemplate's information">
+        <webtest name="editCashTemplate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View CashTemplate List" url="/admin/cashTemplates.html"/>
+                <clicklink label="-1"/>
+                <verifytitle description="we should see the cashTemplateDetail title"
+                    text=".*${cashTemplateDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a cashTemplate and then save -->
+    <target name="SaveCashTemplate" description="Tests editing and saving a cashTemplate">
+        <webtest name="saveCashTemplate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View CashTemplate List" url="/admin/cashTemplates.html"/>
+                <clicklink label="-1"/>
+                <verifytitle description="we should see the cashTemplateDetail title"
+                    text=".*${cashTemplateDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setInputField description="set number" name="cashTemplateForm:number" value="DkV"/>
+                <setCheckbox description="set enabled" name="cashTemplateForm:enabled" value="true"/>
+
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${cashTemplateDetail.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${cashTemplate.updated}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new CashTemplate -->
+    <target name="AddCashTemplate" description="Adds a new CashTemplate">
+        <webtest name="addCashTemplate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View CashTemplate Form" url="/admin/cashTemplateForm.html"/>
+                <verifytitle description="we should see the cashTemplateDetail title"
+                    text=".*${cashTemplateDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setInputField description="set number" name="cashTemplateForm:number" value="MgM"/>
+                <setCheckbox description="set enabled" name="cashTemplateForm:enabled" value="true"/>
+
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                <verifytitle description="CashTemplate List appears if save successful"
+                    text=".*${cashTemplateList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${cashTemplate.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing cashTemplate -->
+    <target name="DeleteCashTemplate" description="Deletes existing CashTemplate">
+        <webtest name="deleteCashTemplate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="View CashTemplate List" url="/admin/cashTemplates.html"/>
+                <clicklink label="2"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display CashTemplate List" text=".*${cashTemplateList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${cashTemplate.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+    <!--CashTemplate-END-->
 </project>

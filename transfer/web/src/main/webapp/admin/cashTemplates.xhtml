@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{cashTemplateList.bundleName}"/>
+    <head>
+        <title>#{text['cashTemplateList.title']}</title>
+        <meta name="heading" content="#{text['cashTemplateList.heading']}"/>
+        <meta name="menu" content="CashTemplateMenu"/>
+    </head>
+<body id="cashTemplateList">
+<h:form id="editCashTemplate">
+
+<h:commandButton value="#{text['button.add']}" action="#{cashTemplateForm.edit}" id="add" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="cashTemplates" var="cashTemplate" style="margin-top: 10px"
+    value="#{cashTemplateList.cashTemplates}" rows="25" sortColumn="#{cashTemplateList.sortColumn}"
+    sortAscending="#{cashTemplateList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['cashTemplate.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{cashTemplateForm.edit}" value="#{cashTemplate.id}">
+            <f:param name="id" value="#{cashTemplate.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="number" arrow="true">
+                <h:outputText value="#{text['cashTemplate.number']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{cashTemplate.number}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+             <h:outputText value="#{text['cashTemplate.enabled']}" />
+        </f:facet>
+    	<h:graphicImage value="/images/iconOpen.png" rendered="#{cashTemplate.enabled}" alt="#{text['cashTemplate.enabled']}"/>
+		<h:graphicImage value="/images/iconClose.png" rendered="#{!cashTemplate.enabled}" alt="#{text['cashTemplate.enabled']}"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="company" arrow="true">
+                <h:outputText value="#{text['cashTemplate.company']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    	<h:outputText value="#{cashTemplate.company}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <h:outputText value="#{text['cashTemplate.users']}" />
+        </f:facet>
+    	<h:outputText value="#{cashTemplate.usernames}" escape="true"/>
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="cashTemplates"/>
+</ui:include>
+
+<script type="text/javascript">
+    highlightTableRows("editCashTemplate:cashTemplates");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 

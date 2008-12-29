@@ -72,14 +72,14 @@
                         <skip>${maven.test.skip}</skip>
                     </componentProperties>
                 </configuration>
-                <!-- executions>
+                <executions>
                     <execution>
                         <phase>process-test-resources</phase>
                         <goals>
                             <goal>hbm2ddl</goal>
                         </goals>
                     </execution>
-                </executions -->
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>${jdbc.groupId}</groupId>
@@ -103,17 +103,14 @@
                     <schema>${dbunit.schema}</schema>
                     <skip>${maven.test.skip}</skip>
                 </configuration>
-                <!-- executions>
+                <executions>
                     <execution>
                         <phase>test-compile</phase>
                         <goals>
                             <goal>operation</goal>
                         </goals>
-                        <configuration>
-                        	<format>xml</format>
-                        </configuration>
                     </execution>
-                </executions -->
+                </executions>
                 <dependencies>
                     <dependency>
                         <groupId>${jdbc.groupId}</groupId>

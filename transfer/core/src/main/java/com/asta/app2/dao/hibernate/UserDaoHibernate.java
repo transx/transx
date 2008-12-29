@@ -116,8 +116,8 @@ public class UserDaoHibernate extends GenericDaoHibernate<User, Long> implements
 	 * {@inheritDoc}
 	 * this method doesn't work corrctly !!! and need to be change asap.
 	 */
-	public List<User> findUsersByThisRole(String role_name) {
-		List<Role> roles = getHibernateTemplate().find("from Role where name=?", role_name);
+	public List<User> findUsersByThisRole(Company company,Role role) {
+		
 		return  getHibernateTemplate().find("from User");
 /*		if (roles.get(0) != null){
 			User entity = new User();

@@ -12,9 +12,11 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.providers.encoding.PasswordEncoder;
 import org.springframework.security.userdetails.UsernameNotFoundException;
 
+import com.asta.app2.Constants;
 import com.asta.app2.dao.UserDao;
 import com.asta.app2.exception.UserExistsException;
 import com.asta.app2.model.Company;
+import com.asta.app2.model.Role;
 import com.asta.app2.model.User;
 import com.asta.app2.service.UserManager;
 import com.asta.app2.service.UserService;
@@ -29,7 +31,7 @@ import com.asta.app2.service.UserService;
 public class UserManagerImpl extends UniversalManagerImpl implements UserManager, UserService {
     private UserDao dao;
     private PasswordEncoder passwordEncoder;
-
+    
     /**
      * Set the Dao for communication with the data layer.
      * @param dao the UserDao that communicates with the database
@@ -190,21 +192,46 @@ public class UserManagerImpl extends UniversalManagerImpl implements UserManager
 
     /**
      * {@inheritDoc}
-     * @param withEmpty fill the map withEmpty value (if true)
-     * @param role Retrieves only users with this role 
-     * @return Map of string string of Users with specific role
      */
 	public Map<String, String> getSpecificMap(boolean withEmpty, String role_name) {
-		// this part need to be change !!! this return all users instead of users with specific roles
-		List<User> users = dao.findUsersByThisRole(role_name);
+		List<User> users = dao.getAllDistinct();
 		Map<String, String> map = new TreeMap<String, String>();
 		map.clear();
 		if (withEmpty)
-			map.put("", "");
+			map.put("- - - - - - - - - -", Constants.EMPTY);
 
 		for (User user : users) {
-			map.put(user.getUsername() == null ? "" : user.getUsername(), user
-					.getId().toString());
+			if (user.getRoles().size() > 0 ){
+				for (Role elm : user.getRoles()){
+					if (elm.getAuthority().equals(role_name)){
+						map.put(user.getUsername(), user.getId().toString());
+					}
+				}
+			}
+		}
+		return map;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Map<String, String> getSpecificMap(Company company,boolean withEmpty, String role_name) {
+		User userExample = new User();
+		userExample.setCompany(new Company(company.getId()));
+		List<User> users = dao.searchByExample(userExample);
+		Map<String, String> map = new TreeMap<String, String>();
+		map.clear();
+		if (withEmpty)
+			map.put("- - - - - - - - - -", Constants.EMPTY);
+		
+		for (User user : users) {
+			if (user.getRoles().size() > 0 ){
+				for (Role elm : user.getRoles()){
+					if (elm.getAuthority().equals(role_name)){
+						map.put(user.getUsername(), user.getId().toString());
+					}
+				}
+			}
 		}
 		return map;
 	}

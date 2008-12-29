@@ -1335,6 +1335,32 @@
 	    <row><value description="id">50</value></row>
     </table>
     <!--Chair-END-->    
+    <!--CashTemplate-START-->
+    <table name="cash_template">
+        <column>id</column>
+        <column>number</column>
+        <column>enabled</column>
+        <column>company_id</column>
+	    <row>
+	        <value description="id">-1</value>
+	        <value description="number">1</value>
+	        <value description="enabled">1</value>
+	        <value description="company_id">-1</value>
+	    </row>
+	    <row>
+	        <value description="id">-2</value>
+	        <value description="number">2</value>
+	        <value description="enabled">1</value>
+	        <value description="company_id">-1</value>
+	    </row>
+	    <row>
+	        <value description="id">-3</value>
+	        <value description="number">3</value>
+	        <value description="enabled">0</value>
+	        <value description="company_id">-1</value>
+	    </row>
+    </table>
+    <!--CashTemplate-END-->    
     <!--Cash-START-->
     <table name="Cash">
         <column>id</column>
@@ -1345,40 +1371,40 @@
         <column>count_ticket</column>
         <column>total_price</column>
         <column>company_id</column>
-        <column>number_cash</column>
-    <row>
-        <value description="id">-1</value>
-        <null/>
-        <null/>
-        <value description="cash_enabled">0</value>
-        <value description="cash_expired">0</value>
-        <value description="count_tikcet">0</value>
-        <value description="total_price">0</value>
-        <value description="company_id">-1</value>
-        <value description="number_cash">3</value>
-    </row>
-    <row>
-        <value description="id">-2</value>
-        <null/>
-        <null/>
-        <value description="cash_enabled">0</value>
-        <value description="cash_expired">0</value>
-        <value description="count_tikcet">0</value>
-        <value description="total_price">0</value>
-        <value description="company_id">-1</value>
-        <value description="number_cash">2</value>
-    </row>
-    <row>
-        <value description="id">-3</value>
-        <value description="time_open">2008-07-28</value>
-        <null/>
-        <value description="cash_enabled">1</value>
-        <value description="cash_expired">0</value>
-        <value description="count_tikcet">23</value>
-        <value description="total_price">3756100</value>
-        <value description="company_id">-1</value>
-        <value description="number_cash">1</value>
-    </row>
+        <column>cash_template_id</column>
+	    <row>
+	        <value description="id">-1</value>
+	        <null/>
+	        <null/>
+	        <value description="cash_enabled">0</value>
+	        <value description="cash_expired">0</value>
+	        <value description="count_tikcet">0</value>
+	        <value description="total_price">0</value>
+	        <value description="company_id">-1</value>
+	        <value description="cash_template_id">-1</value>
+	    </row>
+	    <row>
+	        <value description="id">-2</value>
+	        <null/>
+	        <null/>
+	        <value description="cash_enabled">0</value>
+	        <value description="cash_expired">0</value>
+	        <value description="count_tikcet">0</value>
+	        <value description="total_price">0</value>
+	        <value description="company_id">-1</value>
+	        <value description="cash_template_id">-2</value>
+	    </row>
+	    <row>
+	        <value description="id">-3</value>
+	        <value description="time_open">2008-07-28</value>
+	        <null/>
+	        <value description="cash_enabled">1</value>
+	        <value description="cash_expired">0</value>
+	        <value description="count_tikcet">23</value>
+	        <value description="total_price">3756100</value>
+	        <value description="company_id">-1</value>
+	        <value description="cash_template_id">-3</value>
+	    </row>
     </table>
     <!--Cash-END-->
     <!--Ticket-START-->

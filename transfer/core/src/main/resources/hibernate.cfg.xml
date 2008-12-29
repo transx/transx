@@ -25,6 +25,7 @@
         <mapping class="com.asta.app2.model.Setting"/>
         <mapping class="com.asta.app2.model.InsuranceSarneshin"/>
         <mapping class="com.asta.app2.model.InsuranceBadaneh"/>
+        <mapping class="com.asta.app2.model.CashTemplate"/>
         <mapping class="com.asta.app2.model.Cash"/>
     </session-factory>
 </hibernate-configuration>

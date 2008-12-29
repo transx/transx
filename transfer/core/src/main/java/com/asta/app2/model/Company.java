@@ -17,9 +17,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "company")
 public class Company extends BaseObject implements Comparable<Company> {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(length = 100, nullable = false)
 	private String name;
+	@Column(length = 50, nullable = false, unique = true)
 	private String code;
+	@ManyToOne
+	@JoinColumn(name = "city_id", nullable = true)
 	private City city;
 
 	public Company() {}
@@ -28,44 +34,6 @@ public class Company extends BaseObject implements Comparable<Company> {
 		this.id = id;
 	}
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	@Column(length = 100, nullable = false)
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Column(length = 50, nullable = false, unique = true)
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	@ManyToOne
-	@JoinColumn(name = "city_id", nullable = true)
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -74,12 +42,12 @@ public class Company extends BaseObject implements Comparable<Company> {
 			return false;
 
 		final Company company = (Company) o;
-		return this.getId().equals(company.getId());
+		return this.code.equals(company.getCode());
 	}
 
 	@Override
 	public int hashCode() {
-		return (id != null ? id.hashCode() : 0);
+		return (code != null ? code.hashCode() : 23);
 	}
 
 	@Override
@@ -91,5 +59,43 @@ public class Company extends BaseObject implements Comparable<Company> {
 		String otherCompany = company.toString();
 		return this.toString().compareTo(otherCompany);
 	}
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+
 
 }

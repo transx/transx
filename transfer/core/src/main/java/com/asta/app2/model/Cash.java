@@ -2,8 +2,6 @@
 package com.asta.app2.model;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.asta.app2.util.DateUtil;
@@ -51,13 +48,10 @@ public class Cash extends BaseObject {
 	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
 
-	@Column(name = "number_cash")
-	private Integer number;
+	@ManyToOne
+	@JoinColumn(name = "cash_template_id" , nullable = false)
+	private CashTemplate cashTemplate;
 	
-	// this part commented because of thinking about performance .
-	// @OneToMany(mappedBy="cash")
-	// private Set<Ticket> tickets = new HashSet<Ticket>();
-
 	@Override
 	public boolean equals(Object o) {
 		if (o == this)
@@ -152,11 +146,13 @@ public class Cash extends BaseObject {
 		this.company = company;
 	}
 
-	public Integer getNumber() {
-		return number;
+	public CashTemplate getCashTemplate() {
+		return cashTemplate;
 	}
 
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setCashTemplate(CashTemplate cashTemplate) {
+		this.cashTemplate = cashTemplate;
 	}
+
+	
 }

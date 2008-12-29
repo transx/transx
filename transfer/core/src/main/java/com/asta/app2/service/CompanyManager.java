@@ -13,4 +13,5 @@ import com.asta.app2.model.Company;
 public interface CompanyManager extends GenericManager<Company, Long> {
 	List<Company> findByCode(String code);
 	Map<String, String> getMap(boolean withEmpty);
+	Map<Company, Company> getCompanyItems(boolean withEmpty);
 }

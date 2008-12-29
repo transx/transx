@@ -9,6 +9,7 @@ import org.springframework.security.context.SecurityContextHolder;
 
 import com.asta.app2.Constants;
 import com.asta.app2.model.Chair;
+import com.asta.app2.model.Role;
 import com.asta.app2.model.Ticket;
 import com.asta.app2.model.User;
 import com.asta.app2.service.ChairManager;
@@ -204,8 +205,7 @@ public class TicketForm extends BasePage implements Serializable {
 
 	public Map<String, String> getCashierMap() {
 		if (cashierMap == null)
-			cashierMap = userManager.getSpecificMap(true,
-					Constants.CASHIER_ROLE);
+			cashierMap = userManager.getSpecificMap(getCurrentUser().getCompany(),true,Constants.CASHIER_ROLE);
 		return cashierMap;
 	}
 

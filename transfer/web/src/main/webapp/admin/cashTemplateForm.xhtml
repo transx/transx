@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator" xmlns:trans="http://app2.asta.com/tags/jsf">
+
+<f:view>
+<f:loadBundle var="text" basename="#{cashTemplateForm.bundleName}"/>
+    <head>
+        <title>#{text['cashTemplateDetail.title']}</title>
+        <meta name="heading" content="#{text['cashTemplateDetail.heading']}"/>
+    </head>
+<body id="cashTemplateForm">
+
+<h:form id="cashTemplateForm" onsubmit="return validateCashTemplateForm(this)">
+<h:inputHidden value="#{cashTemplateForm.cashTemplate.id}" id="id"/>
+<t:panelGrid columns="3">
+    <h:outputLabel styleClass="desc" for="number" value="#{text['cashTemplate.number']}"/>
+    <h:inputText styleClass="text medium" id="number" value="#{cashTemplateForm.cashTemplate.number}" required="true" maxlength="3">
+        <v:commonsValidator type="required" arg="#{text['cashTemplate.number']}"/>
+    </h:inputText>
+    <t:message for="number" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="enabled" value="#{text['cashTemplate.enabled']}"/>
+    <h:selectBooleanCheckbox value="#{cashTemplateForm.cashTemplate.enabled}" id="enabled" styleClass="checkbox"/>
+    <t:message for="enabled" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="company" value="#{text['cashTemplate.company']}"/>
+    <h:selectOneMenu value="#{cashTemplateForm.cashTemplate.company}" id="company" required="true" styleClass="select">
+        <trans:convertCompany/>
+        <f:selectItems value="#{lookupAccessProvider.companyItems}"/>
+        <v:commonsValidator type="required" arg="#{text['cashTemplate.company']}"/>
+    </h:selectOneMenu>
+    <t:message for="company" styleClass="fieldError"/>
+
+    <h:outputLabel styleClass="desc" for="users" value="#{text['cashTemplate.users']}"/>
+   	<t:selectManyPicklist value="#{cashTemplateForm.userSelected}" size="5" valueChangeListener="#{cashTemplateForm.userChanged}" id="users" >
+           <f:selectItems value="#{lookupAccessProvider.notFilterReserverItems}"/>
+   	</t:selectManyPicklist>
+    <t:message for="users" styleClass="fieldError"/>
+
+</t:panelGrid>
+    <h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{cashTemplateForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty cashTemplateForm.cashTemplate.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{cashTemplateForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('CashTemplate')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+</h:form>
+
+<v:validatorScript functionName="validateCashTemplateForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('cashTemplateForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

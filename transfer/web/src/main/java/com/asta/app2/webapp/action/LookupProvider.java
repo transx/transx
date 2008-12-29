@@ -13,6 +13,7 @@ import com.asta.app2.model.enums.Gender;
 import com.asta.app2.model.enums.Quality;
 import com.asta.app2.model.enums.RateType;
 import com.asta.app2.model.enums.SooratType;
+import com.asta.app2.model.enums.TicketTempType;
 import com.asta.app2.model.enums.Weekday;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.CarManager;

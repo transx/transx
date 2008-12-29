@@ -61,7 +61,6 @@
    		<converter-id>com.corejsf.CreditCard</converter-id>
    		<converter-class>com.asta.app2.webapp.jsf.CreditCardConverter</converter-class>
    	</converter>
-   	
    	<converter>
    		<converter-for-class>com.asta.app2.tutorial.numberbean.CreditCard</converter-for-class>
    		<converter-class>com.asta.app2.webapp.jsf.CreditCardConverter</converter-class>
@@ -71,7 +70,6 @@
    		<converter-id>com.asta.app2.model.CarKind</converter-id>
    		<converter-class>com.asta.app2.webapp.jsf.CarKindConverter</converter-class>
    	</converter>
-   	
    	<converter>
    		<converter-for-class>com.asta.app2.model.CarKind</converter-for-class>
    		<converter-class>com.asta.app2.webapp.jsf.CarKindConverter</converter-class>
@@ -81,7 +79,6 @@
    		<converter-id>com.asta.app2.model.Car</converter-id>
    		<converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
    	</converter>
-   	
    	<converter>
    		<converter-for-class>com.asta.app2.model.Car</converter-for-class>
    		<converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
@@ -91,11 +88,21 @@
    		<converter-id>com.asta.app2.model.Path</converter-id>
    		<converter-class>com.asta.app2.webapp.jsf.PathConverter</converter-class>
    	</converter>
-   	
    	<converter>
    		<converter-for-class>com.asta.app2.model.Path</converter-for-class>
    		<converter-class>com.asta.app2.webapp.jsf.PathConverter</converter-class>
    	</converter>
+   	
+   	<converter>
+   		<converter-id>com.asta.app2.Company</converter-id>
+   		<converter-class>com.asta.app2.webapp.jsf.CompanyConverter</converter-class>
+   	</converter>
+   	
+   	<converter>
+   		<converter-for-class>com.asta.app2.model.Company</converter-for-class>	
+   		<converter-class>com.asta.app2.webapp.jsf.CompanyConverter</converter-class>
+   	</converter>
+   	
    	
    <!-- tutorial -START ########################################################-->
    
@@ -1122,6 +1129,32 @@
         </navigation-case>
     </navigation-rule>    
     <!--Cash-nav-END-->
+    <!--CashTemplate-nav-START-->
+    <navigation-rule>
+        <from-view-id>/admin/cashTemplates.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/admin/cashTemplateForm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/admin/cashTemplateForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/admin/cashTemplateForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/admin/cashTemplates.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/admin/cashTemplates.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <!--CashTemplate-nav-END-->
     <!-- Add additional rules here -->
 
     <managed-bean>
@@ -1921,6 +1954,40 @@
         </managed-property>
     </managed-bean>
     <!--Cash-beans-END-->
+
+    <!--CashTemplate-beans-START-->
+    <managed-bean>
+        <managed-bean-name>cashTemplateList</managed-bean-name>
+        <managed-bean-class>com.asta.app2.webapp.action.CashTemplateList</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>cashTemplateManager</property-name>
+            <value>#{cashTemplateManager}</value>
+        </managed-property>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>cashTemplateForm</managed-bean-name>
+        <managed-bean-class>com.asta.app2.webapp.action.CashTemplateForm</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>id</property-name>
+            <value>#{param.id}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>cashTemplateManager</property-name>
+            <value>#{cashTemplateManager}</value>
+        </managed-property>
+        <managed-property>
+        	<property-name>companyManager</property-name>
+        	<value>#{companyManager}</value>
+        </managed-property>
+        <managed-property>
+        	<property-name>userManager</property-name>
+        	<value>#{userManager}</value>
+        </managed-property>
+    </managed-bean>
+    <!--CashTemplate-beans-END-->
 
     <!-- Add additional beans here -->
 

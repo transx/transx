@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.asta.app2.model.Company;
+import com.asta.app2.model.Role;
 import com.asta.app2.model.User;
 
 /**
@@ -72,7 +73,7 @@ public interface UserDao extends GenericDao<User, Long> {
 	 * @param  Role of User
 	 * @return List populated of users with specific role
 	 */
-	List<User> findUsersByThisRole(String role_name);
+	List<User> findUsersByThisRole(Company company,Role role);
 
 	/**
 	 * Gets a list of users ordered by the uppercase version of their username and filter by Company entity.

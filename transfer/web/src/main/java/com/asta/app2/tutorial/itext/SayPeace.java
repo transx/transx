@@ -59,7 +59,7 @@ public class SayPeace extends DefaultHandler {
 		if ("message".equals(qName)) {
 			buf = new StringBuffer();
 			column = new MultiColumnText();
-			column.addSimpleColumn(36, PageSize.A4.getWidth() - 36);
+//			column.addSimpleColumn(36, PageSize.A4.getWidth() - 36);
 			if ("RTL".equals(attributes.getValue("direction"))) {
 				column.setRunDirection(PdfWriter.RUN_DIRECTION_RTL);
 			}

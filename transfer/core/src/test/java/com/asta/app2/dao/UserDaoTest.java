@@ -149,8 +149,17 @@ public class UserDaoTest extends BaseDaoTestCase {
     }
     
     public void testFindUsersByRoleName()throws Exception{
-    	assertTrue(dao.findUsersByThisRole(Constants.CASHIER_ROLE).size() >=0);
-    	log.debug(dao.findUsersByThisRole(Constants.CASHIER_ROLE).size());
+    	log.debug(rdao.getRoleByName(Constants.CASHIER_ROLE).getName());
+    	assertTrue(rdao.getRoleByName(Constants.CASHIER_ROLE) != null);
     }
+    
+    public void testFindUserByCompany(){
+    	log.debug("test FindUserByCompany...");
+    	User user = new User();
+    	user.setCompany(new Company(-1L));
+    	log.debug("size of list:"+dao.searchByExample(user).size());
+    	assertTrue(dao.searchByExample(user).size() > 0);
+    }
+    
 }
 	
