@@ -1,0 +1,6 @@
+cd transfer/core
+mvn install -Ph2
+cd transfer/web
+mvn jetty:run -Ph2
+opera http://localhost:8080
+
