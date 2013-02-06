@@ -55,6 +55,9 @@ public class LocaleFilter extends OncePerRequestFilter {
         if (session != null) {
             if (preferredLocale == null) {
                 preferredLocale = (Locale) session.getAttribute(Constants.PREFERRED_LOCALE_KEY);
+                if (preferredLocale == null) { 	// We set DEFAULT locale here (programmatically) 
+                	preferredLocale = new Locale("fa");	// TODO It will be nice to make this parametric
+                }
             } else {
                 session.setAttribute(Constants.PREFERRED_LOCALE_KEY, preferredLocale);
                 Config.set(session, Config.FMT_LOCALE, preferredLocale);

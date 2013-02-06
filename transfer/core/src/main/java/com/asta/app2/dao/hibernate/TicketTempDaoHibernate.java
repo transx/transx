@@ -23,7 +23,7 @@ public class TicketTempDaoHibernate extends GenericDaoHibernate<TicketTemp, Long
 	}
 
 	public List<TicketTemp> findTicketTempsByService(Company company,Service service) {
-		return getHibernateTemplate().find("from TicketTemp as tt where tt.company=? and tt.service=? and tt.committed=0",new Object[]{company, service});
+		return getHibernateTemplate().find("from TicketTemp as tt where tt.company=? and tt.service=? and tt.committed=?",new Object[]{company, service, false});
 	}
 
 	public List<TicketTemp> findTicketTempsByServiceAndPassenger(Company company,TicketTemp ticketTemp) {
@@ -31,7 +31,7 @@ public class TicketTempDaoHibernate extends GenericDaoHibernate<TicketTemp, Long
 	}
 	
 	public List<TicketTemp> getAllTicketTempReadyForSell(Company company) {
-		return getHibernateTemplate().find("from TicketTemp as tt where tt.company=? and tt.committed=0 and tt.count>0",company);
+		return getHibernateTemplate().find("from TicketTemp as tt where tt.company=? and tt.committed=? and tt.count>0", new Object[]{ company, false });
 	}
 
 	public TicketTemp saveTicketTemp(Company company, TicketTemp ticketTemp) {

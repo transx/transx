@@ -8,6 +8,7 @@
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
         <locale-config>
             <default-locale>fa</default-locale>
+            <supported-locale>fa</supported-locale>
             <supported-locale>de</supported-locale>
             <supported-locale>en</supported-locale>
             <supported-locale>es</supported-locale>
@@ -22,7 +23,6 @@
             <supported-locale>zh</supported-locale>
             <supported-locale>zh_CN</supported-locale>
             <supported-locale>zh_TW</supported-locale>
-            <supported-locale>fa</supported-locale>
         </locale-config>
         <message-bundle>ApplicationResources</message-bundle>
         <!-- 

@@ -270,7 +270,6 @@
 		        <jdbc.url><![CDATA[jdbc:mysql://mysql5.metawerx.net:3506/trp3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
 		        <jdbc.username>trp3</jdbc.username>
 		        <jdbc.password>TrP30523cF</jdbc.password>
-	        	<mail.host>mail.metawerx.net</mail.host> 
         	</properties>
         </profile>
 
@@ -410,6 +409,7 @@
         <cargo.host>localhost</cargo.host>
         <cargo.port>8081</cargo.port>
         <cargo.wait>false</cargo.wait>
+        <cargo.installDir>${user.home}</cargo.installDir>
                 
         <!-- Database settings -->
         <dbunit.dataTypeFactoryName>org.dbunit.dataset.datatype.DefaultDataTypeFactory</dbunit.dataTypeFactoryName>
@@ -425,10 +425,7 @@
         <jdbc.url><![CDATA[jdbc:mysql://localhost/trp3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
         <jdbc.username>root</jdbc.username>
         <jdbc.password>root</jdbc.password>
-    
-    	<!-- Mail setting -->
-    	<mail.host>localhost</mail.host> 
-    
+       
         <!-- Properties calculated by AppFuse when running full-source plugin -->
         <acegijsf.version>1.1.3</acegijsf.version>
         <ajax4jsf.version>1.0.6</ajax4jsf.version>
@@ -450,7 +447,7 @@
         <log4j.version>1.2.13</log4j.version>
         <myfaces.version>1.2.5</myfaces.version>
         <myfaces.tomahawk.version>1.1.8</myfaces.tomahawk.version>
-        <myfaces.tomahawk.sandbox.version>1.1.8-SNAPSHOT</myfaces.tomahawk.sandbox.version>
+        <myfaces.tomahawk.sandbox.version>1.1.6</myfaces.tomahawk.sandbox.version>
         <myfaces.orchestra.core.version>1.3</myfaces.orchestra.core.version>
         <myfaces.orchestra.core15.version>1.3</myfaces.orchestra.core15.version>
         <myfaces.orchestra.sandbox.version>1.3</myfaces.orchestra.sandbox.version>

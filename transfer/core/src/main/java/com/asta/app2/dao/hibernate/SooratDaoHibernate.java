@@ -28,7 +28,7 @@ public class SooratDaoHibernate extends GenericDaoHibernate<Soorat, Long> implem
 	}
 
 	public List<Soorat> getAllSooratActive(Company company) {
-		return getHibernateTemplate().find("from Soorat as soor where soor.company=? and soor.issued=1 and soor.destroyed=0",company);
+		return getHibernateTemplate().find("from Soorat as soor where soor.company=? and soor.issued=? and soor.destroyed=?", new Object[]{ company, true, false });
 	}
 
 }

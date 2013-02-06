@@ -22,11 +22,11 @@ public class CashDaoHibernate extends GenericDaoHibernate<Cash, Long> implements
 	}
 
 	public List<Cash> getAllEnabledCash(Company company) {
-		return getHibernateTemplate().find("from Cash as c where c.company=? and c.enabled=1",company);
+		return getHibernateTemplate().find("from Cash as c where c.company=? and c.enabled=?",new Object[]{ company, true });
 	}
 
 	public List<Cash> getAllEnabledCashNotExpired(Company company) {
-		return getHibernateTemplate().find("from Cash as c where c.company=? and c.enabled=1 and c.expired=0",company);
+		return getHibernateTemplate().find("from Cash as c where c.company=? and c.enabled=? and c.expired=?", new Object[]{ company, true, false });
 	}
 
 }

@@ -70,7 +70,7 @@
 						key="textField-1"/>
 					<box></box>
 					<textElement textAlignment="Right" rotation="None">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_NUMBER}]]></textFieldExpression>
 				</textField>
@@ -86,7 +86,7 @@
 						key="textField-2"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_CAR}]]></textFieldExpression>
 				</textField>
@@ -102,7 +102,7 @@
 						key="textField-3"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_PASSENGER_NAME}]]></textFieldExpression>
 				</textField>
@@ -118,7 +118,7 @@
 						key="textField-4"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_CHAIRS}]]></textFieldExpression>
 				</textField>
@@ -134,7 +134,7 @@
 						key="textField-5"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_TIMED}]]></textFieldExpression>
 				</textField>
@@ -150,7 +150,7 @@
 						key="textField-6"/>
 					<box></box>
 					<textElement>
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_DATEBOOK}]]></textFieldExpression>
 				</textField>
@@ -166,7 +166,7 @@
 						key="textField-7"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_TOTAL_WORD}]]></textFieldExpression>
 				</textField>
@@ -182,7 +182,7 @@
 						key="textField-8"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_CAR_KIND}]]></textFieldExpression>
 				</textField>
@@ -198,7 +198,7 @@
 						key="textField-9"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_ISSUE_TIME}]]></textFieldExpression>
 				</textField>
@@ -214,7 +214,7 @@
 						key="textField-10"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_ISSUE_DATE}]]></textFieldExpression>
 				</textField>
@@ -230,7 +230,7 @@
 						key="textField-11"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_PRICE}]]></textFieldExpression>
 				</textField>
@@ -246,7 +246,7 @@
 						key="textField-12"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_SNACK}]]></textFieldExpression>
 				</textField>
@@ -262,7 +262,7 @@
 						key="textField-13"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_COUNT}]]></textFieldExpression>
 				</textField>
@@ -278,7 +278,7 @@
 						key="textField-14"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_TOTAL}]]></textFieldExpression>
 				</textField>
@@ -293,7 +293,7 @@
 						key="textField-15"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_NUMBER}]]></textFieldExpression>
 				</textField>
@@ -308,7 +308,7 @@
 						key="textField-16"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_START}]]></textFieldExpression>
 				</textField>
@@ -323,7 +323,7 @@
 						key="textField-17"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_PASSENGER_NAME}]]></textFieldExpression>
 				</textField>
@@ -338,7 +338,7 @@
 						key="textField-18"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_CHAIRS}]]></textFieldExpression>
 				</textField>
@@ -353,7 +353,7 @@
 						key="textField-19"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_END}]]></textFieldExpression>
 				</textField>
@@ -368,7 +368,7 @@
 						key="textField-20"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_ISSUE_TIME}]]></textFieldExpression>
 				</textField>
@@ -383,7 +383,7 @@
 						key="textField-21"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_COUNT}]]></textFieldExpression>
 				</textField>
@@ -398,7 +398,7 @@
 						key="textField-22"/>
 					<box></box>
 					<textElement textAlignment="Right">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_ISSUE_DATE}]]></textFieldExpression>
 				</textField>
@@ -413,7 +413,7 @@
 						key="textField-23"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_PRICE}]]></textFieldExpression>
 				</textField>
@@ -428,7 +428,7 @@
 						key="textField-24"/>
 					<box></box>
 					<textElement textAlignment="Center">
-						<font pdfFontName="tahoma.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+						<font pdfFontName="/com/asta/app2/fonts/roya.ttf" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
 					</textElement>
 				<textFieldExpression   class="java.lang.String"><![CDATA[$P{TICKET_TOTAL}]]></textFieldExpression>
 				</textField>

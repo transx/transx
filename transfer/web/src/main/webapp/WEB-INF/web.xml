@@ -22,7 +22,7 @@
     <!-- Force a single locale using param-name 'javax.servlet.jsp.jstl.fmt.locale' -->
     <context-param>
         <param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
-        <param-value>en</param-value>
+        <param-value>fa</param-value>
     </context-param>
     <!-- Context Configuration locations for Spring XML files -->
     <context-param>

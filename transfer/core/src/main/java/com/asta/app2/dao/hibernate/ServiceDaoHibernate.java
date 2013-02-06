@@ -32,15 +32,15 @@ public class ServiceDaoHibernate extends GenericDaoHibernate<Service, Long>
 
 	@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 	public List<Service> getAllServices(Company company) {
-		return getHibernateTemplate().find("from Service service where service.company=? and service.serviceExpired=0",company);
+		return getHibernateTemplate().find("from Service service where service.company=? and service.serviceExpired=?", new Object[]{ company, false });
 	}
 	
 	public List<Service> getAllServicesReadyForReserve(Company company) {
-		return getHibernateTemplate().find("from Service service where service.company=? and service.enabled=1 and service.serviceExpired=0 and service.opened=1",company);
+		return getHibernateTemplate().find("from Service service where service.company=? and service.enabled=? and service.serviceExpired=? and service.opened=?", new Object[]{ company, true, false, true });
 	}
 
 	public List<Service> getAllServicesReadyForSoorat(Company company) {
-		return getHibernateTemplate().find("from Service service where service.company=? and service.enabled=1 and service.serviceExpired=0",company);
+		return getHibernateTemplate().find("from Service service where service.company=? and service.enabled=? and service.serviceExpired=?", new Object[]{ company, true, false });
 	}
 	
 	public List<Service> findByExample(Service service) {

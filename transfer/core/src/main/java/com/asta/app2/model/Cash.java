@@ -44,6 +44,9 @@ public class Cash extends BaseObject {
 	@Column(name = "total_price")
 	private Long totalPrice;
 
+	@Column(name = "number")
+	private String number;
+
 	@ManyToOne
 	@JoinColumn(name = "company_id", nullable = false)
 	private Company company;
@@ -154,5 +157,12 @@ public class Cash extends BaseObject {
 		this.cashTemplate = cashTemplate;
 	}
 
-	
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
 }
