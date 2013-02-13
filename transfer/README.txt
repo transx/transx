@@ -1,3 +1,9 @@
+
+transfer is a web application for bus transportation domain.
+
+transfer project structure is inherited from AppFuse.org version 2.0.1 and 2.0.2.
+following text is from great AppFuse.
+
 Transfer Modular JSF Web Application
 --------------------------------------------------------------------------------
 
