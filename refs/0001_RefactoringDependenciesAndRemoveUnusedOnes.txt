@@ -1,0 +1,20 @@
+
+number : 1
+
+status : open
+
+type : transfer/Technical-refactoring
+
+subject : Refactoring dependencies and remove unused ones
+
+description : In this task we are suppose to refactor project dependencies
+without breaking any functionality, luckily there is integration-test in
+transfer/web module that is required to be green after all changes.
+xFire library is an example of unused dependency.
+
+author : SidMorad
+
+comments : [
+ first : "this is first important comment example ",
+ second : "this is second comment, if this get important, we could move it up",
+]

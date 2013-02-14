@@ -1,0 +1,19 @@
+
+number : 2
+
+status : open
+
+type : transfer/Domain-change-request
+
+subject : Print and issue bus ticket with one click
+
+description : Currently casheir-users have to see ticket in PDF format
+then use print action. In this task we want to make it possible for them
+to issue and print a ticket with one click. In another words export to 
+PDF phase is unnecessary and time-consumming.
+
+author : SidMorad
+
+comments : [
+]
+
