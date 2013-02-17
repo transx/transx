@@ -1,7 +1,7 @@
 
 number : 1
 
-status : open
+status : inprogress
 
 type : transfer/Technical-refactoring
 

@@ -226,7 +226,7 @@
             <value description="address"></value>
             <value description="city">تهران</value>
             <value description="country">IR</value>
-            <value description="email">reserve@yahoo.com</value>
+            <value description="email">reserve@transx.ir</value>
             <value description="phone_number"></value>
             <value description="postal_code">80210</value>
             <value description="province">تهران</value>
@@ -248,7 +248,7 @@
             <value description="address"></value>
             <value description="city">تهران</value>
             <value description="country">IR</value>
-            <value description="email">manager@yahoo.com</value>
+            <value description="email">manager@transx.ir</value>
             <value description="phone_number"></value>
             <value description="postal_code"></value>
             <value description="province">تهران</value>
@@ -270,7 +270,7 @@
             <value description="address"></value>
             <value description="city">تهران</value>
             <value description="country">IR</value>
-            <value description="email">cashier@yahoo.com</value>
+            <value description="email">cashier@transx.ir</value>
             <value description="phone_number"></value>
             <value description="postal_code">1653866466</value>
             <value description="province">تهران</value>
@@ -292,7 +292,7 @@
             <value description="address"></value>
             <value description="city">تهران</value>
             <value description="country">IR</value>
-            <value description="email">test@yahoo.com</value>
+            <value description="email">test@transx.ir</value>
             <value description="phone_number"></value>
             <value description="postal_code">1653866846</value>
             <value description="province">تهران</value>
@@ -2088,7 +2088,7 @@
         <value description="reserve_date">2008-06-24</value>
         <null/>
         <value description="committed">0</value>
-        <value description="reserver_id">cust003@yahoo.com</value>
+        <value description="reserver_id">cust003@transx.ir</value>
         <value description="passenger_id">-7</value>
         <value description="service_id">-1</value>
         <value description="path_id">-4</value>

@@ -7,9 +7,9 @@
     <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources_${user.language}.properties"/>
     <property file="\${basedir}/target/${webapp.name}/WEB-INF/classes/ApplicationResources.properties"/>
 
-    <!-- runs all targets #,SooratTests,CashTemplateTests,CashTests#-->
+    <!-- runs all targets #,SooratTests,CashTemplateTests,CashTests,Signup,ModifyReserve#-->
     <target name="run-all-tests" 
-        depends="Login,Logout,UserTests,Signup,PasswordHint,FlushCache,FileUpload,RateTests,TicketTempTests,TicketTests,ServiceTests,PassengerTests,CarTests,LodgerTests,DriverTests,PersonTests,ServiceTemplateTests,CarKindTests,CompanyTests,PathTests,CityTests,CountryTests,CityTests,CountryTests,ModifyReserve"
+        depends="Login,Logout,UserTests,PasswordHint,FlushCache,FileUpload,RateTests,TicketTempTests,TicketTests,ServiceTests,PassengerTests,CarTests,LodgerTests,DriverTests,PersonTests,ServiceTemplateTests,CarKindTests,CompanyTests,PathTests,CityTests,CountryTests,CityTests,CountryTests"
         description="Call and executes all test cases (targets)"/>
     
     <!-- runs user-related tests #,AddUser-->
@@ -160,7 +160,7 @@
                 <setinputfield description="set state" name="signupForm:province" value="CO"/>
                 <setselectfield description="Select country" name="signupForm:country" value="US"/>
                 <setinputfield description="set postalCode" name="signupForm:postalCode" value="80210"/>
-                <setinputfield description="set email" name="signupForm:email" value="sid.moradi@gmail.com"/>
+                <setinputfield description="set email" name="signupForm:email" value="sidmorad@transx.ir"/>
                 <setinputfield description="set website" name="signupForm:website" value="http://moradidesigns.com"/>
                 <setinputfield description="set passwordHint" name="signupForm:passwordHint" value="test"/>
                 
@@ -1590,12 +1590,17 @@
     <!--Reserve-START-->
     <target name="ModifyReserve" description="test all actions in Reserve Page">
         <webtest name="modifyReserve">
+        	&config;
             <steps>
+            	&login;
+            	<!--clickLink label="سپند -> فارسی"/
 				<invoke url="http://localhost:8080/login.jsp"/>
-            	<!--clickLink label="سپند -> فارسی"/-->
+            	<setinputfield description="set user name" name="j_username" value="reserver"/>
 				<setInputField description="Set password field j_password: user" name="j_password" value="user"/>
 				<clickButton label="ورود"/>
-				<clickLink label="رزرور"/>
+            	-->
+				<invoke url="/reserver/reserves.html"/>
+				<clickLink label="${service.enter.reserve}"/>
 				<clickButton label="جدید"/>
 				<setInputField name="reserveForm:firstName" value="املشی"/>
 				<setInputField name="reserveForm:lastName" value="قربتی"/>
