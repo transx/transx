@@ -33,7 +33,6 @@
             classpath:/applicationContext-service.xml
             classpath*:/applicationContext.xml
             /WEB-INF/applicationContext*.xml
-            /WEB-INF/xfire-servlet.xml
             /WEB-INF/security.xml
         </param-value>
     </context-param>
@@ -86,10 +85,6 @@
     <filter>
         <filter-name>cacheFilter</filter-name>
         <filter-class>com.opensymphony.oscache.web.filter.CacheFilter</filter-class>
-    </filter>
-    <filter>
-        <filter-name>clickstreamFilter</filter-name>
-        <filter-class>com.opensymphony.clickstream.ClickstreamFilter</filter-class>
     </filter>
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -195,10 +190,6 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>-->
     <filter-mapping>
-        <filter-name>clickstreamFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
         <filter-name>localeFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
@@ -254,9 +245,6 @@
 	</filter-mapping>
 
     <listener>
-        <listener-class>com.opensymphony.clickstream.ClickstreamListener</listener-class>
-    </listener>
-    <listener>
         <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
     </listener>
     <listener>
@@ -288,33 +276,9 @@
         <load-on-startup>2</load-on-startup>
     </servlet>
 
-    <servlet>
-        <servlet-name>dwr-invoker</servlet-name>
-        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
-        <init-param>
-            <param-name>debug</param-name>
-            <param-value>true</param-value>
-        </init-param>
-    </servlet>
-    
-    <servlet>
-        <servlet-name>xfire</servlet-name>
-        <servlet-class>org.codehaus.xfire.spring.XFireSpringServlet</servlet-class>
-    </servlet>
-
     <servlet-mapping>
         <servlet-name>faces</servlet-name>
         <url-pattern>*.html</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>dwr-invoker</servlet-name>
-        <url-pattern>/dwr/*</url-pattern>
-    </servlet-mapping>
-    
-    <servlet-mapping>
-        <servlet-name>xfire</servlet-name>
-        <url-pattern>/services/*</url-pattern>
     </servlet-mapping>
 
     <session-config>

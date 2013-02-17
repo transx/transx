@@ -128,18 +128,11 @@
         </testResources>
     </build>
 
-    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
-    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
     <dependencies>
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>${commons.beanutils.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>${commons.collections.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
@@ -172,48 +165,6 @@
             <version>${aspectj.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.xfire</groupId>
-            <artifactId>xfire-java5</artifactId>
-            <version>${xfire.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-attributes-api</artifactId>
-                    <groupId>commons-attributes</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>jaxen</artifactId>
-                    <groupId>jaxen</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>xmlParserAPIs</artifactId>
-                    <groupId>xerces</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>xercesImpl</artifactId>
-                    <groupId>xerces</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>XmlSchema</artifactId>
-                    <groupId>org.apache.ws.commons</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.xfire</groupId>
-            <artifactId>xfire-spring</artifactId>
-            <version>${xfire.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>spring-remoting</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate</artifactId>
             <version>${hibernate.version}</version>
@@ -239,18 +190,6 @@
             <version>${hibernate.annotations.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jmock</groupId>
-            <artifactId>jmock</artifactId>
-            <version>${jmock.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.jmock</groupId>
-            <artifactId>jmock-junit4</artifactId>
-            <version>${jmock.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
@@ -274,12 +213,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.subethamail</groupId>
-            <artifactId>subethasmtp-wiser</artifactId>
-            <version>${wiser.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>velocity</groupId>
