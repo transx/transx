@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.SooratDao;
 import com.asta.app2.model.Soorat;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

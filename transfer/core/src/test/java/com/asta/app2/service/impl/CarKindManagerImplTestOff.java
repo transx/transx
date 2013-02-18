@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.CarKindDao;
 import com.asta.app2.model.CarKind;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

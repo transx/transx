@@ -13,6 +13,7 @@ import org.junit.Test;
 import com.asta.app2.dao.InsuranceSarneshinDao;
 import com.asta.app2.model.InsuranceSarneshin;
 import com.asta.app2.model.enums.Distance;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

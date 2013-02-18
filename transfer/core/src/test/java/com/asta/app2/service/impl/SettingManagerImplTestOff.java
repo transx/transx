@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.SettingDao;
 import com.asta.app2.model.Setting;
+import com.asta.app2.service.BaseManagerMockTestCase;
 import com.asta.app2.service.SettingManager;
 
 /**

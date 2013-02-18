@@ -16,6 +16,7 @@ import com.asta.app2.dao.UserDao;
 import com.asta.app2.exception.UserExistsException;
 import com.asta.app2.model.Role;
 import com.asta.app2.model.User;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 public class UserManagerImplTest extends BaseManagerMockTestCase {
     //~ Instance fields ========================================================

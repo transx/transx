@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.CityDao;
 import com.asta.app2.model.City;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 public class CityManagerImplTestOff extends BaseManagerMockTestCase {
 	private CityManagerImpl manager = null;

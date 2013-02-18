@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.CashDao;
 import com.asta.app2.model.Cash;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

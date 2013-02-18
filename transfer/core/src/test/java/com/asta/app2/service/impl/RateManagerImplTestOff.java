@@ -18,6 +18,7 @@ import com.asta.app2.model.Path;
 import com.asta.app2.model.Rate;
 import com.asta.app2.model.enums.Quality;
 import com.asta.app2.model.enums.RateType;
+import com.asta.app2.service.BaseManagerMockTestCase;
 import com.asta.app2.service.CarKindManager;
 import com.asta.app2.service.PathManager;
 import com.asta.app2.service.RateManager;

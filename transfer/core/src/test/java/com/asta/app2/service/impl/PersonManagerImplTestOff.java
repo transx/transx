@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.PersonDao;
 import com.asta.app2.model.Person;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

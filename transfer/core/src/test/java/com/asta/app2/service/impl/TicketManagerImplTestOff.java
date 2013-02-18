@@ -15,6 +15,7 @@ import com.asta.app2.dao.ServiceDao;
 import com.asta.app2.dao.TicketDao;
 import com.asta.app2.model.Service;
 import com.asta.app2.model.Ticket;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

@@ -14,6 +14,7 @@ import com.asta.app2.dao.CityDao;
 import com.asta.app2.dao.PathDao;
 import com.asta.app2.model.City;
 import com.asta.app2.model.Path;
+import com.asta.app2.service.BaseManagerMockTestCase;
 import com.asta.app2.service.CityManager;
 
 public class PathManagerImplTest extends BaseManagerMockTestCase {

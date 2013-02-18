@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.CountryDao;
 import com.asta.app2.model.Country;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 public class CountryManagerImplTestOff extends BaseManagerMockTestCase {
 	private CountryManagerImpl manager = null;

@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.ChairDao;
 import com.asta.app2.model.Chair;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

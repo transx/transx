@@ -13,6 +13,7 @@ import org.junit.Test;
 import com.asta.app2.dao.InsuranceBadanehDao;
 import com.asta.app2.model.InsuranceBadaneh;
 import com.asta.app2.model.enums.Quality;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

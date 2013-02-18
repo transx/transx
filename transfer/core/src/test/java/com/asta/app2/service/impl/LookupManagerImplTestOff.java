@@ -13,6 +13,7 @@ import com.asta.app2.Constants;
 import com.asta.app2.dao.LookupDao;
 import com.asta.app2.model.LabelValue;
 import com.asta.app2.model.Role;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 
 public class LookupManagerImplTestOff extends BaseManagerMockTestCase {

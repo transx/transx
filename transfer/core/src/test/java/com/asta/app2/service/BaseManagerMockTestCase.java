@@ -1,4 +1,4 @@
-package com.asta.app2.service.impl;
+package com.asta.app2.service;
 
 import java.util.Map;
 import java.util.MissingResourceException;

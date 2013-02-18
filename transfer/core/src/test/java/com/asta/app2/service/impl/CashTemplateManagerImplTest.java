@@ -13,6 +13,7 @@ import org.junit.Test;
 import com.asta.app2.dao.CashTemplateDao;
 import com.asta.app2.model.CashTemplate;
 import com.asta.app2.model.Company;
+import com.asta.app2.service.BaseManagerMockTestCase;
 	
 /**
  *

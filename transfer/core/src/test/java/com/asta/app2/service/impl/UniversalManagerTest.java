@@ -11,6 +11,7 @@ import org.springframework.test.AssertThrows;
 
 import com.asta.app2.dao.UniversalDao;
 import com.asta.app2.model.User;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * This class tests the generic UniversalManager and UniversalManagerImpl implementation.

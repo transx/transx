@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.DriverDao;
 import com.asta.app2.model.Driver;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 

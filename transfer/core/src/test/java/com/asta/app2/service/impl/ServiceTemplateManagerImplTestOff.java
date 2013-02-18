@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.asta.app2.dao.ServiceTemplateDao;
 import com.asta.app2.model.ServiceTemplate;
+import com.asta.app2.service.BaseManagerMockTestCase;
 
 /**
  * 
