@@ -1,0 +1,50 @@
+
+number : 3
+
+status : inprogress
+
+type : transfer/Technical-change-request
+
+subject : PostgreSQL a default database for both development and production
+environments
+
+description : In this task we are suppose to make PostgreSQL database as
+default database for both development and production environment.
+Currently MySQL database is default option.
+
+author : SidMorad
+
+comments : [
+
+postgresql91-psql-create-commands  : "
+  CREATE USER transxuser WITH NOSUPERUSER CREATEDB NOINHERIT ENCRYPTED PASSWORD
+'transxpass';
+  CREATE TABLESPACE tableworkspace OWNER transxuser LOCATION
+'/home/pgsql/tablespace';
+  CREATE DATABASE transfer WITH OWNER=transxuser TABLESPACE=tableworkspace;
+
+Note: transxuser is database username.
+      transxpass is database password.
+      transfer is database name.
+      tableworkspace is database tablespace.
+Note2: '/home/pgsql/tablespace' directory should be accessiable with psql
+SUPERUSER.
+      chown -R pgsql:pgsql /home/pgsql/tablespace
+      chmod -R 700 /home/pgsql/tablespace
+Note3: in note 2 we assumed superuser is pgsql.
+",
+
+production-maven-build-commands : "
+To make production profiles work, I have to do some tricks:
+ 'mvn clean install -Pprod-only-first-time' is for production environment
+  and it should be used carefully. It will drop data and insert default values.
+ 'mvn clean install -Pprod' is for ordinary build in production. And dbunit 
+  plugin is configured to export data in xml format instead of any insertions.
+
+ Integration-test should be activated with -Pit flag in dev mode from now on.
+ 'mvn clean install -Pit' (do not use it in production).
+Note: above maven commands should be executed from root of parent project
+(/transx/transfer).
+",
+]
+

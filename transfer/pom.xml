@@ -110,23 +110,22 @@
     </build>
 
     <repositories>
-        <!-- Needed for Appfuse
         <repository>
             <id>central</id>
             <url>http://repo1.maven.org/maven2</url>
+            <snapshots><enabled>false</enabled></snapshots>
         </repository>
         <repository>
             <id>appfuse</id>
             <url>http://static.appfuse.org/repository</url>
+            <snapshots><enabled>false</enabled></snapshots>
         </repository>
-        -->
-        <!-- Needed for Facelets
         <repository>
             <id>java.net</id>
             <url>http://download.java.net/maven/1/</url>
+            <snapshots><enabled>false</enabled></snapshots>
             <layout>legacy</layout>
         </repository>
-         -->
     </repositories>
 
     <pluginRepositories>
@@ -215,28 +214,63 @@
             <id>prod</id>
             <build>
                 <plugins>
+                    <!-- In Production we need to export database inestad of import.-->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>dbunit-maven-plugin</artifactId>
+                        <version>1.0-beta-1</version>
+                        <configuration>
+                            <format>xml</format>
+                            <dest>src/test/resources/export-data-${timestamp}.xml</dest>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>${jdbc.groupId}</groupId>
+                                <artifactId>${jdbc.artifactId}</artifactId>
+                                <version>${jdbc.version}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+            <properties>
+                <jdbc.url><![CDATA[jdbc:postgresql://localhost/prod_transfer]]></jdbc.url>
+                <jdbc.username>transxuser</jdbc.username>
+                <jdbc.password>transxpass</jdbc.password>
+                <maven.test.skip>true</maven.test.skip>
+                <hibernate.generate.schema.skip>true</hibernate.generate.schema.skip>
+                <dbunit.operation>export</dbunit.operation>
+                <dbunit.schema>public</dbunit.schema>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod-only-first-time</id><!-- USE CAREFULLY!!! -->
+            <build>
+                <plugins>
                     <!-- Override location of data file for DbUnit to load (doesn't have negative keys) -->
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>dbunit-maven-plugin</artifactId>
-                        <configuration>
-                            <src>src/main/resources/production-data.xml</src>
-                        </configuration>
+                        <version>1.0-beta-1</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>${jdbc.groupId}</groupId>
+                                <artifactId>${jdbc.artifactId}</artifactId>
+                                <version>${jdbc.version}</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
-           	<properties>
-		        <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-		        <jdbc.groupId>mysql</jdbc.groupId>
-		        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
-		        <jdbc.version>5.0.5</jdbc.version>
-		        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-		        <jdbc.url><![CDATA[jdbc:mysql://mysql5.metawerx.net:3506/trp3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
-		        <jdbc.username>trp3</jdbc.username>
-		        <jdbc.password>TrP30523cF</jdbc.password>
-        	</properties>
+            <properties>
+                <jdbc.url><![CDATA[jdbc:postgresql://localhost/prod_transfer]]></jdbc.url>
+                <jdbc.username>transxuser</jdbc.username>
+                <jdbc.password>transxpass</jdbc.password>
+                <dbunit.src.xml>src/test/resources/production-data.xml</dbunit.src.xml>
+                <maven.test.skip>true</maven.test.skip>
+                <hibernate.generate.schema.skip>false</hibernate.generate.schema.skip>
+            </properties>
         </profile>
-
         <!-- ================= Database Profiles ================= -->
         <profile>
             <id>derby</id>
@@ -295,19 +329,6 @@
             </properties>
         </profile>
         <profile>
-            <id>postgresql</id>
-            <properties>
-                <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>
-                <jdbc.groupId>postgresql</jdbc.groupId>
-                <jdbc.artifactId>postgresql</jdbc.artifactId>
-                <jdbc.version>8.1-407.jdbc3</jdbc.version>
-                <jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-                <jdbc.url><![CDATA[jdbc:postgresql://localhost/transfer]]></jdbc.url>
-                <jdbc.username>postgres</jdbc.username>
-                <jdbc.password>postgres</jdbc.password>
-            </properties>
-        </profile>
-        <profile>
             <!-- You need to enable TCP/IP Connections for SQL Server 2005 after installing. -->
             <!-- http://www.mattwoodward.com/blog/index.cfm?commentID=211 -->
             <id>sqlserver</id>
@@ -322,6 +343,19 @@
                 <jdbc.url><![CDATA[jdbc:jtds:sqlserver://localhost:3683/transfer]]></jdbc.url>
                 <jdbc.username>sa</jdbc.username>
                 <jdbc.password>appfuse</jdbc.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>mysql</id>
+            <properties>
+                <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
+                <jdbc.groupId>mysql</jdbc.groupId>
+                <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+                <jdbc.version>5.0.5</jdbc.version>
+                <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+                <jdbc.url><![CDATA[jdbc:mysql://localhost/trp3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
+                <jdbc.username>root</jdbc.username>
+                <jdbc.password>root</jdbc.password>
             </properties>
         </profile>
         <!-- ================= Container Profiles ================= -->
@@ -374,21 +408,25 @@
         <cargo.port>8081</cargo.port>
         <cargo.wait>false</cargo.wait>
         <cargo.installDir>${user.home}</cargo.installDir>
-                
+
         <!-- Database settings -->
         <dbunit.dataTypeFactoryName>org.dbunit.dataset.datatype.DefaultDataTypeFactory</dbunit.dataTypeFactoryName>
+        <dbunit.operation>operation</dbunit.operation>
         <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
-        
+        <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>
+        <jdbc.groupId>postgresql</jdbc.groupId>
+        <jdbc.artifactId>postgresql</jdbc.artifactId>
+        <jdbc.version>8.1-407.jdbc3</jdbc.version>
+        <jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
+        <jdbc.url><![CDATA[jdbc:postgresql://localhost/transfer]]></jdbc.url>
+        <jdbc.username>transxuser</jdbc.username>
+        <jdbc.password>transxpass</jdbc.password>
+
+        <dbunit.src.xml>src/test/resources/sample-data.xml</dbunit.src.xml>
+        <dbunit.skip>false</dbunit.skip>
+        <hibernate.generate.schema.skip>false</hibernate.generate.schema.skip>
         <hibernate.cache.provider_class>org.hibernate.cache.EhCacheProvider</hibernate.cache.provider_class>
         <hibernate.cache.provider_configuration_file_resource_path>/ehcache.xml</hibernate.cache.provider_configuration_file_resource_path>
-        <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
-        <jdbc.groupId>mysql</jdbc.groupId>
-        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
-        <jdbc.version>5.0.5</jdbc.version>
-        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-        <jdbc.url><![CDATA[jdbc:mysql://localhost/trp3?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]></jdbc.url>
-        <jdbc.username>root</jdbc.username>
-        <jdbc.password>root</jdbc.password>
 
         <acegijsf.version>1.1.3</acegijsf.version>
         <ajax4jsf.version>1.0.6</ajax4jsf.version>

@@ -18,46 +18,7 @@
     <build>
     	<finalName>trp</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>dbunit-maven-plugin</artifactId>
-                <version>1.0-beta-1</version>
-                <configuration>
-                    <dataTypeFactoryName>${dbunit.dataTypeFactoryName}</dataTypeFactoryName>
-                    <driver>${jdbc.driverClassName}</driver>
-                    <username>${jdbc.username}</username>
-                    <password>${jdbc.password}</password>
-                    <url>${jdbc.url}</url>
-                    <src>src/test/resources/sample-data.xml</src>
-                    <type>${dbunit.operation.type}</type>
-                    <schema>${dbunit.schema}</schema>
-                    <skip>${maven.test.skip}</skip>
-                    <transaction>true</transaction>
-                </configuration>
-                <!--executions>
-                    <execution>
-                        <id>test-compile</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>operation</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>operation</goal>
-                        </goals>
-                    </execution>
-                </executions-->
-                <dependencies>
-                    <dependency>
-                        <groupId>${jdbc.groupId}</groupId>
-                        <artifactId>${jdbc.artifactId}</artifactId>
-                        <version>${jdbc.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+    
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
@@ -79,12 +40,12 @@
                         </scanTargetPattern>
                     </scanTargetPatterns>
                     <webDefaultXml>src/main/resources/webdefault.xml</webDefaultXml>
-                	<systemProperties>
-						<systemProperty>
-							<name>org.mortbay.jetty.Request.maxFormContentSize</name>
-							<value>10000</value>
-						</systemProperty>
-					</systemProperties>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>org.mortbay.jetty.Request.maxFormContentSize</name>
+                            <value>10000</value>
+                        </systemProperty>
+                    </systemProperties>
                 </configuration>
             </plugin>
             <plugin>
@@ -324,12 +285,7 @@
 
     <profiles>
         <profile>
-            <id>integration-test</id>
-            <activation>
-                <property>
-                    <name>!maven.test.skip</name>
-                </property>
-            </activation>
+            <id>it</id>
             <build>
                 <plugins>
                     <plugin>

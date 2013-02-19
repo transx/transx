@@ -44,12 +44,12 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjrt</artifactId>
-                        <version>1.6.0</version>
+                        <version>${aspectj.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjtools</artifactId>
-                        <version>1.6.0</version>
+                        <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -69,7 +69,7 @@
                         <jdk5>true</jdk5>
                         <propertyfile>target/test-classes/jdbc.properties</propertyfile>
                         <outputfilename>schemaBackup.sql</outputfilename>
-                        <skip>${maven.test.skip}</skip>
+                        <skip>${hibernate.generate.schema.skip}</skip>
                     </componentProperties>
                 </configuration>
                 <executions>
@@ -98,16 +98,17 @@
                     <username>${jdbc.username}</username>
                     <password>${jdbc.password}</password>
                     <url>${jdbc.url}</url>
-                    <src>src/test/resources/sample-data.xml</src>
+                    <src>${dbunit.src.xml}</src>
                     <type>${dbunit.operation.type}</type>
                     <schema>${dbunit.schema}</schema>
-                    <skip>${maven.test.skip}</skip>
+                    <skip>${dbunit.skip}</skip>
+                    <transaction>true</transaction>
                 </configuration>
                 <executions>
                     <execution>
                         <phase>test-compile</phase>
                         <goals>
-                            <goal>operation</goal>
+                            <goal>${dbunit.operation}</goal>
                         </goals>
                     </execution>
                 </executions>
