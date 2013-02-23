@@ -1,7 +1,7 @@
 
 number : 2
 
-status : open
+status : inprogress
 
 type : transfer/Domain-change-request
 

@@ -30,499 +30,145 @@
         <view-handler>org.ajax4jsf.framework.ajax.AjaxViewHandler</view-handler>
          --> 
         
-  		<variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
-		<navigation-handler>org.apache.myfaces.custom.redirectTracker.RedirectTrackerNavigationHandler</navigation-handler>
-		<navigation-handler>org.apache.myfaces.orchestra.urlParamNav.UrlParameterNavigationHandler</navigation-handler>
-		<view-handler>org.apache.myfaces.orchestra.urlParamNav.UrlParameterViewHandler</view-handler>
+         <variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+         <navigation-handler>org.apache.myfaces.custom.redirectTracker.RedirectTrackerNavigationHandler</navigation-handler>
+         <navigation-handler>org.apache.myfaces.orchestra.urlParamNav.UrlParameterNavigationHandler</navigation-handler>
+         <view-handler>org.apache.myfaces.orchestra.urlParamNav.UrlParameterViewHandler</view-handler>
     </application>
 
     <component>
         <component-type>com.corejsf.validator.UIValidatorScript</component-type>
         <component-class>com.corejsf.validator.UIValidatorScript</component-class>
     </component>
-   	<component>
-      	<description>A container for reservation </description> 
-      	<component-type>com.asta.app2.ReserveContainer</component-type>
-      	<component-class>com.asta.app2.webapp.jsf.UIReserveContainer</component-class>
-   	</component>
-	<component>
-      	<description>A select for chair items !</description> 
-      	<component-type>com.asta.app2.SelectChairItem</component-type>
-      	<component-class>com.asta.app2.webapp.jsf.UISelectChairItem</component-class>
-   	</component>
+    <component>
+        <description>A container for reservation </description> 
+        <component-type>com.asta.app2.ReserveContainer</component-type>
+        <component-class>com.asta.app2.webapp.jsf.UIReserveContainer</component-class>
+    </component>
+    <component>
+        <description>A select for chair items !</description> 
+        <component-type>com.asta.app2.SelectChairItem</component-type>
+        <component-class>com.asta.app2.webapp.jsf.UISelectChairItem</component-class>
+    </component>	
+    <component>
+        <description>A input date </description>
+        <component-type>com.asta.app2.InputDate2</component-type>
+        <component-class>org.apache.myfaces.custom.avandate2.UIInputDate2</component-class>
+    </component>
    	
-   	<component>
-   		<description>A input date </description>
-   		<component-type>com.asta.app2.InputDate2</component-type>
-   		<component-class>org.apache.myfaces.custom.avandate2.UIInputDate2</component-class>
-   	</component>
+    <converter>
+        <converter-id>com.corejsf.CreditCard</converter-id>
+        <converter-class>com.asta.app2.webapp.jsf.CreditCardConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-for-class>com.asta.app2.tutorial.numberbean.CreditCard</converter-for-class>
+        <converter-class>com.asta.app2.webapp.jsf.CreditCardConverter</converter-class>
+    </converter>
    	
-   	<converter>
-   		<converter-id>com.corejsf.CreditCard</converter-id>
-   		<converter-class>com.asta.app2.webapp.jsf.CreditCardConverter</converter-class>
-   	</converter>
-   	<converter>
-   		<converter-for-class>com.asta.app2.tutorial.numberbean.CreditCard</converter-for-class>
-   		<converter-class>com.asta.app2.webapp.jsf.CreditCardConverter</converter-class>
-   	</converter>
+    <converter>
+        <converter-id>com.asta.app2.model.CarKind</converter-id>
+        <converter-class>com.asta.app2.webapp.jsf.CarKindConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-for-class>com.asta.app2.model.CarKind</converter-for-class>
+        <converter-class>com.asta.app2.webapp.jsf.CarKindConverter</converter-class>
+    </converter>
    	
-   	<converter>
-   		<converter-id>com.asta.app2.model.CarKind</converter-id>
-   		<converter-class>com.asta.app2.webapp.jsf.CarKindConverter</converter-class>
-   	</converter>
-   	<converter>
-   		<converter-for-class>com.asta.app2.model.CarKind</converter-for-class>
-   		<converter-class>com.asta.app2.webapp.jsf.CarKindConverter</converter-class>
-   	</converter>
+    <converter>
+        <converter-id>com.asta.app2.model.Car</converter-id>
+        <converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-for-class>com.asta.app2.model.Car</converter-for-class>
+        <converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
+    </converter>
    	
-   	<converter>
-   		<converter-id>com.asta.app2.model.Car</converter-id>
-   		<converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
-   	</converter>
-   	<converter>
-   		<converter-for-class>com.asta.app2.model.Car</converter-for-class>
-   		<converter-class>com.asta.app2.webapp.jsf.CarConverter</converter-class>
-   	</converter>
+    <converter>
+        <converter-id>com.asta.app2.model.Path</converter-id>
+        <converter-class>com.asta.app2.webapp.jsf.PathConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-for-class>com.asta.app2.model.Path</converter-for-class>
+        <converter-class>com.asta.app2.webapp.jsf.PathConverter</converter-class>
+    </converter>
    	
-   	<converter>
-   		<converter-id>com.asta.app2.model.Path</converter-id>
-   		<converter-class>com.asta.app2.webapp.jsf.PathConverter</converter-class>
-   	</converter>
-   	<converter>
-   		<converter-for-class>com.asta.app2.model.Path</converter-for-class>
-   		<converter-class>com.asta.app2.webapp.jsf.PathConverter</converter-class>
-   	</converter>
+    <converter>
+        <converter-id>com.asta.app2.Company</converter-id>
+        <converter-class>com.asta.app2.webapp.jsf.CompanyConverter</converter-class>
+    </converter>
    	
-   	<converter>
-   		<converter-id>com.asta.app2.Company</converter-id>
-   		<converter-class>com.asta.app2.webapp.jsf.CompanyConverter</converter-class>
-   	</converter>
+    <converter>
+        <converter-for-class>com.asta.app2.model.Company</converter-for-class>	
+        <converter-class>com.asta.app2.webapp.jsf.CompanyConverter</converter-class>
+    </converter>
    	
-   	<converter>
-   		<converter-for-class>com.asta.app2.model.Company</converter-for-class>	
-   		<converter-class>com.asta.app2.webapp.jsf.CompanyConverter</converter-class>
-   	</converter>
-   	
-   	
-   <!-- tutorial -START ########################################################-->
-   
-	<application>
-      	<resource-bundle>
-         	<base-name>com.asta.app2.tutorial.messages</base-name>
-         	<var>msgs</var>
-      	</resource-bundle>
-   	</application>
-   
-   <!-- itext-START -->
-   <managed-bean>
-   		<managed-bean-name>itext</managed-bean-name>
-   		<managed-bean-class>com.asta.app2.tutorial.itext.ItextBean</managed-bean-class>
-   		<managed-bean-scope>request</managed-bean-scope>
-   </managed-bean>
-   <!-- itext-END -->
-   
-   <!-- report-START -->
-	<managed-bean>
-       <managed-bean-name>reports</managed-bean-name>
-       <managed-bean-class>com.asta.app2.webapp.action.Reports</managed-bean-class>
-       <managed-bean-scope>request</managed-bean-scope>
-        <managed-property>
-            <property-name>userManager</property-name>
-            <value>#{userManager}</value>
-        </managed-property>
-        <managed-property>
-            <property-name>ticketManager</property-name>
-            <value>#{ticketManager}</value>
-        </managed-property>
-   </managed-bean>
-   <!-- report-END -->
- 	<!-- SayHello-START -->
-  	<component>
-    	<component-type>com.asta.app2.tutorial.SayHello</component-type>
-    	<component-class>com.asta.app2.tutorial.sayhello.SayHello</component-class>
-  	</component>
-  	<render-kit>
-    	<renderer>
-      		<component-family>javax.faces.Output</component-family>
-      		<renderer-type>com.asta.app2.tutorial.SayHelloRenderer</renderer-type>
-      		<renderer-class>com.asta.app2.tutorial.sayhello.SayHelloRenderer</renderer-class>
-    	</renderer>
-	</render-kit>
-    <!-- Managed Beans for sayhello.jsp -->
-    <managed-bean>
-        <managed-bean-name>sayHelloBean</managed-bean-name>
-        <managed-bean-class>com.asta.app2.tutorial.sayhello.SayHelloBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
     <navigation-rule>
+        <from-view-id>/*</from-view-id>
         <navigation-case>
-            <from-outcome>go_home</from-outcome>
+            <from-outcome>mainMenu</from-outcome>
             <to-view-id>/mainMenu.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
- 	<!-- SayHello-END -->
- 	<!-- NumberBean-START -->
-	<managed-bean>
-	    <managed-bean-name>NumberBean</managed-bean-name>
-	    <managed-bean-class>com.asta.app2.tutorial.numberbean.NumberBean</managed-bean-class>
-	    <managed-bean-scope>session</managed-bean-scope>
-	    <managed-property>
-	      <property-name>min</property-name>
-	      <value>1</value>
-	    </managed-property>
-	    <managed-property>
-	      <property-name>max</property-name>
-	      <value>10</value>
-	    </managed-property>
-	  </managed-bean>
-	  <navigation-rule>
-	    <from-view-id>/tutorial/numberbean/guess.xhtml</from-view-id>
-	    <navigation-case>
-	      <from-outcome>success</from-outcome>
-	      <to-view-id>/tutorial/numberbean/response.xhtml</to-view-id>
-	    </navigation-case>
-	  </navigation-rule>
-	  <navigation-rule>
-	    <from-view-id>/tutorial/numberbean/response.xhtml</from-view-id>
-	    <navigation-case>
-	        <from-outcome>back</from-outcome>
-	      <to-view-id>/tutorial/numberbean/guess.xhtml</to-view-id>
-	    </navigation-case>
-	  </navigation-rule>
-	  <navigation-rule>
-	  	<from-view-id>/tutorial/numberbean/index.xhtml</from-view-id>
-	  		<navigation-case>
-	  			<from-outcome>process</from-outcome>
-	  			<to-view-id>/tutorial/numberbean/result.xhtml</to-view-id>
-	  		</navigation-case>
-	  </navigation-rule>			
-	  <navigation-rule>
-	  	<from-view-id>/tutorial/numberbean/result.xhtml</from-view-id>
-	  		<navigation-case>
-	  			<from-outcome>back</from-outcome>
-	  			<to-view-id>/tutorial/numberbean/index.xhtml</to-view-id>
-	  		</navigation-case>
-	  </navigation-rule>			
-	<!-- NumberBean-END -->
-   	<!-- Spinner-START-->
-   	<component>
-      	<component-type>com.asta.app2.tutorial.Spinner</component-type>
-      	<component-class>com.asta.app2.tutorial.spinner.UISpinner</component-class>
-   	</component>
-   	<managed-bean> 
-      	<managed-bean-name>cardExpirationDate</managed-bean-name>
-      	<managed-bean-class>com.asta.app2.tutorial.spinner.CreditCardExpiration</managed-bean-class> 
-      	<managed-bean-scope>session</managed-bean-scope> 
-   	</managed-bean>
-   	<navigation-rule>
-     	 <from-view-id>/tutorial/spinner/spinner.xhtml</from-view-id>
-     	 <navigation-case>
-         	<from-outcome>next</from-outcome>
-         	<to-view-id>/tutorial/spinner/next.xhtml</to-view-id>
-    	</navigation-case>
-	</navigation-rule>
-   	<navigation-rule>
-      	<from-view-id>/tutorial/spinner/next.xhtml</from-view-id>
-      	<navigation-case>
-         	<from-outcome>again</from-outcome>
-         	<to-view-id>/tutorial/spinner/spinner.xhtml</to-view-id>
-      	</navigation-case>
-   	</navigation-rule>   		
-   	<!-- Spinner-END-->
-  	<!-- Spinner2-START-->
-   	<component>
-      	<component-type>com.asta.app2.tutorial.Spinner2</component-type>
-      	<component-class>com.asta.app2.tutorial.spinner2.UISpinner2</component-class>
-   	</component>
-   	<render-kit>
-      	<renderer>
-			<component-family>javax.faces.Input</component-family>
-         	<renderer-type>com.asta.app2.tutorial.Spinner2</renderer-type>
-         	<renderer-class>com.asta.app2.tutorial.spinner2.SpinnerRenderer</renderer-class>
-      	</renderer>
-   	</render-kit>
-   	<navigation-rule>
-     	 <from-view-id>/tutorial/spinner2/spinner2.xhtml</from-view-id>
-     	 <navigation-case>
-         	<from-outcome>next</from-outcome>
-         	<to-view-id>/tutorial/spinner2/next.xhtml</to-view-id>
-    	</navigation-case>
-	</navigation-rule>
-   	<navigation-rule>
-      	<from-view-id>/tutorial/spinner2/next.xhtml</from-view-id>
-      	<navigation-case>
-         	<from-outcome>again</from-outcome>
-         	<to-view-id>/tutorial/spinner2/spinner2.xhtml</to-view-id>
-      	</navigation-case>
-   	</navigation-rule>   
-   	<!-- Spinner2-END-->
-   	<!-- SpinnerJS-START-->
-   	<render-kit>
-      	<renderer>
-			<component-family>javax.faces.Input</component-family>
-         	<renderer-type>com.asta.app2.tutorial.SpinnerJS</renderer-type>
-         	<renderer-class>com.asta.app2.tutorial.spinnerjs.JSSpinnerRenderer</renderer-class>
-      	</renderer>
-   	</render-kit>
-   	<!-- SpinnerJS-END-->
-	<!-- TabbedPane-START -->
-	<component>
-      	<description>A tabbed pane</description> 
-      	<component-type>com.asta.app2.tutorial.TabbedPane</component-type>
-      	<component-class>com.asta.app2.tutorial.tabbedpane.UITabbedPane</component-class>
-   	</component>
-   	<render-kit>
-      	<renderer>
-         	<component-family>javax.faces.Command</component-family>
-         	<renderer-type>com.asta.app2.tutorial.TabbedPane</renderer-type>
-         	<renderer-class>com.asta.app2.tutorial.tabbedpane.TabbedPaneRenderer</renderer-class>
-      	</renderer>
-	</render-kit>
-   	<!-- TabbedPane-END -->
-   	<!-- TabbedPaneTomahawk-START -->
-    <managed-bean>
-        <managed-bean-name>tabbedPaneBean</managed-bean-name>
-        <managed-bean-class>com.asta.app2.tutorial.tabbedpanetomahawk.TabbedPaneBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
-        <managed-bean-name>testCheckBox</managed-bean-name>
-        <managed-bean-class>com.asta.app2.tutorial.tabbedpanetomahawk.TestCheckBox</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-	<managed-bean>
-        <managed-bean-name>testCheckList</managed-bean-name>
-        <managed-bean-class>com.asta.app2.tutorial.tabbedpanetomahawk.TestCheckBoxList</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
-        <managed-bean-name>testRadioButton</managed-bean-name>
-        <managed-bean-class>com.asta.app2.tutorial.tabbedpanetomahawk.TestRadioButton</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-   	<!-- TabbedPaneTomahawk-END -->
-   	<!-- ReserveContainer-START -->
-	<component>
-      	<description>A container for reservation </description> 
-      	<component-type>com.asta.app2.tutorial.ReserveContainer</component-type>
-      	<component-class>com.asta.app2.tutorial.reservecontainer.UIReserveContainer</component-class>
-   	</component>
-   	<render-kit>
-      	<renderer>
-         	<component-family>javax.faces.Command</component-family>
-         	<renderer-type>com.asta.app2.tutorial.ReserveContainer</renderer-type>
-         	<renderer-class>com.asta.app2.tutorial.reservecontainer.ReserveContainerRenderer</renderer-class>
-      	</renderer>
-	</render-kit>
-	<managed-bean-name>reserveTutorualForm</managed-bean-name>
- 		<managed-bean-class>com.asta.app2.tutorial.reservecontainer.ReserveContainerBean</managed-bean-class>
-	<managed-bean-scope>request</managed-bean-scope>
-   	<!-- ReserveContainer-END -->
-   	<!-- SelectChair-START -->
-	<component>
-      	<description>A select for chair !</description> 
-      	<component-type>com.asta.app2.tutorial.SelectChair</component-type>
-      	<component-class>com.asta.app2.tutorial.selectchair.UISelectChair</component-class>
-   	</component>
-   	<render-kit>
-      	<renderer>
-         	<component-family>javax.faces.SelectItem</component-family>
-         	<renderer-type>com.asta.app2.tutorial.SelectChair</renderer-type>
-         	<renderer-class>com.asta.app2.tutorial.selectchair.SelectChairRenderer</renderer-class>
-      	</renderer>
-	</render-kit>
-   	<!-- SelectChair-END -->
-	<!-- Hello Trinidad-START -->
-	<managed-bean>
-    	<managed-bean-name>helloTrinidadBacking</managed-bean-name>
-    	<managed-bean-class>
-       		com.asta.app2.tutorial.hellotrinidad.HelloTrinidadBacking
-    	</managed-bean-class>
-    	<managed-bean-scope>request</managed-bean-scope>
-  	</managed-bean>
-  	<navigation-rule>
-    	<from-view-id>/tutorial/hellotrinidad/sayHello.xhtml</from-view-id>
-    	<navigation-case>
-      		<from-outcome>success</from-outcome>
-      		<to-view-id>/tutorial/hellotrinidad/page2.xhtml</to-view-id>
-   		</navigation-case>
-  	</navigation-rule>
-  	<navigation-rule>
-    	<from-view-id>/tutorial/hellotrinidad/page2.xhtml</from-view-id>
-    	<navigation-case>
-      		<from-outcome>back</from-outcome>
-      		<to-view-id>/tutorial/hellotrinidad/sayHello.xhtml</to-view-id>
-    	</navigation-case>
-  	</navigation-rule>
-	<!-- Hello Trinidad-END -->
-	<!-- Hello Orchestra-START -->
-    <navigation-rule>
-        <description>rules leading from the reservationBook view</description>
-        <from-view-id>/tutorial/helloorchestra/reservationBook.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/tutorial/helloorchestra/reservation.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>new</from-outcome>
-            <to-view-id>/tutorial/helloorchestra/reservation.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <description>rules leading from the reservation view</description>
-        <from-view-id>/tutorial/helloorchestra/reservation.xhtml</from-view-id>
+        <from-view-id>/*</from-view-id>
+        <navigation-case>
+            <from-outcome>editProfile</from-outcome>
+            <to-view-id>/userForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/owner/users.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editElseUser</from-outcome>
+            <to-view-id>/owner/userForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/admin/users.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editElseUser</from-outcome>
+            <to-view-id>/admin/userForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/admin/userForm.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>cancel</from-outcome>
-            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <to-view-id>/admin/users.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
-            <from-outcome>save</from-outcome>
-            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/admin/users.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/owner/userForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/owner/users.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
-            <from-outcome>delete</from-outcome>
-            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/owner/users.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
-	<!-- Hello Orchestra-END -->
-    
-   <!-- tutorial -END ##########################################################-->
-   
     <navigation-rule>
-	        <from-view-id>/mainMenu.xhtml</from-view-id>
-	        <navigation-case>
-				<from-outcome>itext</from-outcome>	        	
-	        	<to-view-id>/tutorial/itext/itext.xhml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>ajax4jsf</from-outcome>
-	            <to-view-id>/tutorial/ajax4jsf.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>reportPrint</from-outcome>
-	            <to-view-id>/tutorial/report/reportPrint.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>selectFile</from-outcome>
-	            <to-view-id>/admin/selectFile.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>number4bean</from-outcome>
-	            <to-view-id>/tutorial/numberbean/guess.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>paymnet4bean</from-outcome>
-	            <to-view-id>/tutorial/numberbean/index.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>spinner</from-outcome>
-	            <to-view-id>/tutorial/spinner/spinner.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>spinner2</from-outcome>
-	            <to-view-id>/tutorial/spinner2/spinner2.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>tabbedpane</from-outcome>
-	            <to-view-id>/tutorial/tabbedpane/tabbed.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>tabbedpaneTomahawk</from-outcome>
-	            <to-view-id>/tutorial/tabbedpanetomahawk/tabbedpane.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>spinnerjs</from-outcome>
-	            <to-view-id>/tutorial/spinnerjs/spinner2.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>sayhello</from-outcome>
-	            <to-view-id>/tutorial/sayhello/sayhello.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>reserveContainer</from-outcome>
-	            <to-view-id>/tutorial/reservecontainer/reserve.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>helloTrinidad</from-outcome>
-	            <to-view-id>/tutorial/hellotrinidad/sayHello.xhtml</to-view-id>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>helloOrchestra</from-outcome>
-	            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
-	        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	        <from-view-id>/*</from-view-id>
-	        <navigation-case>
-	            <from-outcome>mainMenu</from-outcome>
-	            <to-view-id>/mainMenu.xhtml</to-view-id>
-	            <redirect/>
-	        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	        <from-view-id>/*</from-view-id>
-	        <navigation-case>
-	            <from-outcome>editProfile</from-outcome>
-	            <to-view-id>/userForm.xhtml</to-view-id>
-	        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	        <from-view-id>/owner/users.xhtml</from-view-id>
-	        <navigation-case>
-	            <from-outcome>editElseUser</from-outcome>
-	            <to-view-id>/owner/userForm.xhtml</to-view-id>
-	        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	        <from-view-id>/admin/users.xhtml</from-view-id>
-	        <navigation-case>
-	            <from-outcome>editElseUser</from-outcome>
-	            <to-view-id>/admin/userForm.xhtml</to-view-id>
-	        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	        <from-view-id>/admin/userForm.xhtml</from-view-id>
-	        <navigation-case>
-	            <from-outcome>cancel</from-outcome>
-	            <to-view-id>/admin/users.xhtml</to-view-id>
-	            <redirect/>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>list</from-outcome>
-	            <to-view-id>/admin/users.xhtml</to-view-id>
-	            <redirect/>
-	        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	        <from-view-id>/owner/userForm.xhtml</from-view-id>
-	        <navigation-case>
-	            <from-outcome>cancel</from-outcome>
-	            <to-view-id>/owner/users.xhtml</to-view-id>
-	            <redirect/>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>list</from-outcome>
-	            <to-view-id>/owner/users.xhtml</to-view-id>
-	            <redirect/>
-	        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	        <from-view-id>/userForm.xhtml</from-view-id>
-	        <navigation-case>
-	            <from-outcome>cancel</from-outcome>
-	            <to-view-id>/mainMenu.xhtml</to-view-id>
-	            <redirect/>
-	        </navigation-case>
-	        <navigation-case>
-	            <from-outcome>list</from-outcome>
-	            <to-view-id>/mainMenu.xhtml</to-view-id>
-	            <redirect/>
-	        </navigation-case>
+        <from-view-id>/userForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/mainMenu.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/mainMenu.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/admin/selectFile.xhtml</from-view-id>
@@ -546,8 +192,7 @@
             <to-view-id>/login.jsp</to-view-id>
             <redirect/>
         </navigation-case>
-    </navigation-rule>
-    
+    </navigation-rule>    
     
     <!--Country-nav-START-->
     <navigation-rule>
@@ -878,21 +523,21 @@
             <to-view-id>/manager/services.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-        	<from-outcome>editPrivate</from-outcome>
-        	<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
+            <from-outcome>editPrivate</from-outcome>
+            <to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-        	<from-outcome>editInner</from-outcome>
-        	<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
+            <from-outcome>editInner</from-outcome>
+            <to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-        	<from-outcome>editOuter</from-outcome>
-        	<to-view-id>/manager/sooratOuterForm.xhtml</to-view-id>
+            <from-outcome>editOuter</from-outcome>
+            <to-view-id>/manager/sooratOuterForm.xhtml</to-view-id>
         </navigation-case>
-       	<navigation-case>
-			<from-outcome>issueInner</from-outcome>
-			<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
-		</navigation-case>
+        <navigation-case>
+            <from-outcome>issueInner</from-outcome>
+            <to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/manager/serviceForm.xhtml</from-view-id>
@@ -910,22 +555,22 @@
     <!--Service-nav-END-->
     <!--Reserve-nav-START-->
     <navigation-rule>
-    	<from-view-id>/reserver/reserves.xhtml</from-view-id>
-    	<navigation-case>
-			<from-outcome>edit</from-outcome>
-			<to-view-id>/reserver/reserveForm.xhtml</to-view-id>
-		</navigation-case>
+        <from-view-id>/reserver/reserves.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/reserver/reserveForm.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
-    	<from-view-id>/reserver/reserveForm.xhtml</from-view-id>
-    	<navigation-case>
-			<from-outcome>edit</from-outcome>
-			<to-view-id>/reserver/reserveForm.xhtml</to-view-id>
-		</navigation-case>
-    	<navigation-case>
-			<from-outcome>cancel</from-outcome>
-			<to-view-id>/reserver/reserves.xhtml</to-view-id>
-		</navigation-case>
+        <from-view-id>/reserver/reserveForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/reserver/reserveForm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/reserver/reserves.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <!--Reserve-nav-END-->
     <!--Ticket-nav-START-->
@@ -965,6 +610,11 @@
             <from-outcome>edit</from-outcome>
             <to-view-id>/cashier/ticketTempForm.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>print</from-outcome>
+            <to-view-id>/cashier/print.jsp</to-view-id>
+            <redirect/>
+        </navigation-case>        
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/cashier/ticketTempForm.xhtml</from-view-id>
@@ -1002,57 +652,55 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-    	<from-view-id>/manager/sooratInners.xhtml</from-view-id>
-    	<navigation-case>
-			<from-outcome>editInner</from-outcome>
-			<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
-		</navigation-case>
+        <from-view-id>/manager/sooratInners.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editInner</from-outcome>
+            <to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
-    	<from-view-id>/manager/sooratInnerForm.xhtml</from-view-id>
-    	<navigation-case>
-			<from-outcome>editInner</from-outcome>
-			<to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
-		</navigation-case>
-    	<navigation-case>
-			<from-outcome>list</from-outcome>
-			<to-view-id>/manager/sooratInners.xhtml</to-view-id>
-		</navigation-case>
-    	<navigation-case>
-			<from-outcome>cancel</from-outcome>
-			<to-view-id>/manager/sooratInners.xhtml</to-view-id>
-		</navigation-case>
+        <from-view-id>/manager/sooratInnerForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editInner</from-outcome>
+            <to-view-id>/manager/sooratInnerForm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/manager/sooratInners.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/manager/sooratInners.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
-    	<from-view-id>/manager/sooratPrivates.xhtml</from-view-id>
-    	<navigation-case>
-    		<from-outcome>add</from-outcome>
-    		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
-    	</navigation-case>
-    	<navigation-case>
-    		<from-outcome>editPrivate</from-outcome>
-    		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
-    	</navigation-case>
+        <from-view-id>/manager/sooratPrivates.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editPrivate</from-outcome>
+            <to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
-    	<from-view-id>/manager/sooratPrivateForm.xhtml</from-view-id>
-    	<navigation-case>
-    		<from-outcome>editPrivate</from-outcome>
-    		<to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
-    	</navigation-case>
-    	<navigation-case>
-    		<from-outcome>list</from-outcome>
-    		<to-view-id>/manager/sooratPrivates.xhtml</to-view-id>
-    	</navigation-case>
-    	<navigation-case>
-    		<from-outcome>cancel</from-outcome>
-    		<to-view-id>/manager/sooratPrivates.xhtml</to-view-id>
-    	</navigation-case>
+        <from-view-id>/manager/sooratPrivateForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editPrivate</from-outcome>
+            <to-view-id>/manager/sooratPrivateForm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/manager/sooratPrivates.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/manager/sooratPrivates.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
-    <!--Soorat-nav-END-->
-    
-    
-    <!--Rate-nav-START-->
+<!--Soorat-nav-END-->
+<!--Rate-nav-START-->
     <navigation-rule>
         <from-view-id>/admin/rates.xhtml</from-view-id>
         <navigation-case>
@@ -1077,8 +725,8 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
-    <!--Rate-nav-END-->
-    <!--Cash-nav-START-->
+<!--Rate-nav-END-->
+<!--Cash-nav-START-->
     <navigation-rule>
         <from-view-id>/manager/cashes.xhtml</from-view-id>
         <navigation-case>
@@ -1128,8 +776,8 @@
             <to-view-id>/cashier/tickets.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>    
-    <!--Cash-nav-END-->
-    <!--CashTemplate-nav-START-->
+<!--Cash-nav-END-->
+<!--CashTemplate-nav-START-->
     <navigation-rule>
         <from-view-id>/admin/cashTemplates.xhtml</from-view-id>
         <navigation-case>
@@ -1154,9 +802,8 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
-    <!--CashTemplate-nav-END-->
-    <!-- Add additional rules here -->
-
+<!--CashTemplate-nav-END-->
+<!-- Add additional rules here -->
     <managed-bean>
         <managed-bean-name>basePage</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.BasePage</managed-bean-class>
@@ -1277,10 +924,10 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 
-	<managed-bean>
-		<managed-bean-name>lookupProvider</managed-bean-name>
-		<managed-bean-class>com.asta.app2.webapp.action.LookupProvider</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+    <managed-bean>
+        <managed-bean-name>lookupProvider</managed-bean-name>
+        <managed-bean-class>com.asta.app2.webapp.action.LookupProvider</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
         <managed-property>
             <property-name>lookupManager</property-name>
             <value>#{lookupManager}</value>
@@ -1313,15 +960,15 @@
             <property-name>personManager</property-name>
             <value>#{personManager}</value>
         </managed-property>
-	</managed-bean>
-
-    <managed-bean>
-    	<managed-bean-name>lookupSessionProvider</managed-bean-name>
-	    <managed-bean-class>com.asta.app2.webapp.action.LookupSessionProvider</managed-bean-class>
-	    <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
-    <!--Country-beans-START-->
+    <managed-bean>
+        <managed-bean-name>lookupSessionProvider</managed-bean-name>
+        <managed-bean-class>com.asta.app2.webapp.action.LookupSessionProvider</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+<!--Country-beans-START-->
     <managed-bean>
         <managed-bean-name>countryList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.CountryList</managed-bean-class>
@@ -1345,9 +992,8 @@
             <value>#{countryManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Country-beans-END-->
-
-    <!--City-beans-START-->
+<!--Country-beans-END-->
+<!--City-beans-START-->
     <managed-bean>
         <managed-bean-name>cityList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.CityList</managed-bean-class>
@@ -1375,9 +1021,8 @@
             <value>#{countryManager}</value>
         </managed-property>
     </managed-bean>
-    <!--City-beans-END-->
-
-    <!--Path-beans-START-->
+<!--City-beans-END-->
+<!--Path-beans-START-->
     <managed-bean>
         <managed-bean-name>pathList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.PathList</managed-bean-class>
@@ -1405,9 +1050,8 @@
             <value>#{cityManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Path-beans-END-->
-
-    <!--Company-beans-START-->
+<!--Path-beans-END-->
+<!--Company-beans-START-->
     <managed-bean>
         <managed-bean-name>companyList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.CompanyList</managed-bean-class>
@@ -1435,9 +1079,8 @@
             <value>#{cityManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Company-beans-END-->
-
-    <!--CarKind-beans-START-->
+<!--Company-beans-END-->
+<!--CarKind-beans-START-->
     <managed-bean>
         <managed-bean-name>carKindList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.CarKindList</managed-bean-class>
@@ -1461,9 +1104,8 @@
             <value>#{carKindManager}</value>
         </managed-property>
     </managed-bean>
-    <!--CarKind-beans-END-->
-
-    <!--ServiceTemplate-beans-START-->
+<!--CarKind-beans-END-->
+<!--ServiceTemplate-beans-START-->
     <managed-bean>
         <managed-bean-name>serviceTemplateList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.ServiceTemplateList</managed-bean-class>
@@ -1499,9 +1141,8 @@
             <value>#{pathManager}</value>
         </managed-property>
     </managed-bean>
-    <!--ServiceTemplate-beans-END-->
-
-    <!--Person-beans-START-->
+<!--ServiceTemplate-beans-END-->
+<!--Person-beans-START-->
     <managed-bean>
         <managed-bean-name>personList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.PersonList</managed-bean-class>
@@ -1525,9 +1166,8 @@
             <value>#{personManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Person-beans-END-->
-
-    <!--Driver-beans-START-->
+<!--Person-beans-END-->
+<!--Driver-beans-START-->
     <managed-bean>
         <managed-bean-name>driverList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.DriverList</managed-bean-class>
@@ -1555,9 +1195,8 @@
             <value>#{personManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Driver-beans-END-->
-
-    <!--Lodger-beans-START-->
+<!--Driver-beans-END-->
+<!--Lodger-beans-START-->
     <managed-bean>
         <managed-bean-name>lodgerList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.LodgerList</managed-bean-class>
@@ -1585,9 +1224,8 @@
             <value>#{personManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Lodger-beans-END-->
-
-    <!--Car-beans-START-->
+<!--Lodger-beans-END-->
+<!--Car-beans-START-->
     <managed-bean>
         <managed-bean-name>carList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.CarList</managed-bean-class>
@@ -1619,9 +1257,8 @@
             <value>#{personManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Car-beans-END-->
-
-    <!--Passenger-beans-START-->
+<!--Car-beans-END-->
+<!--Passenger-beans-START-->
     <managed-bean>
         <managed-bean-name>passengerList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.PassengerList</managed-bean-class>
@@ -1645,9 +1282,8 @@
             <value>#{passengerManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Passenger-beans-END-->
-
-    <!--Service-beans-START
+<!--Passenger-beans-END-->
+<!--Service-beans-START
     <managed-bean>
         <managed-bean-name>serviceList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.ServiceList</managed-bean-class>
@@ -1700,9 +1336,8 @@
             <value>#{serviceTemplateManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Service-beans-END-->
-
-    <!--Ticket-beans-START-->
+<!--Service-beans-END-->
+<!--Ticket-beans-START-->
     <managed-bean>
         <managed-bean-name>ticketList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.TicketList</managed-bean-class>
@@ -1750,12 +1385,12 @@
             <value>#{chairManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Ticket-beans-END-->
-    <!--Reserve-beans-START
- 	<managed-bean>
- 		<managed-bean-name>reserveForm</managed-bean-name>
- 		<managed-bean-class>com.asta.app2.webapp.action.ReserveForm</managed-bean-class>
- 		<managed-bean-scope>session</managed-bean-scope>
+<!--Ticket-beans-END-->
+<!--Reserve-beans-START
+    <managed-bean>
+        <managed-bean-name>reserveForm</managed-bean-name>
+        <managed-bean-class>com.asta.app2.webapp.action.ReserveForm</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
         <managed-property>
             <property-name>serviceManager</property-name>
             <value>#{serviceManager}</value>
@@ -1780,10 +1415,10 @@
             <property-name>pathManager</property-name>
             <value>#{pathManager}</value>
         </managed-property>
- 	</managed-bean>
+    </managed-bean>
     -->
-    <!--Reserve-beans-END-->
-    <!--TicketTemp-beans-START-->
+<!--Reserve-beans-END-->
+<!--TicketTemp-beans-START-->
     <managed-bean>
         <managed-bean-name>ticketTempList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.TicketTempList</managed-bean-class>
@@ -1843,8 +1478,8 @@
             <value>#{cashManager}</value>
         </managed-property>
     </managed-bean>
-    <!--TicketTemp-beans-END-->
-
+<!--TicketTemp-beans-END-->
+<!--Soorat-beans-START-->
     <managed-bean>
         <managed-bean-name>sooratForm</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.SooratForm</managed-bean-class>
@@ -1858,8 +1493,8 @@
             <value>#{sooratManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Soorat-beans-END-->
-    <!--SooratSodor-beans-START-->
+<!--Soorat-beans-END-->
+<!--SooratSodor-beans-START-->
     <managed-bean>
         <managed-bean-name>sooratSodorForm</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.SooratSodorForm</managed-bean-class>
@@ -1893,9 +1528,8 @@
             <value>#{insuranceBadanehManager}</value>
         </managed-property>
     </managed-bean>
-    <!--SooratSodor-beans-END-->
-
-    <!--Rate-beans-START-->
+<!--SooratSodor-beans-END-->
+<!--Rate-beans-START-->
     <managed-bean>
         <managed-bean-name>rateList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.RateList</managed-bean-class>
@@ -1927,9 +1561,8 @@
             <value>#{carKindManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Rate-beans-END-->
-
-    <!--Cash-beans-START-->
+<!--Rate-beans-END-->
+<!--Cash-beans-START-->
     <managed-bean>
         <managed-bean-name>cashList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.CashList</managed-bean-class>
@@ -1953,9 +1586,8 @@
             <value>#{cashManager}</value>
         </managed-property>
     </managed-bean>
-    <!--Cash-beans-END-->
-
-    <!--CashTemplate-beans-START-->
+<!--Cash-beans-END-->
+<!--CashTemplate-beans-START-->
     <managed-bean>
         <managed-bean-name>cashTemplateList</managed-bean-name>
         <managed-bean-class>com.asta.app2.webapp.action.CashTemplateList</managed-bean-class>
@@ -1987,9 +1619,8 @@
         	<value>#{userManager}</value>
         </managed-property>
     </managed-bean>
-    <!--CashTemplate-beans-END-->
-
-    <!-- Add additional beans here -->
+<!--CashTemplate-beans-END-->
+<!-- Add additional beans here -->
 
     <render-kit>
         <description>Some replacements for the standard renderers and New renderers !</description>
@@ -2005,16 +1636,16 @@
             <renderer-type>javax.faces.Grid</renderer-type>
             <renderer-class>com.asta.app2.webapp.jsf.PanelGridRenderer</renderer-class>
         </renderer>
-      	<renderer>
-         	<component-family>javax.faces.Command</component-family>
-         	<renderer-type>com.asta.app2.ReserveContainerVerticalRenderer</renderer-type>
-         	<renderer-class>com.asta.app2.webapp.jsf.ReserveContainerVerticalRenderer</renderer-class>
-      	</renderer>
-      	<renderer>
-      		<component-family>javax.faces.Input</component-family>
-      		<renderer-type>com.asta.app2.InputDate2Renderer</renderer-type>
-      		<renderer-class>org.apache.myfaces.custom.avandate2.InputDate2Renderer</renderer-class>
-      	</renderer>
+        <renderer>
+            <component-family>javax.faces.Command</component-family>
+            <renderer-type>com.asta.app2.ReserveContainerVerticalRenderer</renderer-type>
+            <renderer-class>com.asta.app2.webapp.jsf.ReserveContainerVerticalRenderer</renderer-class>
+        </renderer>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>com.asta.app2.InputDate2Renderer</renderer-type>
+            <renderer-class>org.apache.myfaces.custom.avandate2.InputDate2Renderer</renderer-class>
+        </renderer>
     </render-kit>
 
     <validator>
@@ -2022,5 +1653,356 @@
         <validator-class>com.corejsf.validator.CommonsValidator</validator-class>
     </validator>
 
+<!-- START of tutorial ########################################################-->
+   
+    <application>
+        <resource-bundle>
+            <base-name>com.asta.app2.tutorial.messages</base-name>
+            <var>msgs</var>
+        </resource-bundle>
+    </application>
+   
+<!-- itext-START -->
+    <managed-bean>
+        <managed-bean-name>itext</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.itext.ItextBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+<!-- itext-END -->
+<!-- report-START -->
+    <managed-bean>
+        <managed-bean-name>reports</managed-bean-name>
+        <managed-bean-class>com.asta.app2.webapp.action.Reports</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>userManager</property-name>
+            <value>#{userManager}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>ticketManager</property-name>
+            <value>#{ticketManager}</value>
+        </managed-property>
+    </managed-bean>
+<!-- report-END -->
+<!-- SayHello-START -->
+    <component>
+        <component-type>com.asta.app2.tutorial.SayHello</component-type>
+        <component-class>com.asta.app2.tutorial.sayhello.SayHello</component-class>
+    </component>
+    <render-kit>
+        <renderer>
+            <component-family>javax.faces.Output</component-family>
+            <renderer-type>com.asta.app2.tutorial.SayHelloRenderer</renderer-type>
+            <renderer-class>com.asta.app2.tutorial.sayhello.SayHelloRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+    <!-- Managed Beans for sayhello.jsp -->
+    <managed-bean>
+        <managed-bean-name>sayHelloBean</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.sayhello.SayHelloBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>go_home</from-outcome>
+            <to-view-id>/mainMenu.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+<!-- SayHello-END -->
+<!-- NumberBean-START -->
+    <managed-bean>
+        <managed-bean-name>NumberBean</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.numberbean.NumberBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>min</property-name>
+            <value>1</value>
+        </managed-property>
+        <managed-property>
+            <property-name>max</property-name>
+            <value>10</value>
+        </managed-property>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/tutorial/numberbean/guess.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/tutorial/numberbean/response.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/tutorial/numberbean/response.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>back</from-outcome>
+            <to-view-id>/tutorial/numberbean/guess.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/tutorial/numberbean/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>process</from-outcome>
+            <to-view-id>/tutorial/numberbean/result.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>			
+    <navigation-rule>
+        <from-view-id>/tutorial/numberbean/result.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>back</from-outcome>
+            <to-view-id>/tutorial/numberbean/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>			
+<!-- NumberBean-END -->
+<!-- Spinner-START-->
+    <component>
+        <component-type>com.asta.app2.tutorial.Spinner</component-type>
+        <component-class>com.asta.app2.tutorial.spinner.UISpinner</component-class>
+    </component>
+    <managed-bean> 
+        <managed-bean-name>cardExpirationDate</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.spinner.CreditCardExpiration</managed-bean-class> 
+        <managed-bean-scope>session</managed-bean-scope> 
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/tutorial/spinner/spinner.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>next</from-outcome>
+            <to-view-id>/tutorial/spinner/next.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/tutorial/spinner/next.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>again</from-outcome>
+            <to-view-id>/tutorial/spinner/spinner.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>   		
+<!-- Spinner-END-->
+<!-- Spinner2-START-->
+    <component>
+        <component-type>com.asta.app2.tutorial.Spinner2</component-type>
+        <component-class>com.asta.app2.tutorial.spinner2.UISpinner2</component-class>
+    </component>
+    <render-kit>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>com.asta.app2.tutorial.Spinner2</renderer-type>
+            <renderer-class>com.asta.app2.tutorial.spinner2.SpinnerRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+    <navigation-rule>
+        <from-view-id>/tutorial/spinner2/spinner2.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>next</from-outcome>
+            <to-view-id>/tutorial/spinner2/next.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/tutorial/spinner2/next.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>again</from-outcome>
+            <to-view-id>/tutorial/spinner2/spinner2.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>   
+<!-- Spinner2-END-->
+<!-- SpinnerJS-START-->
+    <render-kit>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>com.asta.app2.tutorial.SpinnerJS</renderer-type>
+            <renderer-class>com.asta.app2.tutorial.spinnerjs.JSSpinnerRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+<!-- SpinnerJS-END-->
+<!-- TabbedPane-START -->
+    <component>
+        <description>A tabbed pane</description> 
+        <component-type>com.asta.app2.tutorial.TabbedPane</component-type>
+        <component-class>com.asta.app2.tutorial.tabbedpane.UITabbedPane</component-class>
+    </component>
+    <render-kit>
+    <renderer>
+        <component-family>javax.faces.Command</component-family>
+        <renderer-type>com.asta.app2.tutorial.TabbedPane</renderer-type>
+        <renderer-class>com.asta.app2.tutorial.tabbedpane.TabbedPaneRenderer</renderer-class>
+    </renderer>
+    </render-kit>
+<!-- TabbedPane-END -->
+<!-- TabbedPaneTomahawk-START -->
+    <managed-bean>
+        <managed-bean-name>tabbedPaneBean</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.tabbedpanetomahawk.TabbedPaneBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>testCheckBox</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.tabbedpanetomahawk.TestCheckBox</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>testCheckList</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.tabbedpanetomahawk.TestCheckBoxList</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>testRadioButton</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.tabbedpanetomahawk.TestRadioButton</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+<!-- TabbedPaneTomahawk-END -->
+<!-- ReserveContainer-START -->
+    <component>
+        <description>A container for reservation </description> 
+        <component-type>com.asta.app2.tutorial.ReserveContainer</component-type>
+        <component-class>com.asta.app2.tutorial.reservecontainer.UIReserveContainer</component-class>
+    </component>
+    <render-kit>
+        <renderer>
+            <component-family>javax.faces.Command</component-family>
+            <renderer-type>com.asta.app2.tutorial.ReserveContainer</renderer-type>
+            <renderer-class>com.asta.app2.tutorial.reservecontainer.ReserveContainerRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+    <managed-bean>
+        <managed-bean-name>reserveTutorualForm</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.reservecontainer.ReserveContainerBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+<!-- ReserveContainer-END -->
+<!-- SelectChair-START -->
+    <component>
+        <description>A select for chair !</description> 
+        <component-type>com.asta.app2.tutorial.SelectChair</component-type>
+        <component-class>com.asta.app2.tutorial.selectchair.UISelectChair</component-class>
+    </component>
+    <render-kit>
+        <renderer>
+            <component-family>javax.faces.SelectItem</component-family>
+            <renderer-type>com.asta.app2.tutorial.SelectChair</renderer-type>
+            <renderer-class>com.asta.app2.tutorial.selectchair.SelectChairRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+<!-- SelectChair-END -->
+<!-- Hello Trinidad-START -->
+    <managed-bean>
+        <managed-bean-name>helloTrinidadBacking</managed-bean-name>
+        <managed-bean-class>com.asta.app2.tutorial.hellotrinidad.HelloTrinidadBacking</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/tutorial/hellotrinidad/sayHello.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/tutorial/hellotrinidad/page2.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/tutorial/hellotrinidad/page2.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>back</from-outcome>
+            <to-view-id>/tutorial/hellotrinidad/sayHello.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+<!-- Hello Trinidad-END -->
+<!-- Hello Orchestra-START -->
+    <navigation-rule>
+        <description>rules leading from the reservationBook view</description>
+        <from-view-id>/tutorial/helloorchestra/reservationBook.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservation.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>new</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservation.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <description>rules leading from the reservation view</description>
+        <from-view-id>/tutorial/helloorchestra/reservation.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>save</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>delete</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+<!-- Hello Orchestra-END -->
+
+    <navigation-rule>
+        <from-view-id>/mainMenu.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>itext</from-outcome>	        	
+            <to-view-id>/tutorial/itext/itext.xhml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ajax4jsf</from-outcome>
+            <to-view-id>/tutorial/ajax4jsf.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>reportPrint</from-outcome>
+            <to-view-id>/tutorial/report/reportPrint.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>selectFile</from-outcome>
+            <to-view-id>/admin/selectFile.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>number4bean</from-outcome>
+            <to-view-id>/tutorial/numberbean/guess.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>paymnet4bean</from-outcome>
+            <to-view-id>/tutorial/numberbean/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>spinner</from-outcome>
+            <to-view-id>/tutorial/spinner/spinner.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>spinner2</from-outcome>
+            <to-view-id>/tutorial/spinner2/spinner2.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>tabbedpane</from-outcome>
+            <to-view-id>/tutorial/tabbedpane/tabbed.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>tabbedpaneTomahawk</from-outcome>
+            <to-view-id>/tutorial/tabbedpanetomahawk/tabbedpane.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>spinnerjs</from-outcome>
+            <to-view-id>/tutorial/spinnerjs/spinner2.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>sayhello</from-outcome>
+            <to-view-id>/tutorial/sayhello/sayhello.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>reserveContainer</from-outcome>
+            <to-view-id>/tutorial/reservecontainer/reserve.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>helloTrinidad</from-outcome>
+            <to-view-id>/tutorial/hellotrinidad/sayHello.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>helloOrchestra</from-outcome>
+            <to-view-id>/tutorial/helloorchestra/reservationBook.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+<!-- END of tutorial ##########################################################-->
 
 </faces-config>

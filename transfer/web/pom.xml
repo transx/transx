@@ -46,6 +46,11 @@
                             <value>10000</value>
                         </systemProperty>
                     </systemProperties>
+                    <webApp>
+                        <webInfIncludeJarPattern>
+                            .*/.*jsp-api-[^/]\.jar$|./.*jsp-[^/]\.jar$|./.*taglibs[^/]*\.jar$
+                        </webInfIncludeJarPattern>
+                    </webApp>                    
                 </configuration>
             </plugin>
             <plugin>

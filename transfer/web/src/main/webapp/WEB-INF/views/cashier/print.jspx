@@ -1,0 +1,17 @@
+<jsp:root
+  xmlns:spring="http://www.springframework.org/tags"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+  <jsp:directive.page import="net.sf.jasperreports.engine.export.JRHtmlExporter" />
+
+  <jsp:scriptlet>
+  <![CDATA[
+    JRHtmlExporter export = (JRHtmlExporter) request.getAttribute("exportIndetObject");
+    session.setAttribute("exportIndetObject", export);
+    JRHtmlExporter export1 = (JRHtmlExporter) session.getAttribute("exportIndetObject");export.exportReport();
+  ]]>
+  </jsp:scriptlet>
+
+</jsp:root>

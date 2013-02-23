@@ -219,7 +219,13 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>sitemesh</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.html</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>*.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>

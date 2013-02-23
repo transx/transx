@@ -100,6 +100,7 @@ public class TicketTempForm extends BasePage implements Serializable {
 	 * if (isNew) { return "list"; } else { return "edit"; } }
 	 */
 	@Transactional
+	@Deprecated /** see TicketController.issueTicket */
 	public String issueTicket() {
 		if (id != null) {
 			TicketTemp tt = ticketTempManager.get(id);
