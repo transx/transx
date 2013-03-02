@@ -7,6 +7,7 @@ import javax.servlet.ServletContextListener;
 
 import junit.framework.TestCase;
 
+import org.junit.Ignore;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.ContextLoaderListener;
@@ -21,6 +22,7 @@ import com.asta.app2.Constants;
  *
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
+@Ignore
 public class StartupListenerTest extends TestCase {
     private MockServletContext sc = null;
     private ServletContextListener listener = null;

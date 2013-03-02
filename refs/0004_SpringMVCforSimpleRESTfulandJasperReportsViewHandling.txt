@@ -1,0 +1,21 @@
+
+number : 4
+
+status : inprogress
+
+type : transfer/Technical-new-feature
+
+subject : Spring-MVC for simple RESTful support and handling JasperReports views
+
+description : In this feature we need to configure Spring-MVC view technology
+for having RESTful URLs support. First usage of this new feature would be in
+refs #2 which we need to have cline-side-jasper-reports-print. With this new
+feature we will be able to call reports easier with simple GET(URL) action.
+
+author : SidMorad
+
+comments : [
+  : "",
+  : "",
+]
+

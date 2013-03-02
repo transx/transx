@@ -1,0 +1,216 @@
+[INFO] 
+NOTE: Maven is executing in offline mode. Any artifacts not already in your local
+repository will be inaccessible.
+
+[INFO] Scanning for projects...
+[INFO] Reactor build order: 
+[INFO]   Transfer Modular Application
+[INFO]   Transfer Modular Application - Core
+[INFO]   Transfer Modular Application - Web (JSF)
+[INFO] Searching repository for plugin with prefix: 'dependency'.
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Transfer Modular Application
+[INFO]    task-segment: [dependency:tree]
+[INFO] ------------------------------------------------------------------------
+[INFO] [dependency:tree {execution: default-cli}]
+[INFO] com.asta.app2:transfer:pom:1.0-SNAPSHOT
+[INFO] +- junit:junit:jar:4.4:test
+[INFO] +- org.jmock:jmock:jar:2.4.0:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.1:test
+[INFO] |  \- org.hamcrest:hamcrest-library:jar:1.1:test
+[INFO] +- org.jmock:jmock-junit4:jar:2.4.0:test
+[INFO] |  \- junit:junit-dep:jar:4.4:test
+[INFO] +- org.springframework:spring-test:jar:3.2.1.RELEASE:test
+[INFO] |  \- org.springframework:spring-core:jar:3.2.1.RELEASE:test
+[INFO] +- org.subethamail:subethasmtp-wiser:jar:1.2:test
+[INFO] |  +- org.subethamail:subethasmtp-smtp:jar:1.2:test
+[INFO] |  +- commons-logging:commons-logging:jar:1.1:test
+[INFO] |  |  +- log4j:log4j:jar:1.2.12:test
+[INFO] |  |  +- logkit:logkit:jar:1.0.1:test
+[INFO] |  |  +- avalon-framework:avalon-framework:jar:4.1.3:test
+[INFO] |  |  \- javax.servlet:servlet-api:jar:2.3:test
+[INFO] |  \- javax.mail:mail:jar:1.4:test
+[INFO] |     \- javax.activation:activation:jar:1.1:test
+[INFO] \- org.apache.shale:shale-test:jar:1.0.4:test
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Transfer Modular Application - Core
+[INFO]    task-segment: [dependency:tree]
+[INFO] ------------------------------------------------------------------------
+[INFO] [dependency:tree {execution: default-cli}]
+[INFO] com.asta.app2:transfer-core:jar:1.0-SNAPSHOT
+[INFO] +- postgresql:postgresql:jar:8.1-407.jdbc3:compile
+[INFO] +- org.springframework.security:spring-security-core-tiger:jar:2.0.1:compile
+[INFO] |  \- org.springframework.security:spring-security-core:jar:2.0.1:compile
+[INFO] |     \- commons-codec:commons-codec:jar:1.3:compile
+[INFO] +- org.springframework:spring-context-support:jar:3.2.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.2.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:3.2.1.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-expression:jar:3.2.1.RELEASE:compile
+[INFO] |  \- org.springframework:spring-core:jar:3.2.1.RELEASE:compile
+[INFO] +- org.springframework:spring-jdbc:jar:3.2.1.RELEASE:compile
+[INFO] |  \- org.springframework:spring-tx:jar:3.2.1.RELEASE:compile
+[INFO] +- org.springframework:spring-orm:jar:3.2.1.RELEASE:compile
+[INFO] |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] +- org.springframework:spring-aop:jar:3.2.1.RELEASE:compile
+[INFO] +- org.springframework:spring-aspects:jar:3.2.1.RELEASE:compile
+[INFO] +- log4j:log4j:jar:1.2.13:compile
+[INFO] +- commons-dbcp:commons-dbcp:jar:1.2.2:compile
+[INFO] |  \- commons-pool:commons-pool:jar:1.3:compile
+[INFO] +- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.0.3:compile
+[INFO] +- commons-lang:commons-lang:jar:2.3:compile
+[INFO] +- javax.mail:mail:jar:1.4:compile
+[INFO] |  \- javax.activation:activation:jar:1.1:compile
+[INFO] +- javax.persistence:persistence-api:jar:1.0:compile
+[INFO] +- net.sf.ehcache:ehcache:jar:1.5.0:compile
+[INFO] |  +- backport-util-concurrent:backport-util-concurrent:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2:compile
+[INFO] |  \- net.sf.jsr107cache:jsr107cache:jar:1.0:compile
+[INFO] +- org.aspectj:aspectjweaver:jar:1.7.1:compile
+[INFO] +- org.aspectj:aspectjrt:jar:1.7.1:compile
+[INFO] +- org.hibernate:hibernate:jar:3.2.6.ga:compile
+[INFO] |  +- javax.transaction:jta:jar:1.0.1B:compile
+[INFO] |  +- asm:asm-attrs:jar:1.5.3:compile
+[INFO] |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  +- cglib:cglib:jar:2.1_3:compile
+[INFO] |  \- asm:asm:jar:1.5.3:compile
+[INFO] +- org.hibernate:hibernate-annotations:jar:3.3.0.ga:compile
+[INFO] +- org.hibernate:hibernate-commons-annotations:jar:3.3.0.ga:compile
+[INFO] +- velocity:velocity:jar:1.4:compile
+[INFO] |  \- velocity:velocity-dep:jar:1.4:runtime
+[INFO] +- org.apache.myfaces.orchestra:myfaces-orchestra-core:jar:1.3:compile
+[INFO] +- junit:junit:jar:4.4:test
+[INFO] +- org.jmock:jmock:jar:2.4.0:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.1:test
+[INFO] |  \- org.hamcrest:hamcrest-library:jar:1.1:test
+[INFO] +- org.jmock:jmock-junit4:jar:2.4.0:test
+[INFO] |  \- junit:junit-dep:jar:4.4:test
+[INFO] +- org.springframework:spring-test:jar:3.2.1.RELEASE:test
+[INFO] +- org.subethamail:subethasmtp-wiser:jar:1.2:test
+[INFO] |  \- org.subethamail:subethasmtp-smtp:jar:1.2:test
+[INFO] \- org.apache.shale:shale-test:jar:1.0.4:test
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Transfer Modular Application - Web (JSF)
+[INFO]    task-segment: [dependency:tree]
+[INFO] ------------------------------------------------------------------------
+[INFO] [dependency:tree {execution: default-cli}]
+[INFO] com.asta.app2:transfer-webapp:war:1.0-SNAPSHOT
+[INFO] +- com.asta.app2:transfer-core:jar:1.0-SNAPSHOT:compile
+[INFO] |  +- postgresql:postgresql:jar:8.1-407.jdbc3:compile
+[INFO] |  +- org.springframework.security:spring-security-core-tiger:jar:2.0.1:compile
+[INFO] |  +- org.springframework:spring-context-support:jar:3.2.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-jdbc:jar:3.2.1.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-tx:jar:3.2.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-orm:jar:3.2.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aop:jar:3.2.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aspects:jar:3.2.1.RELEASE:compile
+[INFO] |  +- log4j:log4j:jar:1.2.13:compile
+[INFO] |  +- commons-dbcp:commons-dbcp:jar:1.2.2:compile
+[INFO] |  |  \- commons-pool:commons-pool:jar:1.3:compile
+[INFO] |  +- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.3:compile
+[INFO] |  +- javax.mail:mail:jar:1.4:compile
+[INFO] |  |  \- javax.activation:activation:jar:1.1:compile
+[INFO] |  +- javax.persistence:persistence-api:jar:1.0:compile
+[INFO] |  +- net.sf.ehcache:ehcache:jar:1.5.0:compile
+[INFO] |  |  +- backport-util-concurrent:backport-util-concurrent:jar:3.1:compile
+[INFO] |  |  \- net.sf.jsr107cache:jsr107cache:jar:1.0:compile
+[INFO] |  +- org.aspectj:aspectjweaver:jar:1.7.1:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.7.1:compile
+[INFO] |  +- org.hibernate:hibernate:jar:3.2.6.ga:compile
+[INFO] |  |  +- javax.transaction:jta:jar:1.0.1B:compile
+[INFO] |  |  +- asm:asm-attrs:jar:1.5.3:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- cglib:cglib:jar:2.1_3:compile
+[INFO] |  |  \- asm:asm:jar:1.5.3:compile
+[INFO] |  +- org.hibernate:hibernate-annotations:jar:3.3.0.ga:compile
+[INFO] |  +- org.hibernate:hibernate-commons-annotations:jar:3.3.0.ga:compile
+[INFO] |  \- velocity:velocity:jar:1.4:compile
+[INFO] |     \- velocity:velocity-dep:jar:1.4:runtime
+[INFO] +- org.springframework.security:spring-security-taglibs:jar:2.0.1:compile
+[INFO] |  +- org.springframework.security:spring-security-core:jar:2.0.1:compile
+[INFO] |  \- org.springframework.security:spring-security-acl:jar:2.0.1:compile
+[INFO] +- org.springframework:spring-web:jar:3.2.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:3.2.1.RELEASE:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.2.1.RELEASE:compile
+[INFO] |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  \- org.springframework:spring-core:jar:3.2.1.RELEASE:compile
+[INFO] +- org.springframework:spring-webmvc:jar:3.2.1.RELEASE:compile
+[INFO] |  \- org.springframework:spring-expression:jar:3.2.1.RELEASE:compile
+[INFO] +- org.apache.tiles:tiles-jsp:jar:2.2.2:compile
+[INFO] |  +- org.apache.tiles:tiles-servlet:jar:2.2.2:compile
+[INFO] |  |  \- org.apache.tiles:tiles-core:jar:2.2.2:compile
+[INFO] |  |     \- org.slf4j:jcl-over-slf4j:jar:1.5.8:compile
+[INFO] |  \- org.apache.tiles:tiles-template:jar:2.2.2:compile
+[INFO] |     \- org.apache.tiles:tiles-api:jar:2.2.2:compile
+[INFO] +- org.slf4j:slf4j-nop:jar:1.5.8:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.5.8:compile
+[INFO] +- com.corejsf:corejsf-validator:jar:1.0:compile
+[INFO] |  \- commons-validator:commons-validator:jar:1.3.0:compile
+[INFO] +- com.sun.facelets:jsf-facelets:jar:1.1.14:compile
+[INFO] +- javax.servlet:servlet-api:jar:2.4:provided (scope not updated to compile)
+[INFO] +- javax.servlet:jstl:jar:1.1.2:compile
+[INFO] +- javax.servlet.jsp:jsp-api:jar:2.1:provided
+[INFO] +- net.java.dev.ajax4jsf:ajax4jsf:jar:1.0.6:compile
+[INFO] +- net.sourceforge.jsf-comp:acegi-jsf:jar:1.1.3:compile
+[INFO] +- opensymphony:sitemesh:jar:2.2.1:compile
+[INFO] +- opensymphony:oscache:jar:2.3:compile
+[INFO] +- org.apache.myfaces.core:myfaces-api:jar:1.2.5:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] +- org.apache.myfaces.core:myfaces-impl:jar:1.2.5:compile
+[INFO] |  +- org.apache.myfaces.shared:myfaces-shared-impl:jar:3.0.5:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2:compile
+[INFO] |  +- commons-discovery:commons-discovery:jar:0.4:compile
+[INFO] |  +- commons-codec:commons-codec:jar:1.3:compile
+[INFO] |  \- commons-digester:commons-digester:jar:1.8:compile
+[INFO] +- org.apache.myfaces.tomahawk:tomahawk:jar:1.1.8:compile
+[INFO] |  +- commons-fileupload:commons-fileupload:jar:1.2.1:compile
+[INFO] |  +- commons-io:commons-io:jar:1.3.2:runtime
+[INFO] |  +- commons-el:commons-el:jar:1.0:compile
+[INFO] |  +- oro:oro:jar:2.0.8:compile
+[INFO] |  +- batik:batik-awt-util:jar:1.6-1:compile
+[INFO] |  |  \- batik:batik-util:jar:1.6-1:compile
+[INFO] |  |     \- batik:batik-gui-util:jar:1.6-1:compile
+[INFO] |  |        \- batik:batik-ext:jar:1.6-1:compile
+[INFO] |  |           \- xml-apis:xmlParserAPIs:jar:2.0.2:compile
+[INFO] |  \- com.lowagie:itext:jar:1.4.8:compile
+[INFO] +- org.apache.myfaces.tomahawk:tomahawk-sandbox:jar:1.1.6:compile
+[INFO] |  \- poi:poi:jar:2.5.1-final-20040804:compile
+[INFO] +- org.apache.myfaces.orchestra:myfaces-orchestra-core:jar:1.3:compile
+[INFO] +- org.tuckey:urlrewritefilter:jar:3.0.4:compile
+[INFO] +- struts-menu:struts-menu:jar:2.4.3:compile
+[INFO] |  \- velocity-tools:velocity-tools-view:jar:1.0:compile
+[INFO] +- taglibs:standard:jar:1.1.2:compile
+[INFO] +- jasperreports:jasperreports:jar:3.0.1:compile
+[INFO] |  +- jfree:jcommon:jar:1.0.0:compile
+[INFO] |  +- jfree:jfreechart:jar:1.0.1:compile
+[INFO] |  +- xml-apis:xml-apis:jar:1.3.02:compile
+[INFO] |  \- eclipse:jdtcore:jar:3.1.0:compile
+[INFO] +- junit:junit:jar:4.4:test (scope not updated to compile)
+[INFO] +- org.jmock:jmock:jar:2.4.0:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.1:test
+[INFO] |  \- org.hamcrest:hamcrest-library:jar:1.1:test
+[INFO] +- org.jmock:jmock-junit4:jar:2.4.0:test
+[INFO] |  \- junit:junit-dep:jar:4.4:test
+[INFO] +- org.springframework:spring-test:jar:3.2.1.RELEASE:test
+[INFO] +- org.subethamail:subethasmtp-wiser:jar:1.2:test
+[INFO] |  \- org.subethamail:subethasmtp-smtp:jar:1.2:test
+[INFO] \- org.apache.shale:shale-test:jar:1.0.4:test
+[INFO] 
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] ------------------------------------------------------------------------
+[INFO] Transfer Modular Application .......................... SUCCESS [2.213s]
+[INFO] Transfer Modular Application - Core ................... SUCCESS [0.280s]
+[INFO] Transfer Modular Application - Web (JSF) .............. SUCCESS [0.455s]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3 seconds
+[INFO] Finished at: Sun Feb 24 17:58:12 UTC 2013
+[INFO] Final Memory: 21M/50M
+[INFO] ------------------------------------------------------------------------

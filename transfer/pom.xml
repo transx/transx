@@ -92,7 +92,7 @@
                         <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
                     </additionalBuildcommands>
                     <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
+                    <downloadJavadocs>false</downloadJavadocs>
                     <wtpversion>1.5</wtpversion>
                 </configuration>
             </plugin>
@@ -387,7 +387,9 @@
         
         <!-- Framework dependency versions -->
         <appfuse.version>2.0.2</appfuse.version>
-        <spring.version>2.5.4</spring.version>
+        <spring.version>3.2.1.RELEASE</spring.version>
+        <spring.security.version>2.0.1</spring.security.version>
+        <aspectj.version>1.7.1</aspectj.version>
 
         <!-- Testing dependency versions -->
         <jmock.version>2.4.0</jmock.version>
@@ -430,7 +432,6 @@
 
         <acegijsf.version>1.1.3</acegijsf.version>
         <ajax4jsf.version>1.0.6</ajax4jsf.version>
-        <aspectj.version>1.6.0</aspectj.version>
         <commons.beanutils.version>1.7.0</commons.beanutils.version>
         <commons.dbcp.version>1.2.2</commons.dbcp.version>
         <commons.lang.version>2.3</commons.lang.version>
@@ -449,7 +450,6 @@
         <myfaces.orchestra.core.version>1.3</myfaces.orchestra.core.version>
         <oscache.version>2.3</oscache.version>
         <sitemesh.version>2.2.1</sitemesh.version>
-        <spring.security.version>2.0.1</spring.security.version>
         <struts.menu.version>2.4.3</struts.menu.version>
         <urlrewrite.version>3.0.4</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
