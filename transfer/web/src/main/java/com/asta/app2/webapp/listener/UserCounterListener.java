@@ -9,12 +9,12 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
-import org.springframework.security.Authentication;
-import org.springframework.security.AuthenticationTrustResolver;
-import org.springframework.security.AuthenticationTrustResolverImpl;
-import org.springframework.security.context.HttpSessionContextIntegrationFilter;
-import org.springframework.security.context.SecurityContext;
-import org.springframework.security.context.SecurityContextHolder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.AuthenticationTrustResolver;
+import org.springframework.security.authentication.AuthenticationTrustResolverImpl;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.asta.app2.model.User;
 
@@ -39,7 +39,7 @@ public class UserCounterListener implements ServletContextListener, HttpSessionA
     /**
      * The default event we're looking to trap.
      */
-    public static final String EVENT_KEY = HttpSessionContextIntegrationFilter.SPRING_SECURITY_CONTEXT_KEY;
+    public static final String EVENT_KEY = HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY;
     private transient ServletContext servletContext;
     private int counter;
     private Set<User> users;

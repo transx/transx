@@ -7,9 +7,9 @@ import javax.persistence.Table;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
-import org.springframework.security.userdetails.UserDetails;
-import org.springframework.security.userdetails.UserDetailsService;
-import org.springframework.security.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.asta.app2.dao.UserDao;
 import com.asta.app2.model.Company;

@@ -9,8 +9,8 @@ import javax.persistence.EntityExistsException;
 
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.security.providers.encoding.PasswordEncoder;
-import org.springframework.security.userdetails.UsernameNotFoundException;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.asta.app2.Constants;
 import com.asta.app2.dao.UserDao;

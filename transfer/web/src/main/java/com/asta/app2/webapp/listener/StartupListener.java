@@ -11,10 +11,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
-import org.springframework.security.providers.AuthenticationProvider;
-import org.springframework.security.providers.ProviderManager;
-import org.springframework.security.providers.encoding.PasswordEncoder;
-import org.springframework.security.providers.rememberme.RememberMeAuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.authentication.RememberMeAuthenticationProvider;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.asta.app2.Constants;

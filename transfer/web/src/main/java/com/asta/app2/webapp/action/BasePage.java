@@ -22,10 +22,10 @@ import org.apache.commons.collections.comparators.ReverseComparator;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.security.AccessDeniedException;
-import org.springframework.security.Authentication;
-import org.springframework.security.context.SecurityContextHolder;
-import org.springframework.security.userdetails.UserDetails;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.asta.app2.Constants;
 import com.asta.app2.model.User;

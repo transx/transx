@@ -14,7 +14,7 @@ import javax.persistence.Transient;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-import org.springframework.security.GrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
 
 import com.asta.app2.util.BundleUtil;
 

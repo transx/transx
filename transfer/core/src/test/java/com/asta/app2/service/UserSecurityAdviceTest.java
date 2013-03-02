@@ -15,12 +15,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.security.AccessDeniedException;
-import org.springframework.security.Authentication;
-import org.springframework.security.context.SecurityContext;
-import org.springframework.security.context.SecurityContextHolder;
-import org.springframework.security.context.SecurityContextImpl;
-import org.springframework.security.providers.UsernamePasswordAuthenticationToken;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import com.asta.app2.Constants;
 import com.asta.app2.dao.UserDao;

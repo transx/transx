@@ -2,7 +2,6 @@ package com.asta.app2.webapp.filter;
 
 import java.io.IOException;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -31,7 +30,6 @@ public class LocaleFilter extends OncePerRequestFilter {
      * @throws IOException when something goes wrong
      * @throws ServletException when a communication failure happens
      */
-    @SuppressWarnings("unchecked")
     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                  FilterChain chain)
             throws IOException, ServletException {
@@ -69,11 +67,11 @@ public class LocaleFilter extends OncePerRequestFilter {
             }
         }
 
-        String theme = request.getParameter("theme");
-        if (theme != null && request.isUserInRole(Constants.ADMIN_ROLE)) {
-            Map<String, Object> config = (Map) getServletContext().getAttribute(Constants.CONFIG);
-            config.put(Constants.CSS_THEME, theme);
-        }
+//        String theme = request.getParameter("theme");
+//        if (theme != null && request.isUserInRole(Constants.ADMIN_ROLE)) {
+//            Map<String, Object> config = (Map) getServletContext().getAttribute(Constants.CONFIG);
+//            config.put(Constants.CSS_THEME, theme);
+//        }
 
         chain.doFilter(request, response);
 

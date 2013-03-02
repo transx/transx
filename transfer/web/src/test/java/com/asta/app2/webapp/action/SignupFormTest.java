@@ -1,7 +1,7 @@
 package com.asta.app2.webapp.action;
 
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.security.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.subethamail.wiser.Wiser;
 
 import com.asta.app2.Constants;

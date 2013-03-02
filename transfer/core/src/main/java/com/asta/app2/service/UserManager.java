@@ -3,7 +3,7 @@ package com.asta.app2.service;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.security.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.asta.app2.dao.UserDao;
 import com.asta.app2.exception.UserExistsException;

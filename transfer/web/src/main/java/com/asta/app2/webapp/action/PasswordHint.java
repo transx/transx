@@ -1,7 +1,7 @@
 package com.asta.app2.webapp.action;
 
 import org.springframework.mail.MailException;
-import org.springframework.security.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.asta.app2.model.User;
 import com.asta.app2.webapp.util.RequestUtil;

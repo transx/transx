@@ -5,9 +5,9 @@ import java.io.Serializable;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.mail.MailException;
-import org.springframework.security.AccessDeniedException;
-import org.springframework.security.context.SecurityContextHolder;
-import org.springframework.security.providers.UsernamePasswordAuthenticationToken;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import com.asta.app2.Constants;
 import com.asta.app2.model.User;

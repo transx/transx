@@ -3,8 +3,8 @@ package com.asta.app2.webapp.action;
 import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.security.context.SecurityContext;
-import org.springframework.security.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.asta.app2.model.User;
 import com.asta.app2.service.ServiceTemplateManager;

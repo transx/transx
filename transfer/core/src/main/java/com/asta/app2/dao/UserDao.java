@@ -2,8 +2,8 @@ package com.asta.app2.dao;
 
 import java.util.List;
 
-import org.springframework.security.userdetails.UserDetails;
-import org.springframework.security.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
