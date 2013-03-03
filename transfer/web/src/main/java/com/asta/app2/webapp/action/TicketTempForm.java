@@ -151,8 +151,8 @@ public class TicketTempForm extends BasePage implements Serializable {
 						JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 						JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,new JREmptyDataSource());
 						
-						JasperPrintManager jasperPrintManager = new JasperPrintManager();
-						jasperPrintManager.printReport(jasperPrint, false);
+//						JasperPrintManager jasperPrintManager = new JasperPrintManager();
+//						jasperPrintManager.printReport(jasperPrint, false);
 						
 						ticket = ticketManager.saveTicket(getCurrentUser().getCompany(),ticket, id);
 						setCash(ticket.getCash());

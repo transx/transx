@@ -153,7 +153,7 @@ public class SooratPrivateForm extends BasePage implements Serializable {
 			settingManager.save(setting);
 			try{
 				
-				Map<String, String> parameters = new HashMap<String, String>();
+				Map<String, Object> parameters = new HashMap<String, Object>();
 				parameters.put("SOORAT_DATEBOOK", service.getDatebookFormatted());
 				parameters.put("SOORAT_STATE", getCurrentUser().getCompany().getCity().getName());
 				parameters.put("SOORAT_TIMED", service.getTimed());

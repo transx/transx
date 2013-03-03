@@ -98,8 +98,8 @@ public class Reports extends BasePage implements Serializable {
 			JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,ds);
 			
-			JasperPrintManager jasperPrintManager = new JasperPrintManager();
-			jasperPrintManager.printReport(jasperPrint, false);
+//			JasperPrintManager jasperPrintManager = new JasperPrintManager();
+//			jasperPrintManager.printReport(jasperPrint, false);
 			
 		}catch(Exception e){
 			log.debug(e);
@@ -137,8 +137,8 @@ public class Reports extends BasePage implements Serializable {
 			JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JREmptyDataSource());
 			
-			JasperPrintManager jasperPrintManager = new JasperPrintManager();
-			jasperPrintManager.printReport(jasperPrint, true);
+//			JasperPrintManager jasperPrintManager = new JasperPrintManager();
+//			jasperPrintManager.printReport(jasperPrint, true);
 			
 		}catch(Exception e){
 			log.debug(e);

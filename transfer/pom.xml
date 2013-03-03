@@ -485,7 +485,7 @@
         <struts.menu.version>2.4.3</struts.menu.version>
         <urlrewrite.version>3.0.4</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
-        <jasper.version>3.0.1</jasper.version>
+        <jasper.version>4.7.1</jasper.version>
         <el.version>1.2</el.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

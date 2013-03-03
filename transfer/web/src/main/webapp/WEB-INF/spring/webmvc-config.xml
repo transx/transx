@@ -36,4 +36,9 @@
       </list>
     </property>
   </bean>
+
+  <!-- JasperReports views -->
+  <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver" id="viewResolver">
+    <property name="basename" value="reportviews"/>      
+  </bean>
 </beans>

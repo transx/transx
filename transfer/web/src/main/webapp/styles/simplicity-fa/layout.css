@@ -24,7 +24,7 @@
         }
             div#switchLocale {
                 position: absolute;
-                left: 10px;
+                right: 10px;
             }
         div#branding {
             /*width: 30%;
