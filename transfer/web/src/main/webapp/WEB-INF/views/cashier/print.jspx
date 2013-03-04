@@ -9,8 +9,7 @@
   <jsp:scriptlet>
   <![CDATA[
     JRHtmlExporter export = (JRHtmlExporter) request.getAttribute("exportIndetObject");
-    session.setAttribute("exportIndetObject", export);
-    JRHtmlExporter export1 = (JRHtmlExporter) session.getAttribute("exportIndetObject");export.exportReport();
+    export.exportReport();
   ]]>
   </jsp:scriptlet>
 
